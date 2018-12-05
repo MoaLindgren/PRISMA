@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour {
         moveHorizontal = Input.GetAxis("Horizontal");
         moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        Vector3 movement = new Vector3(- moveVertical, 0.0f, moveHorizontal);
         transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
 
         if (movement != Vector3.zero)
