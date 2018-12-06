@@ -7,12 +7,21 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField]
     float moveSpeed;
     float moveHorizontal, moveVertical;
+    public bool moveable;
 
     Quaternion rot;
 
+    void Start()
+    {
+        moveable = true;
+    }
     void Update()
     {
-        Move();
+        if(moveable)
+        {
+            Move();
+        }
+
     }
 
     void Move()
