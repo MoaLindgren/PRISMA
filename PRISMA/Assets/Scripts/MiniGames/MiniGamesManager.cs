@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractionManager : MonoBehaviour
+public class MiniGamesManager : MonoBehaviour
 {
     [SerializeField]
     GameObject player;
+    GameObject[] birdDestinations;
     int stationIndex;
+    MiniGame1 miniGame1;
+
 
     void OnTriggerEnter()
     {
@@ -17,13 +20,13 @@ public class InteractionManager : MonoBehaviour
 
         MiniGame();
     }
-
     void MiniGame()
     {
-        switch(stationIndex)
+        switch (stationIndex)
         {
             //Minigame 1 (Klicka på fåglar):
             case 1:
+                birdDestinations = GameObject.FindGameObjectsWithTag("BirdDestination");
                 //Minigame 1 startar
                 break;
         }
@@ -54,5 +57,4 @@ public class InteractionManager : MonoBehaviour
 
         //  trigga en slut-instruktion
     }
-
 }

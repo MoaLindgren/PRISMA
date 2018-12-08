@@ -8,7 +8,8 @@ public class BirdBehaviour : MonoBehaviour
     float maxSpeed, maxTime;
     float speed, time;
     GameObject[] destinations;
-    GameObject destination;
+    GameObject tree;
+    Vector3 destination;
     bool flyReady;
 
     void Awake()
@@ -29,9 +30,10 @@ public class BirdBehaviour : MonoBehaviour
             if(time < 0)
             {
                 float step = speed;
-                transform.position = Vector3.MoveTowards(transform.position, destination.transform.position, step);
-                if(transform.position == destination.transform.position)
+                transform.position = Vector3.MoveTowards(transform.position, destination, step);
+                if(transform.position == destination)
                 {
+                    //Borde nog inte vara "Destroy". De borde inte försvinna för att vi räknar dem.
                     Destroy(gameObject);
                 }
             }
@@ -49,8 +51,17 @@ public class BirdBehaviour : MonoBehaviour
         int maxValue = destinations.Length;
         int rnd = Random.Range(0, maxValue);
 
-        destination = destinations[rnd];
-        RandomizeValues(maxTime, maxSpeed);
+        if(tree != gameObject)
+        {
+            tree = destinations[rnd];
+            destination = new Vector3(tree.transform.position.x, 55, tree.transform.position.z);
+            RandomizeValues(maxTime, maxSpeed);
+        }
+        else
+        {
+            SetDestination();
+        }
+
     }
     void RandomizeValues(float maxT, float maxS)
     {
