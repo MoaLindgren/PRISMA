@@ -6,26 +6,42 @@ public class BirdBehaviour : MonoBehaviour
 {
     [SerializeField]
     float maxSpeed, maxTime;
+    float speed, time;
     GameObject[] destinations;
     GameObject destination;
     bool flyReady;
 
-    void Start()
+    void Awake()
     {
+        flyReady = false;
         destinations = GameObject.FindGameObjectsWithTag("BirdDestination");
     }
 
-    void Awake()
+    void Start()
     {
         SetDestination();
-        Timer();
     }
     void Update()
     {
         if(flyReady)
         {
-            gameObject.transform.position = destination.transform.position;
+            time -= Time.deltaTime;
+            if(time < 0)
+            {
+                float step = speed;
+                transform.position = Vector3.MoveTowards(transform.position, destination.transform.position, step);
+                if(transform.position == destination.transform.position)
+                {
+                    Destroy(gameObject);
+                }
+            }
         }
+    }
+
+    void OnMouseDown()
+    {
+        //Om spelaren håller i rätt redskap:
+        Destroy(gameObject);
     }
 
     void SetDestination()
@@ -34,10 +50,15 @@ public class BirdBehaviour : MonoBehaviour
         int rnd = Random.Range(0, maxValue);
 
         destination = destinations[rnd];
+        RandomizeValues(maxTime, maxSpeed);
     }
-    void Timer()
+    void RandomizeValues(float maxT, float maxS)
     {
-        float rndTime = Random.Range(1, maxTime);
+        float rndTime = Random.Range(1, maxT);
+        time = rndTime;
 
+        float rndSpeed = Random.Range(0, maxS);
+        speed = rndSpeed;
+        flyReady = true;
     }
 }

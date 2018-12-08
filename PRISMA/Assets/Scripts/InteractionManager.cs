@@ -6,20 +6,29 @@ public class InteractionManager : MonoBehaviour
 {
     [SerializeField]
     GameObject player;
+    int stationIndex;
 
     void OnTriggerEnter()
     {
         player.GetComponent<PlayerMovement>().moveable = false; //När vi klarat minigame, sätt till true;
 
-        //trigga rätt minigame, för rätt runda vi är på just nu.
-
         string station = this.gameObject.tag;
+        stationIndex = int.Parse(station);
 
-        MiniGame(station);
+        MiniGame();
     }
 
-    void MiniGame(string station)
+    void MiniGame()
     {
+        switch(stationIndex)
+        {
+            //Minigame 1 (Klicka på fåglar):
+            case 1:
+                //Minigame 1 startar
+                break;
+        }
+
+
 
         //RUNDA 1, klicka på fåglar: 
 
