@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject popUpImage;
+    GameObject popUpImage, dialogueBox;
+    Text dialogueText;
 
+    void Start()
+    {
+        dialogueText = dialogueBox.GetComponentInChildren<Text>();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
@@ -28,5 +34,18 @@ public class MenuManager : MonoBehaviour
     public void CloseBackpack()
     {
         popUpImage.SetActive(false);
+    }
+
+    public void ViewDialogue(string dialogue)
+    {
+        dialogueBox.SetActive(true);
+        if(dialogue != "")
+        {
+            dialogueText.text = dialogue;
+        }
+        else
+        {
+            dialogueBox.SetActive(false);
+        }
     }
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MiniGames>
+  <MiniGame1
+      Dialogue0 = "Se hur mycket koltrastar vi har så här på hösten! Koltrastar är stannfåglar, vilket innebär att dom övervintrar i Sverige. Jag hoppas att dom här fåglarna klarar sig bra över vintern."
+      Dialogue1 = "Kan du räkna alla fåglar du ser så tar vi in det i vår statistik. Klicka på koltrastarna när du ser dom!"
+      Dialogue2 ="">
+  </MiniGame1>
+  <MiniGame2>
+
+  </MiniGame2>
+</MiniGames>

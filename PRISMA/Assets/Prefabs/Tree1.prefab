@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33862120708924810}
   - component: {fileID: 23090109570428932}
   m_Layer: 0
-  m_Name: Tree
+  m_Name: Tree1
   m_TagString: BirdDestination
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

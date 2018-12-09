@@ -6,7 +6,7 @@ public class MiniGame1 : MonoBehaviour
 {
     [SerializeField]
     float timer;
-    float counter;
+    float counter, flyHeight;
     [SerializeField]
     GameObject birdPrefab;
     GameObject startPosition;
@@ -16,13 +16,13 @@ public class MiniGame1 : MonoBehaviour
     void Start()
     {
         counter = timer;
+        flyHeight = 55;
         instantiateBird = false;
         birdDestinations = GameObject.FindGameObjectsWithTag("BirdDestination");
     }
 
     void Update()
     {
-
         counter -= Time.deltaTime;
         if (counter < 0)
         {
@@ -31,7 +31,7 @@ public class MiniGame1 : MonoBehaviour
             {
                 int rnd = Random.Range(1, birdDestinations.Length);
                 startPosition = birdDestinations[rnd];
-                Instantiate(birdPrefab, new Vector3(startPosition.transform.position.x, 55, startPosition.transform.position.z), Quaternion.identity);
+                Instantiate(birdPrefab, new Vector3(startPosition.transform.position.x, flyHeight, startPosition.transform.position.z), Quaternion.identity);
                 instantiateBird = false;
                 counter = timer;
             }

@@ -5,12 +5,16 @@ using UnityEngine;
 public class MiniGamesManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject player;
-    GameObject[] birdDestinations;
+    GameObject player, gameManager;
     int stationIndex;
     MiniGame1 miniGame1;
+    XmlManager xmlManager;
 
-
+    void Start()
+    {
+        xmlManager = gameManager.GetComponent<XmlManager>();
+        miniGame1 = gameObject.GetComponent<MiniGame1>();
+    }
     void OnTriggerEnter()
     {
         player.GetComponent<PlayerMovement>().moveable = false; //När vi klarat minigame, sätt till true;
@@ -26,7 +30,8 @@ public class MiniGamesManager : MonoBehaviour
         {
             //Minigame 1 (Klicka på fåglar):
             case 1:
-                birdDestinations = GameObject.FindGameObjectsWithTag("BirdDestination");
+                miniGame1.enabled = true;
+                xmlManager.SetUpXML(stationIndex);
                 //Minigame 1 startar
                 break;
         }

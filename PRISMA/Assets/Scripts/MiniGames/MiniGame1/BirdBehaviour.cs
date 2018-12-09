@@ -6,7 +6,7 @@ public class BirdBehaviour : MonoBehaviour
 {
     [SerializeField]
     float maxSpeed, maxTime;
-    float speed, time;
+    float speed, time, flyHeight;
     GameObject[] destinations;
     GameObject tree;
     Vector3 destination;
@@ -15,6 +15,7 @@ public class BirdBehaviour : MonoBehaviour
     void Awake()
     {
         flyReady = false;
+        flyHeight = 55;
         destinations = GameObject.FindGameObjectsWithTag("BirdDestination");
     }
 
@@ -54,14 +55,13 @@ public class BirdBehaviour : MonoBehaviour
         if(tree != gameObject)
         {
             tree = destinations[rnd];
-            destination = new Vector3(tree.transform.position.x, 55, tree.transform.position.z);
+            destination = new Vector3(tree.transform.position.x, flyHeight, tree.transform.position.z);
             RandomizeValues(maxTime, maxSpeed);
         }
         else
         {
             SetDestination();
         }
-
     }
     void RandomizeValues(float maxT, float maxS)
     {
