@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject popUpImage, dialogueBox;
+    GameObject backPackBox, dialogueBox;
     Text dialogueText;
 
     void Start()
@@ -17,7 +17,7 @@ public class MenuManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            if (popUpImage.active)
+            if (backPackBox.active)
             {
                 CloseBackpack();
             }
@@ -29,11 +29,11 @@ public class MenuManager : MonoBehaviour
     }
     public void OpenBackpack()
     {
-        popUpImage.SetActive(true);
+        backPackBox.SetActive(true);
     }
     public void CloseBackpack()
     {
-        popUpImage.SetActive(false);
+        backPackBox.SetActive(false);
     }
 
     public void ViewDialogue(string dialogue)

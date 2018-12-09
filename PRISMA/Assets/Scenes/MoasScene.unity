@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 438875190}
   - component: {fileID: 438875189}
   m_Layer: 5
-  m_Name: PopUp_Image
+  m_Name: BackPack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -522,7 +522,7 @@ GameObject:
   - component: {fileID: 553781911}
   - component: {fileID: 553781910}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Close_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -660,7 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07cb2d1bb5f38584294f1391a7a6ed42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popUpImage: {fileID: 438875187}
+  backPackBox: {fileID: 438875187}
   dialogueBox: {fileID: 801026778}
 --- !u!4 &555940325
 Transform:
