@@ -8,7 +8,7 @@ public class ItemButton : MonoBehaviour
     MenuManager menuManager;
     GameObject gameManager;
     Button button;
-    bool rightItem;
+    bool rightItem, newItem;
 
     void Start()
     {
@@ -20,13 +20,14 @@ public class ItemButton : MonoBehaviour
     }
     void OnClick()
     {
-        if(this.rightItem)
+        if (this.rightItem)
         {
-            this.rightItem = false;
             GetComponent<Image>().color = Color.white;
-            menuManager = gameManager.GetComponent<MenuManager>();
-            menuManager.SelectItem(gameObject);
         }
+        menuManager = gameManager.GetComponent<MenuManager>();
+        menuManager.SelectItem(gameObject);
+
+
 
     }
 }
