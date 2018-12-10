@@ -9,9 +9,11 @@ public class MiniGamesManager : MonoBehaviour
     int stationIndex;
     MiniGame1 miniGame1;
     XmlManager xmlManager;
+    ItemsManager itemManager;
 
     void Start()
     {
+        itemManager = gameManager.GetComponent<ItemsManager>();
         xmlManager = gameManager.GetComponent<XmlManager>();
         miniGame1 = gameObject.GetComponent<MiniGame1>();
     }
@@ -21,6 +23,7 @@ public class MiniGamesManager : MonoBehaviour
 
         string station = this.gameObject.tag;
         stationIndex = int.Parse(station);
+
 
         MiniGame();
     }

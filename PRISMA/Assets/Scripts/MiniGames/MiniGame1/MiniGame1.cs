@@ -8,10 +8,11 @@ public class MiniGame1 : MonoBehaviour
     float timer;
     float counter, flyHeight;
     [SerializeField]
-    GameObject birdPrefab;
+    GameObject birdPrefab, gameManager;
     GameObject startPosition;
     GameObject[] birdDestinations;
     bool instantiateBird;
+    ItemsManager itemManager;
 
     void Start()
     {
@@ -19,6 +20,9 @@ public class MiniGame1 : MonoBehaviour
         flyHeight = 55;
         instantiateBird = false;
         birdDestinations = GameObject.FindGameObjectsWithTag("BirdDestination");
+
+        itemManager = gameManager.GetComponent<ItemsManager>();
+        itemManager.AddItem(1, "Notebook");
     }
 
     void Update()
