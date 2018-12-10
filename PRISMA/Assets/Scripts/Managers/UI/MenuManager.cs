@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject backPackBox, dialogueBox, itemPrefab;
+    GameObject backPackBox, dialogueBox, itemPrefab, backPackButton;
     [SerializeField]
     Transform itemParent;
     Text dialogueText;
@@ -31,22 +31,34 @@ public class MenuManager : MonoBehaviour
                 OpenBackpack();
             }
         }
+        if (newItem)
+        {
+            backPackButton.GetComponent<Image>().color = Color.blue;
+        }
     }
 
     public void OpenBackpack()
     {
         backPackBox.SetActive(true);
 
-        for(int i = 0; i <= itemManager.items.Count; i++)
+        for (int i = 0; i <= itemManager.items.Count; i++)
         {
             itemManager.GetItem(i);
         }
     }
-    public void InstatiateItem(string name)
+
+    public void SelectItem(GameObject button)
+    {
+            newItem = false;
+            backPackButton.GetComponent<Image>().color = Color.white;
+    }
+
+    //Blir kallad på från ItemsManager OM det är ett nytt item i backpack.
+    public void InstantianteItem(string name)
     {
         GameObject item = Instantiate(itemPrefab, itemParent);
         item.GetComponentInChildren<Text>().text = name;
-
+        newItem = true;
     }
     public void CloseBackpack()
     {
@@ -57,7 +69,7 @@ public class MenuManager : MonoBehaviour
     public void ViewDialogue(string dialogue)
     {
         dialogueBox.SetActive(true);
-        if(dialogue != "")
+        if (dialogue != "")
         {
             dialogueText.text = dialogue;
         }

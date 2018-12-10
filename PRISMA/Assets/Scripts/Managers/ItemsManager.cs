@@ -16,14 +16,15 @@ public class ItemsManager : MonoBehaviour
 
     public void AddItem(int index, string name)
     {
-        items.Add(index, name);
-        menuManager.InstatiateItem(name);
+        if(index > items.Count)
+        {
+            items.Add(index, name);
+            menuManager.InstantianteItem(name);
+        }
     }
     public void GetItem(int index)
     {
-        items.TryGetValue(1, out item);
-
-        print(item);
+        items.TryGetValue(index, out item);
     }
 
 }
