@@ -8,6 +8,7 @@ public class MiniGamesManager : MonoBehaviour
     GameObject player, gameManager;
     int stationIndex;
     MiniGame1 miniGame1;
+    MiniGame2 miniGame2;
     XmlManager xmlManager;
     ItemsManager itemManager;
 
@@ -16,6 +17,7 @@ public class MiniGamesManager : MonoBehaviour
         itemManager = gameManager.GetComponent<ItemsManager>();
         xmlManager = gameManager.GetComponent<XmlManager>();
         miniGame1 = gameObject.GetComponent<MiniGame1>();
+        miniGame2 = gameObject.GetComponent<MiniGame2>();
     }
     void OnTriggerEnter()
     {
@@ -36,6 +38,9 @@ public class MiniGamesManager : MonoBehaviour
                 miniGame1.enabled = true;
                 xmlManager.SetUpXML(stationIndex);
                 //Minigame 1 startar
+                break;
+            case 2:
+                miniGame2.enabled = true;
                 break;
         }
 

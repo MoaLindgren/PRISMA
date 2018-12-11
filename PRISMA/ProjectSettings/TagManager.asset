@@ -7,6 +7,7 @@ TagManager:
   - Station1
   - 1
   - BirdDestination
+  - 2
   layers:
   - Default
   - TransparentFX

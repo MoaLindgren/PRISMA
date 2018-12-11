@@ -9,12 +9,11 @@ public class WeedManager : MonoBehaviour {
     float growTimer;
     float growTimerStart;
 
+    MiniGame2 miniGame2;
+
     void Start ()//Slumpa ett värde i början följt av att sätta alla andra värden
     {
-        RandomizeValue();
-        growTimer = growTimerStart;
-        weedLevel = 0;
-		
+        miniGame2 = GameObject.Find("Station 2").GetComponent<MiniGame2>();
 	}
 	void Update ()//Ticka ner tiden det tar för plantor att växa
     {
@@ -23,12 +22,20 @@ public class WeedManager : MonoBehaviour {
             GrowWeed();
     }
 
+    public void StartGame ()
+    {
+        RandomizeValue();
+        growTimer = growTimerStart;
+        weedLevel = 0;
+    }
+
     void GrowWeed ()
     {
         growTimer = growTimerStart;
         weedLevel++;
-        print(growTimerStart);
+        //print(growTimerStart);
         IncreaseSize();
+        //print(miniGame2.counter);
         EatPlant();
         //Kolla om spelaren förlorat
         RandomizeValue();
@@ -51,6 +58,7 @@ public class WeedManager : MonoBehaviour {
         if (weedLevel == 5f)
         {
             print(weedLevel + " " + "you lost this plant");
+            miniGame2.DeadFlower();
             Destroy(this.gameObject);
             //Ät upp plantan som den är på också
             //Fråga lsitan av plantor om tillräckligt många har blivit uppätna och isåfall förlorar spelaren
