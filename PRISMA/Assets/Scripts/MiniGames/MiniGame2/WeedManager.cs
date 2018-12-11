@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class WeedManager : MonoBehaviour {
 
-    // Use this for initialization
+    [SerializeField]
+    float minTime, maxTime;
+
+    [SerializeField]
     int weedLevel;
     float growTimer;
     float growTimerStart;
@@ -33,23 +36,20 @@ public class WeedManager : MonoBehaviour {
     {
         growTimer = growTimerStart;
         weedLevel++;
-        //print(growTimerStart);
-        IncreaseSize();
-        //print(miniGame2.counter);
+        //IncreaseSize();
         EatPlant();
-        //Kolla om spelaren förlorat
         RandomizeValue();
     }
 
     void RandomizeValue()//Slumpa ett värde för hur ofta plantorna ska växa
     {
-        float rndTime = Random.Range(2,5);
+        float rndTime = Random.Range(minTime,maxTime);
         growTimerStart = rndTime;
     }
 
     private void OnMouseDown()//När spelaren klickar på ogräset så förstörs det
     {
-        print("bort med ogräs");
+        //print("bort med ogräs");
         Destroy(this.gameObject);
     }
 
@@ -57,8 +57,9 @@ public class WeedManager : MonoBehaviour {
     {
         if (weedLevel == 5f)
         {
-            print(weedLevel + " " + "you lost this plant");
+            
             miniGame2.DeadFlower();
+            print(miniGame2.deadFlowers);
             Destroy(this.gameObject);
             //Ät upp plantan som den är på också
         } 
