@@ -61,7 +61,6 @@ public class WeedManager : MonoBehaviour {
             miniGame2.DeadFlower();
             Destroy(this.gameObject);
             //Ät upp plantan som den är på också
-            //Fråga lsitan av plantor om tillräckligt många har blivit uppätna och isåfall förlorar spelaren
         } 
     }
 

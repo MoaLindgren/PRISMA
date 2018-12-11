@@ -8,6 +8,7 @@ TagManager:
   - 1
   - BirdDestination
   - 2
+  - WeedLocation
   layers:
   - Default
   - TransparentFX

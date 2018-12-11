@@ -10,45 +10,55 @@ public class MiniGame2 : MonoBehaviour {
     int deadFlowers;
 
     [SerializeField]
-    GameObject weed1;
-    [SerializeField]
-    GameObject weed2;
-    [SerializeField]
-    GameObject weed3;
-    [SerializeField]
-    GameObject weed4;
-    [SerializeField]
-    GameObject weed5;
+    GameObject weed;
 
-    [SerializeField]
-    GameObject weedlocation1;
-    [SerializeField]
-    GameObject weedlocation2;
-    [SerializeField]
-    GameObject weedlocation3;
-    [SerializeField]
-    GameObject weedlocation4;
-    [SerializeField]
-    GameObject weedlocation5;
+    GameObject[] weedLocations;
 
-
+    List<int> takenNumbers;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
+        takenNumbers = new List<int>();
+        weedLocations = GameObject.FindGameObjectsWithTag("WeedLocation");
         counter = timer;
         deadFlowers = 0;
-        Instantiate(weed1, new Vector3(weedlocation1.transform.position.x, weedlocation1.transform.position.y, weedlocation1.transform.position.z), Quaternion.identity);
-        Instantiate(weed2, new Vector3(), Quaternion.identity);
-        Instantiate(weed3, new Vector3(), Quaternion.identity);
-        Instantiate(weed4, new Vector3(), Quaternion.identity);
-        Instantiate(weed5, new Vector3(), Quaternion.identity);
+        for (int i = 0; i < weedLocations.Length; i++)
+        {
+
+            int rnd = Random.Range(0, weedLocations.Length);
+
+            //GameObject weedloc = weedLocations[rnd];
+            if(!takenNumbers.Contains(rnd))
+            {
+                Instantiate(weed, new Vector3(weedLocations[rnd].transform.position.x, weedLocations[rnd].transform.position.y, weedLocations[rnd].transform.position.z), Quaternion.identity);
+            }
+            else
+            {
+                print("yolo");
+                i--;
+            }
+            takenNumbers.Add(rnd);
+        }
+        takenNumbers.Clear();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        counter -= Time.deltaTime;
+        if (counter >= 0)
+            counter -= Time.deltaTime;
+
+        if (deadFlowers < 5 && counter <= 0)
+        {
+            Win();
+        }
+            
+    }
+
+    void Win ()
+    {
+        print(deadFlowers + " " + "We live to fight another day");
     }
 
     public void DeadFlower()
