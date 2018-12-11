@@ -9,6 +9,7 @@ TagManager:
   - BirdDestination
   - 2
   - WeedLocation
+  - ItemButton
   layers:
   - Default
   - TransparentFX

@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
-
+public class PlayerBehaviour : MonoBehaviour
+{
     [SerializeField]
     float moveSpeed;
     float moveHorizontal, moveVertical;
     public bool moveable;
-
     Quaternion rot;
 
     void Start()
@@ -17,13 +16,11 @@ public class PlayerMovement : MonoBehaviour {
     }
     void Update()
     {
-        if(moveable)
+        if (moveable)
         {
             Move();
         }
-
     }
-
     void Move()
     {
         moveHorizontal = Input.GetAxis("Horizontal");

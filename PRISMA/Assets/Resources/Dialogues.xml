@@ -2,8 +2,12 @@
 <MiniGames>
   <MiniGame1
       Dialogue0 = "Se hur mycket koltrastar vi har så här på hösten! Koltrastar är stannfåglar, vilket innebär att dom övervintrar i Sverige. Jag hoppas att dom här fåglarna klarar sig bra över vintern."
-      Dialogue1 = "Kan du räkna alla fåglar du ser så tar vi in det i vår statistik. Klicka på koltrastarna när du ser dom!"
-      Dialogue2 ="">
+      Dialogue1 = "Ett anteckningsblock finns i din ryggsäck! Använd det för att räkna fåglarna"
+      Dialogue2 = ""
+      Dialogue3 = "Bra! Klicka på koltrastarna när du ser dom!"
+      Dialogue4 = ""
+      Dialogue5 = "Bra jobbat!"
+      Dialogue6 = "">
   </MiniGame1>
   <MiniGame2>
 

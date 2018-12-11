@@ -7,27 +7,38 @@ public class MiniGame1 : MonoBehaviour
     [SerializeField]
     float timer;
     float counter, flyHeight;
+    public float gameTimer;
     [SerializeField]
     GameObject birdPrefab, gameManager;
     GameObject startPosition;
     GameObject[] birdDestinations;
     bool instantiateBird;
     ItemsManager itemManager;
+    public int score;
+
+    MenuManager menuManager;
+    MiniGamesManager miniGamesManager;
 
     void Start()
     {
+        score = 0;
         counter = timer;
         flyHeight = 55;
         instantiateBird = false;
         birdDestinations = GameObject.FindGameObjectsWithTag("BirdDestination");
 
         itemManager = gameManager.GetComponent<ItemsManager>();
-        itemManager.AddItem(1, "Notebook");
+        menuManager = gameManager.GetComponent<MenuManager>();
+        miniGamesManager = GetComponent<MiniGamesManager>();
+        itemManager.AddItem(1, "Anteckningsblock");
     }
 
     void Update()
     {
         counter -= Time.deltaTime;
+        gameTimer -= Time.deltaTime;
+        menuManager.timerText.text = gameTimer.ToString();
+
         if (counter < 0)
         {
             instantiateBird = true;
@@ -40,5 +51,14 @@ public class MiniGame1 : MonoBehaviour
                 counter = timer;
             }
         }
+        if(gameTimer < 0)
+        {
+            miniGamesManager.GameOver();
+        }
+    }
+    public void GameManager()
+    {
+        score++;
+        menuManager.SetScore(score);
     }
 }

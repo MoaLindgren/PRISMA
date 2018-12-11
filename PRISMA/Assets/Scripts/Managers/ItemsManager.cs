@@ -8,10 +8,15 @@ public class ItemsManager : MonoBehaviour
     List<string> itemList;
     string item;
     MenuManager menuManager;
+    PlayerBehaviour playerBehaviour;
+    [SerializeField]
+    GameObject player;
+    public int itemIndex;
 
     void Start()
     {
         menuManager = GetComponent<MenuManager>();
+        playerBehaviour = player.GetComponent<PlayerBehaviour>();
     }
 
     public void AddItem(int index, string name)
@@ -19,12 +24,16 @@ public class ItemsManager : MonoBehaviour
         if(index > items.Count)
         {
             items.Add(index, name);
-            menuManager.InstantianteItem(name);
+            menuManager.InstantianteItem(index, name);
         }
     }
-    public void GetItem(int index)
+    public void GetItem(int index, bool selectItem)
     {
         items.TryGetValue(index, out item);
+        if(selectItem)
+        {
+            itemIndex = index;
+        }
     }
 
 }

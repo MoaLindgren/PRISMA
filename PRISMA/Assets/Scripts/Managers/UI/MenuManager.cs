@@ -6,17 +6,20 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject backPackBox, dialogueBox, itemPrefab, backPackButton;
+    GameObject backPackBox, dialogueBox, itemPrefab, backPackButton, score, timer;
     [SerializeField]
     Transform itemParent;
-    Text dialogueText;
+    Text dialogueText, scoreText;
+    public Text timerText;
     ItemsManager itemManager;
-    bool newItem;
+    public bool newItem;
 
     void Start()
     {
         itemManager = GetComponent<ItemsManager>();
         dialogueText = dialogueBox.GetComponentInChildren<Text>();
+        timerText = timer.GetComponent<Text>();
+        scoreText = score.GetComponent<Text>();
     }
     void Update()
     {
@@ -35,6 +38,10 @@ public class MenuManager : MonoBehaviour
         {
             backPackButton.GetComponent<Image>().color = Color.blue;
         }
+        else
+        {
+            backPackButton.GetComponent<Image>().color = Color.white;
+        }
     }
 
     public void OpenBackpack()
@@ -43,21 +50,16 @@ public class MenuManager : MonoBehaviour
 
         for (int i = 0; i <= itemManager.items.Count; i++)
         {
-            itemManager.GetItem(i);
+            itemManager.GetItem(i, false);
         }
     }
 
-    public void SelectItem(GameObject button)
-    {
-            newItem = false;
-            backPackButton.GetComponent<Image>().color = Color.white;
-    }
-
     //Blir kallad på från ItemsManager OM det är ett nytt item i backpack.
-    public void InstantianteItem(string name)
+    public void InstantianteItem(int index, string name)
     {
         GameObject item = Instantiate(itemPrefab, itemParent);
         item.GetComponentInChildren<Text>().text = name;
+        item.name = index.ToString();
         newItem = true;
     }
     public void CloseBackpack()
@@ -77,5 +79,9 @@ public class MenuManager : MonoBehaviour
         {
             dialogueBox.SetActive(false);
         }
+    }
+    public void SetScore(int score)
+    {
+        scoreText.text = score.ToString();
     }
 }

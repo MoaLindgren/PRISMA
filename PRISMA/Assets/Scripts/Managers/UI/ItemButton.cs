@@ -7,27 +7,44 @@ public class ItemButton : MonoBehaviour
 {
     MenuManager menuManager;
     GameObject gameManager;
+    ItemsManager itemManager;
     Button button;
-    bool rightItem, newItem;
+    bool newItem;
+    int itemIndex;
 
     void Start()
     {
+        itemIndex = int.Parse(gameObject.name);
+
         gameManager = GameObject.Find("GameManager");
+        menuManager = gameManager.GetComponent<MenuManager>();
+        itemManager = gameManager.GetComponent<ItemsManager>();
         button = gameObject.GetComponent<Button>();
-        GetComponent<Image>().color = Color.blue;
-        rightItem = true;
+        newItem = true;
         button.onClick.AddListener(OnClick);
+    }
+    void Update()
+    {
+        if (this.newItem)
+        {
+            this.gameObject.GetComponent<Image>().color = Color.blue;
+        }
     }
     void OnClick()
     {
-        if (this.rightItem)
+        if (this.newItem)
         {
-            GetComponent<Image>().color = Color.white;
+            newItem = false;
+            menuManager.newItem = false;
         }
-        menuManager = gameManager.GetComponent<MenuManager>();
-        menuManager.SelectItem(gameObject);
 
+        itemManager.GetItem(itemIndex, true);
 
-
+        GameObject[] itemButtons = GameObject.FindGameObjectsWithTag("ItemButton");
+        foreach (GameObject buttons in itemButtons)
+        {
+            gameObject.GetComponent<Image>().color = Color.white;
+        }
+        gameObject.GetComponent<Image>().color = Color.green;
     }
 }

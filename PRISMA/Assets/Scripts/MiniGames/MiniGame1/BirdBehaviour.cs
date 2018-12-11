@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Saknas: 
+// Fåglarna ska blinka
+
 public class BirdBehaviour : MonoBehaviour
 {
     [SerializeField]
@@ -11,16 +14,26 @@ public class BirdBehaviour : MonoBehaviour
     GameObject tree;
     Vector3 destination;
     bool flyReady;
+    ItemsManager itemManager;
+    MiniGame1 miniGame1;
+    GameObject gameManager, station1;
+    bool counted;
 
     void Awake()
     {
+        counted = false;
         flyReady = false;
         flyHeight = 55;
         destinations = GameObject.FindGameObjectsWithTag("BirdDestination");
+        gameManager = GameObject.Find("GameManager");
+        station1 = GameObject.Find("Station1");
+        miniGame1 = station1.GetComponent<MiniGame1>();
+        itemManager = gameManager.GetComponent<ItemsManager>();
     }
 
     void Start()
     {
+
         SetDestination();
     }
     void Update()
@@ -44,7 +57,20 @@ public class BirdBehaviour : MonoBehaviour
     void OnMouseDown()
     {
         //Om spelaren håller i rätt redskap:
-        Destroy(gameObject);
+
+        if(itemManager.itemIndex == 1)
+        {
+            if(!this.counted)
+            {
+
+                miniGame1.GameManager();
+                this.counted = true;
+                this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+            }
+
+        }
+
+
     }
 
     void SetDestination()
