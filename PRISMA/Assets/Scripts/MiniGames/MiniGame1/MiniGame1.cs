@@ -31,6 +31,8 @@ public class MiniGame1 : MonoBehaviour
         menuManager = gameManager.GetComponent<MenuManager>();
         miniGamesManager = GetComponent<MiniGamesManager>();
         itemManager.AddItem(1, "Anteckningsblock");
+
+        menuManager.MiniGame1();
     }
 
     void Update()

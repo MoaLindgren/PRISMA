@@ -57,7 +57,7 @@ public class MiniGamesManager : MonoBehaviour
             case 1:
                 miniGame1.enabled = false;
                 playerBehaviour.moveable = true;
-                xmlManager.SetUpXML(stationIndex);
+                xmlManager.Dialogue(stationIndex);
                 break;
         }
 

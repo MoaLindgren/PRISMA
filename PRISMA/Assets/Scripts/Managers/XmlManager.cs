@@ -17,12 +17,12 @@ public class XmlManager : MonoBehaviour
 
     void Start()
     {
-        dialogueCounter = 0;
         menuManager = GetComponent<MenuManager>();
     }
 
     public void SetUpXML(int stationIndex)
     {
+        dialogueCounter = 0;
         doc = new XmlDocument();
 
         filePath = Application.dataPath + "/Resources/Dialogues.xml";

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject backPackBox, dialogueBox, itemPrefab, backPackButton, score, timer;
+    GameObject backPackBox, dialogueBox, itemPrefab, backPackButton, score, timer, miniGame1UI;
     [SerializeField]
     Transform itemParent;
     Text dialogueText, scoreText;
@@ -83,5 +83,10 @@ public class MenuManager : MonoBehaviour
     public void SetScore(int score)
     {
         scoreText.text = score.ToString();
+    }
+
+    public void MiniGame1()
+    {
+        miniGame1UI.SetActive(true);
     }
 }
