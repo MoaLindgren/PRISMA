@@ -6,16 +6,18 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject backPackBox, dialogueBox, itemPrefab, backPackButton, score, timer, miniGame1UI;
+    GameObject backPackBox, dialogueBox, itemPrefab, backPackButton, score, timer, miniGame1UI, player;
     [SerializeField]
     Transform itemParent;
     Text dialogueText, scoreText;
     public Text timerText;
     ItemsManager itemManager;
+    PlayerBehaviour playerBehaviour;
     public bool newItem;
 
     void Start()
     {
+        playerBehaviour = player.GetComponent<PlayerBehaviour>();
         itemManager = GetComponent<ItemsManager>();
         dialogueText = dialogueBox.GetComponentInChildren<Text>();
         timerText = timer.GetComponent<Text>();
@@ -71,11 +73,15 @@ public class MenuManager : MonoBehaviour
     public void ViewDialogue(string dialogue)
     {
         dialogueBox.SetActive(true);
-        if (dialogue != "")
+
+        dialogueText.text = dialogue;
+
+        if (dialogue == "finished")
         {
-            dialogueText.text = dialogue;
+            dialogueBox.SetActive(false);
+            playerBehaviour.moveable = true;
         }
-        else
+        else if(dialogue == "")
         {
             dialogueBox.SetActive(false);
         }
@@ -87,6 +93,7 @@ public class MenuManager : MonoBehaviour
 
     public void MiniGame1()
     {
+        //Ska inte göras förrän man har klickat på item och spelet faktiskt börjar.
         miniGame1UI.SetActive(true);
     }
 }

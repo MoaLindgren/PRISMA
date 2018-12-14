@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MiniGames>
+  <MiniGame0
+    Dialogue0 = "Tack och lov att du är här! Kan du snälla hjälpa mig med att kolla hur alla djur och växter mår i vårt underbara naturreservat?"
+    Dialogue1 = "Toppen! Har får du en komradio, så jag guidar dig hela vägen. Det här kommer du klara alldeles utmärkt!"
+    Dialogue2 = "finished">
+  </MiniGame0>
   <MiniGame1
-      Dialogue0 = "Se hur mycket koltrastar vi har så här på hösten! Koltrastar är stannfåglar, vilket innebär att dom övervintrar i Sverige. Jag hoppas att dom här fåglarna klarar sig bra över vintern."
-      Dialogue1 = "Ett anteckningsblock finns i din ryggsäck! Använd det för att räkna fåglarna"
-      Dialogue2 = ""
-      Dialogue3 = "Bra! Klicka på koltrastarna när du ser dom!"
-      Dialogue4 = ""
-      Dialogue5 = "Bra jobbat!"
-      Dialogue6 = "">
+    Dialogue0 = "Se hur mycket koltrastar vi har så här på hösten! Koltrastar är stannfåglar, vilket innebär att dom övervintrar i Sverige. Jag hoppas att dom här fåglarna klarar sig bra över vintern."
+    Dialogue1 = "Ett anteckningsblock finns i din ryggsäck! Använd det för att räkna fåglarna"
+    Dialogue2 = ""
+    Dialogue3 = "Bra jobbat!"
+    Dialogue4 = "finished">
   </MiniGame1>
   <MiniGame2    
     Dialogue0 = "Oj oj, de här trädgårdsblommorna klarar sig inte bra gentemot det konkurrenskraftiga ogräset. Om de ska överleva måste du ta bort allt ogräs innan det tar över blommorna helt!"
-    Dialogue1 = "Klicka på ogräset för att ta bort det!"
+    Dialogue1 = "I ryggsäcken finns det en ogräsborttagare du kan använda!"
     Dialogue2 = ""
-    Dialogue3 = "Bra jobbat!"
-    Dialogue4 = ""
-    Dialogue5 = "Tyvärr klarade sig inte växterna så bra."
-    Dialogue6 = "">
+    Dialogue3 = "Du vann! Bra jobbat"
+    Dialogue4 = "finished"
+    Dialogue5 = "Tyvärr klarade sig inte växterna så bra. Du förlorade"
+    Dialogue6 = "finished">
   </MiniGame2>
+  <Items
+    Item1 = "Bra! Klicka på koltrastarna när du ser dom!"
+    Item2 = "Bra! Klicka på ogräset för att ta bort det!">
+  </Items>
 </MiniGames>

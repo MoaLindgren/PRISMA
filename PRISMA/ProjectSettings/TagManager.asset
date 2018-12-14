@@ -11,6 +11,8 @@ TagManager:
   - WeedLocation
   - ItemButton
   - 3
+  - 0
+  - player
   layers:
   - Default
   - TransparentFX

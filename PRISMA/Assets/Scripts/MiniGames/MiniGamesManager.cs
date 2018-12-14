@@ -17,29 +17,33 @@ public class MiniGamesManager : MonoBehaviour
     void Start()
     {
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
+
         itemManager = gameManager.GetComponent<ItemsManager>();
         xmlManager = gameManager.GetComponent<XmlManager>();
         miniGame1 = gameObject.GetComponent<MiniGame1>();
         miniGame2 = gameObject.GetComponent<MiniGame2>();
     }
-    void OnTriggerEnter()
-    {
-        playerBehaviour.moveable = false;
+    //void OnTriggerEnter()
+    //{
+    //    playerBehaviour.moveable = false;
 
-        string station = this.gameObject.tag;
-        stationIndex = int.Parse(station);
+    //    string station = this.gameObject.tag;
+    //    stationIndex = int.Parse(station);
 
-        MiniGame();
-    }
+    //    MiniGame();
+    //}
     void MiniGame()
     {
         switch (stationIndex)
         {
+
+            case 0:
+                xmlManager.SetUpXML(stationIndex);
+                break;
             //Minigame 1 (Klicka på fåglar):
             case 1:
                 miniGame1.enabled = true;
                 xmlManager.SetUpXML(stationIndex);
-                //Minigame 1 startar
                 break;
             //Minigame 2 (Ta bort ogräs):
             case 2:
