@@ -11,7 +11,7 @@ public class XmlManager : MonoBehaviour
     XmlNodeList nodeList;
     TextAsset path;
     XmlWriter writer;
-    int dialogueCounter;
+    int dialogueCounter, index;
     MenuManager menuManager;
 
 
@@ -22,6 +22,7 @@ public class XmlManager : MonoBehaviour
 
     public void SetUpXML(int stationIndex)
     {
+        index = stationIndex;
         dialogueCounter = 0;
         doc = new XmlDocument();
 
@@ -37,10 +38,10 @@ public class XmlManager : MonoBehaviour
             doc.Save(writer);
         }
         print(filePath);
-        Dialogue(stationIndex);
+        Dialogue();
     }
 
-    public void Dialogue(int index)
+    public void Dialogue()
     {
         nodeList = doc.GetElementsByTagName("MiniGames");
 
@@ -48,8 +49,10 @@ public class XmlManager : MonoBehaviour
         {
             foreach (XmlNode miniGame in games)
             {
+
                 if (miniGame.Name == "MiniGame" + index.ToString())
                 {
+                    print("hej");
                     menuManager.ViewDialogue(miniGame.Attributes[dialogueCounter].Value);
                 }
 

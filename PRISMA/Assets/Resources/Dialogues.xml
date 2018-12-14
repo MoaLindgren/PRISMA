@@ -9,7 +9,13 @@
       Dialogue5 = "Bra jobbat!"
       Dialogue6 = "">
   </MiniGame1>
-  <MiniGame2>
-
+  <MiniGame2    
+    Dialogue0 = "Oj oj, de här trädgårdsblommorna klarar sig inte bra gentemot det konkurrenskraftiga ogräset. Om de ska överleva måste du ta bort allt ogräs innan det tar över blommorna helt!"
+    Dialogue1 = "Klicka på ogräset för att ta bort det!"
+    Dialogue2 = ""
+    Dialogue3 = "Bra jobbat!"
+    Dialogue4 = ""
+    Dialogue5 = "Tyvärr klarade sig inte växterna så bra."
+    Dialogue6 = "">
   </MiniGame2>
 </MiniGames>

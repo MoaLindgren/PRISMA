@@ -44,6 +44,7 @@ public class MiniGamesManager : MonoBehaviour
             //Minigame 2 (Ta bort ogräs):
             case 2:
                 miniGame2.enabled = true;
+                xmlManager.SetUpXML(stationIndex);
                 break;
         }
 
@@ -57,7 +58,7 @@ public class MiniGamesManager : MonoBehaviour
             case 1:
                 miniGame1.enabled = false;
                 playerBehaviour.moveable = true;
-                xmlManager.Dialogue(stationIndex);
+                xmlManager.Dialogue();
                 break;
         }
 
