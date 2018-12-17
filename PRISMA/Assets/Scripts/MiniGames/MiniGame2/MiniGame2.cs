@@ -2,30 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiniGame2 : MonoBehaviour {
+public class MiniGame2 : MonoBehaviour
+{
 
     [SerializeField]
-    float timer;
-    public float counter;
-    public int deadFlowers;
-
-    [SerializeField]
-    float spawnFlowerTimer, lowSpawnRate, highSpawnRate;
-
-    float spawnCounter;
-    float rnd;
+    float timer, spawnFlowerTimer, lowSpawnRate, highSpawnRate;
+    float spawnCounter, rnd, counter;
 
     [SerializeField]
     int numberOfWeed, maxDeathCount;
+    public int deadFlowers;
 
     [SerializeField]
     GameObject weed;
+    GameObject player;
 
     GameObject[] weedLocations;
 
     List<int> takenNumbers;
 
-    // Use this for initialization
+    PlayerBehaviour playerBehaviour;
+    bool gameStart;
+
     void Start()
     {
         takenNumbers = new List<int>();
@@ -33,34 +31,47 @@ public class MiniGame2 : MonoBehaviour {
         counter = timer;
         spawnCounter = spawnFlowerTimer;
         deadFlowers = 0;
+        gameStart = false;
+
+        player = GameObject.FindGameObjectWithTag("player");
+        playerBehaviour = player.GetComponent<PlayerBehaviour>();
+    }
+    void OnTriggerEnter()
+    {
+        playerBehaviour.moveable = false;
+        gameStart = true; // Ska inte va här, det ska sättas true när spelaren är redo att spela
+
+        //Kanske följande också ska hända om gameStart är true:
         Randomize();
         SpawnWeed();
-        
     }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        if (counter > 0)
-            counter -= Time.deltaTime;
 
-        else if (deadFlowers < maxDeathCount && counter <= 0)
+    void Update()
+    {
+        if (gameStart)
         {
-            Win();
+            if (counter > 0)
+                counter -= Time.deltaTime;
+
+            else if (deadFlowers < maxDeathCount && counter <= 0)
+            {
+                Win();
+            }
+
+            if (spawnCounter > 0)
+                spawnCounter -= Time.deltaTime;
+
+            else if (spawnCounter <= 0)
+            {
+                Randomize();
+                SpawnWeed();
+                spawnCounter = rnd;
+            }
         }
 
-        if (spawnCounter > 0)
-        spawnCounter -= Time.deltaTime;
-
-        else if (spawnCounter <= 0)
-        {
-            Randomize();
-            SpawnWeed();
-            spawnCounter = rnd;
-        }       
     }
 
-    void Win ()
+    void Win()
     {
         print(deadFlowers + " " + "We live to fight another day");
     }
@@ -72,7 +83,7 @@ public class MiniGame2 : MonoBehaviour {
             print(deadFlowers + " " + "WE FUCKING LOST");
     }
 
-    void SpawnWeed ()
+    void SpawnWeed()
     {
 
         int rndW = Random.Range(0, numberOfWeed);
@@ -96,8 +107,8 @@ public class MiniGame2 : MonoBehaviour {
 
     }
 
-    void Randomize ()
+    void Randomize()
     {
-       rnd = Random.Range(lowSpawnRate, highSpawnRate);
+        rnd = Random.Range(lowSpawnRate, highSpawnRate);
     }
 }

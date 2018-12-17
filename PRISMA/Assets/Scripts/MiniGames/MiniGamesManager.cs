@@ -23,15 +23,6 @@ public class MiniGamesManager : MonoBehaviour
         miniGame1 = gameObject.GetComponent<MiniGame1>();
         miniGame2 = gameObject.GetComponent<MiniGame2>();
     }
-    //void OnTriggerEnter()
-    //{
-    //    playerBehaviour.moveable = false;
-
-    //    string station = this.gameObject.tag;
-    //    stationIndex = int.Parse(station);
-
-    //    MiniGame();
-    //}
     void MiniGame()
     {
         switch (stationIndex)
@@ -62,7 +53,7 @@ public class MiniGamesManager : MonoBehaviour
             case 1:
                 miniGame1.enabled = false;
                 playerBehaviour.moveable = true;
-                xmlManager.Dialogue();
+                xmlManager.Dialogue(false);
                 break;
         }
 

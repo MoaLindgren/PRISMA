@@ -12,6 +12,8 @@ public class ItemButton : MonoBehaviour
     bool newItem;
     int itemIndex;
 
+    XmlManager xmlManager;
+
     void Start()
     {
         itemIndex = int.Parse(gameObject.name);
@@ -19,6 +21,8 @@ public class ItemButton : MonoBehaviour
         gameManager = GameObject.Find("GameManager");
         menuManager = gameManager.GetComponent<MenuManager>();
         itemManager = gameManager.GetComponent<ItemsManager>();
+        xmlManager = gameManager.GetComponent<XmlManager>();
+
         button = gameObject.GetComponent<Button>();
         newItem = true;
         button.onClick.AddListener(OnClick);
@@ -46,5 +50,7 @@ public class ItemButton : MonoBehaviour
             gameObject.GetComponent<Image>().color = Color.white;
         }
         gameObject.GetComponent<Image>().color = Color.green;
+
+        xmlManager.Dialogue(true);
     }
 }

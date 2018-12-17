@@ -6,20 +6,22 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject backPackBox, dialogueBox, itemPrefab, backPackButton, score, timer, miniGame1UI, player;
+    GameObject backPackBox, dialogueBox, playDialogueBox, itemPrefab, backPackButton, score, timer, miniGame1UI, player;
+    public GameObject currentStation;
     [SerializeField]
     Transform itemParent;
     Text dialogueText, scoreText;
-    public Text timerText;
+    public Text timerText; // Ändra så den visar heltal och inte floats.
     ItemsManager itemManager;
     PlayerBehaviour playerBehaviour;
+    MonoBehaviour script;
     public bool newItem;
+    testGameManager testGame;
 
     void Start()
     {
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
         itemManager = GetComponent<ItemsManager>();
-        dialogueText = dialogueBox.GetComponentInChildren<Text>();
         timerText = timer.GetComponent<Text>();
         scoreText = score.GetComponent<Text>();
     }
@@ -70,21 +72,33 @@ public class MenuManager : MonoBehaviour
     }
 
     //Blir kallad på från XmlManager:
-    public void ViewDialogue(string dialogue)
+    public void ViewDialogue(string dialogue, bool startGame)
     {
-        dialogueBox.SetActive(true);
 
-        dialogueText.text = dialogue;
+        if (!startGame)
+        {
+            dialogueText = dialogueBox.GetComponentInChildren<Text>();
+            dialogueBox.SetActive(true);
 
-        if (dialogue == "finished")
-        {
-            dialogueBox.SetActive(false);
-            playerBehaviour.moveable = true;
+            dialogueText.text = dialogue;
+
+            if (dialogue == "finished")
+            {
+                dialogueBox.SetActive(false);
+                playerBehaviour.moveable = true;
+            }
+            else if (dialogue == "")
+            {
+                dialogueBox.SetActive(false);
+            }
         }
-        else if(dialogue == "")
+        else
         {
-            dialogueBox.SetActive(false);
+            dialogueText = playDialogueBox.GetComponentInChildren<Text>();
+            playDialogueBox.SetActive(true);
+            dialogueText.text = dialogue;
         }
+        
     }
     public void SetScore(int score)
     {
@@ -95,5 +109,12 @@ public class MenuManager : MonoBehaviour
     {
         //Ska inte göras förrän man har klickat på item och spelet faktiskt börjar.
         miniGame1UI.SetActive(true);
+    }
+
+    public void Play()
+    {
+        playDialogueBox.SetActive(false);
+        testGame = currentStation.GetComponent<testGameManager>();
+        testGame.StartGame();
     }
 }

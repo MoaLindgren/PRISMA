@@ -38,23 +38,33 @@ public class XmlManager : MonoBehaviour
             doc.Save(writer);
         }
         print(filePath);
-        Dialogue();
+        Dialogue(false);
     }
 
-    public void Dialogue()
+    public void Dialogue(bool item)
     {
-        nodeList = doc.GetElementsByTagName("MiniGames");
+        nodeList = doc.GetElementsByTagName("Root");
 
-        foreach (XmlNode games in nodeList)
+        print(index.ToString());
+        foreach (XmlNode rootNode in nodeList)
         {
-            foreach (XmlNode miniGame in games)
+            foreach (XmlNode node in rootNode)
             {
-
-                if (miniGame.Name == "MiniGame" + index.ToString())
+                if(!item)
                 {
-                    print("hej");
-                    menuManager.ViewDialogue(miniGame.Attributes[dialogueCounter].Value);
+                    if (node.Name == "MiniGame" + index.ToString())
+                    {
+                        menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
+                    }
                 }
+                else
+                {
+                    if (node.Name == "Items")
+                    {
+                        menuManager.ViewDialogue(node.Attributes[index].Value, true);
+                    }
+                }
+
 
             }
         }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<MiniGames>
+<Root>
   <MiniGame0
     Dialogue0 = "Tack och lov att du är här! Kan du snälla hjälpa mig med att kolla hur alla djur och växter mår i vårt underbara naturreservat?"
-    Dialogue1 = "Toppen! Har får du en komradio, så jag guidar dig hela vägen. Det här kommer du klara alldeles utmärkt!"
+    Dialogue1 = "Toppen! Här får du en komradio, så guidar jag dig hela vägen. Det här kommer du klara alldeles utmärkt!"
     Dialogue2 = "finished">
   </MiniGame0>
   <MiniGame1
@@ -25,4 +25,4 @@
     Item1 = "Bra! Klicka på koltrastarna när du ser dom!"
     Item2 = "Bra! Klicka på ogräset för att ta bort det!">
   </Items>
-</MiniGames>
+</Root>
