@@ -13,6 +13,7 @@ public class testGameManager : MonoBehaviour
     MenuManager menuManager;
     PlayerBehaviour playerBehaviour;
     MonoBehaviour currentMiniGame;
+    string[] items = { "Komradio", "Anteckningsblock", "Ogräsborttagare", "Räknare" };
 
     void Start()
     {
@@ -29,21 +30,29 @@ public class testGameManager : MonoBehaviour
         playerBehaviour.moveable = false;
         gameIndex = int.Parse(gameObject.tag);
         xmlManager.SetUpXML(gameIndex);
-        itemManager.AddItem(1, "Anteckningsblock");
+        itemManager.AddItem(gameIndex + 1, items[gameIndex]);
         menuManager.currentStation = this.gameObject;
         currentMiniGame = GetComponent<MonoBehaviour>();
     }
     public void StartGame()
     {
-        startGame = true;
-        menuManager.MiniGame1(); //<- ska inte göras förrän spelet faktiskt börjar. Dvs. När startgame blir true.
-        currentMiniGame.enabled = true;
+        if(gameIndex != 0)
+        {
+            startGame = true;
+            currentMiniGame.enabled = true;
+        }
+        else if(gameIndex == 0)
+        {
+            playerBehaviour.moveable = true;
+            xmlManager.Dialogue(false, true);
+        }
+
     }
-    public void EndGame()
+    public void EndGame(bool win)
     {
-        currentMiniGame.enabled = false;
+        //currentMiniGame.enabled = false;
         playerBehaviour.moveable = true;
-        xmlManager.Dialogue(false);
+        xmlManager.Dialogue(false, win);
     }
 }
 

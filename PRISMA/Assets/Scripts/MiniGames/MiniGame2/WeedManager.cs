@@ -59,7 +59,6 @@ public class WeedManager : MonoBehaviour {
         {
             
             miniGame2.DeadFlower();
-            print(miniGame2.deadFlowers);
             Destroy(this.gameObject);
             //Ät upp plantan som den är på också
         } 

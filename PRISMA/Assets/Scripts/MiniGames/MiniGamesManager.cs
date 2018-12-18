@@ -46,16 +46,16 @@ public class MiniGamesManager : MonoBehaviour
 
     }
 
-    public void GameOver()
-    {
-        switch (stationIndex)
-        {
-            case 1:
-                miniGame1.enabled = false;
-                playerBehaviour.moveable = true;
-                xmlManager.Dialogue(false);
-                break;
-        }
+    //public void GameOver()
+    //{
+    //    switch (stationIndex)
+    //    {
+    //        case 1:
+    //            miniGame1.enabled = false;
+    //            playerBehaviour.moveable = true;
+    //            xmlManager.Dialogue(false);
+    //            break;
+    //    }
 
-    }
+    //}
 }

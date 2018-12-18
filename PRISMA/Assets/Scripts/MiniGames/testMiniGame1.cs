@@ -30,6 +30,8 @@ public class testMiniGame1 : MonoBehaviour
         flyHeight = 55;
         startGame = true;
 
+
+
         birdDestinations = GameObject.FindGameObjectsWithTag("BirdDestination");
         gameManager = GameObject.Find("GameManager");
         player = GameObject.FindGameObjectWithTag("player");
@@ -38,6 +40,8 @@ public class testMiniGame1 : MonoBehaviour
         xmlManager = gameManager.GetComponent<XmlManager>();
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
         testGame = GetComponent<testGameManager>();
+
+        menuManager.MiniGame1(true);
     }
     void Update()
     {
@@ -73,6 +77,7 @@ public class testMiniGame1 : MonoBehaviour
     }
     void GameOver()
     {
-        testGame.EndGame();
+        menuManager.MiniGame1(false);
+        testGame.EndGame(true);
     }
 }

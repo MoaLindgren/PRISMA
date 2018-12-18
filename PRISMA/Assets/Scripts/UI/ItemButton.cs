@@ -51,6 +51,6 @@ public class ItemButton : MonoBehaviour
         }
         gameObject.GetComponent<Image>().color = Color.green;
 
-        xmlManager.Dialogue(true);
+        xmlManager.Dialogue(true, true);
     }
 }

@@ -38,10 +38,10 @@ public class XmlManager : MonoBehaviour
             doc.Save(writer);
         }
         print(filePath);
-        Dialogue(false);
+        Dialogue(false, true);
     }
 
-    public void Dialogue(bool item)
+    public void Dialogue(bool item, bool win)
     {
         nodeList = doc.GetElementsByTagName("Root");
 
@@ -54,9 +54,17 @@ public class XmlManager : MonoBehaviour
                 {
                     if (node.Name == "MiniGame" + index.ToString())
                     {
-                        print("heej " + dialogueCounter);
-                        menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
-                        dialogueCounter += 1;
+                        if(win)
+                        {
+                            menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
+                            dialogueCounter += 1;
+                        }
+                        else
+                        {
+                            dialogueCounter += 2;
+                            menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
+                            dialogueCounter += 1;
+                        }
                     }
                 }
                 else

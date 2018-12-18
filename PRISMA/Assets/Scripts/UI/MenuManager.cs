@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
     public Text timerText; // Ändra så den visar heltal och inte floats.
     ItemsManager itemManager;
     PlayerBehaviour playerBehaviour;
+    XmlManager xmlManager;
     MonoBehaviour script;
     public bool newItem;
     testGameManager testGame;
@@ -22,6 +23,7 @@ public class MenuManager : MonoBehaviour
     {
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
         itemManager = GetComponent<ItemsManager>();
+        xmlManager = GetComponent<XmlManager>();
         timerText = timer.GetComponent<Text>();
         scoreText = score.GetComponent<Text>();
     }
@@ -105,10 +107,9 @@ public class MenuManager : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
-    public void MiniGame1()
+    public void MiniGame1(bool toggle)
     {
-        //Ska inte göras förrän man har klickat på item och spelet faktiskt börjar.
-        miniGame1UI.SetActive(true);
+        miniGame1UI.SetActive(toggle);
     }
 
     public void Play()
@@ -117,4 +118,9 @@ public class MenuManager : MonoBehaviour
         testGame = currentStation.GetComponent<testGameManager>();
         testGame.StartGame();
     }
+    public void Dialogue()
+    {
+        xmlManager.Dialogue(false, true);
+    }
+
 }

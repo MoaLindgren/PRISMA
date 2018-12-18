@@ -22,6 +22,7 @@ public class MiniGame2 : MonoBehaviour
     List<int> takenNumbers;
 
     PlayerBehaviour playerBehaviour;
+    testGameManager testGame;
     bool gameStart;
 
     void Start()
@@ -31,21 +32,14 @@ public class MiniGame2 : MonoBehaviour
         counter = timer;
         spawnCounter = spawnFlowerTimer;
         deadFlowers = 0;
-        gameStart = false;
+        gameStart = true;
 
         player = GameObject.FindGameObjectWithTag("player");
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
-    }
-    void OnTriggerEnter()
-    {
-        playerBehaviour.moveable = false;
-        gameStart = true; // Ska inte va här, det ska sättas true när spelaren är redo att spela
-
-        //Kanske följande också ska hända om gameStart är true:
+        testGame = GetComponent<testGameManager>();
         Randomize();
         SpawnWeed();
     }
-
     void Update()
     {
         if (gameStart)
@@ -67,20 +61,25 @@ public class MiniGame2 : MonoBehaviour
                 SpawnWeed();
                 spawnCounter = rnd;
             }
+            if (deadFlowers >= maxDeathCount)
+            {
+                gameStart = false;
+                testGame.EndGame(false);
+            }
         }
+
 
     }
 
     void Win()
     {
-        print(deadFlowers + " " + "We live to fight another day");
+        gameStart = false;
+        testGame.EndGame(true);
     }
 
     public void DeadFlower()
     {
         deadFlowers++;
-        if (deadFlowers >= maxDeathCount)
-            print(deadFlowers + " " + "WE FUCKING LOST");
     }
 
     void SpawnWeed()

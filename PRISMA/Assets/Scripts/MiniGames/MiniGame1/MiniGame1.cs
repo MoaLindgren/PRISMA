@@ -48,7 +48,7 @@ public class MiniGame1 : MonoBehaviour
         startGame = true; //Ska inte hända nu egentligen. Det ska bli true när man har klickat på sista dialogrutan, efter att man har valt anteckningsblocket.
         xmlManager.SetUpXML(gameIndex);
         itemManager.AddItem(1, "Anteckningsblock");
-        menuManager.MiniGame1(); //<- ska inte göras förrän spelet faktiskt börjar. Dvs. När startgame blir true.
+
     }
     void Update()
     {
@@ -70,10 +70,10 @@ public class MiniGame1 : MonoBehaviour
                     counter = timer;
                 }
             }
-            if (gameTimer < 0)
-            {
-                GameOver();
-            }
+            //if (gameTimer < 0)
+            //{
+            //    GameOver();
+            //}
         }      
     }
     public void GameManager()
@@ -81,9 +81,9 @@ public class MiniGame1 : MonoBehaviour
         score++;
         menuManager.SetScore(score);
     }
-    void GameOver()
-    {
-        playerBehaviour.moveable = true;
-        xmlManager.Dialogue(false);
-    }
+    //void GameOver()
+    //{
+    //    playerBehaviour.moveable = true;
+    //    xmlManager.Dialogue(false);
+    //}
 }

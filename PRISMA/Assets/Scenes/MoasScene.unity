@@ -449,7 +449,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4792072621831088, guid: 9b2fa1b2add2b4add98e484bd4cee38a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 15.3
+      value: 381
       objectReference: {fileID: 0}
     - target: {fileID: 4792072621831088, guid: 9b2fa1b2add2b4add98e484bd4cee38a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -457,7 +457,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4792072621831088, guid: 9b2fa1b2add2b4add98e484bd4cee38a, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -29.4
+      value: -7.097229
       objectReference: {fileID: 0}
     - target: {fileID: 4792072621831088, guid: 9b2fa1b2add2b4add98e484bd4cee38a, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2349,6 +2349,7 @@ GameObject:
   - component: {fileID: 960623384}
   - component: {fileID: 960623383}
   - component: {fileID: 960623380}
+  - component: {fileID: 960623382}
   - component: {fileID: 960623381}
   m_Layer: 0
   m_Name: Station 2
@@ -2375,6 +2376,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startGame: 0
+--- !u!114 &960623382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 960623379}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a86c93357b4a84d42b810e2600857303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 10
+  spawnFlowerTimer: 2
+  lowSpawnRate: 1
+  highSpawnRate: 3
+  numberOfWeed: 10
+  maxDeathCount: 1
+  deadFlowers: 0
+  weed: {fileID: 1555726810026944, guid: 23ae17d48e5a05e40ae764466b1db4e9, type: 2}
 --- !u!135 &960623383
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3882,7 +3902,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1397813665}
   m_LocalRotation: {x: 0.44775915, y: 0, z: 0, w: 0.8941542}
-  m_LocalPosition: {x: 15.299999, y: 127.96, z: -80.302765}
+  m_LocalPosition: {x: 381, y: 127.96, z: -58}
   m_LocalScale: {x: 0.52819556, y: 0.52819556, z: 0.52819556}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5435,9 +5455,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 555940326}
+      - m_Target: {fileID: 555940324}
         m_MethodName: Dialogue
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
