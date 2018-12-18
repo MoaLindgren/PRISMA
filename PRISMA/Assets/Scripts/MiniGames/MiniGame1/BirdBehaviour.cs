@@ -15,7 +15,7 @@ public class BirdBehaviour : MonoBehaviour
     Vector3 destination;
     bool flyReady;
     ItemsManager itemManager;
-    MiniGame1 miniGame1;
+    testMiniGame1 miniGame1;
     GameObject gameManager, station1;
     bool counted;
 
@@ -27,7 +27,7 @@ public class BirdBehaviour : MonoBehaviour
         destinations = GameObject.FindGameObjectsWithTag("BirdDestination");
         gameManager = GameObject.Find("GameManager");
         station1 = GameObject.Find("Station1");
-        miniGame1 = station1.GetComponent<MiniGame1>();
+        miniGame1 = station1.GetComponent<testMiniGame1>();
         itemManager = gameManager.GetComponent<ItemsManager>();
     }
 
@@ -47,7 +47,6 @@ public class BirdBehaviour : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, destination, step);
                 if(transform.position == destination)
                 {
-                    //Borde nog inte vara "Destroy". De borde inte försvinna för att vi räknar dem.
                     Destroy(gameObject);
                 }
             }
@@ -63,7 +62,7 @@ public class BirdBehaviour : MonoBehaviour
             if(!this.counted)
             {
 
-                miniGame1.GameManager();
+                miniGame1.ScoreManager();
                 this.counted = true;
                 this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
             }

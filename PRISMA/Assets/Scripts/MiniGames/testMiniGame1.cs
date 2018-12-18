@@ -66,7 +66,7 @@ public class testMiniGame1 : MonoBehaviour
             }
         }
     }
-    public void GameManager()
+    public void ScoreManager()
     {
         score++;
         menuManager.SetScore(score);

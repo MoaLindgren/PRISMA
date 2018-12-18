@@ -54,7 +54,9 @@ public class XmlManager : MonoBehaviour
                 {
                     if (node.Name == "MiniGame" + index.ToString())
                     {
+                        print("heej " + dialogueCounter);
                         menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
+                        dialogueCounter += 1;
                     }
                 }
                 else
@@ -68,7 +70,7 @@ public class XmlManager : MonoBehaviour
 
             }
         }
-        dialogueCounter += 1;
+
     }
 
 }
