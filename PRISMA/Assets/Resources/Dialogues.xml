@@ -23,9 +23,17 @@
     Dialogue5 = "Tyvärr klarade sig inte växterna så bra. Bättre lycka nästa gång!"
     Dialogue6 = "finished">
   </MiniGame2>
+  <MiniGame3
+    Dialogue0 = "Se upp var du trampar! Det finns en massa riddarskinnbaggar under dig!"
+    Dialogue1 = "Riddarskinnbaggen lever på frön av tulkört och dess populationer varierar dramatiskt i storlek."
+    Dialogue2 = "Vi ska nu plantera ut tulkört i det här området så att det förhoppningsvis finns fler riddarskinnbaggar nästa år"
+    Dialogue3 = "I din ryggsäck finns det tulkörtsplantor, placera ut dem på de platser du ser riddarskinnbaggar! Åtminstone tre populationer borde finnas i det här området."
+    Dialogue4 = "finished">
+  </MiniGame3>
   <Items
     Item1 = "Den här komradion finns nu med dig genom hela vägen så jag kan guida dig."
-    Item2 = "Bra! Klicka på koltrastarna när du ser dom!"
-    Item3 = "Bra! Klicka på ogräset för att ta bort det!">
+    Item2 = "Bra! Klicka på koltrastarna när du ser dem!"
+    Item3 = "Bra! Klicka på ogräset för att ta bort det!"
+    Item4 = "Bra! Klicka på riddarskinnbaggarna när du ser dem!">
   </Items>
 </Root>

@@ -50,7 +50,7 @@ public class testGameManager : MonoBehaviour
     }
     public void EndGame(bool win)
     {
-        //currentMiniGame.enabled = false;
+        currentMiniGame.enabled = false;
         playerBehaviour.moveable = true;
         xmlManager.Dialogue(false, win);
     }
