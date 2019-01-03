@@ -784,7 +784,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.5, z: 2}
   m_Children: []
   m_Father: {fileID: 477240307}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &317499691
 MonoBehaviour:
@@ -798,6 +798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
+  centerObject: {fileID: 1259875512}
 --- !u!23 &317499692
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1289,7 +1290,6 @@ GameObject:
   m_Component:
   - component: {fileID: 477240307}
   - component: {fileID: 477240306}
-  - component: {fileID: 477240308}
   m_Layer: 0
   m_Name: Bugs
   m_TagString: Untagged
@@ -1304,7 +1304,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 477240305}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 5
@@ -1319,6 +1319,7 @@ Transform:
   m_LocalPosition: {x: 406, y: 0, z: 121}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1259875513}
   - {fileID: 1526106930}
   - {fileID: 317499690}
   - {fileID: 516785299}
@@ -1327,21 +1328,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &477240308
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 477240305}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &503154284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,7 +1432,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.5, z: 2}
   m_Children: []
   m_Father: {fileID: 477240307}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &516785300
 MonoBehaviour:
@@ -1460,6 +1446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
+  centerObject: {fileID: 1259875512}
 --- !u!23 &516785301
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3002,6 +2989,34 @@ Transform:
   m_Father: {fileID: 580533137}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1259875512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1259875513}
+  m_Layer: 0
+  m_Name: Center
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1259875513
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1259875512}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 477240307}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1273399682
 GameObject:
   m_ObjectHideFlags: 0
@@ -3852,7 +3867,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.5, z: 2}
   m_Children: []
   m_Father: {fileID: 477240307}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1443088953
 MonoBehaviour:
@@ -3866,6 +3881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
+  centerObject: {fileID: 1259875512}
 --- !u!23 &1443088954
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4007,7 +4023,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.5, z: 2}
   m_Children: []
   m_Father: {fileID: 477240307}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1526106931
 MonoBehaviour:
@@ -4021,6 +4037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
+  centerObject: {fileID: 1259875512}
 --- !u!23 &1526106932
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4492,7 +4509,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.5, z: 2}
   m_Children: []
   m_Father: {fileID: 477240307}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1670872174
 MonoBehaviour:
@@ -4506,6 +4523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
+  centerObject: {fileID: 1259875512}
 --- !u!23 &1670872175
 MeshRenderer:
   m_ObjectHideFlags: 0
