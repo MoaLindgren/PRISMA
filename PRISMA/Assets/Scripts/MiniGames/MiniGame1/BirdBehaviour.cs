@@ -58,12 +58,10 @@ public class BirdBehaviour : MonoBehaviour
     void OnMouseDown()
     {
         //Om spelaren håller i rätt redskap:
-        print("hej");
         if (itemManager.itemIndex == 2)
         {
             if (!this.counted)
             {
-
                 miniGame1.ScoreManager();
                 this.counted = true;
                 light.SetActive(false);

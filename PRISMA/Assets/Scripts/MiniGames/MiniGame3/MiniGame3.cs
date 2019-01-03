@@ -49,6 +49,10 @@ public class MiniGame3 : MonoBehaviour
                 }
             }
             beatleTimerCounter -= Time.deltaTime;
+            if(beatleTimerCounter <= 0)
+            {
+
+            }
 
         }
 
