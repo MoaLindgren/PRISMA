@@ -7,8 +7,8 @@ public class MiniGame3 : MonoBehaviour
     [SerializeField]
     GameObject tulkortPrefab, plane;
     [SerializeField]
-    float clickTimer;
-    float counter;
+    float clickTimer, max;
+    float clickTimerCounter, beatleTimerCounter, rndTimer;
     Vector3 clickPosition;
     bool gameStart;
     [SerializeField]
@@ -17,26 +17,26 @@ public class MiniGame3 : MonoBehaviour
     void Start()
     {
         spawnReady = true;
-        counter = clickTimer;
+        clickTimerCounter = clickTimer;
+        RandomizeValues();
         gameStart = true;
     }
 
     void Update()
     {
-        if(!spawnReady)
-        {
-            counter -= Time.deltaTime;
-            if (counter <= 0)
-            {
-                spawnReady = true;
-            }
-        }
-
         if(gameStart)
         {
+            if (!spawnReady)
+            {
+                clickTimerCounter -= Time.deltaTime;
+                if (clickTimerCounter <= 0)
+                {
+                    spawnReady = true;
+                }
+            }
             if (Input.GetMouseButtonDown(0) && spawnReady)
             {
-                counter = clickTimer;
+                clickTimerCounter = clickTimer;
                 spawnReady = false;
 
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -48,13 +48,15 @@ public class MiniGame3 : MonoBehaviour
                     Instantiate(tulkortPrefab, clickPosition, Quaternion.identity);
                 }
             }
+
+
         }
 
     }
 
-    void SpawnBeatles()
+    void RandomizeValues()
     {
-
+        rndTimer = Random.Range(1, max);
     }
 
 
