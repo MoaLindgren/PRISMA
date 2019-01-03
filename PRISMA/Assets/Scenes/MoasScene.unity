@@ -2296,10 +2296,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   birdSpawnTimer: 3
-  gameTimer: 10
+  gameTimer: 60
   instantiateBird: 0
   startGame: 0
-  birdPrefab: {fileID: 1763024472924676, guid: 73b95e1032970aa4293782de175920cb, type: 2}
+  birdPrefab: {fileID: 1826264668633496, guid: aa8cc0613063ff543aa4095c7c8f643f, type: 2}
 --- !u!224 &986943561
 RectTransform:
   m_ObjectHideFlags: 0

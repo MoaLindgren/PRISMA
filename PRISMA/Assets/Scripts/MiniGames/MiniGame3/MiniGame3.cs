@@ -48,7 +48,7 @@ public class MiniGame3 : MonoBehaviour
                     Instantiate(tulkortPrefab, clickPosition, Quaternion.identity);
                 }
             }
-
+            beatleTimerCounter -= Time.deltaTime;
 
         }
 

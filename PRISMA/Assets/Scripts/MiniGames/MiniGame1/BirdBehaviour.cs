@@ -11,7 +11,7 @@ public class BirdBehaviour : MonoBehaviour
     float maxSpeed, maxTime;
     float speed, time, flyHeight;
     GameObject[] destinations;
-    GameObject tree;
+    GameObject tree, light;
     Vector3 destination;
     bool flyReady;
     ItemsManager itemManager;
@@ -27,6 +27,7 @@ public class BirdBehaviour : MonoBehaviour
         destinations = GameObject.FindGameObjectsWithTag("BirdDestination");
         gameManager = GameObject.Find("GameManager");
         station1 = GameObject.Find("Station1");
+        light = transform.GetChild(3).gameObject;
         miniGame1 = station1.GetComponent<testMiniGame1>();
         itemManager = gameManager.GetComponent<ItemsManager>();
     }
@@ -38,14 +39,15 @@ public class BirdBehaviour : MonoBehaviour
     }
     void Update()
     {
-        if(flyReady)
+        if (flyReady)
         {
             time -= Time.deltaTime;
-            if(time < 0)
+            if (time < 0)
             {
                 float step = speed;
                 transform.position = Vector3.MoveTowards(transform.position, destination, step);
-                if(transform.position == destination)
+                transform.LookAt(destination);
+                if (transform.position == destination)
                 {
                     Destroy(gameObject);
                 }
@@ -56,15 +58,15 @@ public class BirdBehaviour : MonoBehaviour
     void OnMouseDown()
     {
         //Om spelaren håller i rätt redskap:
-
-        if(itemManager.itemIndex == 1)
+        print("hej");
+        if (itemManager.itemIndex == 2)
         {
-            if(!this.counted)
+            if (!this.counted)
             {
 
                 miniGame1.ScoreManager();
                 this.counted = true;
-                this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+                light.SetActive(false);
             }
 
         }
@@ -77,23 +79,13 @@ public class BirdBehaviour : MonoBehaviour
         int maxValue = destinations.Length;
         int rnd = Random.Range(0, maxValue);
 
-        if(tree != gameObject)
-        {
-            tree = destinations[rnd];
-            destination = new Vector3(tree.transform.position.x, flyHeight, tree.transform.position.z);
-            RandomizeValues(maxTime, maxSpeed);
-        }
-        else
-        {
-            SetDestination();
-        }
+        tree = destinations[rnd];
+        destination = new Vector3(tree.transform.position.x, flyHeight, tree.transform.position.z);
+        RandomizeValues();
     }
-    void RandomizeValues(float maxT, float maxS)
+    void RandomizeValues()
     {
-        float rndTime = Random.Range(1, maxT);
-        time = rndTime;
-
-        float rndSpeed = Random.Range(0, maxS);
+        float rndSpeed = Random.Range(1, maxSpeed);
         speed = rndSpeed;
         flyReady = true;
     }
