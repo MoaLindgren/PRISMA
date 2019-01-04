@@ -12,6 +12,8 @@ public class WeedManager : MonoBehaviour {
     float growTimer;
     float growTimerStart;
 
+    public GameObject myLocation;
+
     MiniGame2 miniGame2;
 
     void Start ()//Slumpa ett värde i början följt av att sätta alla andra värden
@@ -36,7 +38,7 @@ public class WeedManager : MonoBehaviour {
     {
         growTimer = growTimerStart;
         weedLevel++;
-        //IncreaseSize();
+        IncreaseSize();
         EatPlant();
         RandomizeValue();
     }
@@ -49,8 +51,16 @@ public class WeedManager : MonoBehaviour {
 
     private void OnMouseDown()//När spelaren klickar på ogräset så förstörs det
     {
-        //print("bort med ogräs");
-        Destroy(this.gameObject);
+        print(this.myLocation.name);
+        for (int i = 0; i < miniGame2.takenLocation.Count; i++)
+        {
+            if (miniGame2.takenLocation[i] == this.myLocation)
+            {
+                miniGame2.takenLocation.RemoveAt(i);
+                Destroy(this.gameObject);
+            }
+        }
+
     }
 
     void EatPlant ()
@@ -59,13 +69,22 @@ public class WeedManager : MonoBehaviour {
         {
             
             miniGame2.DeadFlower();
-            Destroy(this.gameObject);
+           // Destroy(this.gameObject);
             //Ät upp plantan som den är på också
         } 
     }
 
     void IncreaseSize()//Här ska vi ha visuel feedback som visar på att plantan växer
     {
-        
+        if (weedLevel == 2)
+
+        {
+            miniGame2.LevelFlower(2);
+        }
+
+        if (weedLevel == 3)
+        {
+            miniGame2.LevelFlower(3);
+        }
     }
 }

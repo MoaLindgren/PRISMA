@@ -45,7 +45,6 @@ public class XmlManager : MonoBehaviour
     {
         nodeList = doc.GetElementsByTagName("Root");
 
-        print(index.ToString());
         foreach (XmlNode rootNode in nodeList)
         {
             foreach (XmlNode node in rootNode)

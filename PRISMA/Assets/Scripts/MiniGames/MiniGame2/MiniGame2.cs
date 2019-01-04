@@ -19,7 +19,8 @@ public class MiniGame2 : MonoBehaviour
 
     GameObject[] weedLocations;
 
-    List<int> takenNumbers;
+    
+    public List<GameObject> takenLocation;
 
     PlayerBehaviour playerBehaviour;
     testGameManager testGame;
@@ -27,7 +28,7 @@ public class MiniGame2 : MonoBehaviour
 
     void Start()
     {
-        takenNumbers = new List<int>();
+        takenLocation = new List<GameObject>();
         weedLocations = GameObject.FindGameObjectsWithTag("WeedLocation");
         counter = timer;
         spawnCounter = spawnFlowerTimer;
@@ -82,27 +83,37 @@ public class MiniGame2 : MonoBehaviour
         deadFlowers++;
     }
 
+    public void LevelFlower(int level)
+    {
+        if (level == 2)
+        {
+            //print("nu är jag lvl 2");
+        }
+
+        else if (level == 3)
+        {
+            //print("nu är jag lvl 3");
+        }
+    }
+
     void SpawnWeed()
     {
-
         int rndW = Random.Range(0, numberOfWeed);
-        for (int i = 0; i < rndW; i++)
+        if (takenLocation.Count <= weedLocations.Length)
         {
-
-            int rnd = Random.Range(0, weedLocations.Length);
-
-            //GameObject weedloc = weedLocations[rnd];
-            if (!takenNumbers.Contains(rnd))
+            for (int i = 0; i < rndW; i++)
             {
-                Instantiate(weed, new Vector3(weedLocations[rnd].transform.position.x, weedLocations[rnd].transform.position.y, weedLocations[rnd].transform.position.z), Quaternion.identity);
+                int rnd = Random.Range(0, weedLocations.Length);
+
+                if (!takenLocation.Contains(weedLocations[rnd]))
+                {
+                    GameObject newWeed = Instantiate(weed, new Vector3(weedLocations[rnd].transform.position.x, weedLocations[rnd].transform.position.y, weedLocations[rnd].transform.position.z), Quaternion.Euler(-11, 110, 0));
+                    takenLocation.Add(weedLocations[rnd]);
+                    newWeed.GetComponent<WeedManager>().myLocation = weedLocations[rnd];
+                }
+
             }
-            else
-            {
-                i--;
-            }
-            takenNumbers.Add(rnd);
         }
-        takenNumbers.Clear();
 
     }
 
