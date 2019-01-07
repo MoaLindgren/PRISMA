@@ -39,30 +39,30 @@ public class BugBehaviour : MonoBehaviour
     }
     void RandomizeDestination()
     {
-        float rndX = Random.Range(gameObject.transform.position.x - 2, gameObject.transform.position.x + 2);
-        float rndZ = Random.Range(gameObject.transform.position.z - 2, gameObject.transform.position.z + 2);
+        float rndX = Random.Range(gameObject.transform.position.z - 2, gameObject.transform.position.z + 2);
+        float rndZ = Random.Range(gameObject.transform.position.y - 2, gameObject.transform.position.y + 2);
         
         destination = new Vector3(rndX, 0, rndZ);
         this.move = true;
     }
     void Turn()
     {
-        if(destination.x > transform.position.x)
+        if(destination.z > transform.position.z)
         {
-            rndX = transform.position.x -2;
-        }
-        else if (destination.x < transform.position.x)
-        {
-            rndX = transform.position.x + 2;
-        }
-
-        if (destination.z > transform.position.z)
-        {
-            rndZ = transform.position.z - 2;
+            rndX = transform.position.z -2;
         }
         else if (destination.z < transform.position.z)
         {
-            rndZ = transform.position.z + 2;
+            rndX = transform.position.z + 2;
+        }
+
+        if (destination.y > transform.position.y)
+        {
+            rndZ = transform.position.y - 2;
+        }
+        else if (destination.y < transform.position.y)
+        {
+            rndZ = transform.position.y + 2;
         }
 
         destination = new Vector3(rndX, 0, rndZ);
