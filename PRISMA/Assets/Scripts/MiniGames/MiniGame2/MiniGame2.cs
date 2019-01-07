@@ -101,7 +101,7 @@ public class MiniGame2 : MonoBehaviour
         int rndW = Random.Range(0, numberOfWeed);
         if (takenLocation.Count <= weedLocations.Length)
         {
-            for (int i = 0; i < rndW; i++)
+            for (int i = 0; i < rndW; i++) 
             {
                 int rnd = Random.Range(0, weedLocations.Length);
 

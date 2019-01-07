@@ -24,7 +24,7 @@ public class BugBehaviour : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, destination, step);
             transform.LookAt(destination);
 
-            //Jag vill göra en check så att insekterna in springer för långt ifrån mittpunkten. Just nu springer dom random, men längre och längre bort.
+            //Jag vill göra en check så att insekterna inte springer för långt ifrån mittpunkten. Just nu springer dom random, men längre och längre bort.
             Ray ray = new Ray(transform.position, centerObject.transform.position);
             Debug.DrawRay(transform.position, centerObject.transform.position); //varför riktar den sig inte mot centerobject??
             
