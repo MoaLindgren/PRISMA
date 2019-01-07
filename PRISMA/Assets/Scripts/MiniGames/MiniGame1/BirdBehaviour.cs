@@ -23,7 +23,6 @@ public class BirdBehaviour : MonoBehaviour
     {
         counted = false;
         flyReady = false;
-        flyHeight = 55;
         destinations = GameObject.FindGameObjectsWithTag("BirdDestination");
         gameManager = GameObject.Find("GameManager");
         station1 = GameObject.Find("Station1");
@@ -78,6 +77,7 @@ public class BirdBehaviour : MonoBehaviour
         int rnd = Random.Range(0, maxValue);
 
         tree = destinations[rnd];
+        flyHeight = miniGame1.flyHeight;
         destination = new Vector3(tree.transform.position.x, flyHeight, tree.transform.position.z);
         RandomizeValues();
     }

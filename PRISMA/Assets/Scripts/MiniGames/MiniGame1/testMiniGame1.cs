@@ -6,7 +6,8 @@ public class testMiniGame1 : MonoBehaviour
 {
     [SerializeField]
     float birdSpawnTimer, gameTimer;
-    float birdSpawnCounter, flyHeight;
+    public float flyHeight;
+    float birdSpawnCounter;
     int score;
 
     [SerializeField]
@@ -27,7 +28,6 @@ public class testMiniGame1 : MonoBehaviour
     {
         score = 0;
         birdSpawnCounter = birdSpawnTimer;
-        flyHeight = 55;
         startGame = true;
 
 
