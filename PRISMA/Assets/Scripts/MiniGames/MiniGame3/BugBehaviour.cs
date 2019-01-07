@@ -6,9 +6,11 @@ public class BugBehaviour : MonoBehaviour
 {
     [SerializeField]
     float speed;
+    float rndX, rndZ;
     [SerializeField]
     GameObject centerObject;
     Vector3 destination;
+    [SerializeField]
     bool move;
 
     void Start()
@@ -24,11 +26,11 @@ public class BugBehaviour : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, destination, step);
             transform.LookAt(destination);
 
-            //Jag vill göra en check så att insekterna inte springer för långt ifrån mittpunkten. Just nu springer dom random, men längre och längre bort.
-            Ray ray = new Ray(transform.position, centerObject.transform.position);
-            Debug.DrawRay(transform.position, centerObject.transform.position); //varför riktar den sig inte mot centerobject??
-            
-            if (transform.position == destination)
+            if (Vector3.Distance(centerObject.transform.position, transform.position) >= 3)
+            {
+                Turn();
+            }
+            else if (transform.position == destination)
             {
                 RandomizeDestination();
             }
@@ -41,11 +43,30 @@ public class BugBehaviour : MonoBehaviour
         float rndZ = Random.Range(gameObject.transform.position.z - 2, gameObject.transform.position.z + 2);
         
         destination = new Vector3(rndX, 0, rndZ);
-        move = true;
+        this.move = true;
     }
-    void OnCollision(Collision other)
+    void Turn()
     {
-        print(other.gameObject.name);
+        if(destination.x > transform.position.x)
+        {
+            rndX = transform.position.x -2;
+        }
+        else if (destination.x < transform.position.x)
+        {
+            rndX = transform.position.x + 2;
+        }
+
+        if (destination.z > transform.position.z)
+        {
+            rndZ = transform.position.z - 2;
+        }
+        else if (destination.z < transform.position.z)
+        {
+            rndZ = transform.position.z + 2;
+        }
+
+        destination = new Vector3(rndX, 0, rndZ);
     }
+
 
 }

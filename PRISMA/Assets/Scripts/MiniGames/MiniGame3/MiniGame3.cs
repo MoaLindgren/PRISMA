@@ -8,7 +8,7 @@ public class MiniGame3 : MonoBehaviour
     GameObject tulkortPrefab, plane;
     [SerializeField]
     float clickTimer, max;
-    float clickTimerCounter, beatleTimerCounter, rndTimer;
+    float clickTimerCounter, bugTimerCounter, rndTimer;
     Vector3 clickPosition;
     bool gameStart;
     [SerializeField]
@@ -48,8 +48,8 @@ public class MiniGame3 : MonoBehaviour
                     Instantiate(tulkortPrefab, clickPosition, Quaternion.identity);
                 }
             }
-            beatleTimerCounter -= Time.deltaTime;
-            if(beatleTimerCounter <= 0)
+            bugTimerCounter -= Time.deltaTime;
+            if(bugTimerCounter <= 0)
             {
 
             }
@@ -57,6 +57,8 @@ public class MiniGame3 : MonoBehaviour
         }
 
     }
+
+
 
     void RandomizeValues()
     {
