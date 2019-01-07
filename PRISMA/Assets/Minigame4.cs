@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiniGame4 : MonoBehaviour
-{
+public class Minigame4 : MonoBehaviour {
     [SerializeField]
-    float birdSpawnTimer, gameTimer;
-    public float flyHeight;
-    float birdSpawnCounter;
+    float fishSpawnTimer, gameTimer;
+    public float swimHeight;
+    float fishSpawCounter;
     int score;
 
     [SerializeField]
-    bool instantiateBird, startGame;
+    bool instantiateFish, startGame;
 
     [SerializeField]
-    GameObject birdPrefab;
+    GameObject fishPrefab;
     GameObject startPosition, gameManager, player;
-    GameObject[] birdDestinations;
+    GameObject[] fishDestinations;
 
     PlayerBehaviour playerBehaviour;
     MenuManager menuManager;
@@ -27,12 +26,12 @@ public class MiniGame4 : MonoBehaviour
     void Start()
     {
         score = 0;
-        birdSpawnCounter = birdSpawnTimer;
+        fishSpawCounter = fishSpawnTimer;
         startGame = true;
 
 
 
-        birdDestinations = GameObject.FindGameObjectsWithTag("BirdDestination");
+        fishDestinations = GameObject.FindGameObjectsWithTag("FishDestination");
         gameManager = GameObject.Find("GameManager");
         player = GameObject.FindGameObjectWithTag("player");
 
@@ -47,20 +46,20 @@ public class MiniGame4 : MonoBehaviour
     {
         if (startGame)
         {
-            birdSpawnCounter -= Time.deltaTime;
+            fishSpawCounter -= Time.deltaTime;
             gameTimer -= Time.deltaTime;
             menuManager.timerText.text = gameTimer.ToString();
 
-            if (birdSpawnCounter < 0)
+            if (fishSpawCounter < 0)
             {
-                instantiateBird = true;
-                if (instantiateBird)
+                instantiateFish = true;
+                if (instantiateFish)
                 {
-                    int rnd = Random.Range(1, birdDestinations.Length);
-                    startPosition = birdDestinations[rnd];
-                    Instantiate(birdPrefab, new Vector3(startPosition.transform.position.x, flyHeight, startPosition.transform.position.z), Quaternion.identity);
-                    instantiateBird = false;
-                    birdSpawnCounter = birdSpawnTimer;
+                    int rnd = Random.Range(1, fishDestinations.Length);
+                    startPosition = fishDestinations[rnd];
+                    Instantiate(fishPrefab, new Vector3(startPosition.transform.position.x, swimHeight, startPosition.transform.position.z), Quaternion.identity);
+                    instantiateFish = false;
+                    fishSpawCounter = fishSpawnTimer;
                 }
             }
             if (gameTimer < 0)

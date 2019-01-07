@@ -2,32 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Saknas: 
-// Fåglarna ska blinka
+public class FishBehaviour : MonoBehaviour {
 
-public class BirdBehaviour : MonoBehaviour
-{
     [SerializeField]
     float maxSpeed, maxTime;
-    float speed, time, flyHeight;
+    float speed, time, swimHeight;
     GameObject[] destinations;
     GameObject tree, light;
     Vector3 destination;
-    bool flyReady;
+    bool swimReady;
     ItemsManager itemManager;
-    MiniGame4 miniGame1;
-    GameObject gameManager, station1;
+    MiniGame4 miniGame4;
+    GameObject gameManager, station4;
     bool counted;
 
     void Awake()
     {
         counted = false;
-        flyReady = false;
-        destinations = GameObject.FindGameObjectsWithTag("BirdDestination");
+        swimReady = false;
+        destinations = GameObject.FindGameObjectsWithTag("FishDestination");
         gameManager = GameObject.Find("GameManager");
-        station1 = GameObject.Find("Station1");
+        station4 = GameObject.Find("Station4");
         light = transform.GetChild(3).gameObject;
-        miniGame1 = station1.GetComponent<MiniGame4>();
+        miniGame4 = station4.GetComponent<MiniGame4>();
         itemManager = gameManager.GetComponent<ItemsManager>();
     }
 
@@ -38,7 +35,7 @@ public class BirdBehaviour : MonoBehaviour
     }
     void Update()
     {
-        if (flyReady)
+        if (swimReady)
         {
             time -= Time.deltaTime;
             if (time < 0)
@@ -61,7 +58,7 @@ public class BirdBehaviour : MonoBehaviour
         {
             if (!this.counted)
             {
-                miniGame1.ScoreManager();
+                miniGame4.ScoreManager();
                 this.counted = true;
                 light.SetActive(false);
             }
@@ -77,14 +74,14 @@ public class BirdBehaviour : MonoBehaviour
         int rnd = Random.Range(0, maxValue);
 
         tree = destinations[rnd];
-        flyHeight = miniGame1.flyHeight;
-        destination = new Vector3(tree.transform.position.x, flyHeight, tree.transform.position.z);
+        swimHeight = miniGame4.flyHeight;
+        destination = new Vector3(tree.transform.position.x, swimHeight, tree.transform.position.z);
         RandomizeValues();
     }
     void RandomizeValues()
     {
         float rndSpeed = Random.Range(1, maxSpeed);
         speed = rndSpeed;
-        flyReady = true;
+        swimReady = true;
     }
 }
