@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiniGame4 : MonoBehaviour
+public class testMiniGame1 : MonoBehaviour
 {
     [SerializeField]
     float birdSpawnTimer, gameTimer;

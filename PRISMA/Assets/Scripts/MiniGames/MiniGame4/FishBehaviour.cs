@@ -12,7 +12,7 @@ public class FishBehaviour : MonoBehaviour {
     Vector3 destination;
     bool swimReady;
     ItemsManager itemManager;
-    MiniGame4 miniGame4;
+    Minigame4 miniGame4;
     GameObject gameManager, station4;
     bool counted;
 
@@ -24,7 +24,7 @@ public class FishBehaviour : MonoBehaviour {
         gameManager = GameObject.Find("GameManager");
         station4 = GameObject.Find("Station4");
         light = transform.GetChild(3).gameObject;
-        miniGame4 = station4.GetComponent<MiniGame4>();
+        miniGame4 = station4.GetComponent<Minigame4>();
         itemManager = gameManager.GetComponent<ItemsManager>();
     }
 
@@ -74,7 +74,7 @@ public class FishBehaviour : MonoBehaviour {
         int rnd = Random.Range(0, maxValue);
 
         tree = destinations[rnd];
-        swimHeight = miniGame4.flyHeight;
+        swimHeight = miniGame4.swimHeight;
         destination = new Vector3(tree.transform.position.x, swimHeight, tree.transform.position.z);
         RandomizeValues();
     }

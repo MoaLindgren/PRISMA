@@ -15,7 +15,7 @@ public class BirdBehaviour : MonoBehaviour
     Vector3 destination;
     bool flyReady;
     ItemsManager itemManager;
-    MiniGame4 miniGame1;
+    testMiniGame1 miniGame1;
     GameObject gameManager, station1;
     bool counted;
 
@@ -27,7 +27,7 @@ public class BirdBehaviour : MonoBehaviour
         gameManager = GameObject.Find("GameManager");
         station1 = GameObject.Find("Station1");
         light = transform.GetChild(3).gameObject;
-        miniGame1 = station1.GetComponent<MiniGame4>();
+        miniGame1 = station1.GetComponent<testMiniGame1>();
         itemManager = gameManager.GetComponent<ItemsManager>();
     }
 
