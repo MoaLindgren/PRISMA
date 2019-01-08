@@ -13,7 +13,7 @@ public class testGameManager : MonoBehaviour
     MenuManager menuManager;
     PlayerBehaviour playerBehaviour;
     MonoBehaviour currentMiniGame;
-    string[] items = { "Komradio", "Anteckningsblock", "Ogräsborttagare", "Räknare" };
+    string[] items = { "Komradio", "Anteckningsblock", "Ogräsborttagare", "Räknare", "Fiskespö" };
 
     void Start()
     {

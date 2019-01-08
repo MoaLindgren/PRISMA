@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    [SerializeField]
-    float moveSpeed;
+    public float moveSpeed;
     float moveHorizontal, moveVertical;
     public bool moveable;
     Quaternion rot;

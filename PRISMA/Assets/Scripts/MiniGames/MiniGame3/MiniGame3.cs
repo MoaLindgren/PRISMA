@@ -5,8 +5,9 @@ using UnityEngine;
 public class MiniGame3 : MonoBehaviour
 {
     [SerializeField]
-    GameObject tulkortPrefab, plane;
-    GameObject[] wayPoints;
+    GameObject tulkortPrefab, waypointsParent, player;
+    List<GameObject> waypoints;
+    GameObject destination;
     [SerializeField]
     float clickTimer, max;
     float clickTimerCounter, bugTimerCounter, rndTimer;
@@ -14,11 +15,25 @@ public class MiniGame3 : MonoBehaviour
     bool gameStart;
     [SerializeField]
     bool spawnReady;
+    float speed;
+    PlayerBehaviour playerBehaviour;
+    int destinationIndex;
+    bool move;
 
 
     void Start()
     {
-        wayPoints = GameObject.FindGameObjectsWithTag("MiniGame3_Waypoints");
+
+        destinationIndex = 0;
+        move = true;
+        playerBehaviour = player.GetComponent<PlayerBehaviour>();
+        speed = playerBehaviour.moveSpeed;
+        waypoints = new List<GameObject>();
+        for(int i = 0; i < waypointsParent.transform.childCount; i++)
+        {
+            waypoints.Add(waypointsParent.transform.GetChild(i).gameObject);
+        }
+        playerBehaviour.moveable = false;
         spawnReady = true;
         clickTimerCounter = clickTimer;
         RandomizeValues();
@@ -27,7 +42,9 @@ public class MiniGame3 : MonoBehaviour
 
     void Update()
     {
-        if(gameStart)
+
+        destination = waypoints[destinationIndex];
+        if (gameStart)
         {
             if (!spawnReady)
             {
@@ -56,6 +73,25 @@ public class MiniGame3 : MonoBehaviour
             {
 
             }
+            if(move)
+            {
+                float step = 0.1f;
+                player.transform.position = Vector3.MoveTowards(player.transform.position, destination.transform.position, step);
+                player.transform.LookAt(destination.transform.position);
+
+
+                if (Vector3.Distance(destination.transform.position, player.transform.position) <= 2)
+                {
+                    destinationIndex++;
+                    if(destinationIndex > waypoints.Count)
+                    {
+                        move = false;
+                        playerBehaviour.moveable = true;
+                    }
+                    return;
+                }
+            }
+
 
         }
 

@@ -14061,7 +14061,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tulkortPrefab: {fileID: 1437232513748538, guid: 388a84e2d83a4724ab7b2d39cd113fa3,
     type: 2}
-  plane: {fileID: 0}
+  waypointsParent: {fileID: 343681103}
+  player: {fileID: 1637078063}
   clickTimer: 0
   max: 0
   spawnReady: 0
