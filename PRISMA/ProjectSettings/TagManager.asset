@@ -13,6 +13,9 @@ TagManager:
   - 3
   - 0
   - player
+  - lb_bird
+  - FishDestination
+  - MiniGame3_Waypoints
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,7 @@ public class MiniGame3 : MonoBehaviour
 {
     [SerializeField]
     GameObject tulkortPrefab, plane;
+    GameObject[] wayPoints;
     [SerializeField]
     float clickTimer, max;
     float clickTimerCounter, bugTimerCounter, rndTimer;
@@ -14,8 +15,10 @@ public class MiniGame3 : MonoBehaviour
     [SerializeField]
     bool spawnReady;
 
+
     void Start()
     {
+        wayPoints = GameObject.FindGameObjectsWithTag("MiniGame3_Waypoints");
         spawnReady = true;
         clickTimerCounter = clickTimer;
         RandomizeValues();
