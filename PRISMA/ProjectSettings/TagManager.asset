@@ -16,6 +16,7 @@ TagManager:
   - lb_bird
   - FishDestination
   - MiniGame3_Waypoints
+  - Bugs
   layers:
   - Default
   - TransparentFX
