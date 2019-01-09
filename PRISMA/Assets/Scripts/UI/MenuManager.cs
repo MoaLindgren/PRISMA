@@ -6,10 +6,8 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject backPackBox, dialogueBox, playDialogueBox, itemPrefab, backPackButton, score, timer, miniGame1UI, player;
+    GameObject backPackBox, dialogueBox, playDialogueBox, itemPrefab, backPackButton, score, timer, miniGame1UI, player, highlightBackPack;
     public GameObject currentStation;
-    [SerializeField]
-    Transform itemParent;
     Text dialogueText, scoreText;
     public Text timerText; // Ändra så den visar heltal och inte floats.
     ItemsManager itemManager;
@@ -42,11 +40,11 @@ public class MenuManager : MonoBehaviour
         }
         if (newItem)
         {
-            backPackButton.GetComponent<Image>().color = Color.blue;
+            highlightBackPack.SetActive(true);
         }
         else
         {
-            backPackButton.GetComponent<Image>().color = Color.white;
+            highlightBackPack.SetActive(false);
         }
     }
 
@@ -63,7 +61,7 @@ public class MenuManager : MonoBehaviour
     //Blir kallad på från ItemsManager OM det är ett nytt item i backpack.
     public void InstantianteItem(int index, string name)
     {
-        GameObject item = Instantiate(itemPrefab, itemParent);
+        GameObject item = Instantiate(itemPrefab, backPackBox.transform.GetChild(index));
         item.GetComponentInChildren<Text>().text = name;
         item.name = index.ToString();
         newItem = true;
