@@ -30,7 +30,6 @@ public class Minigame4 : MonoBehaviour {
         startGame = true;
 
 
-
         fishDestinations = GameObject.FindGameObjectsWithTag("FishDestination");
         gameManager = GameObject.Find("GameManager");
         player = GameObject.FindGameObjectWithTag("player");

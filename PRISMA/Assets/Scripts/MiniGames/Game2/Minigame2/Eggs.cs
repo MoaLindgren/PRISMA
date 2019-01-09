@@ -12,19 +12,28 @@ public class Eggs : MonoBehaviour {
     [SerializeField]
     float growTimer, growTimerStart;
 
+    float rndTime;
+
+    public bool onEgg;
+
     //public GameObject myLocation;
 
     EggCare eggCare;
 
     void Start()//Slumpa ett värde i början följt av att sätta alla andra värden
     {
+        onEgg = false;
         eggCare = GameObject.Find("Station 2").GetComponent<EggCare>();
     }
     void Update()//Ticka ner tiden det tar för plantor att växa
     {
-        growTimer -= Time.deltaTime;
-        if (growTimer < 0)
-            GrowWeed();
+        if (!onEgg)
+        {
+            growTimer -= Time.deltaTime;
+            if (growTimer < 0)
+                GrowWeed();
+        }
+      
     }
 
     public void StartGame()
@@ -45,7 +54,7 @@ public class Eggs : MonoBehaviour {
 
     void RandomizeValue()//Slumpa ett värde för hur ofta plantorna ska växa
     {
-        float rndTime = Random.Range(minTime, maxTime);
+        rndTime = Random.Range(minTime, maxTime);
         growTimerStart = rndTime;
     }
 
@@ -53,6 +62,12 @@ public class Eggs : MonoBehaviour {
     {
 
         eggLevel = 0;
+        eggCare.switchPlaces();
+        onEgg = true;
+        RandomizeValue();
+        growTimerStart = rndTime;
+        print(growTimer);
+
 
     }
 

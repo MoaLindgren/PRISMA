@@ -6,11 +6,11 @@ public class EggCare : MonoBehaviour
 {
 
     [SerializeField]
-    float timer, spawnFlowerTimer, lowSpawnRate, highSpawnRate;
+    float timer;
     float spawnCounter, rnd, counter;
 
     [SerializeField]
-    int numberOfWeed, maxDeathCount;
+    int maxDeathCount;
     public int deadEggs;
 
     [SerializeField]
@@ -37,12 +37,12 @@ public class EggCare : MonoBehaviour
         foreach (GameObject egg in eggLocations)
         {
             egg.GetComponent<Eggs>().enabled = true;
+            egg.GetComponent<SphereCollider>().enabled = true;
         }
 
         player = GameObject.FindGameObjectWithTag("player");
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
         testGame = GetComponent<testGameManager>();
-        Randomize();
     }
     void Update()
     {
@@ -80,6 +80,14 @@ public class EggCare : MonoBehaviour
         }
     }
 
+    public void switchPlaces ()
+    {
+        foreach (GameObject egg in eggLocations)
+        {
+            egg.GetComponent<Eggs>().onEgg = false;
+        }
+    }
+
 
     public void DeadFlower()
     {
@@ -97,9 +105,5 @@ public class EggCare : MonoBehaviour
         {
             //print("nu är jag lvl 3");
         }
-    }
-    void Randomize()
-    {
-        rnd = Random.Range(lowSpawnRate, highSpawnRate);
     }
 }
