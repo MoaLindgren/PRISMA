@@ -28,7 +28,9 @@
     Dialogue1 = "Riddarskinnbaggen lever på frön av tulkört och dess populationer varierar dramatiskt i storlek."
     Dialogue2 = "Vi ska nu plantera ut tulkört i det här området så att det förhoppningsvis finns fler riddarskinnbaggar nästa år"
     Dialogue3 = "I din ryggsäck finns det tulkörtsplantor, placera ut dem på de platser du ser riddarskinnbaggar! Åtminstone tre populationer borde finnas i det här området."
-    Dialogue4 = "finished">
+    Dialogue4 = ""
+    Dialogue5 = "Bra jobbat!"
+    Dialogue6 = "finished">
   </MiniGame3>
   <Items
     Item1 = "Den här komradion finns nu med dig genom hela vägen så jag kan guida dig."

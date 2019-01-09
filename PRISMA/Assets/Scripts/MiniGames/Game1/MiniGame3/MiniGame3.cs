@@ -17,13 +17,14 @@ public class MiniGame3 : MonoBehaviour
     bool spawnReady;
     float speed;
     PlayerBehaviour playerBehaviour;
+    testGameManager gameManager;
     int destinationIndex;
     bool move;
 
 
     void Start()
     {
-
+        gameManager = gameObject.GetComponent<testGameManager>();
         destinationIndex = 0;
         move = true;
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
@@ -42,7 +43,6 @@ public class MiniGame3 : MonoBehaviour
 
     void Update()
     {
-
         destination = waypoints[destinationIndex];
         if (gameStart)
         {
@@ -83,18 +83,16 @@ public class MiniGame3 : MonoBehaviour
                 if (Vector3.Distance(destination.transform.position, player.transform.position) <= 2)
                 {
                     destinationIndex++;
-                    if(destinationIndex > waypoints.Count)
+                    if(destinationIndex == waypoints.Count)
                     {
                         move = false;
-                        playerBehaviour.moveable = true;
+                        gameManager.EndGame(true);
+                        gameStart = false;
                     }
                     return;
                 }
             }
-
-
         }
-
     }
 
 
