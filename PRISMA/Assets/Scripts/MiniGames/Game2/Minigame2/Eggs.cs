@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Eggs : MonoBehaviour {
+public class Eggs : MonoBehaviour
+{
 
     [SerializeField]
     float minTime, maxTime;
@@ -10,7 +11,8 @@ public class Eggs : MonoBehaviour {
     [SerializeField]
     int eggLevel;
     [SerializeField]
-    float growTimer, growTimerStart;
+    float growTimer;
+    float growTimerStart;
 
     float rndTime;
 
@@ -22,8 +24,11 @@ public class Eggs : MonoBehaviour {
 
     void Start()//Slumpa ett värde i början följt av att sätta alla andra värden
     {
+        RandomizeValue();
+        growTimer = growTimerStart;
         onEgg = false;
         eggCare = GameObject.Find("Station 2").GetComponent<EggCare>();
+        GetComponent<SphereCollider>().enabled = true;
     }
     void Update()//Ticka ner tiden det tar för plantor att växa
     {
@@ -33,14 +38,7 @@ public class Eggs : MonoBehaviour {
             if (growTimer < 0)
                 GrowWeed();
         }
-      
-    }
 
-    public void StartGame()
-    {
-        RandomizeValue();
-        growTimer = growTimerStart;
-        eggLevel = 0;
     }
 
     void GrowWeed()
@@ -48,7 +46,6 @@ public class Eggs : MonoBehaviour {
         growTimer = growTimerStart;
         eggLevel++;
         IncreaseSize();
-        EatPlant();
         RandomizeValue();
     }
 
@@ -61,37 +58,16 @@ public class Eggs : MonoBehaviour {
     private void OnMouseDown()//När spelaren klickar på ogräset så förstörs det
     {
 
-        eggLevel = 0;
-        eggCare.switchPlaces();
+        eggLevel = 1;
+        eggCare.SwitchPlaces();
         onEgg = true;
         RandomizeValue();
+        IncreaseSize();
         growTimerStart = rndTime;
-        print(growTimer);
-
-
-    }
-
-    void EatPlant()
-    {
-        if (eggLevel == 8)
-        {
-
-            eggCare.DeadFlower();
-            print("nu dog ett ägg");
-        }
     }
 
     void IncreaseSize()//Här ska vi ha visuel feedback som visar på att ägget blir kallare
     {
-        if (eggLevel == 2)
-
-        {
-            eggCare.LevelFlower(2);
-        }
-
-        if (eggLevel == 3)
-        {
-            eggCare.LevelFlower(3);
-        }
+        eggCare.Upgrade(eggLevel, gameObject.transform.position, gameObject);
     }
 }

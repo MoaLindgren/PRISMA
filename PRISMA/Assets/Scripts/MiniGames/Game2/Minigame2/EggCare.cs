@@ -11,10 +11,10 @@ public class EggCare : MonoBehaviour
 
     [SerializeField]
     int maxDeathCount;
-    public int deadEggs;
+    public int deadEggs, eggLevel;
 
     [SerializeField]
-    GameObject weed;
+    GameObject weed, egg2, egg3, deadEgg;
     GameObject player;
 
     GameObject[] eggLocations;
@@ -29,7 +29,7 @@ public class EggCare : MonoBehaviour
     void Start()
     {
         takenLocation = new List<GameObject>();
-        eggLocations = GameObject.FindGameObjectsWithTag("Egg");
+        AddEggs();
         counter = timer;
         deadEggs = 0;
         gameStart = true;
@@ -37,7 +37,7 @@ public class EggCare : MonoBehaviour
         foreach (GameObject egg in eggLocations)
         {
             egg.GetComponent<Eggs>().enabled = true;
-            egg.GetComponent<SphereCollider>().enabled = true;
+
         }
 
         player = GameObject.FindGameObjectWithTag("player");
@@ -63,11 +63,17 @@ public class EggCare : MonoBehaviour
                 {
                     egg.GetComponent<Eggs>().enabled = false;
                 }
-
             }
         }
+    }
 
-
+    void AddEggs()
+    {
+        eggLocations = GameObject.FindGameObjectsWithTag("Egg");
+        foreach (GameObject egg in eggLocations)
+        {
+            egg.GetComponent<Eggs>().enabled = true;
+        }
     }
 
     void Win()
@@ -79,31 +85,65 @@ public class EggCare : MonoBehaviour
             egg.GetComponent<Eggs>().enabled = false;
         }
     }
-
-    public void switchPlaces ()
+    void Loose()
     {
+        gameStart = false;
+        testGame.EndGame(false);
+        foreach (GameObject egg in eggLocations)
+        {
+            egg.GetComponent<Eggs>().enabled = false;
+        }
+    }
+
+    public void SwitchPlaces()
+    {
+        AddEggs();
         foreach (GameObject egg in eggLocations)
         {
             egg.GetComponent<Eggs>().onEgg = false;
         }
     }
 
+    public void Upgrade(int level, Vector3 pos, GameObject egg)
+    {
+        switch (level)
+        {
+            case 1:
+                Instantiate(weed, pos, Quaternion.identity);
+                Destroy(egg);
+                AddEggs();
+                break;
 
-    public void DeadFlower()
+            case 2:
+                Instantiate(egg2, pos, Quaternion.identity);
+                Destroy(egg);
+                AddEggs();
+                break;
+
+            case 3:
+                Instantiate(egg3, pos, Quaternion.identity);
+                Destroy(egg);
+                AddEggs();
+                break;
+
+            case 4:
+                Instantiate(deadEgg, pos, Quaternion.identity);
+                Destroy(egg);
+                AddEggs();
+                DeadEggs();
+                break;
+        }
+    }
+
+
+    public void DeadEggs()
     {
         deadEggs++;
-    }
-
-    public void LevelFlower(int level)
-    {
-        if (level == 2)
+        if (deadEggs >= maxDeathCount)
         {
-            //print("nu är jag lvl 2");
-        }
-
-        else if (level == 3)
-        {
-            //print("nu är jag lvl 3");
+            Loose();
         }
     }
+
+
 }
