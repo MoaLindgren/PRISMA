@@ -16,6 +16,8 @@ public class MenuManager : MonoBehaviour
     MonoBehaviour script;
     public bool newItem;
     testGameManager testGame;
+    [SerializeField]
+    List<Sprite> itemImages;
 
     void Start()
     {
@@ -61,8 +63,10 @@ public class MenuManager : MonoBehaviour
     //Blir kallad på från ItemsManager OM det är ett nytt item i backpack.
     public void InstantianteItem(int index, string name)
     {
-        GameObject item = Instantiate(itemPrefab, backPackBox.transform.GetChild(index));
-        item.GetComponentInChildren<Text>().text = name;
+        Transform itemParent = backPackBox.transform.GetChild(index - 1);
+        GameObject item = Instantiate(itemPrefab, itemParent);
+        item.transform.parent = itemParent;
+        item.GetComponentInChildren<Image>().sprite = itemImages[index - 1];
         item.name = index.ToString();
         newItem = true;
     }

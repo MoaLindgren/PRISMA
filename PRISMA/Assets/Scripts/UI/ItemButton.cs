@@ -27,13 +27,6 @@ public class ItemButton : MonoBehaviour
         newItem = true;
         button.onClick.AddListener(OnClick);
     }
-    void Update()
-    {
-        if (this.newItem)
-        {
-            this.gameObject.GetComponent<Image>().color = Color.blue;
-        }
-    }
     void OnClick()
     {
         if (this.newItem)
@@ -45,11 +38,11 @@ public class ItemButton : MonoBehaviour
         itemManager.GetItem(itemIndex, true);
 
         GameObject[] itemButtons = GameObject.FindGameObjectsWithTag("ItemButton");
-        foreach (GameObject buttons in itemButtons)
+        foreach (GameObject button in itemButtons)
         {
-            gameObject.GetComponent<Image>().color = Color.white;
+            button.transform.parent.GetChild(0).gameObject.SetActive(false);
         }
-        gameObject.GetComponent<Image>().color = Color.green;
+        this.gameObject.transform.parent.GetChild(0).gameObject.SetActive(true);
 
         xmlManager.Dialogue(true, true);
     }
