@@ -22,7 +22,7 @@ public class BugBehaviour : MonoBehaviour
     {
         if (move)
         {
-            float step = speed;
+            float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, destination, step);
             transform.LookAt(destination);
 

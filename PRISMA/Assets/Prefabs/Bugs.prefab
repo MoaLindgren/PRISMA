@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f85f055ad4a4f4091c8373fe5eb356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 5
   centerObject: {fileID: 1429290178625420}
   move: 0
 --- !u!114 &114053228844019506
@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f85f055ad4a4f4091c8373fe5eb356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 5
   centerObject: {fileID: 1429290178625420}
   move: 0
 --- !u!114 &114361964944384280
@@ -542,7 +542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f85f055ad4a4f4091c8373fe5eb356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 5
   centerObject: {fileID: 1429290178625420}
   move: 0
 --- !u!114 &114733213433860320
@@ -556,7 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f85f055ad4a4f4091c8373fe5eb356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 5
   centerObject: {fileID: 1429290178625420}
   move: 0
 --- !u!114 &114935504207081098
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f85f055ad4a4f4091c8373fe5eb356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 5
   centerObject: {fileID: 1429290178625420}
   move: 0
 --- !u!135 &135265897372419706
