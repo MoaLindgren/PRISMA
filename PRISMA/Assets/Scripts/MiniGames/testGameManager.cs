@@ -5,6 +5,7 @@ using UnityEngine;
 public class testGameManager : MonoBehaviour
 {
     int gameIndex;
+    public int gameRound;
     public bool startGame;
 
     GameObject gameManager, player;
@@ -17,6 +18,7 @@ public class testGameManager : MonoBehaviour
 
     void Start()
     {
+        gameRound = 0;
         gameManager = GameObject.Find("GameManager");
         player = GameObject.FindGameObjectWithTag("player");
         xmlManager = gameManager.GetComponent<XmlManager>();
@@ -29,7 +31,7 @@ public class testGameManager : MonoBehaviour
     {
         playerBehaviour.moveable = false;
         gameIndex = int.Parse(gameObject.tag);
-        xmlManager.SetUpXML(gameIndex);
+        xmlManager.SetUpXML(gameIndex, gameRound);
         itemManager.AddItem(gameIndex + 1, items[gameIndex]);
         menuManager.currentStation = this.gameObject;
         currentMiniGame = GetComponent<MonoBehaviour>();

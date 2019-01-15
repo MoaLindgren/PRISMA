@@ -11,7 +11,7 @@ public class XmlManager : MonoBehaviour
     XmlNodeList nodeList;
     TextAsset path;
     XmlWriter writer;
-    int dialogueCounter, index;
+    int dialogueCounter, index, gameRound;
     MenuManager menuManager;
 
 
@@ -20,8 +20,9 @@ public class XmlManager : MonoBehaviour
         menuManager = GetComponent<MenuManager>();
     }
 
-    public void SetUpXML(int stationIndex)
+    public void SetUpXML(int stationIndex, int gameRoundIndex)
     {
+        gameRound = gameRoundIndex;
         index = stationIndex;
         dialogueCounter = 0;
         doc = new XmlDocument();
@@ -49,28 +50,32 @@ public class XmlManager : MonoBehaviour
         {
             foreach (XmlNode node in rootNode)
             {
-                if(!item)
+                if (node.Name == "Round" + gameRound.ToString())
                 {
-                    if (node.Name == "MiniGame" + index.ToString())
+                    if (!item)
                     {
-                        if(win)
+                        if (node.Name == "MiniGame" + index.ToString())
                         {
-                            menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
-                            dialogueCounter += 1;
-                        }
-                        else
-                        {
-                            dialogueCounter += 2;
-                            menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
-                            dialogueCounter += 1;
+
+                            if (win)
+                            {
+                                menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
+                                dialogueCounter += 1;
+                            }
+                            else
+                            {
+                                dialogueCounter += 2;
+                                menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
+                                dialogueCounter += 1;
+                            }
                         }
                     }
-                }
-                else
-                {
-                    if (node.Name == "Items")
+                    else
                     {
-                        menuManager.ViewDialogue(node.Attributes[index].Value, true);
+                        if (node.Name == "Items")
+                        {
+                            menuManager.ViewDialogue(node.Attributes[index].Value, true);
+                        }
                     }
                 }
 
