@@ -9,17 +9,23 @@ public class WeedManager : MonoBehaviour {
 
     [SerializeField]
     int weedLevel;
+
+    [SerializeField]
     float growTimer;
     float growTimerStart;
 
     public GameObject myLocation;
+
+    public int location;
 
     MiniGame2 miniGame2;
 
     void Start ()//Slumpa ett värde i början följt av att sätta alla andra värden
     {
         miniGame2 = GameObject.Find("Station 2").GetComponent<MiniGame2>();
-	}
+        RandomizeValue();
+        growTimer = growTimerStart;
+    }
 	void Update ()//Ticka ner tiden det tar för plantor att växa
     {
         growTimer -= Time.deltaTime;
@@ -27,17 +33,9 @@ public class WeedManager : MonoBehaviour {
             GrowWeed();
     }
 
-    public void StartGame ()
-    {
-        RandomizeValue();
-        growTimer = growTimerStart;
-        weedLevel = 0;
-    }
-
     void GrowWeed ()
     {
         growTimer = growTimerStart;
-        weedLevel++;
         IncreaseSize();
         EatPlant();
         RandomizeValue();
@@ -51,13 +49,13 @@ public class WeedManager : MonoBehaviour {
 
     private void OnMouseDown()//När spelaren klickar på ogräset så förstörs det
     {
-        print(this.myLocation.name);
+        
         for (int i = 0; i < miniGame2.takenLocation.Count; i++)
         {
             if (miniGame2.takenLocation[i] == this.myLocation)
             {
                 miniGame2.takenLocation.RemoveAt(i);
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             }
         }
 
@@ -69,22 +67,34 @@ public class WeedManager : MonoBehaviour {
         {
             
             miniGame2.DeadFlower();
-           // Destroy(this.gameObject);
-            //Ät upp plantan som den är på också
+      
         } 
     }
 
     void IncreaseSize()//Här ska vi ha visuel feedback som visar på att plantan växer
     {
-        if (weedLevel == 2)
-
+        if (weedLevel == 0)
         {
-            miniGame2.LevelFlower(2);
+            miniGame2.UpgradeWeed(myLocation, 1);
+            Destroy(gameObject);
         }
-
-        if (weedLevel == 3)
+        else if (weedLevel == 1)
         {
-            miniGame2.LevelFlower(3);
+            miniGame2.UpgradeWeed(myLocation, 2);
+            Destroy(gameObject);
         }
+        else if (weedLevel == 2)
+        {
+            miniGame2.DeadFlower();
+            for (int i = 0; i < miniGame2.takenLocation.Count; i++)
+            {
+                if (miniGame2.takenLocation[i] == this.myLocation)
+                {
+                    miniGame2.takenLocation.RemoveAt(i);
+                    Destroy(gameObject);
+                }
+            }
+        }
+       
     }
 }
