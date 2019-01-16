@@ -40,4 +40,37 @@
       Item4 = "Bra! Klicka på riddarskinnbaggarna när du ser dem!">
     </Items>
   </Round1>
+  <Round2>
+    <MiniGame0
+        Dialogue0 = "Kul att se dig igen! Vintern var hård mot djuren och växterna och jag hoppas verkligen att de mår bra"
+        Dialogue1 = "Du gjorde ett så bra jobb sist, så jag skulle önska att du utförde rundan igen. Kan du göra det för mig?"
+        Dialogue2 = "Tack, och lycka till!"
+        Dialogue3 = "finished">
+    </MiniGame0>
+    <MiniGame1
+      Dialogue0 = "Se hur mycket koltrastar vi har så här på hösten! Koltrastar är stannfåglar, vilket innebär att dom övervintrar i Sverige. Jag hoppas att dom här fåglarna klarar sig bra över vintern."
+      Dialogue1 = "Ett anteckningsblock finns i din ryggsäck! Använd det för att räkna fåglarna"
+      Dialogue2 = ""
+      Dialogue3 = "Bra jobbat!"
+      Dialogue4 = "finished">
+    </MiniGame1>
+    <MiniGame2
+      Dialogue0 = "Oj oj, de här trädgårdsblommorna klarar sig inte bra gentemot det konkurrenskraftiga ogräset. Om de ska överleva måste du ta bort allt ogräs innan det tar över blommorna helt!"
+      Dialogue1 = "I ryggsäcken finns det en ogräsborttagare du kan använda!"
+      Dialogue2 = ""
+      Dialogue3 = "Du vann! Bra jobbat"
+      Dialogue4 = "finished"
+      Dialogue5 = "Tyvärr klarade sig inte växterna så bra. Bättre lycka nästa gång!"
+      Dialogue6 = "finished">
+    </MiniGame2>
+    <MiniGame3
+      Dialogue0 = "Se upp var du trampar! Det finns en massa riddarskinnbaggar under dig!"
+      Dialogue1 = "Riddarskinnbaggen lever på frön av tulkört och dess populationer varierar dramatiskt i storlek."
+      Dialogue2 = "Vi ska nu plantera ut tulkört i det här området så att det förhoppningsvis finns fler riddarskinnbaggar nästa år"
+      Dialogue3 = "I din ryggsäck finns det tulkörtsplantor, placera ut dem på de platser du ser riddarskinnbaggar! Åtminstone tre populationer borde finnas i det här området."
+      Dialogue4 = ""
+      Dialogue5 = "Bra jobbat!"
+      Dialogue6 = "finished">
+    </MiniGame3>
+  </Round2>
 </Root>

@@ -29,6 +29,7 @@ public class testGameManager : MonoBehaviour
 
     void OnTriggerEnter()
     {
+        gameRound++;
         playerBehaviour.moveable = false;
         gameIndex = int.Parse(gameObject.tag);
         xmlManager.SetUpXML(gameIndex, gameRound);

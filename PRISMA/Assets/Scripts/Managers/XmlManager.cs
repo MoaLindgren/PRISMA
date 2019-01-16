@@ -48,33 +48,37 @@ public class XmlManager : MonoBehaviour
 
         foreach (XmlNode rootNode in nodeList)
         {
-            foreach (XmlNode node in rootNode)
+            foreach (XmlNode roundNode in rootNode)
             {
-                if (node.Name == "Round" + gameRound.ToString())
+                if (roundNode.Name == "Round" + gameRound.ToString())
                 {
-                    if (!item)
+                    foreach (XmlNode minigameNode in roundNode)
                     {
-                        if (node.Name == "MiniGame" + index.ToString())
+                        if (!item)
                         {
+                            if (minigameNode.Name == "MiniGame" + index.ToString())
+                            {
 
-                            if (win)
-                            {
-                                menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
-                                dialogueCounter += 1;
-                            }
-                            else
-                            {
-                                dialogueCounter += 2;
-                                menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
-                                dialogueCounter += 1;
+                                if (win)
+                                {
+                                    menuManager.ViewDialogue(minigameNode.Attributes[dialogueCounter].Value, false);
+                                    dialogueCounter += 1;
+                                }
+                                else
+                                {
+                                    dialogueCounter += 2;
+                                    menuManager.ViewDialogue(minigameNode.Attributes[dialogueCounter].Value, false);
+                                    dialogueCounter += 1;
+                                }
                             }
                         }
-                    }
-                    else
-                    {
-                        if (node.Name == "Items")
+                        else
                         {
-                            menuManager.ViewDialogue(node.Attributes[index].Value, true);
+                            if (minigameNode.Name == "Items")
+                            {
+                                print("hej");
+                                menuManager.ViewDialogue(minigameNode.Attributes[index].Value, true);
+                            }
                         }
                     }
                 }

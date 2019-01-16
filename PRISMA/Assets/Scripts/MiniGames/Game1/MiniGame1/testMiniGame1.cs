@@ -30,8 +30,6 @@ public class testMiniGame1 : MonoBehaviour
         birdSpawnCounter = birdSpawnTimer;
         startGame = true;
 
-
-
         birdDestinations = GameObject.FindGameObjectsWithTag("BirdDestination");
         gameManager = GameObject.Find("GameManager");
         player = GameObject.FindGameObjectWithTag("player");
