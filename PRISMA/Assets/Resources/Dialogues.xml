@@ -19,25 +19,36 @@
       Dialogue0 = "Oj oj, de här trädgårdsblommorna klarar sig inte bra gentemot det konkurrenskraftiga ogräset. Om de ska överleva måste du ta bort allt ogräs innan det tar över blommorna helt!"
       Dialogue1 = "I ryggsäcken finns det en ogräsborttagare du kan använda!"
       Dialogue2 = ""
-      Dialogue3 = "Du vann! Bra jobbat"
-      Dialogue4 = "finished"
-      Dialogue5 = "Tyvärr klarade sig inte växterna så bra. Bättre lycka nästa gång!"
-      Dialogue6 = "finished">
+      Dialogue3 = ""
+      Dialogue4 = "Du vann! Växterna klarade sig!"
+      Dialogue5 = "finished"
+      Dialogue6 = "Tyvärr klarade sig inte växterna så bra. Bättre lycka nästa gång!"
+      Dialogue7 = "finished">
     </MiniGame2>
     <MiniGame3
       Dialogue0 = "Se upp var du trampar! Det finns en massa riddarskinnbaggar under dig!"
-      Dialogue1 = "Riddarskinnbaggen lever på frön av tulkört och dess populationer varierar dramatiskt i storlek."
+      Dialogue1 = "Riddarskinnbaggen lever på frön av tulkört och dess populationer varierar dramatiskt i storlek mellan år eftersom de bara lever 1 år."
       Dialogue2 = "Vi ska nu plantera ut tulkört i det här området så att det förhoppningsvis finns fler riddarskinnbaggar nästa år"
       Dialogue3 = "I din ryggsäck finns det tulkörtsplantor, placera ut dem på de platser du ser riddarskinnbaggar! Åtminstone tre populationer borde finnas i det här området."
       Dialogue4 = ""
       Dialogue5 = "Bra jobbat!"
       Dialogue6 = "finished">
     </MiniGame3>
+     <MiniGame4
+      Dialogue0 = "Här finns det torsk i mängder och det har funnits väldigt länge! Nästan lika länga som i Newfoundland vilket är 500 år."
+      Dialogue1 = "Tyvärr finns det inte så många ställen man får fiska längre. I Kanada har 40 000 fiskare förlorat sina jobb"
+      Dialogue2 = ""
+      Dialogue3 = "Hjälp till och fiska genom att använda fiskepöet i din ryggsäck"
+      Dialogue4 = "Bra jobbat, tyvärr kom du inte upp i rekordet på största mängden torsk på 1000 år vilket är 80 000 ton"
+      Dialogue5 = "finished">
+     </MiniGame4>
     <Items
       Item1 = "Den här komradion finns nu med dig genom hela vägen så jag kan guida dig."
       Item2 = "Bra! Klicka på koltrastarna när du ser dem!"
       Item3 = "Bra! Klicka på ogräset för att ta bort det!"
-      Item4 = "Bra! Klicka på riddarskinnbaggarna när du ser dem!">
+      Item4 = "Bra! Klicka på riddarskinnbaggarna när du ser dem!"
+      Item5 = "Bra1 Klicka på torskarna när du ser dem!">
+    
     </Items>
   </Round1>
   <Round2>
@@ -48,15 +59,15 @@
         Dialogue3 = "finished">
     </MiniGame0>
     <MiniGame1
-      Dialogue0 = "Se hur mycket koltrastar vi har så här på hösten! Koltrastar är stannfåglar, vilket innebär att dom övervintrar i Sverige. Jag hoppas att dom här fåglarna klarar sig bra över vintern."
+      Dialogue0 = "Kul att du är tillbaka! Tyvärr verkade inte koltrastarna ha klarat sig så bra genom den hårda vintern, till skillnad från flugsnappar bor de ej i fågelholkar"
       Dialogue1 = "Ett anteckningsblock finns i din ryggsäck! Använd det för att räkna fåglarna"
       Dialogue2 = ""
       Dialogue3 = "Bra jobbat!"
       Dialogue4 = "finished">
     </MiniGame1>
     <MiniGame2
-      Dialogue0 = "Oj oj, de här trädgårdsblommorna klarar sig inte bra gentemot det konkurrenskraftiga ogräset. Om de ska överleva måste du ta bort allt ogräs innan det tar över blommorna helt!"
-      Dialogue1 = "I ryggsäcken finns det en ogräsborttagare du kan använda!"
+      Dialogue0 = "Nämen, här fortsätter de att växa, hjälp trädgårdsblommorna genom att ta bort maskrosorna och tistlarna"
+      Dialogue1 = "I ryggsäcken finns det en ogräsborttagare som du måste använda!"
       Dialogue2 = ""
       Dialogue3 = "Du vann! Bra jobbat"
       Dialogue4 = "finished"
@@ -64,13 +75,22 @@
       Dialogue6 = "finished">
     </MiniGame2>
     <MiniGame3
-      Dialogue0 = "Se upp var du trampar! Det finns en massa riddarskinnbaggar under dig!"
-      Dialogue1 = "Riddarskinnbaggen lever på frön av tulkört och dess populationer varierar dramatiskt i storlek."
-      Dialogue2 = "Vi ska nu plantera ut tulkört i det här området så att det förhoppningsvis finns fler riddarskinnbaggar nästa år"
-      Dialogue3 = "I din ryggsäck finns det tulkörtsplantor, placera ut dem på de platser du ser riddarskinnbaggar! Åtminstone tre populationer borde finnas i det här området."
+      Dialogue0 = "Nu ska vi se hur många riddarskinnbaggar som finns kvar!"
+      Dialogue1 = "Det verkar vara färre än senast, men inte nära så få som den största variationen i Södermanland som var 200 gånger så många från år till år"
+      Dialogue2 = "Populationsstorleken för riddarskinnbaggarna bestäms till stor del av hur mycket föda de får"
+      Dialogue3 = "Som du säkert minns, finns det tulkörtsfrön i din ryggsäck, öppna den och ta fram det."
       Dialogue4 = ""
-      Dialogue5 = "Bra jobbat!"
+      Dialogue5 = "Bra jobbat! Nu kommer de klara sig bättre än senast!"
       Dialogue6 = "finished">
     </MiniGame3>
+     <MiniGame4
+      Dialogue0 = "Här finns det torsk i mängder och det har funnits väldigt länge! Nästan lika länga som i Newfoundland vilket är 500 år."
+      Dialogue1 = "life is neverending-torment"
+      Dialogue2 = ""
+      Dialogue3 = "Hjälp till och fiska genom att använda fiskepöet i din ryggsäck"
+      Dialogue4 = "Bra jobbat, men inte denna gång heller lyckades du med rekordet på största mängden torsk på 1000 år"
+      Dialogue5 = "finished">
+     </MiniGame4>
+
   </Round2>
 </Root>
