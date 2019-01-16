@@ -8639,6 +8639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3dd0195ca283ef439d8fe5dd0ce995a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameRound: 0
   startGame: 0
 --- !u!114 &960623382
 MonoBehaviour:
@@ -8651,7 +8652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cecd3f81825ba7489e2638aac700da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 100
+  timer: 20
   maxDeathCount: 2
   deadEggs: 0
   eggLevel: 0
@@ -8844,6 +8845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3dd0195ca283ef439d8fe5dd0ce995a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameRound: 0
   startGame: 0
 --- !u!135 &986943558
 SphereCollider:
@@ -12280,6 +12282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3dd0195ca283ef439d8fe5dd0ce995a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameRound: 0
   startGame: 0
 --- !u!135 &1326634347
 SphereCollider:
@@ -13342,6 +13345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3dd0195ca283ef439d8fe5dd0ce995a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameRound: 0
   startGame: 0
 --- !u!222 &1399199795
 CanvasRenderer:
@@ -16847,6 +16851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3dd0195ca283ef439d8fe5dd0ce995a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameRound: 0
   startGame: 0
 --- !u!135 &1814969207
 SphereCollider:

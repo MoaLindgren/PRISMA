@@ -23,7 +23,7 @@ public class EggCare : MonoBehaviour
     public List<GameObject> takenLocation;
 
     PlayerBehaviour playerBehaviour;
-    testGameManager testGame;
+    testGameManager gameManager;
     bool gameStart;
 
     void Start()
@@ -42,7 +42,7 @@ public class EggCare : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("player");
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
-        testGame = GetComponent<testGameManager>();
+        gameManager = GetComponent<testGameManager>();
     }
     void Update()
     {
@@ -55,14 +55,9 @@ public class EggCare : MonoBehaviour
             {
                 Win();
             }
-            if (deadEggs >= maxDeathCount)
+            else if (deadEggs >= maxDeathCount)
             {
-                gameStart = false;
-                testGame.EndGame(false);
-                foreach (GameObject egg in eggLocations)
-                {
-                    egg.GetComponent<Eggs>().enabled = false;
-                }
+                Loose();
             }
         }
     }
@@ -79,19 +74,25 @@ public class EggCare : MonoBehaviour
     void Win()
     {
         gameStart = false;
-        testGame.EndGame(true);
+        gameManager.EndGame(true);
+        eggLocations = GameObject.FindGameObjectsWithTag("Egg");
+        print("idunno");
         foreach (GameObject egg in eggLocations)
         {
             egg.GetComponent<Eggs>().enabled = false;
+            egg.GetComponent<SphereCollider>().enabled = false;
         }
+
     }
     void Loose()
     {
         gameStart = false;
-        testGame.EndGame(false);
+        gameManager.EndGame(false);
+        eggLocations = GameObject.FindGameObjectsWithTag("Egg");
         foreach (GameObject egg in eggLocations)
         {
             egg.GetComponent<Eggs>().enabled = false;
+            egg.GetComponent<SphereCollider>().enabled = false;
         }
     }
 
