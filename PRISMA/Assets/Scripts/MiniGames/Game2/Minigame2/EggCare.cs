@@ -15,7 +15,7 @@ public class EggCare : MonoBehaviour
 
     [SerializeField]
     GameObject weed, egg2, egg3, deadEgg;
-    GameObject player;
+    GameObject player, gameManager;
 
     GameObject[] eggLocations;
 
@@ -23,7 +23,9 @@ public class EggCare : MonoBehaviour
     public List<GameObject> takenLocation;
 
     PlayerBehaviour playerBehaviour;
-    testGameManager gameManager;
+    testGameManager testManager;
+    MenuManager menuManager;
+
     bool gameStart;
 
     void Start()
@@ -41,15 +43,23 @@ public class EggCare : MonoBehaviour
         }
 
         player = GameObject.FindGameObjectWithTag("player");
+        gameManager = GameObject.Find("GameManager");
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
-        gameManager = GetComponent<testGameManager>();
+        menuManager = gameManager.GetComponent<MenuManager>();
+        testManager = GetComponent<testGameManager>();
+
+        menuManager.MiniGame1(true);
     }
     void Update()
     {
         if (gameStart)
         {
             if (counter > 0)
+            {
                 counter -= Time.deltaTime;
+                menuManager.timerText.text = counter.ToString();
+            }
+                
 
             else if (deadEggs < maxDeathCount && counter <= 0)
             {
@@ -74,7 +84,7 @@ public class EggCare : MonoBehaviour
     void Win()
     {
         gameStart = false;
-        gameManager.EndGame(true);
+        testManager.EndGame(true);
         eggLocations = GameObject.FindGameObjectsWithTag("Egg");
         print("idunno");
         foreach (GameObject egg in eggLocations)
@@ -87,7 +97,7 @@ public class EggCare : MonoBehaviour
     void Loose()
     {
         gameStart = false;
-        gameManager.EndGame(false);
+        testManager.EndGame(false);
         eggLocations = GameObject.FindGameObjectsWithTag("Egg");
         foreach (GameObject egg in eggLocations)
         {
@@ -139,11 +149,17 @@ public class EggCare : MonoBehaviour
 
     public void DeadEggs()
     {
-        deadEggs++;
+        ScoreManager();
         if (deadEggs >= maxDeathCount)
         {
             Loose();
         }
+    }
+
+    public void ScoreManager()
+    {
+        deadEggs++;
+        menuManager.SetScore(deadEggs);
     }
 
 
