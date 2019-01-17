@@ -75,10 +75,9 @@ public class MiniGame2 : MonoBehaviour
                 SpawnWeed();
                 spawnCounter = rndTime;
             }
-            if (deadFlowers >= maxDeathCount)
+            if (deadFlowers >= maxDeathCount) //Om man förlorar
             {
-                gameStart = false;
-                testGame.EndGame(false);
+                Loose();
             }
         }
 
@@ -89,6 +88,23 @@ public class MiniGame2 : MonoBehaviour
     {
         gameStart = false;
         testGame.EndGame(true);
+        GameObject[] weeds = GameObject.FindGameObjectsWithTag("Weed");
+        foreach (GameObject weed in weeds)
+        {
+            Destroy(weed);
+        }
+    }
+
+    void Loose()
+    {
+        GameObject[] weeds = GameObject.FindGameObjectsWithTag("Weed");
+        foreach (GameObject weed in weeds)
+        {
+            Destroy(weed);
+        }
+        gameStart = false;
+        testGame.EndGame(false);
+        
     }
 
     public void DeadFlower()

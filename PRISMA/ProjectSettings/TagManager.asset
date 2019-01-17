@@ -17,6 +17,8 @@ TagManager:
   - FishDestination
   - MiniGame3_Waypoints
   - Bugs
+  - Egg
+  - Weed
   layers:
   - Default
   - TransparentFX

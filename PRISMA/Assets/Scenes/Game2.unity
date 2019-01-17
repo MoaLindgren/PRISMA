@@ -8882,6 +8882,7 @@ MonoBehaviour:
   instantiateBird: 0
   startGame: 0
   birdPrefab: {fileID: 1826264668633496, guid: aa8cc0613063ff543aa4095c7c8f643f, type: 2}
+  cameraPos: {x: 0, y: 0, z: 0}
 --- !u!224 &986943561
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12311,6 +12312,7 @@ MonoBehaviour:
     type: 2}
   waypointsParent: {fileID: 0}
   player: {fileID: 0}
+  cameraPos: {x: 0, y: 0, z: 0}
   clickTimer: 0
   max: 0
   score: 0
@@ -13278,8 +13280,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1637078063}
-  yPos: 50
-  zPos: -30
+  defaultY: 50
+  defaultZ: -30
+  defaultCamera: 0
+  pos: {x: 0, y: 0, z: 0}
 --- !u!1 &1399199791
 GameObject:
   m_ObjectHideFlags: 0
@@ -13334,6 +13338,7 @@ MonoBehaviour:
   instantiateFish: 0
   startGame: 0
   fishPrefab: {fileID: 1826264668633496, guid: e0631f72147a669459f7158af85ab8ec, type: 2}
+  cameraPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1399199794
 MonoBehaviour:
   m_ObjectHideFlags: 0
