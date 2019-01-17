@@ -11,11 +11,11 @@ public class MiniGame2 : MonoBehaviour
 
     [SerializeField]
     int numberOfWeed, maxDeathCount, lowSpawnRate, highSpawnRate ;
-    public int deadFlowers;
+    public int deadFlowers, score;
 
     [SerializeField]
     GameObject weed, weed2, weed3;
-    GameObject player;
+    GameObject player, gameManager;
 
     GameObject[] weedLocations;
 
@@ -24,6 +24,9 @@ public class MiniGame2 : MonoBehaviour
 
     PlayerBehaviour playerBehaviour;
     testGameManager testGame;
+    MenuManager menuManager;
+
+
     bool gameStart;
 
     void Start()
@@ -35,23 +38,31 @@ public class MiniGame2 : MonoBehaviour
         deadFlowers = 0;
         gameStart = true;
 
+        score = 0;
         player = GameObject.FindGameObjectWithTag("player");
+        gameManager = GameObject.Find("GameManager");
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
+        menuManager = gameManager.GetComponent<MenuManager>();
         testGame = GetComponent<testGameManager>();
         Randomize();
         SpawnWeed();
+
+        menuManager.MiniGame1(true);
     }
     void Update()
     {
         if (gameStart)
         {
             if (counter > 0)
-                counter -= Time.deltaTime;
-
-            else if (deadFlowers < maxDeathCount && counter <= 0)
             {
-                Win();
+                counter -= Time.deltaTime;
+                menuManager.timerText.text = counter.ToString();
             }
+
+        else if (deadFlowers < maxDeathCount && counter <= 0)
+        {
+            Win();
+        }
 
             if (spawnCounter > 0)
                 spawnCounter -= Time.deltaTime;
@@ -81,6 +92,13 @@ public class MiniGame2 : MonoBehaviour
     public void DeadFlower()
     {
         deadFlowers++;
+        ScoreManager();
+    }
+
+    public void ScoreManager()
+    {
+        score++;
+        menuManager.SetScore(score);
     }
 
     void SpawnWeed()
