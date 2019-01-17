@@ -10334,6 +10334,7 @@ MonoBehaviour:
   weed: {fileID: 1757265180840254, guid: 21dd78f63d3ecfe4298455d78855b405, type: 2}
   weed2: {fileID: 1757265180840254, guid: 278f5bf91acfe28408392cfec64250c3, type: 2}
   weed3: {fileID: 1621134893859462, guid: 5f794621a79bbde4a8e501a78cb29047, type: 2}
+  cameraPos: {x: 0, y: 0, z: 0}
   takenLocation: []
 --- !u!135 &960623383
 SphereCollider:
@@ -10553,6 +10554,7 @@ MonoBehaviour:
   instantiateBird: 0
   startGame: 0
   birdPrefab: {fileID: 1826264668633496, guid: aa8cc0613063ff543aa4095c7c8f643f, type: 2}
+  cameraPos: {x: 0, y: 0, z: 0}
 --- !u!224 &986943561
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14699,6 +14701,7 @@ MonoBehaviour:
     type: 2}
   waypointsParent: {fileID: 343681103}
   player: {fileID: 1637078063}
+  cameraPos: {x: 0, y: 0, z: 0}
   clickTimer: 0
   max: 0
   score: 0
@@ -15662,7 +15665,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1397813665}
   m_LocalRotation: {x: 0.44775915, y: -0, z: -0, w: 0.8941542}
-  m_LocalPosition: {x: 155.54001, y: 45.57, z: 70.22491}
+  m_LocalPosition: {x: 155.54001, y: 37.8, z: 70.22491}
   m_LocalScale: {x: 0.52819556, y: 0.52819544, z: 0.52819544}
   m_Children: []
   m_Father: {fileID: 912846396}
@@ -15680,8 +15683,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1637078063}
-  yPos: 50
-  zPos: -30
+  yPos: 0
+  zPos: 0
+  xPos: 0
+  defaultY: 50
+  defaultZ: -30
+  defaultCamera: 0
+  pos: {x: 0, y: 0, z: 0}
 --- !u!1 &1399199791
 GameObject:
   m_ObjectHideFlags: 0
@@ -15736,6 +15744,7 @@ MonoBehaviour:
   instantiateFish: 0
   startGame: 0
   fishPrefab: {fileID: 1826264668633496, guid: e0631f72147a669459f7158af85ab8ec, type: 2}
+  cameraPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1399199794
 MonoBehaviour:
   m_ObjectHideFlags: 0

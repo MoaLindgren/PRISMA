@@ -7,8 +7,11 @@ public class MiniGame3 : MonoBehaviour
     [SerializeField]
     GameObject tulkortPrefab, waypointsParent, player;
     List<GameObject> waypoints;
-    GameObject destination, camera;
+    GameObject destination;
     Vector3 clickPosition;
+
+    [SerializeField]
+    Vector3 cameraPos;
 
     PlayerBehaviour playerBehaviour;
     testGameManager gameManager;
@@ -25,7 +28,6 @@ public class MiniGame3 : MonoBehaviour
     {
         gameManager = gameObject.GetComponent<testGameManager>();
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
-        camera = GameObject.Find("Main Camera");
 
         InitializeGame();
         RandomizeValues();
@@ -51,7 +53,7 @@ public class MiniGame3 : MonoBehaviour
     {
         if (gameStart)
         {
-            //camera.transform.position = new Vector3(player.transform.position.x + 5, player.transform.position.y + 5, player.transform.position.z + 5);
+
             if (!plantReady)
             {
                 clickTimerCounter -= Time.deltaTime;

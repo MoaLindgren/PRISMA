@@ -19,7 +19,9 @@ public class MiniGame2 : MonoBehaviour
 
     GameObject[] weedLocations;
 
-    
+    [SerializeField]
+    Vector3 cameraPos;
+
     public List<GameObject> takenLocation;
 
     PlayerBehaviour playerBehaviour;

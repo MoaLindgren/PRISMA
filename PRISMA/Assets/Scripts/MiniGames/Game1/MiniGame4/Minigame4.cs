@@ -17,6 +17,9 @@ public class Minigame4 : MonoBehaviour {
     GameObject startPosition, gameManager, player;
     GameObject[] fishDestinations;
 
+    [SerializeField]
+    Vector3 cameraPos;
+
     PlayerBehaviour playerBehaviour;
     MenuManager menuManager;
     testGameManager testGame;

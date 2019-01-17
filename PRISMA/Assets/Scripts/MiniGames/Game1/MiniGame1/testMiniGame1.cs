@@ -18,6 +18,9 @@ public class testMiniGame1 : MonoBehaviour
     GameObject startPosition, gameManager, player;
     GameObject[] birdDestinations;
 
+    [SerializeField]
+    Vector3 cameraPos;
+
     PlayerBehaviour playerBehaviour;
     MenuManager menuManager;
     testGameManager testGame;
