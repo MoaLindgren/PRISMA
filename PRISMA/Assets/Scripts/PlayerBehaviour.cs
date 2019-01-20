@@ -5,7 +5,10 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
     public float moveSpeed;
+    [SerializeField]
+    float rotationSpeed;
     float moveHorizontal, moveVertical;
+    Vector3 destination;
     public bool moveable;
     Quaternion rot;
     Animator anim;
@@ -19,23 +22,41 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (moveable)
         {
-
             Move();
         }
     }
     void Move()
     {
-        moveHorizontal = Input.GetAxis("Horizontal");
-        moveVertical = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-
-        if (movement != Vector3.zero)
+        //Back and turn left:
+        if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.S))
         {
-            transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
-            anim.Play("RunningAnimation");
-            transform.rotation = Quaternion.LookRotation(movement);
+            transform.Rotate(-Vector3.down * rotationSpeed * Time.deltaTime);
+        }
+        //Turn left:
+        else if (Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate(Vector3.down * rotationSpeed * Time.deltaTime);
+        }
+        //Back and turn right:
+        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S))
+        {
+            transform.Rotate(-Vector3.up * rotationSpeed * Time.deltaTime);
+        }
+        //Turn right:
+        else if (Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+        }
+        //Forward:
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            //transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+        }
+        //Back:
+        else if (Input.GetKey(KeyCode.S))
+        {
+            transform.Translate(-Vector3.forward * moveSpeed * Time.deltaTime);
         }
     }
 }
