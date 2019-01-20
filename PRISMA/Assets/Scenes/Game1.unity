@@ -10310,6 +10310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameRound: 0
   startGame: 0
+  testBool: 0
 --- !u!114 &960623382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10519,6 +10520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameRound: 0
   startGame: 0
+  testBool: 0
 --- !u!135 &986943558
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14674,6 +14676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameRound: 0
   startGame: 0
+  testBool: 0
 --- !u!135 &1326634347
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15664,13 +15667,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1397813665}
-  m_LocalRotation: {x: 0.44775915, y: -0, z: -0, w: 0.8941542}
-  m_LocalPosition: {x: 155.54001, y: 37.8, z: 70.22491}
-  m_LocalScale: {x: 0.52819556, y: 0.52819544, z: 0.52819544}
+  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
+  m_LocalPosition: {x: 141, y: 27.7, z: 98.1}
+  m_LocalScale: {x: 2.6187305, y: 2.6187305, z: 2.618732}
   m_Children: []
   m_Father: {fileID: 912846396}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 53.2, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!114 &1397813670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15683,13 +15686,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1637078063}
-  yPos: 0
-  zPos: 0
-  xPos: 0
-  defaultY: 50
-  defaultZ: -30
+  cameraParent: {fileID: 912846395}
+  defaultPos: {x: 0, y: 50, z: -30}
+  defaultRot: {x: 50, y: 0, z: 0}
   defaultCamera: 0
-  pos: {x: 0, y: 0, z: 0}
+  changePos: {x: 0, y: 0, z: 0}
+  changeRot: {x: 0, y: 0, z: 0}
+  description: 
 --- !u!1 &1399199791
 GameObject:
   m_ObjectHideFlags: 0
@@ -15758,6 +15761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameRound: 0
   startGame: 0
+  testBool: 0
 --- !u!222 &1399199795
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19488,6 +19492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameRound: 0
   startGame: 0
+  testBool: 0
 --- !u!135 &1814969207
 SphereCollider:
   m_ObjectHideFlags: 0

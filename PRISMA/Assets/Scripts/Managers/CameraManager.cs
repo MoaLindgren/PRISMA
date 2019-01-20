@@ -5,12 +5,15 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject player;
-    float yPos, zPos, xPos;
+    GameObject player, cameraParent;
+
+    Vector3 pos;
     [SerializeField]
-    float defaultY, defaultZ;
+    Vector3 defaultPos, defaultRot;
+
     public bool defaultCamera;
-    public Vector3 pos;
+    public Vector3 changePos, changeRot;
+    public string description;
     
     void Start()
     {
@@ -30,23 +33,32 @@ public class CameraManager : MonoBehaviour
     }
     void DefaultPos()
     {
-        pos = player.transform.position;
-        pos.y += defaultY;
-        pos.z += defaultZ;
+        transform.parent = cameraParent.transform;
+        pos = player.transform.position + defaultPos;
+        transform.eulerAngles = defaultRot;
         transform.position = pos;
     }
     void NewPos()
     {
-        pos = player.transform.position;
-        pos.y += yPos;
-        pos.z += zPos;
-        pos.x += xPos;
-        transform.position = pos;
+        switch(description)
+        {
+            case "Coordinates":
+                pos = player.transform.position + changePos;
+                transform.eulerAngles = defaultRot;
+                transform.position = pos;
+                return;
+            case "Coordinates_Rotation":
+                pos = player.transform.position + changePos;
+                //transform.eulerAngles = /*player.transform.eulerAngles + */changeRot;
+                transform.position = pos;
+                return;
+            case "Follow":
+                transform.parent = player.transform;
+                pos = player.transform.position + changePos;
+                //transform.LookAt(player.transform);
+                transform.position = pos;
+                return;
+        }
     }
-    public void SetValues(float y, float z, float x)
-    {
-        yPos = y;
-        zPos = z;
-        xPos = x;
-    }
+
 }
