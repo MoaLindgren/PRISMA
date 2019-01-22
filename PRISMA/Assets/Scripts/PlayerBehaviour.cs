@@ -6,16 +6,18 @@ public class PlayerBehaviour : MonoBehaviour
 {
     public float moveSpeed;
     [SerializeField]
-    float rotationSpeed;
+    float rotationSpeed, rotationUp, rotationDown;
     float moveHorizontal, moveVertical;
-    Vector3 destination;
+    Vector3 destination, movement;
     public bool moveable;
     Quaternion rot;
-    Animator anim;
+    //Animator anim;
+    GameObject camera;
 
     void Start()
     {
-        anim = GetComponent<Animator>();
+        camera = GameObject.Find("Main Camera");
+        //anim = GetComponent<Animator>();
         moveable = true;
     }
     void Update()
@@ -27,25 +29,48 @@ public class PlayerBehaviour : MonoBehaviour
     }
     void Move()
     {
-        //Back and turn left:
-        if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.S))
+        moveVertical = Input.GetAxis("Vertical");
+        moveHorizontal = Input.GetAxis("Horizontal");
+        movement = new Vector3(-moveVertical, 0, moveHorizontal);
+
+
+        if (!Input.GetKey(KeyCode.LeftControl))
         {
-            transform.Rotate(-Vector3.down * rotationSpeed * Time.deltaTime);
+            transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rotationSpeed);
         }
+
+
+        print(transform.rotation.x);
+
+
+        //transform.Rotate(-Vector3.down * rotationSpeed * Time.deltaTime);
+
+
+        //if (movement != Vector3.zero)
+        //{
+
+        //    transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+        //}
+        transform.position = new Vector3(transform.position.x, 10, transform.position.z);
+        ////Back and turn left:
+        //if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.S))
+        //{
+        //    transform.Rotate(-Vector3.down * rotationSpeed * Time.deltaTime);
+        //}
         //Turn left:
-        else if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(Vector3.down * rotationSpeed * Time.deltaTime);
+            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
         }
-        //Back and turn right:
-        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S))
-        {
-            transform.Rotate(-Vector3.up * rotationSpeed * Time.deltaTime);
-        }
+        ////Back and turn right:
+        //if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S))
+        //{
+        //    transform.Rotate(-Vector3.up * rotationSpeed * Time.deltaTime);
+        //}
         //Turn right:
-        else if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
         }
         //Forward:
         if (Input.GetKey(KeyCode.W))
