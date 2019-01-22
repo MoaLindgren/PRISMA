@@ -1831,6 +1831,21 @@ Prefab:
       propertyPath: tree
       value: 
       objectReference: {fileID: 886412189}
+    - target: {fileID: 114987712122401626, guid: 620cec113d3045a4fbdab2e5ef12866a,
+        type: 2}
+      propertyPath: rotationSpeed
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 114295374348695222, guid: 620cec113d3045a4fbdab2e5ef12866a,
+        type: 2}
+      propertyPath: numberOfDays
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114295374348695222, guid: 620cec113d3045a4fbdab2e5ef12866a,
+        type: 2}
+      propertyPath: gameTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 620cec113d3045a4fbdab2e5ef12866a, type: 2}
   m_IsPrefabParent: 0
@@ -9384,7 +9399,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &969407562
 Transform:
   m_ObjectHideFlags: 0
@@ -13350,7 +13365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1330189945
 Transform:
   m_ObjectHideFlags: 0
@@ -13380,7 +13395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1336306011
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14247,7 +14262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1403389453
 Transform:
   m_ObjectHideFlags: 0
@@ -14579,7 +14594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1484520848
 Transform:
   m_ObjectHideFlags: 0
