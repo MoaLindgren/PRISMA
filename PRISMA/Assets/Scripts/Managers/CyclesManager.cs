@@ -5,11 +5,15 @@ using UnityEngine.UI;
 
 public class CyclesManager : MonoBehaviour
 {
+    [SerializeField]
+    Texture snowTexture, defaultTexture;
+    [SerializeField]
+    GameObject snow;
     Renderer rend;
     [SerializeField]
     Slider yearSlider;
     [SerializeField]
-    GameObject tree;
+    GameObject[] trees;
     [SerializeField]
     List<Material> skyboxes;
     Material currentSkybox;
@@ -27,7 +31,6 @@ public class CyclesManager : MonoBehaviour
     Just nu så startar den dessutom på dag, varför??
 
     Andra saker som behövs:
-        Att ALLA träd ändrar färg med årstiderna, just nu är det bara ett specifikt träd.
         Ändra markens färg med årstiderna.
         Lägga in ljud (beroende på årstiderna).
         Rensa importerade assets.
@@ -46,7 +49,7 @@ public class CyclesManager : MonoBehaviour
     void Start()
     {
         ready = false;
-        rend = tree.GetComponent<Renderer>();
+        trees = GameObject.FindGameObjectsWithTag("Tree");
         counter = 0;
         DaysCalculation();
         SeasonCalculation();
@@ -123,23 +126,42 @@ public class CyclesManager : MonoBehaviour
     {
         if (daysCounter <= springDays)
         {
-            rend.materials[1].color = new Color32(209, 255, 0, 255);
-            print("season: spring");
+            foreach (GameObject tree in trees)
+            {
+                rend = tree.GetComponent<Renderer>();
+                rend.materials[1].mainTexture = defaultTexture;
+                rend.materials[1].color = new Color32(209, 255, 0, 255);
+                snow.SetActive(false);
+            }
         }
         else if (daysCounter <= summerDays)
         {
-            rend.materials[1].color = new Color32(56, 150, 26, 255);
-            print("season: summer");
+            foreach (GameObject tree in trees)
+            {
+                rend = tree.GetComponent<Renderer>();
+                rend.materials[1].mainTexture = defaultTexture;
+                rend.materials[1].color = new Color32(56, 150, 26, 255);
+            }
         }
         else if (daysCounter <= autumnDays)
         {
-            rend.materials[1].color = new Color32(240, 124, 0, 255);
-            print("season: autumn");
+            foreach (GameObject tree in trees)
+            {
+                rend = tree.GetComponent<Renderer>();
+                rend.materials[1].mainTexture = defaultTexture;
+                rend.materials[1].color = new Color32(240, 124, 0, 255);
+
+            }
         }
         else if (daysCounter <= winterDays)
         {
-            rend.materials[1].color = new Color32(86, 86, 86, 255);
-            print("season: winter");
+            foreach (GameObject tree in trees)
+            {
+                rend = tree.GetComponent<Renderer>();
+                rend.materials[1].mainTexture = snowTexture;
+                rend.materials[1].color = new Color32(255, 255, 255, 255);
+                snow.SetActive(true);
+            }
         }
     }
 

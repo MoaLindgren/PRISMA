@@ -31,20 +31,6 @@ public class testGameManager : MonoBehaviour
         menuManager = gameManager.GetComponent<MenuManager>();
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
     }
-    void Update()
-    {
-        if(testBool)
-        {
-            cameraManager.description = "Coordinates_Rotation";
-            cameraManager.defaultCamera = false;
-            cameraManager.changePos = new Vector3(25, 20, -10);
-            cameraManager.changeRot = new Vector3(10, 0, 0);
-        }
-        //else
-        //{
-        //    cameraManager.defaultCamera = true;
-        //}
-    }
 
     void OnTriggerEnter()
     {

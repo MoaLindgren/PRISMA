@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    public float moveSpeed;
+    public float moveSpeed, rotationSpeed;
     [SerializeField]
-    float rotationSpeed, rotationUp, rotationDown;
+    float rotationUp, rotationDown;
     //float moveHorizontal, moveVertical;
     //Vector3 movement;
     public bool moveable;
@@ -14,6 +14,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Start()
     {
+
         mainCamera = GameObject.Find("Main Camera");
         moveable = true;
     }
@@ -26,24 +27,12 @@ public class PlayerBehaviour : MonoBehaviour
     }
     void Move()
     {
-        //moveVertical = Input.GetAxis("Vertical");
-        //moveHorizontal = Input.GetAxis("Horizontal");
-        //movement = new Vector3(-moveVertical, 0, moveHorizontal);
-
 
         if (!Input.GetKey(KeyCode.LeftControl))
         {
             transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rotationSpeed);
         }
-        else if(Input.GetKey(KeyCode.LeftControl))
-        {
-            mainCamera.transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rotationSpeed);
 
-        }
-        if (Input.GetKeyUp(KeyCode.LeftControl))
-        {
-            mainCamera.transform.rotation = transform.rotation;
-        }
 
         transform.position = new Vector3(transform.position.x, 10, transform.position.z);
 

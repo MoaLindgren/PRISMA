@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 81456491905786056}
   - component: {fileID: 45662243018528606}
   - component: {fileID: 114295374348695222}
+  - component: {fileID: 114708234406818480}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -876,8 +877,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 77715b8b6b248994891d3ccad1ad330b, type: 2}
   - {fileID: 2100000, guid: 169a1b8f06c17c84e8de491f2bfef986, type: 2}
   - {fileID: 2100000, guid: ceb0a3ed2cb53a94fa21843cc958c52b, type: 2}
-  numberOfDays: 10
-  gameTime: 5
+  numberOfDays: 5
+  gameTime: 1
   dayCycleTimer: 0
 --- !u!114 &114630849479679722
 MonoBehaviour:
@@ -888,6 +889,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0ca642625b449a4ca8b7963b51f6aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114708234406818480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1679385867784004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 665b323dc0005ea418836ec6901ac867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114987712122401626
@@ -902,7 +914,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rotationSpeed: 100
+  rotationSpeed: 150
+  rotationUp: 0
+  rotationDown: 0
   moveable: 0
 --- !u!124 &124039229534514240
 Behaviour:

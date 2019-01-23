@@ -4,60 +4,31 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    [SerializeField]
-    GameObject player, cameraParent;
+    float rotationSpeed;
 
-    Vector3 pos;
-    [SerializeField]
-    Vector3 defaultPos, defaultRot;
-
-    public bool defaultCamera;
-    public Vector3 changePos, changeRot;
-    public string description;
-    
     void Start()
     {
-        defaultCamera = true;
+        rotationSpeed = transform.parent.GetComponent<PlayerBehaviour>().rotationSpeed;
     }
-
     void Update()
     {
-        if(defaultCamera)
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            DefaultPos();
+            Cursor.visible = true;
         }
         else
         {
-            NewPos();
+            Cursor.visible = false;
         }
-    }
-    void DefaultPos()
-    {
-        transform.parent = cameraParent.transform;
-        pos = player.transform.position + defaultPos;
-        transform.eulerAngles = defaultRot;
-        transform.position = pos;
-    }
-    void NewPos()
-    {
-        switch(description)
+
+        if (Input.GetKey(KeyCode.LeftControl))
         {
-            case "Coordinates":
-                pos = player.transform.position + changePos;
-                transform.eulerAngles = defaultRot;
-                transform.position = pos;
-                return;
-            case "Coordinates_Rotation":
-                pos = player.transform.position + changePos;
-                //transform.eulerAngles = /*player.transform.eulerAngles + */changeRot;
-                transform.position = pos;
-                return;
-            case "Follow":
-                transform.parent = player.transform;
-                pos = player.transform.position + changePos;
-                //transform.LookAt(player.transform);
-                transform.position = pos;
-                return;
+            transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rotationSpeed);
+
+        }
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            transform.rotation = transform.rotation;
         }
     }
 
