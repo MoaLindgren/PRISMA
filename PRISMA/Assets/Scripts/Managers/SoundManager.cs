@@ -5,20 +5,29 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField]
-    AudioSource dayNightSound;
+    AudioSource dayNightAudioSource, triggeredAudioSource;
     [SerializeField]
     AudioClip daySound, nightSound;
 
-    public void PlaySound(bool day)
+    void Start()
     {
-        if(day)
+        dayNightAudioSource.Play();
+    }
+    public void PlaySound(string day)
+    {
+        if(day == "Day")
         {
-            dayNightSound.clip = daySound;
+            dayNightAudioSource.clip = daySound;
+            dayNightAudioSource.Play();
         }
-        else
+        else if(day == "Night")
         {
-            dayNightSound.clip = nightSound;
+            dayNightAudioSource.clip = nightSound;
+            dayNightAudioSource.Play();
         }
-        dayNightSound.Play();
+    }
+    public void TriggerSound(AudioClip triggerSound)
+    {
+        triggeredAudioSource.PlayOneShot(triggerSound);
     }
 }

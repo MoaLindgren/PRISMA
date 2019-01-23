@@ -27,6 +27,9 @@ public class CyclesManager : MonoBehaviour
     float morningEveningTime, dayNightTime;
     bool dayNight, ready;
 
+    List<string> dayCycle = new List<string>() { "Morning", "Day", "Evening", "Night" };
+    string currentDay;
+
     SoundManager soundManager;
 
     /*
@@ -68,7 +71,7 @@ public class CyclesManager : MonoBehaviour
 
 
 
-        dayNight = false;
+        dayNight = true;
         dayCycleCounter = timer;
         ready = true;
 
@@ -117,9 +120,10 @@ public class CyclesManager : MonoBehaviour
             {
                 daysCounter++;
                 yearSlider.value++;
-                print(daysCounter);
                 counter = 0;
             }
+            currentDay = dayCycle[counter];
+            soundManager.PlaySound(currentDay);
             dayNight = !dayNight;
             dayCycleCounter = timer;
 
