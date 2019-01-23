@@ -19,6 +19,8 @@ TagManager:
   - Bugs
   - Egg
   - Weed
+  - Tree
+  - BloomLocation
   layers:
   - Default
   - TransparentFX
