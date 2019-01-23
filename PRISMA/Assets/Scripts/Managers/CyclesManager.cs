@@ -9,6 +9,7 @@ public class CyclesManager : MonoBehaviour
     Texture snowTexture, defaultTexture;
     [SerializeField]
     GameObject snow;
+    GameObject gameManager;
     Renderer rend;
     [SerializeField]
     Slider yearSlider;
@@ -25,6 +26,8 @@ public class CyclesManager : MonoBehaviour
     float timer, dayCycleCounter, shortSeason, longSeason, springDays, summerDays, autumnDays, winterDays;
     float morningEveningTime, dayNightTime;
     bool dayNight, ready;
+
+    SoundManager soundManager;
 
     /*
     Jag behöver fixa så att morgon och kväll har kortare tid än dag och natt.
@@ -48,6 +51,8 @@ public class CyclesManager : MonoBehaviour
     */
     void Start()
     {
+        gameManager = GameObject.Find("GameManager");
+        soundManager = gameManager.GetComponent<SoundManager>();
         ready = false;
         trees = GameObject.FindGameObjectsWithTag("Tree");
         counter = 0;
