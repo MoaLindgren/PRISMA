@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject backPackBox, dialogueBox, playDialogueBox, itemPrefab, backPackButton, score, timer, miniGame1UI, player, highlightBackPack;
+    GameObject backPackBox, dialogueBox, playDialogueBox, itemPrefab, backPackButton, score, timer, miniGame1UI, player, highlightBackPack, achievements;
     public GameObject currentStation;
     Text dialogueText, scoreText;
     public Text timerText; // Ändra så den visar heltal och inte floats.
@@ -79,6 +79,16 @@ public class MenuManager : MonoBehaviour
     {
         soundManager.UISound(buttonClick);
         backPackBox.SetActive(false);
+    }
+    public void OpenAchievements()
+    {
+        soundManager.UISound(buttonClick);
+        achievements.SetActive(true);
+    }
+    public void CloseAchievements()
+    {
+        soundManager.UISound(buttonClick);
+        achievements.SetActive(false);
     }
 
     //Blir kallad på från XmlManager:
