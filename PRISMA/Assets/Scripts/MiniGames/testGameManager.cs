@@ -17,9 +17,11 @@ public class testGameManager : MonoBehaviour
     MonoBehaviour currentMiniGame;
     string[] items = { "Komradio", "Anteckningsblock", "Ogräsborttagare", "Räknare", "Fiskespö" };
     public bool testBool;
+    bool onTrigger;
 
     void Start()
     {
+        onTrigger = false;
         testBool = false;
         gameRound = 0;
         camera = GameObject.Find("Main Camera");
@@ -31,9 +33,21 @@ public class testGameManager : MonoBehaviour
         menuManager = gameManager.GetComponent<MenuManager>();
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
     }
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.LeftShift) || onTrigger)
+        {
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.visible = false;
+        }
+    }
 
     void OnTriggerEnter()
     {
+        onTrigger = true;
         gameRound++;
         playerBehaviour.moveable = false;
         gameIndex = int.Parse(gameObject.tag);
@@ -58,6 +72,7 @@ public class testGameManager : MonoBehaviour
     }
     public void EndGame(bool win)
     {
+        onTrigger = false;
         currentMiniGame.enabled = false;
         playerBehaviour.moveable = true;
         xmlManager.Dialogue(false, win);

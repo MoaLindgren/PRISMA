@@ -50,13 +50,13 @@ public class XmlManager : MonoBehaviour
         {
             foreach (XmlNode roundNode in rootNode)
             {
-                if (roundNode.Name == "Round" + gameRound.ToString())
+                if (roundNode.Name == "Game" + gameRound.ToString())
                 {
                     foreach (XmlNode minigameNode in roundNode)
                     {
                         if (!item)
                         {
-                            if (minigameNode.Name == "MiniGame" + index.ToString())
+                            if (minigameNode.Name == "Station" + index.ToString())
                             {
 
                                 if (win)

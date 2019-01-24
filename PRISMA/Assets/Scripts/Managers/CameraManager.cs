@@ -12,14 +12,6 @@ public class CameraManager : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            Cursor.visible = true;
-        }
-        else
-        {
-            Cursor.visible = false;
-        }
 
         if (Input.GetKey(KeyCode.LeftControl))
         {

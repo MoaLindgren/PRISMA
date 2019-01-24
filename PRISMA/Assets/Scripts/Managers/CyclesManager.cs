@@ -40,7 +40,6 @@ public class CyclesManager : MonoBehaviour
         Ändra markens färg med årstiderna.
         Lägga in ljud (beroende på årstiderna).
         Rensa importerade assets.
-        Visa tiden på dygnet ?
         Justera om i XML
         Sätta restrictions på vart spelaren får gå, och fixa så spelaren INTE ramlar vid kollision
         Att spelet ska ta slut när alla dagar har gått
