@@ -107,103 +107,103 @@ public class Move : MonoBehaviour {
 		return false;
 	}
 
-	// Update is called once per frame
-	void Update () 
-	{
+	//// Update is called once per frame
+	//void Update () 
+	//{
 
-		MoveActive();
+	//	MoveActive();
 
-		if ( hasAniComp == true )
-		{	
+	//	if ( hasAniComp == true )
+	//	{	
 
-			if (Input.GetKey(KeyCode.V))
-			{	
-				if ( CheckAniClip( "damage away" ) == false ) return;
+	//		if (Input.GetKey(KeyCode.V))
+	//		{	
+	//			if ( CheckAniClip( "damage away" ) == false ) return;
 
-				GetComponent<Animation>().CrossFade("damage away",0.2f);
-				GetComponent<Animation>().CrossFadeQueued("idle01");
-			} 
+	//			GetComponent<Animation>().CrossFade("damage away",0.2f);
+	//			GetComponent<Animation>().CrossFadeQueued("idle01");
+	//		} 
 
-			if (Input.GetKey(KeyCode.C))
-			{	
-				if ( CheckAniClip( "dead away" ) == false ) return;
+	//		if (Input.GetKey(KeyCode.C))
+	//		{	
+	//			if ( CheckAniClip( "dead away" ) == false ) return;
 
-				GetComponent<Animation>().CrossFade("dead away",0.2f);
-			} 
+	//			GetComponent<Animation>().CrossFade("dead away",0.2f);
+	//		} 
 
-			if (Input.GetKey(KeyCode.E))
-			{	
-				if ( CheckAniClip( "attack03" ) == false ) return;
+	//		if (Input.GetKey(KeyCode.E))
+	//		{	
+	//			if ( CheckAniClip( "attack03" ) == false ) return;
 
-				GetComponent<Animation>().CrossFade("attack03",0.2f);
-				GetComponent<Animation>().CrossFadeQueued("idle01");
-			} 
+	//			GetComponent<Animation>().CrossFade("attack03",0.2f);
+	//			GetComponent<Animation>().CrossFadeQueued("idle01");
+	//		} 
 
-			if (Input.GetKey(KeyCode.Q))
-			{	
-				if ( CheckAniClip( "attack01" ) == false ) return;
+	//		if (Input.GetKey(KeyCode.Q))
+	//		{	
+	//			if ( CheckAniClip( "attack01" ) == false ) return;
 
-				GetComponent<Animation>().CrossFade("attack01",0.2f);
-				GetComponent<Animation>().CrossFadeQueued("idle01");
-			}
+	//			GetComponent<Animation>().CrossFade("attack01",0.2f);
+	//			GetComponent<Animation>().CrossFadeQueued("idle01");
+	//		}
 
-			if (Input.GetKey(KeyCode.W))
-			{	
-				if ( CheckAniClip( "attack02" ) == false ) return;
+	//		if (Input.GetKey(KeyCode.W))
+	//		{	
+	//			if ( CheckAniClip( "attack02" ) == false ) return;
 
-				GetComponent<Animation>().CrossFade("attack02",0.2f);
-				GetComponent<Animation>().CrossFadeQueued("idle01");
-			}
+	//			GetComponent<Animation>().CrossFade("attack02",0.2f);
+	//			GetComponent<Animation>().CrossFadeQueued("idle01");
+	//		}
 
-			if (Input.GetKey(KeyCode.A))
-			{	
-				if ( CheckAniClip( "drop down" ) == false ) return;
+	//		if (Input.GetKey(KeyCode.A))
+	//		{	
+	//			if ( CheckAniClip( "drop down" ) == false ) return;
 
-				GetComponent<Animation>().CrossFade("drop down",0.2f);
-			}
+	//			GetComponent<Animation>().CrossFade("drop down",0.2f);
+	//		}
 
-			if (Input.GetKey(KeyCode.Z))
-			{	
-				if ( CheckAniClip( "sit up" ) == false ) return;
+	//		if (Input.GetKey(KeyCode.Z))
+	//		{	
+	//			if ( CheckAniClip( "sit up" ) == false ) return;
 
-				GetComponent<Animation>().CrossFade("sit up",0.2f);
-				GetComponent<Animation>().CrossFadeQueued("idle01");
-			}
+	//			GetComponent<Animation>().CrossFade("sit up",0.2f);
+	//			GetComponent<Animation>().CrossFadeQueued("idle01");
+	//		}
 
-			if (Input.GetKey(KeyCode.S))
-			{	
-				if ( CheckAniClip( "damage" ) == false ) return;
+	//		if (Input.GetKey(KeyCode.S))
+	//		{	
+	//			if ( CheckAniClip( "damage" ) == false ) return;
 
-				GetComponent<Animation>().CrossFade("damage",0.1f);
-				GetComponent<Animation>().CrossFadeQueued("idle01");			
-			}
+	//			GetComponent<Animation>().CrossFade("damage",0.1f);
+	//			GetComponent<Animation>().CrossFadeQueued("idle01");			
+	//		}
 
-			if (Input.GetKey(KeyCode.X))
-			{	
-				if ( CheckAniClip( "dead" ) == false ) return;
+	//		if (Input.GetKey(KeyCode.X))
+	//		{	
+	//			if ( CheckAniClip( "dead" ) == false ) return;
 
-				GetComponent<Animation>().CrossFade("dead",0.1f);
-			}			
+	//			GetComponent<Animation>().CrossFade("dead",0.1f);
+	//		}			
 
-			if (Input.GetKey(KeyCode.D))
-			{	
-				if ( CheckAniClip( "idle02" ) == false ) return;
+	//		if (Input.GetKey(KeyCode.D))
+	//		{	
+	//			if ( CheckAniClip( "idle02" ) == false ) return;
 
-				GetComponent<Animation>().CrossFade("idle02",0.1f);
-				GetComponent<Animation>().CrossFadeQueued("idle01");			
-			}	
+	//			GetComponent<Animation>().CrossFade("idle02",0.1f);
+	//			GetComponent<Animation>().CrossFadeQueued("idle01");			
+	//		}	
 								
-		}
+	//	}
 
-		if ( Input.GetKey(KeyCode.LeftArrow))
-		{
-			transform.Rotate( 0.0f,Time.deltaTime*-100.0f,0.0f);
-		}
+	//	if ( Input.GetKey(KeyCode.LeftArrow))
+	//	{
+	//		transform.Rotate( 0.0f,Time.deltaTime*-100.0f,0.0f);
+	//	}
 
-		if (Input.GetKey(KeyCode.RightArrow))
-		{
-			transform.Rotate(0.0f,Time.deltaTime*100.0f,0.0f);
-		}
+	//	if (Input.GetKey(KeyCode.RightArrow))
+	//	{
+	//		transform.Rotate(0.0f,Time.deltaTime*100.0f,0.0f);
+	//	}
 
-	}
+	//}
 }

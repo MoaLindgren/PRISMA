@@ -127,6 +127,18 @@ public class Bloom : MonoBehaviour
             growTimerStart = growTimer;
             weedLevel = 0;
         }
+        if (hasFlower && !canGrow)
+        {
+            if(currentWeed != null)
+            {
+                Destroy(currentWeed);
+                canGrow = true;
+                RandomizeValue();
+                growTimerStart = growTimer;
+                weedLevel = 0;
+
+            }
+        }
     }
 
     void eatPlant()
