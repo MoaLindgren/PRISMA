@@ -8,17 +8,23 @@ public class ItemButton : MonoBehaviour
     MenuManager menuManager;
     GameObject gameManager;
     ItemsManager itemManager;
+    SoundManager soundManager;
+    XmlManager xmlManager;
+
+    [SerializeField]
+    AudioClip buttonClick;
     Button button;
     bool newItem;
     int itemIndex;
 
-    XmlManager xmlManager;
+
 
     void Start()
     {
         itemIndex = int.Parse(gameObject.name);
 
         gameManager = GameObject.Find("GameManager");
+        soundManager = gameManager.GetComponent<SoundManager>();
         menuManager = gameManager.GetComponent<MenuManager>();
         itemManager = gameManager.GetComponent<ItemsManager>();
         xmlManager = gameManager.GetComponent<XmlManager>();
@@ -34,7 +40,7 @@ public class ItemButton : MonoBehaviour
             newItem = false;
             menuManager.newItem = false;
         }
-
+        soundManager.UISound(buttonClick);
         itemManager.GetItem(itemIndex, true);
 
         GameObject[] itemButtons = GameObject.FindGameObjectsWithTag("ItemButton");

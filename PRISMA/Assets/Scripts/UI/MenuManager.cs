@@ -15,12 +15,16 @@ public class MenuManager : MonoBehaviour
     XmlManager xmlManager;
     MonoBehaviour script;
     public bool newItem;
-    testGameManager testGame;
+    GameManager gameManager;
+    SoundManager soundManager;
     [SerializeField]
     List<Sprite> itemImages;
+    [SerializeField]
+    AudioClip buttonClick;
 
     void Start()
     {
+        soundManager = GetComponent<SoundManager>();
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
         itemManager = GetComponent<ItemsManager>();
         xmlManager = GetComponent<XmlManager>();
@@ -52,6 +56,7 @@ public class MenuManager : MonoBehaviour
 
     public void OpenBackpack()
     {
+        soundManager.UISound(buttonClick);
         backPackBox.SetActive(true);
 
         for (int i = 0; i <= itemManager.items.Count; i++)
@@ -72,13 +77,13 @@ public class MenuManager : MonoBehaviour
     }
     public void CloseBackpack()
     {
+        soundManager.UISound(buttonClick);
         backPackBox.SetActive(false);
     }
 
     //Blir kallad på från XmlManager:
     public void ViewDialogue(string dialogue, bool startGame)
     {
-
         if (!startGame)
         {
             dialogueText = dialogueBox.GetComponentInChildren<Text>();
@@ -116,12 +121,15 @@ public class MenuManager : MonoBehaviour
 
     public void Play()
     {
+        Cursor.visible = false;
+        soundManager.UISound(buttonClick);
         playDialogueBox.SetActive(false);
-        testGame = currentStation.GetComponent<testGameManager>();
-        testGame.StartGame();
+        gameManager = currentStation.GetComponent<GameManager>();
+        gameManager.StartGame();
     }
     public void Dialogue()
     {
+        soundManager.UISound(buttonClick);
         xmlManager.Dialogue(false, true);
     }
 

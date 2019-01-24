@@ -6,8 +6,7 @@
       Dialogue1 = "I din loggbok ser du vad du har kvar att upptäcka. Försök att uppnå så många du hinner!"
       Dialogue2 = "Det finns en komradio i din ryggsäck. Hämta den, så kan jag nå dig under hela din utflykt"
       Dialogue3 = ""
-      Dialogue4 = "Lycka till!"
-      Dialogue5 = "finished">
+      Dialogue4 = "finished">
     </Station0>
     <Station1
       Dialogue0 = "Se hur mycket koltrastar vi har så här på hösten! Koltrastar är stannfåglar, vilket innebär att dom övervintrar i Sverige. Jag hoppas att dom här fåglarna klarar sig bra över vintern."

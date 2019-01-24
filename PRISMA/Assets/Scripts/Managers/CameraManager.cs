@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     float rotationSpeed;
+    public bool lockCameraRotation;
 
     void Start()
     {
@@ -12,15 +13,13 @@ public class CameraManager : MonoBehaviour
     }
     void Update()
     {
-
         if (Input.GetKey(KeyCode.LeftControl))
         {
             transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rotationSpeed);
-
         }
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
-            transform.rotation = transform.rotation;
+            transform.rotation = transform.parent.transform.rotation;
         }
     }
 
