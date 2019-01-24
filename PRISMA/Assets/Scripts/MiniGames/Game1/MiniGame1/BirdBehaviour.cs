@@ -8,8 +8,8 @@ using UnityEngine;
 public class BirdBehaviour : MonoBehaviour
 {
     [SerializeField]
-    float maxSpeed, maxTime;
-    float speed, time, flyHeight;
+    float maxSpeed, maxTime, flyHeight, time;
+    float speed;
     GameObject[] destinations;
     GameObject tree, light;
     Vector3 destination;
@@ -22,13 +22,13 @@ public class BirdBehaviour : MonoBehaviour
     void Awake()
     {
         counted = false;
-        flyReady = false;
+        flyReady = true;
         destinations = GameObject.FindGameObjectsWithTag("BirdDestination");
-        gameManager = GameObject.Find("GameManager");
-        station1 = GameObject.Find("Station1");
-        light = transform.GetChild(3).gameObject;
-        miniGame1 = station1.GetComponent<testMiniGame1>();
-        itemManager = gameManager.GetComponent<ItemsManager>();
+        //gameManager = GameObject.Find("GameManager");
+        //station1 = GameObject.Find("Station1");
+        //light = transform.GetChild(3).gameObject;
+        //miniGame1 = station1.GetComponent<testMiniGame1>();
+        //itemManager = gameManager.GetComponent<ItemsManager>();
     }
 
     void Start()
@@ -38,6 +38,8 @@ public class BirdBehaviour : MonoBehaviour
     }
     void Update()
     {
+        
+        
         if (flyReady)
         {
             time -= Time.deltaTime;
@@ -48,28 +50,29 @@ public class BirdBehaviour : MonoBehaviour
                 transform.LookAt(destination);
                 if (transform.position == destination)
                 {
-                    Destroy(gameObject);
+                    SetDestination();
+                    time = maxTime;
                 }
             }
         }
     }
 
-    void OnMouseDown()
-    {
-        //Om spelaren håller i rätt redskap:
-        if (itemManager.itemIndex == 2)
-        {
-            if (!this.counted)
-            {
-                miniGame1.ScoreManager();
-                this.counted = true;
-                light.SetActive(false);
-            }
+    //void OnMouseDown()
+    //{
+    //    //Om spelaren håller i rätt redskap:
+    //    if (itemManager.itemIndex == 2)
+    //    {
+    //        if (!this.counted)
+    //        {
+    //            miniGame1.ScoreManager();
+    //            this.counted = true;
+    //            light.SetActive(false);
+    //        }
 
-        }
+    //    }
 
 
-    }
+    //}
 
     void SetDestination()
     {
@@ -77,14 +80,16 @@ public class BirdBehaviour : MonoBehaviour
         int rnd = Random.Range(0, maxValue);
 
         tree = destinations[rnd];
-        flyHeight = miniGame1.flyHeight;
+        //flyHeight = miniGame1.flyHeight;
         destination = new Vector3(tree.transform.position.x, flyHeight, tree.transform.position.z);
         RandomizeValues();
     }
     void RandomizeValues()
     {
-        float rndSpeed = Random.Range(1, maxSpeed);
+        float rndSpeed = Random.Range(0.3f, maxSpeed);
         speed = rndSpeed;
         flyReady = true;
+        float rndTime = Random.Range(1, maxTime);
+        maxTime = rndTime;
     }
 }
