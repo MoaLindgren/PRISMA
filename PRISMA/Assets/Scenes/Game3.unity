@@ -1877,40 +1877,6 @@ Prefab:
       propertyPath: yearSlider
       value: 
       objectReference: {fileID: 377633570}
-    - target: {fileID: 114295374348695222, guid: 620cec113d3045a4fbdab2e5ef12866a,
-        type: 2}
-      propertyPath: tree
-      value: 
-      objectReference: {fileID: 886412189}
-    - target: {fileID: 114987712122401626, guid: 620cec113d3045a4fbdab2e5ef12866a,
-        type: 2}
-      propertyPath: rotationSpeed
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 114295374348695222, guid: 620cec113d3045a4fbdab2e5ef12866a,
-        type: 2}
-      propertyPath: numberOfDays
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114295374348695222, guid: 620cec113d3045a4fbdab2e5ef12866a,
-        type: 2}
-      propertyPath: gameTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 54724231009266170, guid: 620cec113d3045a4fbdab2e5ef12866a,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114987712122401626, guid: 620cec113d3045a4fbdab2e5ef12866a,
-        type: 2}
-      propertyPath: moveSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4995651259166362, guid: 620cec113d3045a4fbdab2e5ef12866a, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -185.18
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 620cec113d3045a4fbdab2e5ef12866a, type: 2}
   m_IsPrefabParent: 0
@@ -8676,10 +8642,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b42add5aaa3e60240910e678c40d8e37, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &886412189 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100000, guid: 699d9f0463b3804428644296838e3b76, type: 3}
-  m_PrefabInternal: {fileID: 2062075351}
 --- !u!1001 &887498337
 Prefab:
   m_ObjectHideFlags: 0
