@@ -13484,6 +13484,11 @@ Prefab:
       propertyPath: achievements
       value: 
       objectReference: {fileID: 1318284639}
+    - target: {fileID: 82533602429491684, guid: 1e46a5d5556cc4146ae8b4b668ce76db,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.511
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e46a5d5556cc4146ae8b4b668ce76db, type: 2}
   m_IsPrefabParent: 0
@@ -19269,7 +19274,7 @@ Prefab:
     - target: {fileID: 224733690398182828, guid: 3faf929e53251ae4bbca0af5f005c23c,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1697296831826006, guid: 3faf929e53251ae4bbca0af5f005c23c, type: 2}
       propertyPath: m_IsActive
