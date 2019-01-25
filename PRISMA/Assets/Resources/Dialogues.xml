@@ -9,38 +9,42 @@
       Dialogue4 = "finished">
     </Station0>
     <Station1
-      Dialogue0 = "Se hur mycket koltrastar vi har så här på hösten! Koltrastar är stannfåglar, vilket innebär att dom övervintrar i Sverige. Jag hoppas att dom här fåglarna klarar sig bra över vintern."
-      Dialogue1 = "Ett anteckningsblock finns i din ryggsäck! Använd det för att räkna fåglarna"
-      Dialogue2 = ""
-      Dialogue3 = "Bra jobbat!"
-      Dialogue4 = "finished">
+      Dialogue0 = "Där framme ser du en liten skog, där bor det nog ett antal fåglar."
+      Dialogue1 = "Vädret påverkar ofta var fåglar tar vägen under vintern."
+      Dialogue2 = "finished">
     </Station1>
     <Station2
-      Dialogue0 = "Oj oj, de här trädgårdsblommorna klarar sig inte bra gentemot det konkurrenskraftiga ogräset. Om de ska överleva måste du ta bort allt ogräs innan det tar över blommorna helt!"
-      Dialogue1 = "I ryggsäcken finns det en ogräsborttagare du kan använda!"
-      Dialogue2 = ""
-      Dialogue3 = "Du vann! Växterna klarade sig!"
-      Dialogue4 = "finished"
-      Dialogue5 = "Tyvärr klarade sig inte växterna så bra. Bättre lycka nästa gång!"
-      Dialogue6 = "finished">
+      Dialogue0 = "Här ses exempel på konkurrens mellan arter där en blomma håller på att bli utkonkurrerad av ogräs."
+      Dialogue1 = "Blommorna är införda ifrån andra platser och behöver därför hjälp för att inte dö ut på denna plats."
+      Dialogue2 = "finished">
     </Station2>
     <Station3
       Dialogue0 = "Se upp var du trampar! Det finns en massa riddarskinnbaggar under dig!"
-      Dialogue1 = "Riddarskinnbaggen lever på frön av tulkört och dess populationer varierar dramatiskt i storlek mellan år eftersom de bara lever 1 år."
-      Dialogue2 = "Vi ska nu plantera ut tulkört i det här området så att det förhoppningsvis finns fler riddarskinnbaggar nästa år"
-      Dialogue3 = "I din ryggsäck finns det tulkörtsplantor, placera ut dem på de platser du ser riddarskinnbaggar! Åtminstone tre populationer borde finnas i det här området."
-      Dialogue4 = ""
-      Dialogue5 = "Bra jobbat!"
-      Dialogue6 = "finished">
+      Dialogue1 = "Deras populationsstorlek varierar drastiskt mellan åren på grund av vädret."
+      Dialogue2 = "finished">
     </Station3>
     <Station4
      Dialogue0 = "Här finns det torsk i mängder och det har funnits väldigt länge! Nästan lika länga som i Newfoundland vilket är 500 år."
-      Dialogue1 = "Tyvärr finns det inte så många ställen man får fiska längre. I Kanada har 40 000 fiskare förlorat sina jobb"
-      Dialogue2 = ""
-      Dialogue3 = "Hjälp till och fiska genom att använda fiskepöet i din ryggsäck"
-      Dialogue4 = "Bra jobbat, tyvärr kom du inte upp i rekordet på största mängden torsk på 1000 år vilket är 80 000 ton"
-      Dialogue5 = "finished">
+      Dialogue1 = "Tyvärr finns det inte så många ställen man får fiska längre. I Kanada har 40 000 fiskare förlorat sina jobb för att andra fiskare konkurrerat ut dem."
+      Dialogue2 = "finished">
     </Station4>
+    <Station5
+      Dialogue0 = "Oj en till vargflock, de verkar avvakta och försvara sitt revir från de andra vargarna i området"
+      Dialogue1 ="Visste du att de kan behöva mellan hundratals till tusendals kvadratkilometer att leva på?"
+      Dialogue2 ="finished">
+    </Station5>
+     <Station6
+      Dialogue0 = "Nämen en vargflock, håll dig på avstånd. De är predatorer precis som människor och äter med andra ord andra raser av djur."
+      Dialogue1 ="De begränsar med andra ord antalet andra mindre djur som finns i närheten genom att äta dem"
+      Dialogue2 ="Människor måste ofta tänka över hur mycket skog de skövlar, hur mycket fisk de fiskar så att de populationerna inte dör ut"
+      Dialogue3 ="finished">
+    </Station6>
+     <Station7
+      Dialogue0 = "Oj en vargflock, de verkar avvakta och försvara sitt revir"
+      Dialogue1 ="Visste du att de kan behöva mellan hundratals till tusendals kvadratkilometer att leva på?"
+      Dialogue2 ="finished">
+    </Station7>
+      
     <Items
       Item1 = "Den här komradion finns nu med dig genom hela vägen så jag kan guida dig."
       Item2 = "Bra! Klicka på koltrastarna när du ser dem!"
@@ -50,7 +54,10 @@
 
     </Items>
   </Game1>
-  <Game2>
+  <InformationText
+    Information1 =" "
+      
+        >
     <Station0
         Dialogue0 = "Kul att se dig igen! Vintern var hård mot djuren och växterna och jag hoppas verkligen att de mår bra"
         Dialogue1 = "Du gjorde ett så bra jobb sist, så jag skulle önska att du utförde rundan igen. Kan du göra det för mig?"
@@ -91,5 +98,5 @@
       Dialogue5 = "finished">
     </Station4>
 
-  </Game2>
+  </InformationText>
 </Root>
