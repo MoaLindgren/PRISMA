@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1573484869402336}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 208.6, y: 10, z: 345.9}
+  m_LocalPosition: {x: -2.600006, y: 10, z: 28.799988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -72,4 +72,4 @@ MonoBehaviour:
   weedLevel: 0
   rndBloomPercent: 3
   flower: {fileID: 1006550813111344, guid: 1d65082a8827384479e9f748cab4d86b, type: 2}
-  weed: {fileID: 1657262030038610, guid: 646091787fd244e41b507f3f95ceb76a, type: 2}
+  weed: {fileID: 1435467742513656, guid: 9b6eba5dea9e77a4abd8f45df1ffffb6, type: 2}

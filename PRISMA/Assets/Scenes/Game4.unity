@@ -57175,12 +57175,6 @@ Prefab:
       propertyPath: m_Name
       value: BloomLocation (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 114267214447541040, guid: 69b75c2c3b87aa546b36301aa517c7fd,
-        type: 2}
-      propertyPath: weed
-      value: 
-      objectReference: {fileID: 1435467742513656, guid: 9b6eba5dea9e77a4abd8f45df1ffffb6,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69b75c2c3b87aa546b36301aa517c7fd, type: 2}
   m_IsPrefabParent: 0

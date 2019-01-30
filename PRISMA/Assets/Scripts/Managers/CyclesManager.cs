@@ -15,6 +15,7 @@ public class CyclesManager : MonoBehaviour
     Slider yearSlider;
     [SerializeField]
     GameObject[] trees;
+    GameObject[] blooms;
     [SerializeField]
     List<Material> skyboxes;
     Material currentSkybox;
@@ -31,6 +32,8 @@ public class CyclesManager : MonoBehaviour
     string currentDay;
 
     SoundManager soundManager;
+
+    Bloom bloom;
 
     /*
     Jag behöver fixa så att morgon och kväll har kortare tid än dag och natt.
@@ -57,6 +60,7 @@ public class CyclesManager : MonoBehaviour
         soundManager = gameManager.GetComponent<SoundManager>();
         ready = false;
         trees = GameObject.FindGameObjectsWithTag("Tree");
+        blooms = GameObject.FindGameObjectsWithTag("BloomLocation");
         counter = 0;
         DaysCalculation();
         SeasonCalculation();
@@ -140,6 +144,11 @@ public class CyclesManager : MonoBehaviour
                 rend.materials[1].mainTexture = defaultTexture;
                 rend.materials[1].color = new Color32(209, 255, 0, 255);
                 snow.SetActive(false);
+                
+            }
+            foreach (GameObject blomma in blooms)
+            {
+                blomma.GetComponent<Bloom>().CanGrow();
             }
         }
         else if (daysCounter <= summerDays)
@@ -169,6 +178,11 @@ public class CyclesManager : MonoBehaviour
                 rend.materials[1].mainTexture = snowTexture;
                 rend.materials[1].color = new Color32(255, 255, 255, 255);
                 snow.SetActive(true);
+                
+            }
+            foreach (GameObject blomma in blooms)
+            {
+                blomma.GetComponent<Bloom>().RemoveFlower();
             }
         }
     }

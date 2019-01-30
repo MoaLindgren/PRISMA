@@ -28,12 +28,10 @@ public class Bloom : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        canGrow = true;
         hasFlower = false;
-        RandomizeValue();
-        growTimer = growTimerStart;
+        CanGrow();
         myLocation = gameObject.transform;
-        print("Moa är arg och Lucas vill ha Freitas här");
+
 
     }
 
@@ -121,22 +119,15 @@ public class Bloom : MonoBehaviour
         //om spelaren har ogräsitem och det är ogräs: ta bort ogräs
         if (!hasFlower && !canGrow)
         {
-            Destroy(currentWeed);
-            canGrow = true;
-            RandomizeValue();
-            growTimerStart = growTimer;
-            weedLevel = 0;
+            RemoveFlower();
+            CanGrow();
         }
         if (hasFlower && !canGrow)
         {
             if(currentWeed != null)
             {
-                Destroy(currentWeed);
-                canGrow = true;
-                RandomizeValue();
-                growTimerStart = growTimer;
-                weedLevel = 0;
-
+                RemoveFlower();
+                CanGrow();
             }
         }
     }
@@ -145,5 +136,20 @@ public class Bloom : MonoBehaviour
     {
         Destroy(currentBloom);
         hasFlower = false;
+    }
+
+    public void RemoveFlower()
+    {
+        print(currentWeed.name); //fixa så att det kollar om det är tomt eller inte, och vad det är för object
+        Destroy(currentWeed);
+        Destroy(currentBloom);
+
+    }
+    public void CanGrow()
+    {
+        canGrow = true;
+        RandomizeValue();
+        growTimerStart = growTimer;
+        weedLevel = 0;
     }
 }
