@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Root>
-  <Game1>
     <Station0
       Dialogue0 = "Välkommen till - Här kan du uppleva naturen i lugn och ro. Följ stigen och testa dig fram i miljön, det finns alltid något att upptäcka."
       Dialogue1 = "I din loggbok ser du vad du har kvar att upptäcka. Försök att uppnå så många du hinner!"
@@ -44,59 +43,17 @@
       Dialogue1 ="Visste du att de kan behöva mellan hundratals till tusendals kvadratkilometer att leva på?"
       Dialogue2 ="finished">
     </Station7>
-      
+  
+    <Trigger0
+      Dialogue0 ="test dialogue"
+      Dialogue1 ="finished">
+    </Trigger0>     
+  
     <Items
-      Item1 = "Den här komradion finns nu med dig genom hela vägen så jag kan guida dig."
+      Item0 = "Den här komradion finns nu med dig genom hela vägen så jag kan guida dig."
       Item2 = "Bra! Klicka på koltrastarna när du ser dem!"
       Item3 = "Bra! Klicka på ogräset för att ta bort det!"
       Item4 = "Bra! Klicka på riddarskinnbaggarna när du ser dem!"
       Item5 = "Bra! Klicka på torskarna när du ser dem!">
-
     </Items>
-  </Game1>
-  <InformationText
-    Information1 =" "
-      
-        >
-    <Station0
-        Dialogue0 = "Kul att se dig igen! Vintern var hård mot djuren och växterna och jag hoppas verkligen att de mår bra"
-        Dialogue1 = "Du gjorde ett så bra jobb sist, så jag skulle önska att du utförde rundan igen. Kan du göra det för mig?"
-        Dialogue2 = "Tack, och lycka till!"
-        Dialogue3 = "finished">
-    </Station0>
-    <Station1
-      Dialogue0 = "Kul att du är tillbaka! Tyvärr verkade inte koltrastarna ha klarat sig så bra genom den hårda vintern, till skillnad från flugsnappar bor de ej i fågelholkar"
-      Dialogue1 = "Ett anteckningsblock finns i din ryggsäck! Använd det för att räkna fåglarna"
-      Dialogue2 = ""
-      Dialogue3 = "Bra jobbat!"
-      Dialogue4 = "finished">
-    </Station1>
-    <Station2
-      Dialogue0 = "Nämen, här fortsätter de att växa, hjälp trädgårdsblommorna genom att ta bort maskrosorna och tistlarna"
-      Dialogue1 = "I ryggsäcken finns det en ogräsborttagare som du måste använda!"
-      Dialogue2 = ""
-      Dialogue3 = "Du vann! Bra jobbat"
-      Dialogue4 = "finished"
-      Dialogue5 = "Tyvärr klarade sig inte växterna så bra. Bättre lycka nästa gång!"
-      Dialogue6 = "finished">
-    </Station2>
-    <Station3
-      Dialogue0 = "Nu ska vi se hur många riddarskinnbaggar som finns kvar!"
-      Dialogue1 = "Det verkar vara färre än senast, men inte nära så få som den största variationen i Södermanland som var 200 gånger så många från år till år"
-      Dialogue2 = "Populationsstorleken för riddarskinnbaggarna bestäms till stor del av hur mycket föda de får"
-      Dialogue3 = "Som du säkert minns, finns det tulkörtsfrön i din ryggsäck, öppna den och ta fram det."
-      Dialogue4 = ""
-      Dialogue5 = "Bra jobbat! Nu kommer de klara sig bättre än senast!"
-      Dialogue6 = "finished">
-    </Station3>
-    <Station4
-     Dialogue0 = "Här finns det torsk i mängder och det har funnits väldigt länge! Nästan lika länga som i Newfoundland vilket är 500 år."
-      Dialogue1 = "life is neverending-torment"
-      Dialogue2 = ""
-      Dialogue3 = "Hjälp till och fiska genom att använda fiskepöet i din ryggsäck"
-      Dialogue4 = "Bra jobbat, men inte denna gång heller lyckades du med rekordet på största mängden torsk på 1000 år"
-      Dialogue5 = "finished">
-    </Station4>
-
-  </InformationText>
 </Root>

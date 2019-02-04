@@ -22,7 +22,7 @@ public class Minigame4 : MonoBehaviour {
 
     PlayerBehaviour playerBehaviour;
     MenuManager menuManager;
-    testGameManager testGame;
+    GameManager gameManagerScript;
     XmlManager xmlManager;
 
 
@@ -40,7 +40,7 @@ public class Minigame4 : MonoBehaviour {
         menuManager = gameManager.GetComponent<MenuManager>();
         xmlManager = gameManager.GetComponent<XmlManager>();
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
-        testGame = GetComponent<testGameManager>();
+        gameManagerScript = GetComponent<GameManager>();
 
         menuManager.MiniGame1(true);
     }
@@ -79,6 +79,6 @@ public class Minigame4 : MonoBehaviour {
     void GameOver()
     {
         menuManager.MiniGame1(false);
-        testGame.EndGame(true);
+        gameManagerScript.EndGame(true);
     }
 }

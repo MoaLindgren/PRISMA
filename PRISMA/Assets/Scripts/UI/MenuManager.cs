@@ -140,7 +140,7 @@ public class MenuManager : MonoBehaviour
     public void Dialogue()
     {
         soundManager.UISound(buttonClick);
-        xmlManager.Dialogue(false, true);
+        //xmlManager.Dialogue(false, true);
     }
 
 }

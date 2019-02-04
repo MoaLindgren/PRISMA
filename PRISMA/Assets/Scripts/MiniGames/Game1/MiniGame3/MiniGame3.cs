@@ -14,7 +14,7 @@ public class MiniGame3 : MonoBehaviour
     Vector3 cameraPos;
 
     PlayerBehaviour playerBehaviour;
-    testGameManager gameManager;
+    GameManager gameManager;
 
     [SerializeField]
     float clickTimer, max;
@@ -26,7 +26,7 @@ public class MiniGame3 : MonoBehaviour
 
     void Start()
     {
-        gameManager = gameObject.GetComponent<testGameManager>();
+        gameManager = gameObject.GetComponent<GameManager>();
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
 
         InitializeGame();

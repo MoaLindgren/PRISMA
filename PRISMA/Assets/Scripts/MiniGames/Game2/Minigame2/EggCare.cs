@@ -23,7 +23,7 @@ public class EggCare : MonoBehaviour
     public List<GameObject> takenLocation;
 
     PlayerBehaviour playerBehaviour;
-    testGameManager testManager;
+    GameManager gameManagerScript;
     MenuManager menuManager;
 
     bool gameStart;
@@ -46,7 +46,7 @@ public class EggCare : MonoBehaviour
         gameManager = GameObject.Find("GameManager");
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
         menuManager = gameManager.GetComponent<MenuManager>();
-        testManager = GetComponent<testGameManager>();
+        gameManagerScript = GetComponent<GameManager>();
 
         menuManager.MiniGame1(true);
     }
@@ -84,7 +84,7 @@ public class EggCare : MonoBehaviour
     void Win()
     {
         gameStart = false;
-        testManager.EndGame(true);
+        gameManagerScript.EndGame(true);
         eggLocations = GameObject.FindGameObjectsWithTag("Egg");
         print("idunno");
         foreach (GameObject egg in eggLocations)
@@ -97,7 +97,7 @@ public class EggCare : MonoBehaviour
     void Loose()
     {
         gameStart = false;
-        testManager.EndGame(false);
+        gameManagerScript.EndGame(false);
         eggLocations = GameObject.FindGameObjectsWithTag("Egg");
         foreach (GameObject egg in eggLocations)
         {

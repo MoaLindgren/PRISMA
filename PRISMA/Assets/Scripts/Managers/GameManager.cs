@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         gameRound++;
         playerBehaviour.moveable = false;
         gameIndex = int.Parse(gameObject.tag);
-        xmlManager.SetUpXML(gameIndex, gameRound);
+        //xmlManager.SetUpXML(gameIndex, gameRound);
         itemManager.AddItem(gameIndex + 1, items[gameIndex]);
         menuManager.currentStation = this.gameObject;
         currentMiniGame = GetComponent<MonoBehaviour>();
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         else if (gameIndex == 0)
         {
             playerBehaviour.moveable = true;
-            xmlManager.Dialogue(false, true);
+            //xmlManager.Dialogue(false, true);
         }
 
     }
@@ -75,6 +75,6 @@ public class GameManager : MonoBehaviour
     {
         currentMiniGame.enabled = false;
         playerBehaviour.moveable = true;
-        xmlManager.Dialogue(false, win);
+        //xmlManager.Dialogue(false, win);
     }
 }

@@ -25,7 +25,7 @@ public class MiniGame2 : MonoBehaviour
     public List<GameObject> takenLocation;
 
     PlayerBehaviour playerBehaviour;
-    testGameManager testGame;
+    GameManager gameManagerScript;
     MenuManager menuManager;
 
 
@@ -45,7 +45,7 @@ public class MiniGame2 : MonoBehaviour
         gameManager = GameObject.Find("GameManager");
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
         menuManager = gameManager.GetComponent<MenuManager>();
-        testGame = GetComponent<testGameManager>();
+        gameManagerScript = GetComponent<GameManager>();
         Randomize();
         SpawnWeed();
 
@@ -87,7 +87,7 @@ public class MiniGame2 : MonoBehaviour
     void Win()
     {
         gameStart = false;
-        testGame.EndGame(true);
+        gameManagerScript.EndGame(true);
         GameObject[] weeds = GameObject.FindGameObjectsWithTag("Weed");
         foreach (GameObject weed in weeds)
         {
@@ -103,7 +103,7 @@ public class MiniGame2 : MonoBehaviour
             Destroy(weed);
         }
         gameStart = false;
-        testGame.EndGame(false);
+        gameManagerScript.EndGame(false);
         
     }
 

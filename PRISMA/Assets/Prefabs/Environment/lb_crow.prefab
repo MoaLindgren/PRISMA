@@ -1991,6 +1991,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 0.1
   maxTime: 5
+  flyHeight: 0
+  time: 0
 --- !u!135 &135904871725184118
 SphereCollider:
   m_ObjectHideFlags: 1

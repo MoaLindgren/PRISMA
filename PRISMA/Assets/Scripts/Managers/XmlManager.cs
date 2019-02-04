@@ -11,20 +11,31 @@ public class XmlManager : MonoBehaviour
     XmlNodeList nodeList;
     TextAsset path;
     XmlWriter writer;
-    int dialogueCounter, index, gameRound;
+    int dialogueCounter, gameRound;
     MenuManager menuManager;
 
+    bool item;
+    string stationName;
+    int index;
 
     void Start()
     {
         menuManager = GetComponent<MenuManager>();
+        //SetUpXML();
     }
 
-    public void SetUpXML(int stationIndex, int gameRoundIndex)
+    public void SetUpXML(bool newItem, string name, int itemIndex)
     {
-        gameRound = gameRoundIndex;
-        index = stationIndex;
+        //gameRound = gameRoundIndex;
+        //index = stationIndex;
         dialogueCounter = 0;
+
+        item = newItem;
+        stationName = name;
+        index = itemIndex;
+
+
+
         doc = new XmlDocument();
 
         filePath = Application.dataPath + "/Resources/Dialogues.xml";
@@ -39,54 +50,93 @@ public class XmlManager : MonoBehaviour
             doc.Save(writer);
         }
         print(filePath);
-        Dialogue(false, true);
+        //Dialogue(false, true);
     }
-
-    public void Dialogue(bool item, bool win)
+    public void Dialogue(/*bool newItem, string name, int itemIndex*/)
     {
         nodeList = doc.GetElementsByTagName("Root");
 
         foreach (XmlNode rootNode in nodeList)
         {
-            foreach (XmlNode roundNode in rootNode)
+            foreach (XmlNode node in rootNode)
             {
-                if (roundNode.Name == "Game" + gameRound.ToString())
+                if(node.Name == name)
                 {
-                    foreach (XmlNode minigameNode in roundNode)
-                    {
-                        if (!item)
-                        {
-                            if (minigameNode.Name == "Station" + index.ToString())
-                            {
-
-                                if (win)
-                                {
-                                    menuManager.ViewDialogue(minigameNode.Attributes[dialogueCounter].Value, false);
-                                    dialogueCounter += 1;
-                                }
-                                else
-                                {
-                                    dialogueCounter += 2;
-                                    menuManager.ViewDialogue(minigameNode.Attributes[dialogueCounter].Value, false);
-                                    dialogueCounter += 1;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            if (minigameNode.Name == "Items")
-                            {
-                                print("hej");
-                                menuManager.ViewDialogue(minigameNode.Attributes[index].Value, true);
-                            }
-                        }
-                    }
+                    menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
                 }
 
 
+
+
+                //if (!newItem)
+                //{
+
+                //    if (node.Name == name)
+                //    {
+
+                //        menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
+                //        dialogueCounter += 1;
+                //    }
+                //}
+                //else
+                //{
+
+                //    if (node.Name == "Items")
+                //    {
+                //        print("uh");
+                //        menuManager.ViewDialogue(node.Attributes[index].Value, true);
+                //    }
+                //}
             }
         }
 
+        dialogueCounter++;
     }
+    //public void Dialogue(bool item, bool win)
+    //{
+    //    nodeList = doc.GetElementsByTagName("Root");
+
+    //    foreach (XmlNode rootNode in nodeList)
+    //    {
+    //        foreach (XmlNode roundNode in rootNode)
+    //        {
+    //            if (roundNode.Name == "Game" + gameRound.ToString())
+    //            {
+    //                foreach (XmlNode minigameNode in roundNode)
+    //                {
+    //                    if (!item)
+    //                    {
+    //                        if (minigameNode.Name == "Station" + index.ToString())
+    //                        {
+
+    //                            if (win)
+    //                            {
+    //                                menuManager.ViewDialogue(minigameNode.Attributes[dialogueCounter].Value, false);
+    //                                dialogueCounter += 1;
+    //                            }
+    //                            else
+    //                            {
+    //                                dialogueCounter += 2;
+    //                                menuManager.ViewDialogue(minigameNode.Attributes[dialogueCounter].Value, false);
+    //                                dialogueCounter += 1;
+    //                            }
+    //                        }
+    //                    }
+    //                    else
+    //                    {
+    //                        if (minigameNode.Name == "Items")
+    //                        {
+    //                            print("hej");
+    //                            menuManager.ViewDialogue(minigameNode.Attributes[index].Value, true);
+    //                        }
+    //                    }
+    //                }
+    //            }
+
+
+    //        }
+    //    }
+
+    //}
 
 }
