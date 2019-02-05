@@ -182,7 +182,7 @@ public class CyclesManager : MonoBehaviour
             }
             foreach (GameObject blomma in blooms)
             {
-                blomma.GetComponent<Bloom>().RemoveFlower();
+                blomma.GetComponent<Bloom>().RemoveWeed();
             }
         }
     }

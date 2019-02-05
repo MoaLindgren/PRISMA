@@ -18,14 +18,15 @@ public class Bloom : MonoBehaviour
 
     BloomManager bloomManager;
 
-    bool canGrow, hasFlower, spawnFlower;
+    [SerializeField]
+    bool canGrow, hasFlower, spawnFlower, hasWeed;
 
     Transform myLocation;
 
 
 
 
-    // Use this for initialization
+    
     void Start()
     {
         hasFlower = false;
@@ -35,7 +36,7 @@ public class Bloom : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (canGrow == true)
@@ -46,7 +47,7 @@ public class Bloom : MonoBehaviour
             {
                 RndBloom();
 
-                if (!spawnFlower)
+                if (!spawnFlower && !hasWeed)
                 {
                     GrowWeed();
                     RandomizeValue();
@@ -84,6 +85,8 @@ public class Bloom : MonoBehaviour
     void GrowWeed()//här skapas det ogräs
     {
         currentWeed = Instantiate(weed, myLocation);
+        hasWeed = true;
+
         canGrow = false;
     }
 
@@ -116,17 +119,21 @@ public class Bloom : MonoBehaviour
 
     private void OnMouseDown()
     {
+        print("träffar collidern");
+        print(currentWeed);
         //om spelaren har ogräsitem och det är ogräs: ta bort ogräs
-        if (!hasFlower && !canGrow)
+        if (hasFlower && canGrow)
         {
-            RemoveFlower();
+            RemoveWeed();
+            print("övre");
             CanGrow();
         }
         if (hasFlower && !canGrow)
         {
             if(currentWeed != null)
             {
-                RemoveFlower();
+                RemoveWeed();
+                print("udnre");
                 CanGrow();
             }
         }
@@ -138,11 +145,12 @@ public class Bloom : MonoBehaviour
         hasFlower = false;
     }
 
-    public void RemoveFlower()
+    public void RemoveWeed()
     {
-        print(currentWeed.name); //fixa så att det kollar om det är tomt eller inte, och vad det är för object
+        //fixa så att det kollar om det är tomt eller inte, och vad det är för object
         Destroy(currentWeed);
-        Destroy(currentBloom);
+        hasWeed = false;
+        //Destroy(currentBloom);
 
     }
     public void CanGrow()
