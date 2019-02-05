@@ -46,16 +46,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter()
+    public void Station()
     {
+        //Följande ska hända vid en station:
         Cursor.visible = true;
         gameRound++;
-        playerBehaviour.moveable = false;
+        playerBehaviour.moveable = false; 
         gameIndex = int.Parse(gameObject.tag);
-        //xmlManager.SetUpXML(gameIndex, gameRound);
+
         itemManager.AddItem(gameIndex + 1, items[gameIndex]);
-        menuManager.currentStation = this.gameObject;
-        currentMiniGame = GetComponent<MonoBehaviour>();
+        //menuManager.currentStation = this.gameObject;
+        //currentMiniGame = GetComponent<MonoBehaviour>();
     }
     public void StartGame()
     {

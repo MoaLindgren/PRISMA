@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Root>
     <Station0
-      Dialogue0 = "Välkommen till - Här kan du uppleva naturen i lugn och ro. Följ stigen och testa dig fram i miljön, det finns alltid något att upptäcka."
-      Dialogue1 = "I din loggbok ser du vad du har kvar att upptäcka. Försök att uppnå så många du hinner!"
-      Dialogue2 = "Det finns en komradio i din ryggsäck. Hämta den, så kan jag nå dig under hela din utflykt"
-      Dialogue3 = ""
-      Dialogue4 = "finished">
+      Dialogue0 = "Alla populationer varierar i storlek. Men antalet varierar olika mycket hos olika arter. Man vet inte om det beror på miljöstörningar eller om det är fråga om naturliga variationer."
+      Dialogue1 = "Genom att studera olika arter över många år, kan man få en bättre bild av hur stora svängningar som normalt förekommer hos olika arter."
+      Dialogue2 = "Du ska nu studera naturen i denna skog. I din loggbok finns dina uppgifter. Försök att klara så många du kan"
+      Dialogue3 = "Det finns en komradio i din ryggsäck. Hämta den, så kan jag nå dig under hela din utflykt"
+      Dialogue4 = ""
+      Dialogue5 = "finished">
     </Station0>
     <Station1
       Dialogue0 = "Där framme ser du en liten skog, där bor det nog ett antal fåglar."

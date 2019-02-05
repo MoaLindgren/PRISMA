@@ -14,34 +14,33 @@ public class XmlManager : MonoBehaviour
     int dialogueCounter, gameRound;
     MenuManager menuManager;
 
-    bool item;
-    string stationName;
+    bool station, dialogueStarted;
+    string name;
     int index;
+    [SerializeField]
+    float dialogueTimer;
+    float timer;
 
     void Start()
     {
+        timer = dialogueTimer;
         menuManager = GetComponent<MenuManager>();
         //SetUpXML();
     }
 
-    public void SetUpXML(bool newItem, string name, int itemIndex)
+    public void SetUpXML(bool station, string name, int item)
     {
         //gameRound = gameRoundIndex;
         //index = stationIndex;
         dialogueCounter = 0;
-
-        item = newItem;
-        stationName = name;
-        index = itemIndex;
-
-
+        this.station = station;
+        this.name = name;
+        this.index = item;
 
         doc = new XmlDocument();
-
         filePath = Application.dataPath + "/Resources/Dialogues.xml";
         path = Resources.Load("Dialogues") as TextAsset;
         doc.LoadXml(path.text);
-
         filePath = Application.persistentDataPath + "/Dialogues.xml";
         XmlWriterSettings settings = new XmlWriterSettings();
         settings.Indent = true;
@@ -50,9 +49,9 @@ public class XmlManager : MonoBehaviour
             doc.Save(writer);
         }
         print(filePath);
-        //Dialogue(false, true);
+        Dialogue();
     }
-    public void Dialogue(/*bool newItem, string name, int itemIndex*/)
+    public void Dialogue()
     {
         nodeList = doc.GetElementsByTagName("Root");
 
@@ -62,35 +61,40 @@ public class XmlManager : MonoBehaviour
             {
                 if(node.Name == name)
                 {
-                    menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
+                    if(node.Attributes[dialogueCounter].Value != "" || node.Attributes[dialogueCounter].Value != "finished")
+                    {
+                        menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
+
+
+                    }
+                    else if(node.Attributes[dialogueCounter].Value == "finished")
+                    {
+                        menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, true);
+                        dialogueStarted = false;
+                    }
+                    //else
+                    //{
+                    //    menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
+                    //}
+
                 }
-
-
-
-
-                //if (!newItem)
-                //{
-
-                //    if (node.Name == name)
-                //    {
-
-                //        menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
-                //        dialogueCounter += 1;
-                //    }
-                //}
-                //else
-                //{
-
-                //    if (node.Name == "Items")
-                //    {
-                //        print("uh");
-                //        menuManager.ViewDialogue(node.Attributes[index].Value, true);
-                //    }
-                //}
             }
         }
-
+        dialogueStarted = true;
         dialogueCounter++;
+    }
+    void Update()
+    {
+        print(dialogueStarted);
+        if(dialogueStarted)
+        {
+            timer -= Time.deltaTime;
+            if(timer <= 0)
+            {
+                Dialogue();
+                timer = dialogueTimer;
+            }
+        }
     }
     //public void Dialogue(bool item, bool win)
     //{
