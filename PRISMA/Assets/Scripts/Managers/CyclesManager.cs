@@ -20,8 +20,8 @@ public class CyclesManager : MonoBehaviour
     List<Material> skyboxes;
     Material currentSkybox;
     [SerializeField]
-    int numberOfDays, gameTime;
-    int counter, daysCounter, seasonCounter, daysPerSeason;
+    int numberOfDays, yearTime;
+    int counter, daysCounter, seasonCounter, daysPerSeason, yearCounter;
     [SerializeField]
     float dayCycleTimer;
     float timer, dayCycleCounter, shortSeason, longSeason, springDays, summerDays, autumnDays, winterDays;
@@ -67,7 +67,7 @@ public class CyclesManager : MonoBehaviour
     }
     void DaysCalculation()
     {
-        float daysPerMinute = numberOfDays / gameTime;
+        float daysPerMinute = numberOfDays / yearTime;
         dayCycleTimer = 60 / daysPerMinute;
         morningEveningTime = dayCycleTimer / 10;
         dayNightTime = (dayCycleTimer - (morningEveningTime * 2)) / 2;
@@ -122,7 +122,7 @@ public class CyclesManager : MonoBehaviour
             else
             {
                 daysCounter++;
-                yearSlider.value++;
+                yearSlider.value = daysCounter;
                 counter = 0;
             }
             currentDay = dayCycle[counter];
@@ -184,6 +184,11 @@ public class CyclesManager : MonoBehaviour
             {
                 blomma.GetComponent<Bloom>().RemoveWeed();
             }
+        }
+        if(daysCounter >= winterDays + longSeason)
+        {
+            daysCounter = 0;
+            yearSlider.value = daysCounter;
         }
     }
 
