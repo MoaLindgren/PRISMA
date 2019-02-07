@@ -24,140 +24,234 @@ public class Bloom : MonoBehaviour
     Transform myLocation;
 
 
-
-
-    
     void Start()
     {
-        hasFlower = false;
-        CanGrow();
+        canGrow = true;
         myLocation = gameObject.transform;
-
+        RandomizeTime();
+        
 
     }
 
-    
     void Update()
     {
         if (canGrow == true)
         {
             growTimer -= Time.deltaTime;
 
-            if (growTimer < 0)
+            if (growTimer <= 0)
             {
-                RndBloom();
-
-                if (!spawnFlower && !hasWeed)
-                {
-                    GrowWeed();
-                    RandomizeValue();
-                    growTimer = growTimerStart;
-                    
-                }
-
-                else if (!hasFlower && spawnFlower)
+                if (hasFlower == false)
                 {
                     GrowFlower();
-                    RandomizeValue();
+                }
+                else if(currentWeed == null)
+                {
+                    GrowWeed();
+                }
+            }
+        }
+        else if (canGrow == false && hasFlower == true)
+        {
+            growTimer -= Time.deltaTime;
+            if (growTimer <= 0)
+            {
+                if (weedLevel == 5)
+                {
+                    EatPlant();
+                }
+                else
+                {
+                    weedLevel++;
+                    RandomizeTime();
                     growTimer = growTimerStart;
                 }
             }
         }
-
-        else if (canGrow == false && hasFlower == true)
-        {
-            
-            growTimer -= Time.deltaTime;
-            if (growTimer < 0)
-            {
-                RandomizeValue();
-                growTimer = growTimerStart;
-                weedLevel++;
-                if (weedLevel == 2)
-                    eatPlant();
-            }
-                
-        }
         
-
     }
 
-    void GrowWeed()//här skapas det ogräs
-    {
-        currentWeed = Instantiate(weed, myLocation);
-        hasWeed = true;
-
-        canGrow = false;
-    }
-
-    void GrowFlower()//här skapas det blommor
-    {
-
-        currentBloom = Instantiate(flower, myLocation);
-
-        hasFlower = true;
-    }
-
-    void RandomizeValue()//Slumpa ett värde för hur länge till en ny planta växer
+    void RandomizeTime()
     {
         rndTime = Random.Range(minTime, maxTime);
         growTimerStart = rndTime;
+        growTimer = growTimerStart;
     }
 
-    void RndBloom()
+    void GrowWeed()
     {
-        int rndBloom = Random.Range(0, 10);
-        if (rndBloom <= rndBloomPercent)
-        {
-            spawnFlower = false;
-        }
-        else if (rndBloom >= (rndBloomPercent + 1))
-        {
-            spawnFlower = true;
-        }
+        currentWeed = Instantiate(weed, myLocation);
+        canGrow = false;
+        RandomizeTime();
+        
     }
 
-    private void OnMouseDown()
+    void GrowFlower() 
     {
-        print("träffar collidern");
-        print(currentWeed);
-        //om spelaren har ogräsitem och det är ogräs: ta bort ogräs
-        if (hasFlower && canGrow)
-        {
-            RemoveWeed();
-            print("övre");
-            CanGrow();
-        }
-        if (hasFlower && !canGrow)
-        {
-            if(currentWeed != null)
-            {
-                RemoveWeed();
-                print("udnre");
-                CanGrow();
-            }
-        }
+        currentBloom = Instantiate(flower, myLocation);
+        hasFlower = true;
+        RandomizeTime();
+        
     }
 
-    void eatPlant()
+    void EatPlant()//ät upp blomman som vi har på platsen
     {
         Destroy(currentBloom);
+        RandomizeTime();
         hasFlower = false;
+    }
+
+    void OnMouseDown()//Om vi har ogräs på platsen tar vi bort det
+    {
+        if(currentWeed != null)
+        {
+            RemoveWeed();
+        }
     }
 
     public void RemoveWeed()
     {
-        //fixa så att det kollar om det är tomt eller inte, och vad det är för object
         Destroy(currentWeed);
-        hasWeed = false;
-        //Destroy(currentBloom);
-
+        canGrow = true;
+        weedLevel = 0;
+        
     }
+
     public void CanGrow()
     {
-        canGrow = true;
-        RandomizeValue();
-        growTimerStart = growTimer;
-        weedLevel = 0;
+        
     }
+
+
+
+
+
+
+
+
+
+
+    //void Start()
+    //{
+    //    hasFlower = false;
+    //    CanGrow();
+    //    myLocation = gameObject.transform;
+
+
+    //}
+
+
+    //void Update()
+    //{
+    //    if (canGrow == true)
+    //    {
+    //        growTimer -= Time.deltaTime;
+
+    //        if (growTimer < 0)
+    //        {
+    //            RndBloom();
+
+    //            if (!spawnFlower && !hasWeed)
+    //            {
+    //                GrowWeed();
+    //                RandomizeValue();
+    //                growTimer = growTimerStart;
+
+    //            }
+
+    //            else if (!hasFlower && spawnFlower)
+    //            {
+    //                GrowFlower();
+    //                RandomizeValue();
+    //                growTimer = growTimerStart;
+    //            }
+    //        }
+    //    }
+
+    //    else if (canGrow == false && hasFlower == true)
+    //    {
+
+    //        growTimer -= Time.deltaTime;
+    //        if (growTimer < 0)
+    //        {
+    //            RandomizeValue();
+    //            growTimer = growTimerStart;
+    //            weedLevel++;
+    //            if (weedLevel == 2)
+    //                eatPlant();
+    //        }
+
+    //    }
+
+
+    //}
+
+    //void GrowWeed()//här skapas det ogräs
+    //{
+    //    canGrow = false;
+    //    currentWeed = Instantiate(weed, myLocation);
+    //    hasWeed = true;
+
+
+    //}
+
+    //void GrowFlower()//här skapas det blommor
+    //{
+
+    //    currentBloom = Instantiate(flower, myLocation);
+
+    //    hasFlower = true;
+    //}
+
+    //void RandomizeValue()//Slumpa ett värde för hur länge till en ny planta växer
+    //{
+    //    rndTime = Random.Range(minTime, maxTime);
+    //    growTimerStart = rndTime;
+    //}
+
+    //void RndBloom()
+    //{
+    //    int rndBloom = Random.Range(0, 10);
+    //    if (rndBloom <= rndBloomPercent)
+    //    {
+    //        spawnFlower = false;
+    //    }
+    //    else if (rndBloom >= (rndBloomPercent + 1))
+    //    {
+    //        spawnFlower = true;
+    //    }
+    //}
+
+    //private void OnMouseDown()
+    //{
+
+    //    if (currentWeed != null)
+    //    {
+    //        RemoveWeed();
+    //        CanGrow();
+    //    }
+
+    //}
+
+    //void eatPlant()
+    //{
+    //    Destroy(currentBloom);
+    //    hasFlower = false;
+    //}
+
+    //public void RemoveWeed()
+    //{
+    //    //fixa så att det kollar om det är tomt eller inte, och vad det är för object
+    //    Destroy(currentWeed);
+    //    hasWeed = false;
+    //    //Destroy(currentBloom);
+
+    //}
+    //public void CanGrow()
+    //{
+    //    canGrow = true;
+    //    RandomizeValue();
+    //    growTimerStart = growTimer;
+    //    weedLevel = 0;
+    //}
 }
