@@ -5,9 +5,9 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField]
-    AudioSource dayNightAudioSource, triggeredAudioSource, uiAudioSource;
+    AudioSource dayNightAudioSource, achievementAudioSource, uiAudioSource;
     [SerializeField]
-    AudioClip daySound, nightSound;
+    AudioClip daySound, nightSound, achievementSound;
 
     void Start()
     {
@@ -26,10 +26,10 @@ public class SoundManager : MonoBehaviour
             dayNightAudioSource.Play();
         }
     }
-    public void TriggerSound(AudioClip triggerSound)
+    public void TriggerSound()
     {
-        triggeredAudioSource.clip = triggerSound;
-        triggeredAudioSource.Play();
+        achievementAudioSource.clip = achievementSound;
+        achievementAudioSource.Play();
     }
     public void UISound(AudioClip uiSound)
     {

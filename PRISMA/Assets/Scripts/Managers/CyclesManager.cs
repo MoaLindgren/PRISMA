@@ -148,7 +148,7 @@ public class CyclesManager : MonoBehaviour
             }
             foreach (GameObject blomma in blooms)
             {
-                blomma.GetComponent<Bloom>().season = true;
+                blomma.GetComponent<Bloom>().spring = true;
                 blomma.GetComponent<Bloom>().canGrow = true;
                 
             }
@@ -185,7 +185,7 @@ public class CyclesManager : MonoBehaviour
             foreach (GameObject blomma in blooms)
             {
                 blomma.GetComponent<Bloom>().EatPlant();
-                blomma.GetComponent<Bloom>().season = false;
+                blomma.GetComponent<Bloom>().spring = false;
                 
             }
         }

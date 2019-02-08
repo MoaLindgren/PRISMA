@@ -6,25 +6,14 @@ public class BloomManager : MonoBehaviour {
 
     Bloom bloom;
     PlayerBehaviour playerBehaviour;
-
-
-    GameObject player, gameManager;
-
+    GameObject player, gameManager, bloomLocation;
     GameObject[] bloomLocations;
-
-    GameObject bloomLocation;
-
-
-
-
 
     void Start ()
     {
-
         bloomLocations = GameObject.FindGameObjectsWithTag("BloomLocation");
         player = GameObject.FindGameObjectWithTag("player");
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
-
     }
 	
 	// Update is called once per frame

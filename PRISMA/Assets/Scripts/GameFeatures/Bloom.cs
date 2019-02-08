@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Bloom : MonoBehaviour
 {
-
-
     [SerializeField]
     float minTime, maxTime, growTimer, growTimerStart, rndTime;
 
     [SerializeField]
     int weedLevel, rndBloomPercent;
+    int countWeed, achievementIndex;
 
     [SerializeField]
     GameObject flower, weed;
@@ -21,24 +20,22 @@ public class Bloom : MonoBehaviour
     [SerializeField]
     bool  hasFlower, spawnFlower, hasWeed;
 
-    public bool season, canGrow;
+    public bool spring, canGrow;
 
     Transform myLocation;
 
-
     void Start()
     {
+        countWeed = 0;
         canGrow = true;
         myLocation = gameObject.transform;
         RandomizeTime();
-        season = true;
-        
-
+        spring = true;
     }
 
     void Update()
     {
-        if (season == false)
+        if (spring == false)
         {
             RemoveWeed();
             canGrow = false;
@@ -117,6 +114,11 @@ public class Bloom : MonoBehaviour
     {
         if(currentWeed != null)
         {
+            countWeed++;
+            if(countWeed == 1)
+            {
+
+            }
             RemoveWeed();
         }
     }

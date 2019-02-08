@@ -17,7 +17,7 @@ public class SoundTrigger : MonoBehaviour
     {
         if (col.tag == "player")
         {
-            gameManager.GetComponent<SoundManager>().TriggerSound(audioClip);
+            gameManager.GetComponent<SoundManager>().TriggerSound();
         }
     }
 }
