@@ -19,7 +19,9 @@ public class Bloom : MonoBehaviour
     BloomManager bloomManager;
 
     [SerializeField]
-    bool canGrow, hasFlower, spawnFlower, hasWeed;
+    bool  hasFlower, spawnFlower, hasWeed;
+
+    public bool season, canGrow;
 
     Transform myLocation;
 
@@ -29,46 +31,56 @@ public class Bloom : MonoBehaviour
         canGrow = true;
         myLocation = gameObject.transform;
         RandomizeTime();
+        season = true;
         
 
     }
 
     void Update()
     {
-        if (canGrow == true)
+        if (season == false)
         {
-            growTimer -= Time.deltaTime;
+            RemoveWeed();
+            canGrow = false;
+        }
+        else
+        {
+            if (canGrow == true)
+            {
+                growTimer -= Time.deltaTime;
 
-            if (growTimer <= 0)
-            {
-                if (hasFlower == false)
+                if (growTimer <= 0)
                 {
-                    GrowFlower();
-                }
-                else if(currentWeed == null)
-                {
-                    GrowWeed();
-                }
-            }
-        }
-        else if (canGrow == false && hasFlower == true)
-        {
-            growTimer -= Time.deltaTime;
-            if (growTimer <= 0)
-            {
-                if (weedLevel == 5)
-                {
-                    EatPlant();
-                }
-                else
-                {
-                    weedLevel++;
-                    RandomizeTime();
-                    growTimer = growTimerStart;
+                    if (hasFlower == false)
+                    {
+                        GrowFlower();
+                    }
+                    else if (currentWeed == null)
+                    {
+                        GrowWeed();
+                    }
                 }
             }
+            else if (canGrow == false && hasFlower == true)
+            {
+                growTimer -= Time.deltaTime;
+                if (growTimer <= 0)
+                {
+                    if (weedLevel == 5)
+                    {
+                        EatPlant();
+                    }
+                    else
+                    {
+                        weedLevel++;
+                        RandomizeTime();
+                        growTimer = growTimerStart;
+                    }
+                }
+            }
+
         }
-        
+
     }
 
     void RandomizeTime()
@@ -94,7 +106,7 @@ public class Bloom : MonoBehaviour
         
     }
 
-    void EatPlant()//ät upp blomman som vi har på platsen
+    public void EatPlant()//ät upp blomman som vi har på platsen
     {
         Destroy(currentBloom);
         RandomizeTime();
@@ -117,7 +129,7 @@ public class Bloom : MonoBehaviour
         
     }
 
-    public void CanGrow()
+    public void SwitchSeason()
     {
         
     }

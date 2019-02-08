@@ -148,7 +148,9 @@ public class CyclesManager : MonoBehaviour
             }
             foreach (GameObject blomma in blooms)
             {
-                blomma.GetComponent<Bloom>().CanGrow();
+                blomma.GetComponent<Bloom>().season = true;
+                blomma.GetComponent<Bloom>().canGrow = true;
+                
             }
         }
         else if (daysCounter <= summerDays)
@@ -182,7 +184,9 @@ public class CyclesManager : MonoBehaviour
             }
             foreach (GameObject blomma in blooms)
             {
-                blomma.GetComponent<Bloom>().RemoveWeed();
+                blomma.GetComponent<Bloom>().EatPlant();
+                blomma.GetComponent<Bloom>().season = false;
+                
             }
         }
         if(daysCounter >= winterDays + longSeason)
