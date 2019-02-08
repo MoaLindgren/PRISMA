@@ -80,6 +80,7 @@ public class MenuManager : MonoBehaviour
         soundManager.UISound(buttonClick);
         backPackBox.SetActive(false);
     }
+
     public void OpenAchievements()
     {
         soundManager.UISound(buttonClick);
