@@ -44,6 +44,47 @@
    Dialogue1 ="Visste du att de kan behöva mellan hundratals till tusendals kvadratkilometer att leva på?"
    Dialogue2 ="finished">
   </Station7>
+  <!--När man tar bort x ogräs -->
+   <Station8
+  Dialogue0 ="Bra jobbat! Konkurrens kan hindra en art från att klara sig i ett område."
+  Dialogue1 ="De flesta trädgårdsväxter har förts in från andra länder."
+  Dialogue2 ="Många överlever och förökar sig utan några problem i vårt klimat, men bara om vi håller ogräset borta som de vilda och mer konkurrenskraftiga plantorna kallas."
+  Dialogue3 ="Konkurrens är vanligast mellan individer i samma population, eftersom de använder samma resurser. Men konkurrens förekommer även mellan olika arter med liknande behov."
+  Dialogue4 ="En resurs kännetecknas som något som kan ta slut och tillgången då blir mindre ju fler som använder den. Färre resurser kan leda till att individer lever kortare liv."
+  Dialogue5 ="finished">
+  </Station8>
+  <!--När man sätter ut första fågelholken -->
+   <Station9
+  Dialogue0 ="Vad bra att du hjälper till!. Vädret påverkar antalet koltrastar. Många koltrastar övervintrar i Sverige. Våren efter en kall vinter finns det färre sjungande koltrastar än efter en mild vinter."
+  Dialogue1 ="Mat är resurser för djur, medan närsalter är resurser för växter."
+  Dialogue2 ="Temperaturen i luften eller pH-värdet i en sjö är däremot inte några resurser, även om de är viktiga miljöfaktorer. Temperaturen kan inte ta slut."
+  Dialogue3 ="finished">
+  </Station9>
+  <!-- När man stöter på vargar-->
+  <Station10 
+  Dialogue0 ="Akta det finns varjar där framme. Vargar är predatorer precis som människor."
+  Dialogue1 ="Med predation menas att en art skadar eller äter upp en annan art. Den som äter kallas predator och kan vara ett rovdjur eller en växtätare. Växtätare är predatorer på växter."
+  Dialogue2 ="finished">
+  </Station10>
+  <Station11
+    Dialogue1 ="Detta kallas Mutualism vilket betyder att två arter gynnar varandra. Ibland används symbios som synonym, men symbios betyder nära samliv i vidare mening och innefattar även parasitiska förhållanden."
+    Dialogue0 ="Lavarna utsöndrar sura ämnen som påskyndar bergets vittring, vilket bidrar tillatt det så småningom bildas jord. Lavarna innehåller dessutom kvävefixerande blågröna bakterier, som tillför jorden kvävesalter."
+    Dialogue2 ="Lavarna gör det alltså möjligt för mer krävande växter att leva i området. Det brukar sluta med att dessa skuggar och konkurrerar ut lavarna."
+    Dialogue3 ="Vissa arter klarar sig inte utan varandra. Förhållandet kallas obligat mutualism."
+    Dialogue4 ="finished">
+  </Station11>
+  <Station12
+  Dialogue1 ="Konkurrens bland djur behöver inte betyda att de slåss med varandra. Det är vanligt att djur slåss med varandra om att få utnyttja resurserna inom ett område. Ett område som ett djur försvarar kallas revir."
+  Dialogue2 ="Djur slåss bara om revir om det råder brist på resurser. Finns det gott om resurser, finns det ingen anledning att försvara revir."
+  Dialogue3 ="finished">
+  </Station12>
+  <Station13
+  Dialogue0 ="En arts utbredning begränsas till områden med lämpliga habitat där arten kan fortplanta sig och överleva. En art kan vara ovanlig därför att habitaten är ovanliga."
+  Dialogue1 ="Allmänt gäller att större organismer behöver större områden. En vargflock behöver ett område om hundratals till tusentals kvadratkilometer med lämpliga habitat. "
+  Dialogue2 ="En livskraftig population av en mindre art, till exempel den utrotningshotade dårgräsfjärilen, kan klara sig med några hektar."
+  Dialogue3 ="finished">
+  </Station13>
+  
 
   <Trigger0
     Dialogue0 ="Olika växter konkurrerar om utrymmet på en gräsmatta. Det kan exempelvis vara brist på platser där något användbart finns."
@@ -57,6 +98,13 @@
   Dialogue0 ="Konkurrensen gör att en art blir ovanligare än utan konkurrens. Konkurrens mellan arter kan leda till att de specialiserar sig på det som de är bäst på."
   Dialogue1 ="finished">
   </Trigger2>
+  <!--När man kommer in i koltrastskogen -->
+   <Trigger3
+  Dialogue0 ="Vädret har också stor påverkan för hur vanlig vissa arter och populationer blir."
+  Dialogue1 ="En kall vinter behöver övervintrande fåglar äta mer för att hålla värmen och överleva. En sträng vinter kan vara svår att överleva för många djur."
+  Dialogue2 ="Jag hoppas inte denna vinter inte blir alltför kall så att koltrastarna klarar sig bra."
+  Dialogue3 ="finished">
+  </Trigger3>
 
   <Items
       Item0 = "Den här komradion finns nu med dig genom hela vägen så jag kan guida dig."
