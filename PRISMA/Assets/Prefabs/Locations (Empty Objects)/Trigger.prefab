@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myName: Trigger
   index: 0
-  station: 0
+  trigger: 1
 --- !u!135 &135866100747339670
 SphereCollider:
   m_ObjectHideFlags: 1
