@@ -7,7 +7,11 @@ public class PlayerBehaviour : MonoBehaviour
     public float moveSpeed, rotationSpeed;
     [SerializeField]
     float rotationUp, rotationDown;
-    public bool moveable;
+    bool moveable;
+    public bool Moveable
+    {
+        set { moveable = value; }
+    }
 
     void Start()
     {

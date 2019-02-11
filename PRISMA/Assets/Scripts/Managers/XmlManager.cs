@@ -17,7 +17,7 @@ public class XmlManager : MonoBehaviour
     [SerializeField]
     float dialogueTimer;
     float timer;
-    int dialogueCounter, gameRound, index;
+    int dialogueCounter, index;
 
     void Start()
     {

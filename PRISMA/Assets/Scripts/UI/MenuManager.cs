@@ -110,7 +110,7 @@ public class MenuManager : MonoBehaviour
             if (dialogue == "finished")
             {
                 dialogueBox.SetActive(false);
-                playerBehaviour.moveable = true;
+                playerBehaviour.Moveable = true;
             }
             else if (dialogue == "")
             {

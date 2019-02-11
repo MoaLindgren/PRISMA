@@ -5,15 +5,17 @@ using UnityEngine;
 public class AchievementManager : MonoBehaviour
 {
     SoundManager soundManager;
+    PlayerBehaviour playerBehaviour;
 
     void Start()
     {
-        soundManager = GetComponent<SoundManager>();
+        soundManager = GameObject.Find("GameManager").GetComponent<SoundManager>();
+        playerBehaviour = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerBehaviour>();
     }
-    void AchievementAccomplished(int index)
+    void OnTriggerEnter()
     {
         soundManager.TriggerSound();
-        //Aktivera rätt achievement.
+        playerBehaviour.Moveable = false;
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
-
 }

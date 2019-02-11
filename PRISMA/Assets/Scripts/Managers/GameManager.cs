@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     {
         Cursor.visible = true;
         gameRound++;
-        playerBehaviour.moveable = false; 
+        playerBehaviour.Moveable = false; 
         gameIndex = int.Parse(gameObject.tag);
 
         itemManager.AddItem(gameIndex + 1, items[gameIndex]);
@@ -60,13 +60,13 @@ public class GameManager : MonoBehaviour
         }
         else if (gameIndex == 0)
         {
-            playerBehaviour.moveable = true;
+            playerBehaviour.Moveable = true;
         }
 
     }
     public void EndGame(bool win)
     {
         //currentMiniGame.enabled = false;
-        playerBehaviour.moveable = true;
+        playerBehaviour.Moveable = true;
     }
 }
