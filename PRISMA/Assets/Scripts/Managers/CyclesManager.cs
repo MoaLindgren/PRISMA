@@ -9,13 +9,12 @@ public class CyclesManager : MonoBehaviour
     Texture snowTexture, defaultTexture;
     [SerializeField]
     GameObject snow;
-    GameObject gameManager;
     Renderer rend;
     [SerializeField]
     Slider yearSlider;
     [SerializeField]
     GameObject[] trees;
-    GameObject[] blooms;
+    GameObject[] flowers;
     [SerializeField]
     List<Material> skyboxes;
     Material currentSkybox;
@@ -24,44 +23,24 @@ public class CyclesManager : MonoBehaviour
     int counter, daysCounter, seasonCounter, daysPerSeason, yearCounter;
     [SerializeField]
     float dayCycleTimer;
-    float timer, dayCycleCounter, shortSeason, longSeason, springDays, summerDays, autumnDays, winterDays;
-    float morningEveningTime, dayNightTime;
+    float timer, dayCycleCounter, shortSeason, longSeason, springDays, summerDays, autumnDays, winterDays, morningEveningTime, dayNightTime;
     bool dayNight, ready;
 
     List<string> dayCycle = new List<string>() { "Morning", "Day", "Evening", "Night" };
     string currentDay;
 
     SoundManager soundManager;
-
     Bloom bloom;
 
-    /*
-    Jag behöver fixa så att morgon och kväll har kortare tid än dag och natt.
-    Just nu så startar den dessutom på dag, varför??
-
-    Andra saker som behövs:
-        Ändra markens färg med årstiderna.
-        Lägga in ljud (beroende på årstiderna).
-        Rensa importerade assets.
-        Justera om i XML
-        Sätta restrictions på vart spelaren får gå, och fixa så spelaren INTE ramlar vid kollision
-        Att spelet ska ta slut när alla dagar har gått
-        En achievement-logg
-        En manager för allt som ske, och vad de beror på. Exempel på några sådana:
-            - Ogräs ska spawna hela tiden, utom på vintern. Då stannar all växtlighet.
-            - Fåglar ska flyga runt under hela året, men allra mest på våren och sommaren
-            - Fjärilar finns bara på soliga vår/sommar-dagar
-            - Riddarskinnbaggen hittar man bara om man planterat tulkört
-            - Blåsipporna finns bara på våren
-    */
     void Start()
     {
-        gameManager = GameObject.Find("GameManager");
-        soundManager = gameManager.GetComponent<SoundManager>();
-        ready = false;
+        soundManager = GameObject.Find("GameManager").GetComponent<SoundManager>();
         trees = GameObject.FindGameObjectsWithTag("Tree");
-        blooms = GameObject.FindGameObjectsWithTag("BloomLocation");
+        flowers = GameObject.FindGameObjectsWithTag("BloomLocation");
+
+        ready = false;
         counter = 0;
+
         DaysCalculation();
         SeasonCalculation();
     }
@@ -71,8 +50,6 @@ public class CyclesManager : MonoBehaviour
         dayCycleTimer = 60 / daysPerMinute;
         morningEveningTime = dayCycleTimer / 10;
         dayNightTime = (dayCycleTimer - (morningEveningTime * 2)) / 2;
-
-
 
         dayNight = true;
         dayCycleCounter = timer;
@@ -98,7 +75,6 @@ public class CyclesManager : MonoBehaviour
             DayCycle();
             YearCycle();
         }
-
     }
 
     void DayCycle()
@@ -146,10 +122,10 @@ public class CyclesManager : MonoBehaviour
                 snow.SetActive(false);
                 
             }
-            foreach (GameObject blomma in blooms)
+            foreach (GameObject flower in flowers)
             {
-                blomma.GetComponent<Bloom>().spring = true;
-                blomma.GetComponent<Bloom>().canGrow = true;
+                flower.GetComponent<Bloom>().spring = true;
+                flower.GetComponent<Bloom>().canGrow = true;
                 
             }
         }
@@ -180,13 +156,11 @@ public class CyclesManager : MonoBehaviour
                 rend.materials[1].mainTexture = snowTexture;
                 rend.materials[1].color = new Color32(255, 255, 255, 255);
                 snow.SetActive(true);
-                
             }
-            foreach (GameObject blomma in blooms)
+            foreach (GameObject blomma in flowers)
             {
                 blomma.GetComponent<Bloom>().EatPlant();
                 blomma.GetComponent<Bloom>().spring = false;
-                
             }
         }
         if(daysCounter >= winterDays + longSeason)

@@ -15,7 +15,7 @@ public class BirdBehaviour : MonoBehaviour
     Vector3 destination;
     bool flyReady;
     ItemsManager itemManager;
-    testMiniGame1 miniGame1;
+    //testMiniGame1 miniGame1;
     GameObject gameManager, station1;
     bool counted;
 

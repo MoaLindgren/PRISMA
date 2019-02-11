@@ -22,5 +22,4 @@ public class CameraManager : MonoBehaviour
             transform.rotation = transform.parent.transform.rotation;
         }
     }
-
 }

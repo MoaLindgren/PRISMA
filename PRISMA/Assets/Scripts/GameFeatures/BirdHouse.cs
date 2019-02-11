@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdHouse : MonoBehaviour {
-
-
+public class BirdHouse : MonoBehaviour
+{
     [SerializeField]
     GameObject birdHouse;
-
     Transform birdHouseLocation;
-
     bool hasBirdHouse;
 
     void Start()
     {
         hasBirdHouse = false;
-        birdHouseLocation.position = gameObject.transform.position;
+        //birdHouseLocation.position = gameObject.transform.position;
     }
 
     void OnMouseDown()
@@ -24,11 +21,10 @@ public class BirdHouse : MonoBehaviour {
 
         //Lås upp rätt achievemnt + starta texten
 
-        if(hasBirdHouse == false)
+        if (hasBirdHouse == false)
         {
             Instantiate(birdHouse, gameObject.transform);
             hasBirdHouse = true;
         }
-        
     }
 }

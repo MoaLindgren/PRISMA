@@ -4,34 +4,30 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    int gameIndex;
-    public int gameRound;
+    int gameIndex, gameRound;
     public bool startGame;
 
-    GameObject gameManager, player, camera;
+    Vector3 playerLockRotation;
+    GameObject player;
     XmlManager xmlManager;
     ItemsManager itemManager;
     MenuManager menuManager;
     PlayerBehaviour playerBehaviour;
     CameraManager cameraManager;
-    MonoBehaviour currentMiniGame;
+    //MonoBehaviour currentMiniGame;
     string[] items = { "Komradio", "Anteckningsblock", "Ogräsborttagare", "Räknare", "Fiskespö" };
-    public bool testBool;
-
-    Vector3 playerLockRotation;
 
     void Start()
     {
         Cursor.visible = false;
-        testBool = false;
         gameRound = 0;
-        camera = GameObject.Find("Main Camera");
-        cameraManager = camera.GetComponent<CameraManager>();
-        gameManager = GameObject.Find("GameManager");
+
         player = GameObject.FindGameObjectWithTag("player");
-        xmlManager = gameManager.GetComponent<XmlManager>();
-        itemManager = gameManager.GetComponent<ItemsManager>();
-        menuManager = gameManager.GetComponent<MenuManager>();
+
+        cameraManager = GameObject.Find("Main Camera").GetComponent<CameraManager>();
+        xmlManager = GetComponent<XmlManager>();
+        itemManager = GetComponent<ItemsManager>();
+        menuManager = GetComponent<MenuManager>();
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
     }
     void Update()
@@ -48,34 +44,29 @@ public class GameManager : MonoBehaviour
 
     public void Station()
     {
-        //Följande ska hända vid en station:
         Cursor.visible = true;
         gameRound++;
         playerBehaviour.moveable = false; 
         gameIndex = int.Parse(gameObject.tag);
 
         itemManager.AddItem(gameIndex + 1, items[gameIndex]);
-        //menuManager.currentStation = this.gameObject;
-        //currentMiniGame = GetComponent<MonoBehaviour>();
     }
     public void StartGame()
     {
         if (gameIndex != 0)
         {
             startGame = true;
-            currentMiniGame.enabled = true;
+            //currentMiniGame.enabled = true;
         }
         else if (gameIndex == 0)
         {
             playerBehaviour.moveable = true;
-            //xmlManager.Dialogue(false, true);
         }
 
     }
     public void EndGame(bool win)
     {
-        currentMiniGame.enabled = false;
+        //currentMiniGame.enabled = false;
         playerBehaviour.moveable = true;
-        //xmlManager.Dialogue(false, win);
     }
 }

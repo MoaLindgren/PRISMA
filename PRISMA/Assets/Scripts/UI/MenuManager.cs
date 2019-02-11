@@ -6,21 +6,27 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject backPackBox, dialogueBox, playDialogueBox, itemPrefab, backPackButton, score, timer, miniGame1UI, player, highlightBackPack, achievements;
-    public GameObject currentStation;
-    Text dialogueText, scoreText;
-    public Text timerText; // Ändra så den visar heltal och inte floats.
-    ItemsManager itemManager;
-    PlayerBehaviour playerBehaviour;
-    XmlManager xmlManager;
-    MonoBehaviour script;
-    public bool newItem;
-    GameManager gameManager;
-    SoundManager soundManager;
+    GameObject backPackBox, 
+               dialogueBox, 
+               playDialogueBox, 
+               itemPrefab, 
+               backPackButton, 
+               player, 
+               highlightBackPack, 
+               achievements;
+    Text dialogueText;
+
     [SerializeField]
     List<Sprite> itemImages;
     [SerializeField]
     AudioClip buttonClick;
+
+    public bool newItem;
+
+    ItemsManager itemManager;
+    PlayerBehaviour playerBehaviour;
+    XmlManager xmlManager;
+    SoundManager soundManager;
 
     void Start()
     {
@@ -28,8 +34,7 @@ public class MenuManager : MonoBehaviour
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
         itemManager = GetComponent<ItemsManager>();
         xmlManager = GetComponent<XmlManager>();
-        timerText = timer.GetComponent<Text>();
-        scoreText = score.GetComponent<Text>();
+
     }
     void Update()
     {
@@ -120,28 +125,23 @@ public class MenuManager : MonoBehaviour
         }
         
     }
-    public void SetScore(int score)
-    {
-        scoreText.text = score.ToString();
-    }
 
+    //Kan tas bort?
     public void MiniGame1(bool toggle)
     {
-        miniGame1UI.SetActive(toggle);
+        //miniGame1UI.SetActive(toggle);
     }
 
+    //Kan tas bort?
     public void Play()
     {
         Cursor.visible = false;
         soundManager.UISound(buttonClick);
         playDialogueBox.SetActive(false);
-        gameManager = currentStation.GetComponent<GameManager>();
-        gameManager.StartGame();
     }
     public void Dialogue()
     {
         soundManager.UISound(buttonClick);
-        //xmlManager.Dialogue(false, true);
     }
 
 }

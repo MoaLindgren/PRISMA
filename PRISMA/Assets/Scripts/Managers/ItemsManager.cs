@@ -5,20 +5,20 @@ using UnityEngine;
 public class ItemsManager : MonoBehaviour
 {
     public Dictionary<int, string> items = new Dictionary<int, string>();
-    List<string> itemList;
     string item;
+    int itemIndex;
+
     MenuManager menuManager;
-    PlayerBehaviour playerBehaviour;
-    [SerializeField]
-    GameObject player;
-    public int itemIndex;
+
+    public int ItemIndex
+    {
+        get { return itemIndex; }
+    }
 
     void Start()
     {
         menuManager = GetComponent<MenuManager>();
-        playerBehaviour = player.GetComponent<PlayerBehaviour>();
     }
-
     public void AddItem(int index, string name)
     {
         if(index > items.Count)
@@ -35,5 +35,4 @@ public class ItemsManager : MonoBehaviour
             itemIndex = index;
         }
     }
-
 }

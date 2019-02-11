@@ -12,7 +12,7 @@ public class FishBehaviour : MonoBehaviour {
     Vector3 destination;
     bool swimReady;
     ItemsManager itemManager;
-    Minigame4 miniGame4;
+    //Minigame4 miniGame4;
     GameObject gameManager, station4;
     bool counted;
 
@@ -24,7 +24,7 @@ public class FishBehaviour : MonoBehaviour {
         gameManager = GameObject.Find("GameManager");
         station4 = GameObject.Find("Station4");
         light = transform.GetChild(3).gameObject;
-        miniGame4 = station4.GetComponent<Minigame4>();
+        //miniGame4 = station4.GetComponent<Minigame4>();
         itemManager = gameManager.GetComponent<ItemsManager>();
     }
 
@@ -54,11 +54,11 @@ public class FishBehaviour : MonoBehaviour {
     void OnMouseDown()
     {
         //Om spelaren håller i rätt redskap:
-        if (itemManager.itemIndex == 2)
+        if (itemManager.ItemIndex == 2)
         {
             if (!this.counted)
             {
-                miniGame4.ScoreManager();
+             //   miniGame4.ScoreManager();
                 this.counted = true;
                 light.SetActive(false);
             }
@@ -74,7 +74,7 @@ public class FishBehaviour : MonoBehaviour {
         int rnd = Random.Range(0, maxValue);
 
         tree = destinations[rnd];
-        swimHeight = miniGame4.swimHeight;
+       // swimHeight = miniGame4.swimHeight;
         destination = new Vector3(tree.transform.position.x, swimHeight, tree.transform.position.z);
         RandomizeValues();
     }

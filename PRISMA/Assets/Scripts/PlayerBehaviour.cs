@@ -7,15 +7,10 @@ public class PlayerBehaviour : MonoBehaviour
     public float moveSpeed, rotationSpeed;
     [SerializeField]
     float rotationUp, rotationDown;
-    //float moveHorizontal, moveVertical;
-    //Vector3 movement;
     public bool moveable;
-    GameObject mainCamera;
 
     void Start()
     {
-
-        mainCamera = GameObject.Find("Main Camera");
         moveable = true;
     }
     void Update()
@@ -32,7 +27,6 @@ public class PlayerBehaviour : MonoBehaviour
         {
             transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rotationSpeed);
         }
-
 
         transform.position = new Vector3(transform.position.x, 10, transform.position.z);
 
