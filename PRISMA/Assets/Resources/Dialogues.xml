@@ -21,17 +21,11 @@ Förklaring av xml-dokument:
     Dialogue0 = "Du har påbörjat din färd. Kul!">
   </Achievement0>
   <Trigger0
-    Dialogue0 ="Olika växter konkurrerar om utrymmet på en gräsmatta. Det kan exempelvis vara brist på platser där något användbart finns."
-    Dialogue1 ="finished">
+    Dialogue0 = "Olika växter konkurrerar om utrymmet på en gräsmatta. Det kan exempelvis vara brist på platser där något användbart finns."
+    Dialogue1 = "Höga växter skuggar lägre växter, vilket skapar konkurrens mellan växterna om ljuset."
+    Dialogue2 = "Konkurrensen gör att en art blir ovanligare än utan konkurrens. Konkurrens mellan arter kan leda till att de specialiserar sig på det som de är bäst på."
+    Dialogue3 ="finished">
   </Trigger0>
-  <Trigger1
-    Dialogue0 ="Höga växter skuggar lägre växter, vilket skapar konkurrens mellan växterna om ljuset."
-    Dialogue1 ="finished">
-  </Trigger1>
-  <Trigger2
-    Dialogue0 ="Konkurrensen gör att en art blir ovanligare än utan konkurrens. Konkurrens mellan arter kan leda till att de specialiserar sig på det som de är bäst på."
-    Dialogue1 ="finished">
-  </Trigger2>
   <!--När man tar bort x ogräs -->
   <Achievement1
     Dialogue0 = "Bra jobbat! Konkurrens kan hindra en art från att klara sig i ett område. De flesta trädgårdsväxter har förts in från andra länder. 
@@ -54,12 +48,12 @@ Förklaring av xml-dokument:
     Dialogue4 = "finished">
   </Station1>
   <!--När man sätter ut första fågelholken -->
-  <Achievement1
+  <Achievement2
     Dialogue0 = "Vad bra att du hjälper till! Vädret påverkar antalet koltrastar. Många koltrastar övervintrar i Sverige. 
                  Våren efter en kall vinter finns det färre sjungande koltrastar än efter en mild vinter.
                  Mat är resurser för djur, medan närsalter är resurser för växter. Temperaturen i luften eller pH-värdet i en sjö är däremot inte några resurser, 
                  även om de är viktiga miljöfaktorer. Temperaturen kan inte ta slut.">
-  </Achievement1>
+  </Achievement2>
   <Station2
     Dialogue0 = "Akta det finns vargar där framme. Vargar är predatorer precis som människor."
     Dialogue1 = "Med predation menas att en art skadar eller äter upp en annan art. Den som äter kallas predator och kan vara ett rovdjur eller en växtätare. Växtätare är predatorer på växter."

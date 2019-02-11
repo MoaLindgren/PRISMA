@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4712024720123186}
   - component: {fileID: 135667497032353646}
   - component: {fileID: 114123446083025050}
+  - component: {fileID: 114094753189171940}
   m_Layer: 0
   m_Name: Achievement
   m_TagString: Untagged
@@ -51,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1541808621043170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 218.5284, y: 9.998169, z: 332.899}
+  m_LocalPosition: {x: 246.69, y: 9.998169, z: 306.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4742254058506204}
@@ -71,6 +72,17 @@ Transform:
   m_Father: {fileID: 4712024720123186}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114094753189171940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541808621043170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83708d515da8ff543aadf84a37381398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114123446083025050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,8 +115,8 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1541808621043170}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 1.46
   m_Center: {x: 0, y: 0, z: 0}
