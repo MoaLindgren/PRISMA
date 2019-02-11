@@ -26,6 +26,21 @@ public class PlayerBehaviour : MonoBehaviour
     }
     void Move()
     {
+        //float vertical = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+        //float horizontal = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+        //float xRotation = Input.GetAxis("Mouse X");
+
+        //Vector3 movement = new Vector3(-horizontal, 10, -vertical);
+        //Vector3 rotation = new Vector3(0, xRotation, 0);
+        //Quaternion rot = Quaternion.Euler(rotation * rotationSpeed * Time.deltaTime);
+        //Rigidbody rb = GetComponent<Rigidbody>();
+
+        //if(movement != Vector3.zero)
+        //{
+        //    rb.MovePosition(transform.position + movement);
+        //    rb.MoveRotation(transform.rotation * rot);
+        //}
+
 
         if (!Input.GetKey(KeyCode.LeftControl) && !Input.GetKey(KeyCode.LeftShift))
         {
