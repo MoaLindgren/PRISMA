@@ -12,8 +12,8 @@ public class XmlManager : MonoBehaviour
     XmlWriter writer;
     MenuManager menuManager;
 
-    bool station, dialogueStarted;
-    string stationName, filePath;
+    bool trigger, dialogueStarted;
+    string colliderName, filePath;
     [SerializeField]
     float dialogueTimer;
     float timer;
@@ -25,11 +25,11 @@ public class XmlManager : MonoBehaviour
         menuManager = GetComponent<MenuManager>();
     }
 
-    public void SetUpXML(bool station, string stationName, int item)
+    public void SetUpXML(bool trigger, string colliderName, int item)
     {
         dialogueCounter = 0;
-        this.station = station;
-        this.stationName = stationName;
+        this.trigger = trigger;
+        this.colliderName = colliderName;
         this.index = item;
 
         doc = new XmlDocument();
@@ -54,7 +54,7 @@ public class XmlManager : MonoBehaviour
         {
             foreach (XmlNode node in rootNode)
             {
-                if(node.Name == stationName)
+                if(node.Name == colliderName)
                 {
                     if(node.Attributes[dialogueCounter].Value != "" || node.Attributes[dialogueCounter].Value != "finished")
                     {
@@ -73,7 +73,7 @@ public class XmlManager : MonoBehaviour
     }
     void Update()
     {
-        if(dialogueStarted)
+        if(dialogueStarted && trigger)
         {
             timer -= Time.deltaTime;
             if(timer <= 0)

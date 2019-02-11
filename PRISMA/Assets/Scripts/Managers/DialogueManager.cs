@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     int index;
     [SerializeField]
-    bool station;
+    bool trigger;
     bool entered;
     XmlManager xmlManager;
 
@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
     {
         if(entered)
         {
-            xmlManager.SetUpXML(station, fullName, index);
+            xmlManager.SetUpXML(trigger, fullName, index);
             entered = false;
         }
     }

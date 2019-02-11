@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 
+Förklaring av xml-dokument:
+  - Station är vid tillfällen spelaren blir stoppad för att läsa en info-text. Stationen måste inte ha en uppgift som spelaren ska utföra, men det ska leda till ett achievement.
+  - Trigger är när spelaren bara går runt och en dialog-ruta dyker upp, utan att det stoppar spelaren.
+  - Achievement är info-rutor. De stoppar spelaren och sker när en uppgift från en station har utförts, 
+    eller om stationen inte hade en uppgift så sker det ändå för att man har upplevt det som skedde vid stationen.
+  - En tom dialog (dvs. DialogueX = "") betyder att någonting inväntas inför nästa dialog. I flesta fall är att spelaren ska välja ett item som inväntas.
+  - En dialog med "finished" betyder att just denna Station eller Trigger är slut. Achivement har inga "finished" för dem klickar man bort.
+-->
 <Root>
   <Station0
     Dialogue0 = "Alla populationer varierar i storlek. Men antalet varierar olika mycket hos olika arter. Man vet inte om det beror på miljöstörningar eller om det är fråga om naturliga variationer."
@@ -8,64 +17,67 @@
     Dialogue4 = ""
     Dialogue5 = "finished">
   </Station0>
+  <Achievement0
+    Dialogue0 = "Du har påbörjat din färd. Kul!">
+  </Achievement0>
+  <Trigger0
+    Dialogue0 ="Olika växter konkurrerar om utrymmet på en gräsmatta. Det kan exempelvis vara brist på platser där något användbart finns."
+    Dialogue1 ="finished">
+  </Trigger0>
+  <Trigger1
+    Dialogue0 ="Höga växter skuggar lägre växter, vilket skapar konkurrens mellan växterna om ljuset."
+    Dialogue1 ="finished">
+  </Trigger1>
+  <Trigger2
+    Dialogue0 ="Konkurrensen gör att en art blir ovanligare än utan konkurrens. Konkurrens mellan arter kan leda till att de specialiserar sig på det som de är bäst på."
+    Dialogue1 ="finished">
+  </Trigger2>
+  <!--När man tar bort x ogräs -->
+  <Achievement1
+    Dialogue0 = "Bra jobbat! Konkurrens kan hindra en art från att klara sig i ett område. De flesta trädgårdsväxter har förts in från andra länder. 
+                 Många överlever och förökar sig utan några problem i vårt klimat, men bara om vi håller ogräset borta som de vilda och mer konkurrenskraftiga plantorna kallas.
+                 Konkurrens är vanligast mellan individer i samma population, eftersom de använder samma resurser. Men konkurrens förekommer även mellan olika arter med liknande behov.
+                 En resurs kännetecknas som något som kan ta slut och tillgången då blir mindre ju fler som använder den. Färre resurser kan leda till att individer lever kortare liv.">
+  </Achievement1>
+  <!--När man kommer in i koltrastskogen -->
+  <Trigger3
+    Dialogue0 ="Vädret har också stor påverkan för hur vanlig vissa arter och populationer blir."
+    Dialogue1 ="En kall vinter behöver övervintrande fåglar äta mer för att hålla värmen och överleva. En sträng vinter kan vara svår att överleva för många djur."
+    Dialogue2 ="Jag hoppas denna vinter inte blir alltför kall så att koltrastarna klarar sig bra."
+    Dialogue3 ="finished">
+  </Trigger3>
   <Station1
-    Dialogue0 = "Där framme ser du en liten skog, där bor det nog ett antal fåglar."
-    Dialogue1 = "Vädret påverkar ofta var fåglar tar vägen under vintern."
-    Dialogue2 = "finished">
+    Dialogue0 = "Kan du placera ut en fågelholk så hjälper vi koltrastarna inför vintern?"
+    Dialogue1 = "I din väska finns fågelholken, hämta den."
+    Dialogue2 = ""
+    Dialogue3 = "Bra! Placera nu ut den på något av träden här hos koltrastarna."
+    Dialogue4 = "finished">
   </Station1>
+  <!--När man sätter ut första fågelholken -->
+  <Achievement1
+    Dialogue0 = "Vad bra att du hjälper till! Vädret påverkar antalet koltrastar. Många koltrastar övervintrar i Sverige. 
+                 Våren efter en kall vinter finns det färre sjungande koltrastar än efter en mild vinter.
+                 Mat är resurser för djur, medan närsalter är resurser för växter. Temperaturen i luften eller pH-värdet i en sjö är däremot inte några resurser, 
+                 även om de är viktiga miljöfaktorer. Temperaturen kan inte ta slut.">
+  </Achievement1>
   <Station2
-    Dialogue0 = "Här ses exempel på konkurrens mellan arter där en blomma håller på att bli utkonkurrerad av ogräs."
-    Dialogue1 = "Blommorna är införda ifrån andra platser och behöver därför hjälp för att inte dö ut på denna plats."
+    Dialogue0 = "Akta det finns vargar där framme. Vargar är predatorer precis som människor."
+    Dialogue1 = "Med predation menas att en art skadar eller äter upp en annan art. Den som äter kallas predator och kan vara ett rovdjur eller en växtätare. Växtätare är predatorer på växter."
     Dialogue2 = "finished">
   </Station2>
-  <Station3
-    Dialogue0 = "Se upp var du trampar! Det finns en massa riddarskinnbaggar under dig!"
-    Dialogue1 = "Deras populationsstorlek varierar drastiskt mellan åren på grund av vädret."
-    Dialogue2 = "finished">
-  </Station3>
-  <Station4
-   Dialogue0 = "Här finns det torsk i mängder och det har funnits väldigt länge! Nästan lika länga som i Newfoundland vilket är 500 år."
-    Dialogue1 = "Tyvärr finns det inte så många ställen man får fiska längre. I Kanada har 40 000 fiskare förlorat sina jobb för att andra fiskare konkurrerat ut dem."
-    Dialogue2 = "finished">
-  </Station4>
   <Station5
     Dialogue0 = "Oj en till vargflock, de verkar avvakta och försvara sitt revir från de andra vargarna i området"
     Dialogue1 ="Visste du att de kan behöva mellan hundratals till tusendals kvadratkilometer att leva på?"
     Dialogue2 ="finished">
   </Station5>
-  <Station6
-   Dialogue0 = "Nämen en vargflock, håll dig på avstånd. De är predatorer precis som människor och äter med andra ord andra raser av djur."
-   Dialogue1 ="De begränsar med andra ord antalet andra mindre djur som finns i närheten genom att äta dem"
-   Dialogue2 ="Människor måste ofta tänka över hur mycket skog de skövlar, hur mycket fisk de fiskar så att de populationerna inte dör ut"
-   Dialogue3 ="finished">
-  </Station6>
+
   <Station7
    Dialogue0 = "Oj en vargflock, de verkar avvakta och försvara sitt revir"
    Dialogue1 ="Visste du att de kan behöva mellan hundratals till tusendals kvadratkilometer att leva på?"
    Dialogue2 ="finished">
   </Station7>
-  <!--När man tar bort x ogräs -->
-   <Station8
-  Dialogue0 ="Bra jobbat! Konkurrens kan hindra en art från att klara sig i ett område."
-  Dialogue1 ="De flesta trädgårdsväxter har förts in från andra länder."
-  Dialogue2 ="Många överlever och förökar sig utan några problem i vårt klimat, men bara om vi håller ogräset borta som de vilda och mer konkurrenskraftiga plantorna kallas."
-  Dialogue3 ="Konkurrens är vanligast mellan individer i samma population, eftersom de använder samma resurser. Men konkurrens förekommer även mellan olika arter med liknande behov."
-  Dialogue4 ="En resurs kännetecknas som något som kan ta slut och tillgången då blir mindre ju fler som använder den. Färre resurser kan leda till att individer lever kortare liv."
-  Dialogue5 ="finished">
-  </Station8>
-  <!--När man sätter ut första fågelholken -->
-   <Station9
-  Dialogue0 ="Vad bra att du hjälper till!. Vädret påverkar antalet koltrastar. Många koltrastar övervintrar i Sverige. Våren efter en kall vinter finns det färre sjungande koltrastar än efter en mild vinter."
-  Dialogue1 ="Mat är resurser för djur, medan närsalter är resurser för växter."
-  Dialogue2 ="Temperaturen i luften eller pH-värdet i en sjö är däremot inte några resurser, även om de är viktiga miljöfaktorer. Temperaturen kan inte ta slut."
-  Dialogue3 ="finished">
-  </Station9>
-  <!-- När man stöter på vargar-->
-  <Station10 
-  Dialogue0 ="Akta det finns varjar där framme. Vargar är predatorer precis som människor."
-  Dialogue1 ="Med predation menas att en art skadar eller äter upp en annan art. Den som äter kallas predator och kan vara ett rovdjur eller en växtätare. Växtätare är predatorer på växter."
-  Dialogue2 ="finished">
-  </Station10>
+
+
   <Station11
     Dialogue1 ="Detta kallas Mutualism vilket betyder att två arter gynnar varandra. Ibland används symbios som synonym, men symbios betyder nära samliv i vidare mening och innefattar även parasitiska förhållanden."
     Dialogue0 ="Lavarna utsöndrar sura ämnen som påskyndar bergets vittring, vilket bidrar tillatt det så småningom bildas jord. Lavarna innehåller dessutom kvävefixerande blågröna bakterier, som tillför jorden kvävesalter."
@@ -74,42 +86,14 @@
     Dialogue4 ="finished">
   </Station11>
   <Station12
-  Dialogue1 ="Konkurrens bland djur behöver inte betyda att de slåss med varandra. Det är vanligt att djur slåss med varandra om att få utnyttja resurserna inom ett område. Ett område som ett djur försvarar kallas revir."
-  Dialogue2 ="Djur slåss bara om revir om det råder brist på resurser. Finns det gott om resurser, finns det ingen anledning att försvara revir."
-  Dialogue3 ="finished">
+    Dialogue1 ="Konkurrens bland djur behöver inte betyda att de slåss med varandra. Det är vanligt att djur slåss med varandra om att få utnyttja resurserna inom ett område. Ett område som ett djur försvarar kallas revir."
+    Dialogue2 ="Djur slåss bara om revir om det råder brist på resurser. Finns det gott om resurser, finns det ingen anledning att försvara revir."
+    Dialogue3 ="finished">
   </Station12>
   <Station13
-  Dialogue0 ="En arts utbredning begränsas till områden med lämpliga habitat där arten kan fortplanta sig och överleva. En art kan vara ovanlig därför att habitaten är ovanliga."
-  Dialogue1 ="Allmänt gäller att större organismer behöver större områden. En vargflock behöver ett område om hundratals till tusentals kvadratkilometer med lämpliga habitat. "
-  Dialogue2 ="En livskraftig population av en mindre art, till exempel den utrotningshotade dårgräsfjärilen, kan klara sig med några hektar."
-  Dialogue3 ="finished">
+    Dialogue0 ="En arts utbredning begränsas till områden med lämpliga habitat där arten kan fortplanta sig och överleva. En art kan vara ovanlig därför att habitaten är ovanliga."
+    Dialogue1 ="Allmänt gäller att större organismer behöver större områden. En vargflock behöver ett område om hundratals till tusentals kvadratkilometer med lämpliga habitat. "
+    Dialogue2 ="En livskraftig population av en mindre art, till exempel den utrotningshotade dårgräsfjärilen, kan klara sig med några hektar."
+    Dialogue3 ="finished">
   </Station13>
-  
-  <Trigger0
-    Dialogue0 ="Olika växter konkurrerar om utrymmet på en gräsmatta. Det kan exempelvis vara brist på platser där något användbart finns."
-    Dialogue1 ="finished">
-  </Trigger0>
-  <Trigger1
-  Dialogue0 ="Höga växter skuggar lägre växter, vilket skapar konkurrens mellan växterna om ljuset."
-  Dialogue1 ="finished">
-  </Trigger1>
-  <Trigger2
-  Dialogue0 ="Konkurrensen gör att en art blir ovanligare än utan konkurrens. Konkurrens mellan arter kan leda till att de specialiserar sig på det som de är bäst på."
-  Dialogue1 ="finished">
-  </Trigger2>
-  <!--När man kommer in i koltrastskogen -->
-   <Trigger3
-  Dialogue0 ="Vädret har också stor påverkan för hur vanlig vissa arter och populationer blir."
-  Dialogue1 ="En kall vinter behöver övervintrande fåglar äta mer för att hålla värmen och överleva. En sträng vinter kan vara svår att överleva för många djur."
-  Dialogue2 ="Jag hoppas inte denna vinter inte blir alltför kall så att koltrastarna klarar sig bra."
-  Dialogue3 ="finished">
-  </Trigger3>
-
-  <Items
-      Item0 = "Den här komradion finns nu med dig genom hela vägen så jag kan guida dig."
-      Item2 = "Bra! Klicka på koltrastarna när du ser dem!"
-      Item3 = "Bra! Klicka på ogräset för att ta bort det!"
-      Item4 = "Bra! Klicka på riddarskinnbaggarna när du ser dem!"
-      Item5 = "Bra! Klicka på torskarna när du ser dem!">
-  </Items>
 </Root>
