@@ -50,6 +50,6 @@ public class ItemButton : MonoBehaviour
         }
         this.gameObject.transform.parent.GetChild(0).gameObject.SetActive(true);
 
-        //xmlManager.Dialogue(true, true);
+        xmlManager.Dialogue();
     }
 }

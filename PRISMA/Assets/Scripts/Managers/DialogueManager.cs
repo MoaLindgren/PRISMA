@@ -12,12 +12,14 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     bool trigger;
     bool entered;
+    GameManager gameManager;
     XmlManager xmlManager;
 
     void Start()
     {
         entered = true;
         xmlManager = GameObject.Find("GameManager").GetComponent<XmlManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         fullName = myName + index.ToString();
     }
        
@@ -25,6 +27,10 @@ public class DialogueManager : MonoBehaviour
     {
         if(entered)
         {
+            if(!trigger)
+            {
+                gameManager.Station(index);
+            }
             xmlManager.SetUpXML(trigger, fullName, index);
             entered = false;
         }

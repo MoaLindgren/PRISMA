@@ -111,6 +111,7 @@ public class MenuManager : MonoBehaviour
             {
                 dialogueBox.SetActive(false);
                 playerBehaviour.Moveable = true;
+                Cursor.visible = false;
             }
             else if (dialogue == "")
             {
@@ -137,7 +138,7 @@ public class MenuManager : MonoBehaviour
     {
         Cursor.visible = false;
         soundManager.UISound(buttonClick);
-        playDialogueBox.SetActive(false);
+        dialogueBox.SetActive(false);
     }
     public void Dialogue()
     {

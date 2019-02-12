@@ -42,14 +42,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Station()
+    public void Station(int index)
     {
         Cursor.visible = true;
         gameRound++;
         playerBehaviour.Moveable = false; 
-        gameIndex = int.Parse(gameObject.tag);
+        //gameIndex = int.Parse(gameObject.tag);
 
-        itemManager.AddItem(gameIndex + 1, items[gameIndex]);
+        itemManager.AddItem(index + 1, items[index]);
     }
     public void StartGame()
     {
