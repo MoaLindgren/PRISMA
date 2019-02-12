@@ -3433,7 +3433,7 @@ Prefab:
     - target: {fileID: 114987712122401626, guid: 620cec113d3045a4fbdab2e5ef12866a,
         type: 2}
       propertyPath: rotationSpeed
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4103882170161210, guid: 620cec113d3045a4fbdab2e5ef12866a, type: 2}
       propertyPath: m_LocalPosition.z
