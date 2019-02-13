@@ -13,8 +13,9 @@ public class MenuManager : MonoBehaviour
                backPackButton, 
                player, 
                highlightBackPack, 
-               achievements;
-    Text dialogueText;
+               achievements,
+               endScreen;
+    Text dialogueText, achievementsCompleted;
 
     [SerializeField]
     List<Sprite> itemImages;
@@ -34,6 +35,7 @@ public class MenuManager : MonoBehaviour
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
         itemManager = GetComponent<ItemsManager>();
         xmlManager = GetComponent<XmlManager>();
+        achievementsCompleted = endScreen.GetComponentInChildren<Text>();
 
     }
     void Update()
@@ -148,4 +150,10 @@ public class MenuManager : MonoBehaviour
 
     }
 
+    public void GameOver (int achievements)
+    {
+        
+        achievementsCompleted.text = "Tack för deltagandet! Du klarade " + achievements + " uppgifter! BRA JOBBAT!";
+        endScreen.SetActive(true);
+    }
 }

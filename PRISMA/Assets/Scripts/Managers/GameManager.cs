@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    int achievementIndex;
+    int achievementIndex, nbrAchievementsCompleted;
     public bool startGame;
     bool correctItem;
 
@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
     {
         Cursor.visible = false;
 
+        //TA BORT DETTA
+        nbrAchievementsCompleted = 5;
+
         player = GameObject.FindGameObjectWithTag("player");
 
         cameraManager = GameObject.Find("Main Camera").GetComponent<CameraManager>();
@@ -49,6 +52,11 @@ public class GameManager : MonoBehaviour
         {
             Cursor.visible = false;
         }
+        //ta bort detta 
+        if(Input.GetKeyDown(KeyCode.Y))
+        {
+            GameOver();
+        }
     }
     //När man går in i en station:
     public void Station(int index)
@@ -66,6 +74,12 @@ public class GameManager : MonoBehaviour
             Cursor.visible = false;
             xmlManager.Dialogue();
         }
+    }
+
+    public void GameOver ()
+    {
+        //när spelet är slut kallas dena. 
+        menuManager.GameOver(nbrAchievementsCompleted);
     }
 
 }
