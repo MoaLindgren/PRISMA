@@ -37,8 +37,13 @@ public class ItemButton : MonoBehaviour
     {
         if (this.newItem)
         {
+            gameManager.GetComponent<GameManager>().CorrectItem = true;
             newItem = false;
             menuManager.newItem = false;
+        }
+        else
+        {
+            gameManager.GetComponent<GameManager>().CorrectItem = false;
         }
         soundManager.UISound(buttonClick);
         itemManager.GetItem(itemIndex, true);
@@ -50,6 +55,6 @@ public class ItemButton : MonoBehaviour
         }
         this.gameObject.transform.parent.GetChild(0).gameObject.SetActive(true);
 
-        xmlManager.Dialogue();
+
     }
 }

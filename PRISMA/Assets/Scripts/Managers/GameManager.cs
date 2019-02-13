@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    int gameIndex, gameRound;
+    int achievementIndex;
     public bool startGame;
+    bool correctItem;
 
     Vector3 playerLockRotation;
     GameObject player;
@@ -14,13 +15,21 @@ public class GameManager : MonoBehaviour
     MenuManager menuManager;
     PlayerBehaviour playerBehaviour;
     CameraManager cameraManager;
-    //MonoBehaviour currentMiniGame;
+    
     string[] items = { "Komradio", "Anteckningsblock", "Ogräsborttagare", "Räknare", "Fiskespö" };
+
+    public bool CorrectItem
+    {
+        set { correctItem = value; }
+    }
+    public int AchievementIndex
+    {
+        set { achievementIndex = value; }
+    }
 
     void Start()
     {
         Cursor.visible = false;
-        gameRound = 0;
 
         player = GameObject.FindGameObjectWithTag("player");
 
@@ -41,32 +50,22 @@ public class GameManager : MonoBehaviour
             Cursor.visible = false;
         }
     }
-
+    //När man går in i en station:
     public void Station(int index)
     {
         Cursor.visible = true;
-        gameRound++;
         playerBehaviour.Moveable = false; 
-        //gameIndex = int.Parse(gameObject.tag);
-
         itemManager.AddItem(index + 1, items[index]);
     }
-    public void StartGame()
+    //När en dialog är klar:
+    public void Play()
     {
-        if (gameIndex != 0)
-        {
-            startGame = true;
-            //currentMiniGame.enabled = true;
-        }
-        else if (gameIndex == 0)
+        if(correctItem)
         {
             playerBehaviour.Moveable = true;
+            Cursor.visible = false;
+            xmlManager.Dialogue();
         }
+    }
 
-    }
-    public void EndGame(bool win)
-    {
-        //currentMiniGame.enabled = false;
-        playerBehaviour.Moveable = true;
-    }
 }

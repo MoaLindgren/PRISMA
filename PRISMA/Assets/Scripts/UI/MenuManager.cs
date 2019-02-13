@@ -84,6 +84,7 @@ public class MenuManager : MonoBehaviour
     {
         soundManager.UISound(buttonClick);
         backPackBox.SetActive(false);
+        GetComponent<GameManager>().Play();
     }
 
     public void OpenAchievements()
@@ -110,8 +111,6 @@ public class MenuManager : MonoBehaviour
             if (dialogue == "finished")
             {
                 dialogueBox.SetActive(false);
-                playerBehaviour.Moveable = true;
-                Cursor.visible = false;
             }
             else if (dialogue == "")
             {
@@ -143,6 +142,10 @@ public class MenuManager : MonoBehaviour
     public void Dialogue()
     {
         soundManager.UISound(buttonClick);
+    }
+    void Achievement()
+    {
+
     }
 
 }
