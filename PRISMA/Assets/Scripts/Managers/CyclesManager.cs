@@ -20,13 +20,14 @@ public class CyclesManager : MonoBehaviour
     Material currentSkybox;
     [SerializeField]
     int numberOfDays, yearTime;
-    int counter, daysCounter, seasonCounter, daysPerSeason, yearCounter;
+    int counter, daysCounter, seasonCounter, daysPerSeason, yearCounter, daysSpring, daysSummer, daysAutumn, daysWinter;
     [SerializeField]
     float dayCycleTimer;
     float timer, dayCycleCounter, shortSeason, longSeason, springDays, summerDays, autumnDays, winterDays, morningEveningTime, dayNightTime;
     bool dayNight, ready;
 
     List<string> dayCycle = new List<string>() { "Morning", "Day", "Evening", "Night" };
+    List<int> firstDays;
     string currentDay;
 
     SoundManager soundManager;
@@ -34,6 +35,11 @@ public class CyclesManager : MonoBehaviour
 
     void Start()
     {
+        firstDays = new List<int>() { daysSpring, daysSummer, daysAutumn, daysWinter };
+        for (int i = 0; i < firstDays.Count; i++)
+        {
+            firstDays[i] = 0;
+        }
         soundManager = GameObject.Find("GameManager").GetComponent<SoundManager>();
         trees = GameObject.FindGameObjectsWithTag("Tree");
         flowers = GameObject.FindGameObjectsWithTag("BloomLocation");
@@ -101,23 +107,44 @@ public class CyclesManager : MonoBehaviour
                 counter = 0;
                 if (daysCounter <= springDays)
                 {
-                    ChangeSeason("spring");
+
+                    if(daysSpring == 0)
+                    {
+                        ChangeSeason("spring");
+                        daysSpring++;
+                    }
                 }
                 else if (daysCounter <= summerDays)
                 {
-                    ChangeSeason("summer");
+                    if(daysSummer == 0)
+                    {
+                        ChangeSeason("summer");
+                        daysSummer++;
+                    }
                 }
                 else if (daysCounter <= autumnDays)
                 {
-                    ChangeSeason("autumn");
+                    if(daysAutumn == 0)
+                    {
+                        ChangeSeason("autumn");
+                        daysAutumn++;
+                    }
                 }
                 else if (daysCounter <= winterDays)
                 {
-                    ChangeSeason("winter");
+                    if(daysWinter == 0)
+                    {
+                        ChangeSeason("winter");
+                        daysWinter++;
+                    }
                 }
                 if (daysCounter >= winterDays + longSeason)
                 {
                     daysCounter = 0;
+                    for(int i = 0; i < firstDays.Count; i++)
+                    {
+                        firstDays[i] = 0;
+                    }
                     yearSlider.value = daysCounter;
                 }
             }
@@ -135,6 +162,7 @@ public class CyclesManager : MonoBehaviour
         switch (currentSeason)
         {
             case "spring":
+                print("vår");
                 foreach (GameObject tree in trees)
                 {
                     rend = tree.GetComponent<Renderer>();
@@ -151,6 +179,7 @@ public class CyclesManager : MonoBehaviour
                 return;
 
             case "summer":
+                print("sommar");
                 foreach (GameObject tree in trees)
                 {
                     rend = tree.GetComponent<Renderer>();
@@ -160,6 +189,7 @@ public class CyclesManager : MonoBehaviour
                 return;
 
             case "autumn":
+                print("höst");
                 foreach (GameObject tree in trees)
                 {
                     rend = tree.GetComponent<Renderer>();
@@ -169,6 +199,7 @@ public class CyclesManager : MonoBehaviour
                 return;
 
             case "winter":
+                print("vinter");
                 foreach (GameObject tree in trees)
                 {
                     rend = tree.GetComponent<Renderer>();
