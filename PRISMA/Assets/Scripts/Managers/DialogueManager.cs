@@ -22,16 +22,25 @@ public class DialogueManager : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         fullName = myName + index.ToString();
     }
-       
+
     void OnTriggerEnter()
     {
-        if(entered)
+        if (entered)
         {
-            if(!trigger)
+            switch (myName)
             {
-                gameManager.Station(index);
+                case "Station":
+                    gameManager.Station(index);
+                    xmlManager.SetUpXML(trigger, fullName, index);
+                    return;
+                case "Achievement":
+                    gameManager.Achievement(index);
+                    return;
+                case "Trigger":
+                    xmlManager.SetUpXML(trigger, fullName, index);
+                    return;
             }
-            xmlManager.SetUpXML(trigger, fullName, index);
+
             entered = false;
         }
     }

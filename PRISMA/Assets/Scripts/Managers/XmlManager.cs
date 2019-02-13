@@ -54,26 +54,21 @@ public class XmlManager : MonoBehaviour
         {
             foreach (XmlNode node in rootNode)
             {
-                if(node.Name == colliderName)
+                if (node.Name == colliderName)
                 {
-                    if(colliderName == "Achievement")
-                    {
 
-                    }
-                    else
+                    if (node.Attributes[dialogueCounter].Value != "" || node.Attributes[dialogueCounter].Value != "finished")
                     {
-                        if (node.Attributes[dialogueCounter].Value != "" || node.Attributes[dialogueCounter].Value != "finished")
-                        {
-                            menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
-                        }
-                        else if (node.Attributes[dialogueCounter].Value == "finished")
-                        {
-                            menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, true);
-                            dialogueStarted = false;
-                        }
-                        dialogueStarted = true;
-                        dialogueCounter++;
+                        menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
                     }
+                    else if (node.Attributes[dialogueCounter].Value == "finished")
+                    {
+                        menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, true);
+                        dialogueStarted = false;
+                    }
+                    dialogueStarted = true;
+                    dialogueCounter++;
+
 
                 }
             }
@@ -82,10 +77,10 @@ public class XmlManager : MonoBehaviour
     }
     void Update()
     {
-        if(dialogueStarted && trigger)
+        if (dialogueStarted && trigger)
         {
             timer -= Time.deltaTime;
-            if(timer <= 0)
+            if (timer <= 0)
             {
                 Dialogue();
                 timer = dialogueTimer;

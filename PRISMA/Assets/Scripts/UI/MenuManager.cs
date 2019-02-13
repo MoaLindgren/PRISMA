@@ -14,7 +14,8 @@ public class MenuManager : MonoBehaviour
                player, 
                highlightBackPack, 
                achievements,
-               endScreen;
+               endScreen,
+               achievementInfoBox;
     Text dialogueText, achievementsCompleted;
 
     [SerializeField]
@@ -86,7 +87,7 @@ public class MenuManager : MonoBehaviour
     {
         soundManager.UISound(buttonClick);
         backPackBox.SetActive(false);
-        GetComponent<GameManager>().Play();
+        GetComponent<GameManager>().Play(false);
     }
 
     public void OpenAchievements()
@@ -138,9 +139,19 @@ public class MenuManager : MonoBehaviour
     {
         soundManager.UISound(buttonClick);
     }
-    void AchievementCompleted()
+    public void AchievementCompleted(int index)
     {
-
+        achievementInfoBox.SetActive(true);
+        achievementInfoBox.transform.GetChild(index).gameObject.SetActive(true);
+    }
+    public void CloseAchievementBox()
+    {
+        for(int i = 0; i < achievementInfoBox.transform.childCount; i++)
+        {
+            achievementInfoBox.transform.GetChild(i).gameObject.SetActive(false);
+        }
+        achievementInfoBox.SetActive(false);
+        GetComponent<GameManager>().Play(true);
     }
 
     public void GameOver (int achievements)

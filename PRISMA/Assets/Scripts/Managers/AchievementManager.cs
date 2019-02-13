@@ -12,10 +12,10 @@ public class AchievementManager : MonoBehaviour
         soundManager = GameObject.Find("GameManager").GetComponent<SoundManager>();
         playerBehaviour = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerBehaviour>();
     }
-    void OnTriggerEnter()
-    {
-        soundManager.TriggerSound();
-        playerBehaviour.Moveable = false;
-        gameObject.transform.GetChild(0).gameObject.SetActive(false);
-    }
+    //void OnTriggerEnter()
+    //{
+    //    soundManager.TriggerSound();
+    //    playerBehaviour.Moveable = false;
+    //    gameObject.transform.GetChild(0).gameObject.SetActive(false);
+    //}
 }

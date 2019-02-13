@@ -3425,7 +3425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &163119704
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29823,6 +29823,11 @@ Prefab:
       propertyPath: achievementSound
       value: 
       objectReference: {fileID: 8300000, guid: a82cb0223490d3d4cb08df0435bbba4a, type: 3}
+    - target: {fileID: 114095572189855796, guid: 1e46a5d5556cc4146ae8b4b668ce76db,
+        type: 2}
+      propertyPath: achievementInfoBox
+      value: 
+      objectReference: {fileID: 163119703}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e46a5d5556cc4146ae8b4b668ce76db, type: 2}
   m_IsPrefabParent: 0
@@ -38639,7 +38644,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 555940324}
-        m_MethodName: CloseBackpack
+        m_MethodName: CloseAchievementBox
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

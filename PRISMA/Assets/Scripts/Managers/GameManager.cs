@@ -65,14 +65,25 @@ public class GameManager : MonoBehaviour
         playerBehaviour.Moveable = false; 
         itemManager.AddItem(index + 1, items[index]);
     }
+    public void Achievement(int index)
+    {
+        Cursor.visible = true;
+        playerBehaviour.Moveable = false;
+        menuManager.AchievementCompleted(index);
+    }
     //När en dialog är klar:
-    public void Play()
+    public void Play(bool achievement)
     {
         if(correctItem)
         {
             playerBehaviour.Moveable = true;
             Cursor.visible = false;
             xmlManager.Dialogue();
+        }
+        if(achievement)
+        {
+            playerBehaviour.Moveable = true;
+            Cursor.visible = false;
         }
     }
 
