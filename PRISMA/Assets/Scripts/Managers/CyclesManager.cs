@@ -73,7 +73,6 @@ public class CyclesManager : MonoBehaviour
         if (ready)
         {
             DayCycle();
-            YearCycle();
         }
     }
 
@@ -100,6 +99,27 @@ public class CyclesManager : MonoBehaviour
                 daysCounter++;
                 yearSlider.value = daysCounter;
                 counter = 0;
+                if (daysCounter <= springDays)
+                {
+                    ChangeSeason("spring");
+                }
+                else if (daysCounter <= summerDays)
+                {
+                    ChangeSeason("summer");
+                }
+                else if (daysCounter <= autumnDays)
+                {
+                    ChangeSeason("autumn");
+                }
+                else if (daysCounter <= winterDays)
+                {
+                    ChangeSeason("winter");
+                }
+                if (daysCounter >= winterDays + longSeason)
+                {
+                    daysCounter = 0;
+                    yearSlider.value = daysCounter;
+                }
             }
             currentDay = dayCycle[counter];
             soundManager.PlaySound(currentDay);
@@ -110,64 +130,60 @@ public class CyclesManager : MonoBehaviour
         GetComponent<Skybox>().material = skyboxes[counter];
     }
 
-    void YearCycle()
+    void ChangeSeason(string currentSeason)
     {
-        if (daysCounter <= springDays)
+        switch (currentSeason)
         {
-            foreach (GameObject tree in trees)
-            {
-                rend = tree.GetComponent<Renderer>();
-                rend.materials[1].mainTexture = defaultTexture;
-                rend.materials[1].color = new Color32(209, 255, 0, 255);
-                snow.SetActive(false);
-                
-            }
-            foreach (GameObject flower in flowers)
-            {
-                flower.GetComponent<Bloom>().spring = true;
-                flower.GetComponent<Bloom>().canGrow = true;
-                
-            }
-        }
-        else if (daysCounter <= summerDays)
-        {
-            foreach (GameObject tree in trees)
-            {
-                rend = tree.GetComponent<Renderer>();
-                rend.materials[1].mainTexture = defaultTexture;
-                rend.materials[1].color = new Color32(56, 150, 26, 255);
-            }
-        }
-        else if (daysCounter <= autumnDays)
-        {
-            foreach (GameObject tree in trees)
-            {
-                rend = tree.GetComponent<Renderer>();
-                rend.materials[1].mainTexture = defaultTexture;
-                rend.materials[1].color = new Color32(240, 124, 0, 255);
+            case "spring":
+                foreach (GameObject tree in trees)
+                {
+                    rend = tree.GetComponent<Renderer>();
+                    rend.materials[1].mainTexture = defaultTexture;
+                    rend.materials[1].color = new Color32(209, 255, 0, 255);
+                    snow.SetActive(false);
 
-            }
+                }
+                foreach (GameObject flower in flowers)
+                {
+                    flower.GetComponent<Bloom>().spring = true;
+                    flower.GetComponent<Bloom>().canGrow = true;
+                }
+                return;
+
+            case "summer":
+                foreach (GameObject tree in trees)
+                {
+                    rend = tree.GetComponent<Renderer>();
+                    rend.materials[1].mainTexture = defaultTexture;
+                    rend.materials[1].color = new Color32(56, 150, 26, 255);
+                }
+                return;
+
+            case "autumn":
+                foreach (GameObject tree in trees)
+                {
+                    rend = tree.GetComponent<Renderer>();
+                    rend.materials[1].mainTexture = defaultTexture;
+                    rend.materials[1].color = new Color32(240, 124, 0, 255);
+                }
+                return;
+
+            case "winter":
+                foreach (GameObject tree in trees)
+                {
+                    rend = tree.GetComponent<Renderer>();
+                    rend.materials[1].mainTexture = snowTexture;
+                    rend.materials[1].color = new Color32(255, 255, 255, 255);
+                    snow.SetActive(true);
+                }
+                foreach (GameObject blomma in flowers)
+                {
+                    blomma.GetComponent<Bloom>().EatPlant();
+                    blomma.GetComponent<Bloom>().spring = false;
+                }
+                return;
         }
-        else if (daysCounter <= winterDays)
-        {
-            foreach (GameObject tree in trees)
-            {
-                rend = tree.GetComponent<Renderer>();
-                rend.materials[1].mainTexture = snowTexture;
-                rend.materials[1].color = new Color32(255, 255, 255, 255);
-                snow.SetActive(true);
-            }
-            foreach (GameObject blomma in flowers)
-            {
-                blomma.GetComponent<Bloom>().EatPlant();
-                blomma.GetComponent<Bloom>().spring = false;
-            }
-        }
-        if(daysCounter >= winterDays + longSeason)
-        {
-            daysCounter = 0;
-            yearSlider.value = daysCounter;
-        }
+
     }
 
 }

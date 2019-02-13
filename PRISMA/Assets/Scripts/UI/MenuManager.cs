@@ -128,13 +128,6 @@ public class MenuManager : MonoBehaviour
         
     }
 
-    //Kan tas bort?
-    public void MiniGame1(bool toggle)
-    {
-        //miniGame1UI.SetActive(toggle);
-    }
-
-    //Kan tas bort?
     public void Play()
     {
         Cursor.visible = false;
@@ -145,7 +138,7 @@ public class MenuManager : MonoBehaviour
     {
         soundManager.UISound(buttonClick);
     }
-    void Achievement()
+    void AchievementCompleted()
     {
 
     }

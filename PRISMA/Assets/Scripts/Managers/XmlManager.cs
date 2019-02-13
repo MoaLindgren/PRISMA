@@ -56,20 +56,29 @@ public class XmlManager : MonoBehaviour
             {
                 if(node.Name == colliderName)
                 {
-                    if(node.Attributes[dialogueCounter].Value != "" || node.Attributes[dialogueCounter].Value != "finished")
+                    if(colliderName == "Achievement")
                     {
-                        menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
+
                     }
-                    else if(node.Attributes[dialogueCounter].Value == "finished")
+                    else
                     {
-                        menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, true);
-                        dialogueStarted = false;
+                        if (node.Attributes[dialogueCounter].Value != "" || node.Attributes[dialogueCounter].Value != "finished")
+                        {
+                            menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
+                        }
+                        else if (node.Attributes[dialogueCounter].Value == "finished")
+                        {
+                            menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, true);
+                            dialogueStarted = false;
+                        }
+                        dialogueStarted = true;
+                        dialogueCounter++;
                     }
+
                 }
             }
         }
-        dialogueStarted = true;
-        dialogueCounter++;
+
     }
     void Update()
     {
