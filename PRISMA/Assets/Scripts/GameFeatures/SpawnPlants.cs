@@ -12,6 +12,7 @@ public class SpawnPlants : MonoBehaviour
     void Start()
     {
         planted = false;
+        
     }
     void Update()
     {
@@ -24,20 +25,23 @@ public class SpawnPlants : MonoBehaviour
 
     void SpawnPlant()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
+        if (!planted)//&& om man har equiped item)
         {
-            GameObject clickObject = hit.transform.gameObject;
-            clickPosition = hit.point;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-            if (clickObject.name == "Terrain" && !planted)
+            if (Physics.Raycast(ray, out hit))
             {
-                Instantiate(tulkortPrefab, clickPosition, Quaternion.identity);
-                planted = true;
-            }
+                GameObject clickObject = hit.transform.gameObject;
+                clickPosition = hit.point;
 
+                if (clickObject.name == "Terrain")
+                {
+                    Instantiate(tulkortPrefab, clickPosition, Quaternion.identity);
+                    planted = true;
+                }
+
+            }
         }
     }
 }
