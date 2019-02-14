@@ -10,16 +10,18 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     int index;
     [SerializeField]
-    bool trigger;
+    bool trigger, instant;
     bool entered;
     GameManager gameManager;
     XmlManager xmlManager;
+    SoundManager soundManager;
 
     void Start()
     {
         entered = true;
         xmlManager = GameObject.Find("GameManager").GetComponent<XmlManager>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        soundManager = GameObject.Find("GameManager").GetComponent<SoundManager>();
         fullName = myName + index.ToString();
     }
 
@@ -35,13 +37,22 @@ public class DialogueManager : MonoBehaviour
                     GetComponent<Collider>().enabled = false;
                     return;
                 case "Achievement":
-                    GameObject halo = transform.GetChild(0).gameObject;
-                    gameManager.Achievement(index, halo);
-                    GetComponent<Collider>().enabled = false;
+                    if (instant)
+                    {
+                        soundManager.TriggerSound(true);
+                        GameObject halo = transform.GetChild(0).gameObject;
+                        gameManager.Achievement(index, halo);
+                        GetComponent<Collider>().enabled = false;
+                    }
                     return;
                 case "Trigger":
                     xmlManager.SetUpXML(trigger, fullName, index);
                     GetComponent<Collider>().enabled = false;
+                    //Om man möter varg:
+                    if(index == 2)
+                    {
+                        soundManager.TriggerSound(false);
+                    }
                     return;
             }
 

@@ -36,7 +36,6 @@ public class PlayerBehaviour : MonoBehaviour
 
         if(transform.position != Vector3.zero)
         {
-
             if (Input.GetKey(KeyCode.A))
             {
                 transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);

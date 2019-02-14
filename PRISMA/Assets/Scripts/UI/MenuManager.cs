@@ -8,7 +8,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     GameObject backPackBox,
                dialogueBox,
-               playDialogueBox,
                itemPrefab,
                backPackButton,
                player,
@@ -113,29 +112,20 @@ public class MenuManager : MonoBehaviour
     //Blir kallad på från XmlManager:
     public void ViewDialogue(string dialogue, bool startGame)
     {
-        if (!startGame)
+
+        dialogueText = dialogueBox.GetComponentInChildren<Text>();
+        dialogueBox.SetActive(true);
+
+        dialogueText.text = dialogue;
+
+        if (dialogue == "finished")
         {
-            dialogueText = dialogueBox.GetComponentInChildren<Text>();
-            dialogueBox.SetActive(true);
-
-            dialogueText.text = dialogue;
-
-            if (dialogue == "finished")
-            {
-                dialogueBox.SetActive(false);
-            }
-            else if (dialogue == "")
-            {
-                dialogueBox.SetActive(false);
-            }
+            dialogueBox.SetActive(false);
         }
-        else
+        else if (dialogue == "")
         {
-            dialogueText = playDialogueBox.GetComponentInChildren<Text>();
-            playDialogueBox.SetActive(true);
-            dialogueText.text = dialogue;
+            dialogueBox.SetActive(false);
         }
-
     }
 
     public void Play()
@@ -147,6 +137,7 @@ public class MenuManager : MonoBehaviour
     public void Dialogue()
     {
         soundManager.UISound(buttonClick);
+        xmlManager.Dialogue();
     }
     public void AchievementCompleted(int index)
     {
@@ -154,9 +145,10 @@ public class MenuManager : MonoBehaviour
         achievementInfoBox.transform.GetChild(index).gameObject.SetActive(true);
 
     }
-    public void CloseAchievementBox()
+    public void CloseInfoBox()
     {
-        for (int i = 0; i < achievementInfoBox.transform.childCount; i++)
+        soundManager.UISound(buttonClick);
+        for (int i = 0; i < achievementInfoBox.transform.childCount - 1; i++)
         {
             achievementInfoBox.transform.GetChild(i).gameObject.SetActive(false);
         }

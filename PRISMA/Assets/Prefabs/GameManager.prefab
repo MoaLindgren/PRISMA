@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114650521158393684}
   - component: {fileID: 114645442132038010}
   - component: {fileID: 82533602429491684}
+  - component: {fileID: 114180309318775974}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -300,23 +301,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backPackBox: {fileID: 0}
   dialogueBox: {fileID: 0}
-  playDialogueBox: {fileID: 0}
-  itemPrefab: {fileID: 1287979586859778, guid: d1105e6958e5c2e458e20c1e24774bf0, type: 2}
+  itemPrefab: {fileID: 1477621474982426, guid: 4ec7f4daf167d6d4faf14616e178342e, type: 2}
   backPackButton: {fileID: 0}
-  score: {fileID: 0}
-  timer: {fileID: 0}
-  miniGame1UI: {fileID: 0}
   player: {fileID: 0}
   highlightBackPack: {fileID: 0}
   achievements: {fileID: 0}
-  currentStation: {fileID: 0}
-  timerText: {fileID: 0}
-  newItem: 0
+  endScreen: {fileID: 0}
+  achievementInfoBox: {fileID: 0}
   itemImages:
   - {fileID: 21300000, guid: 5b37a9e22233cfa4ca93b130edffcc63, type: 3}
   - {fileID: 21300000, guid: 43bb6daa17a1b7b4dad08ae29617222a, type: 3}
   - {fileID: 21300000, guid: 72f71659f6d82994e81935dcdfaf4c2b, type: 3}
   buttonClick: {fileID: 8300000, guid: 9ff70ed600242b241b200238d333961c, type: 3}
+  newItem: 0
+--- !u!114 &114180309318775974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1082924975812060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8925cf44dce854891816c7126a52e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tulkortPrefab: {fileID: 1392855504400698, guid: 187d97b8213e90848b567d5747efcdfd,
+    type: 2}
 --- !u!114 &114645442132038010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -328,9 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66574885a5b5f8440a398ebfecd82597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameRound: 0
   startGame: 0
-  testBool: 0
 --- !u!114 &114650521158393684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -343,10 +351,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayNightAudioSource: {fileID: 82785987183936762}
-  triggeredAudioSource: {fileID: 82128324349655950}
+  triggerAudioSource: {fileID: 0}
   uiAudioSource: {fileID: 82533602429491684}
   daySound: {fileID: 8300000, guid: 9b720743be28dfd458678e13f1415db5, type: 3}
   nightSound: {fileID: 8300000, guid: 44259de166ef5b14fad11c0f848b814b, type: 3}
+  achievementSound: {fileID: 0}
+  wolfSound: {fileID: 0}
 --- !u!114 &114665261002696358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -358,6 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44c97d2c25ebf249b1091565b5903ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueTimer: 0
 --- !u!114 &114862697550101002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -369,5 +380,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ccf50ad2a31cb4294090c81dfa72d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  itemIndex: 0
