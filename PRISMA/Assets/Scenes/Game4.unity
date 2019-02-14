@@ -664,7 +664,7 @@ Transform:
   - {fileID: 1484520848}
   - {fileID: 1336306011}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &16848234 stripped
 Transform:
@@ -7852,6 +7852,36 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CloseInfoBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 114541492551849780, guid: 56a5c2a136b37bd40ad26f356888171f,
+        type: 2}
+      propertyPath: m_Text
+      value: "Detta kallas Mutualism vilket betyder att tv\xE5 arter gynnar varandra.
+        Ibland anv\xE4nds symbios som synonym, men symbios betyder n\xE4ra samliv
+        i vidare mening och innefattar \xE4ven parasitiska f\xF6rh\xE5llanden. Lavarna
+        uts\xF6ndrar sura \xE4mnen som p\xE5skyndar bergets vittring, vilket bidrar
+        tillatt det s\xE5 sm\xE5ningom bildas jord. Lavarna inneh\xE5ller dessutom
+        kv\xE4vefixerande bl\xE5gr\xF6na bakterier, som tillf\xF6r jorden kv\xE4vesalter.
+        Lavarna g\xF6r det allts\xE5 m\xF6jligt f\xF6r mer kr\xE4vande v\xE4xter att
+        leva i omr\xE5det. Det brukar sluta med att dessa skuggar och konkurrerar
+        ut lavarna. Vissa arter klarar sig inte utan varandra. F\xF6rh\xE5llandet
+        kallas obligat mutualism."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879733436520122, guid: 56a5c2a136b37bd40ad26f356888171f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973131824283938, guid: 56a5c2a136b37bd40ad26f356888171f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114756664535953722, guid: 56a5c2a136b37bd40ad26f356888171f,
+        type: 2}
+      propertyPath: m_Text
+      value: "Riddarskinnbaggen, som lever p\xE5 fr\xF6n av tulk\xF6rt, har populationer
+        som varierar dramatiskt i storlek. Riddarskinnbaggen lever bara ett \xE5r.
+        V\xE4dret under \xE5ret och hur m\xE5nga fr\xF6n tulk\xF6rten bildar, betyder
+        mycket f\xF6r hur vanliga riddarskinnbaggarna \xE4r."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 56a5c2a136b37bd40ad26f356888171f, type: 2}
@@ -15045,7 +15075,7 @@ Transform:
   - {fileID: 1767577201}
   - {fileID: 171039034}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &667013984 stripped
 Transform:
@@ -21099,7 +21129,7 @@ Transform:
   - {fileID: 1622378569}
   - {fileID: 1311237194}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &916909035
 Prefab:
@@ -23805,7 +23835,7 @@ Transform:
   - {fileID: 198383777}
   - {fileID: 1974848067}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1029184422
 Prefab:
@@ -33170,7 +33200,7 @@ Transform:
   - {fileID: 2110001920}
   - {fileID: 807069800}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1442364197
 Prefab:
@@ -34086,7 +34116,7 @@ Transform:
   - {fileID: 2014602704}
   - {fileID: 116353158}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1488020332
 Prefab:
@@ -37756,7 +37786,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1632308636 stripped
 Transform:
@@ -40558,6 +40588,53 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 646091787fd244e41b507f3f95ceb76a, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1766274263
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4896219590386780, guid: 76ff6b3090d31cd4ab53b67f692ba8b9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 219.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896219590386780, guid: 76ff6b3090d31cd4ab53b67f692ba8b9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 9.998169
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896219590386780, guid: 76ff6b3090d31cd4ab53b67f692ba8b9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 342.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896219590386780, guid: 76ff6b3090d31cd4ab53b67f692ba8b9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896219590386780, guid: 76ff6b3090d31cd4ab53b67f692ba8b9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896219590386780, guid: 76ff6b3090d31cd4ab53b67f692ba8b9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896219590386780, guid: 76ff6b3090d31cd4ab53b67f692ba8b9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896219590386780, guid: 76ff6b3090d31cd4ab53b67f692ba8b9, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135866100747339670, guid: 76ff6b3090d31cd4ab53b67f692ba8b9,
+        type: 2}
+      propertyPath: m_Radius
+      value: 8.11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 76ff6b3090d31cd4ab53b67f692ba8b9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1767041709
 Prefab:
@@ -44093,7 +44170,7 @@ Transform:
   m_LocalScale: {x: 500, y: 1, z: 500}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1903721168
 Prefab:
