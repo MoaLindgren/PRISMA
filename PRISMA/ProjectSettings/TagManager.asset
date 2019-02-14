@@ -21,6 +21,7 @@ TagManager:
   - Weed
   - Tree
   - BloomLocation
+  - SeasonRemove
   layers:
   - Default
   - TransparentFX

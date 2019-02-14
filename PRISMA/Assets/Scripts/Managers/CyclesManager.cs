@@ -15,6 +15,7 @@ public class CyclesManager : MonoBehaviour
     [SerializeField]
     GameObject[] trees;
     GameObject[] flowers;
+    GameObject[] removeableObjects;
     [SerializeField]
     List<Material> skyboxes;
     Material currentSkybox;
@@ -43,12 +44,16 @@ public class CyclesManager : MonoBehaviour
         soundManager = GameObject.Find("GameManager").GetComponent<SoundManager>();
         trees = GameObject.FindGameObjectsWithTag("Tree");
         flowers = GameObject.FindGameObjectsWithTag("BloomLocation");
+        removeableObjects = GameObject.FindGameObjectsWithTag("SeasonRemove");
 
         ready = false;
         counter = 0;
 
         DaysCalculation();
         SeasonCalculation();
+
+
+        
     }
     void DaysCalculation()
     {
@@ -141,11 +146,15 @@ public class CyclesManager : MonoBehaviour
                 if (daysCounter >= winterDays + longSeason)
                 {
                     daysCounter = 0;
-                    for(int i = 0; i < firstDays.Count; i++)
-                    {
-                        firstDays[i] = 0;
-                    }
-                    yearSlider.value = daysCounter;
+                    daysSpring = 0;
+                    daysSummer = 0;
+                    daysAutumn = 0;
+                    daysWinter = 0;
+                    //for(int i = 0; i < firstDays.Count; i++)
+                    //{
+                    //    firstDays[i] = 0;
+                    //}
+                    //yearSlider.value = daysCounter;
                 }
             }
             currentDay = dayCycle[counter];
@@ -175,6 +184,10 @@ public class CyclesManager : MonoBehaviour
                 {
                     flower.GetComponent<Bloom>().spring = true;
                     flower.GetComponent<Bloom>().canGrow = true;
+                }
+                foreach (GameObject removeableObject in removeableObjects)
+                {
+                    removeableObject.SetActive(true);
                 }
                 return;
 
@@ -211,6 +224,10 @@ public class CyclesManager : MonoBehaviour
                 {
                     blomma.GetComponent<Bloom>().EatPlant();
                     blomma.GetComponent<Bloom>().spring = false;
+                }
+                foreach (GameObject removeableObject in removeableObjects)
+                {
+                    removeableObject.SetActive(false);
                 }
                 return;
         }
