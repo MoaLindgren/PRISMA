@@ -22,6 +22,7 @@ public class MenuManager : MonoBehaviour
     List<Sprite> itemImages;
     [SerializeField]
     AudioClip buttonClick;
+    List<GameObject> achievementList;
 
     public bool newItem;
 
@@ -37,6 +38,7 @@ public class MenuManager : MonoBehaviour
         itemManager = GetComponent<ItemsManager>();
         xmlManager = GetComponent<XmlManager>();
         achievementsCompleted = endScreen.GetComponentInChildren<Text>();
+        achievementList = new List<GameObject>();
 
     }
     void Update()
@@ -94,6 +96,7 @@ public class MenuManager : MonoBehaviour
     {
         soundManager.UISound(buttonClick);
         achievements.SetActive(true);
+        
     }
     public void CloseAchievements()
     {
@@ -143,6 +146,7 @@ public class MenuManager : MonoBehaviour
     {
         achievementInfoBox.SetActive(true);
         achievementInfoBox.transform.GetChild(index).gameObject.SetActive(true);
+        achievementList[index].transform.GetChild(1).gameObject.SetActive(true);
     }
     public void CloseAchievementBox()
     {
@@ -153,7 +157,6 @@ public class MenuManager : MonoBehaviour
         achievementInfoBox.SetActive(false);
         GetComponent<GameManager>().Play(true);
     }
-
     public void GameOver (int achievements)
     {
         

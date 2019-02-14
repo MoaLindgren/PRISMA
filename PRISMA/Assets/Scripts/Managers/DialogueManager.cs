@@ -34,7 +34,8 @@ public class DialogueManager : MonoBehaviour
                     xmlManager.SetUpXML(trigger, fullName, index);
                     return;
                 case "Achievement":
-                    gameManager.Achievement(index);
+                    GameObject halo = transform.GetChild(0).gameObject;
+                    gameManager.Achievement(index, halo);
                     return;
                 case "Trigger":
                     xmlManager.SetUpXML(trigger, fullName, index);

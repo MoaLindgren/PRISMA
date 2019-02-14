@@ -29847,6 +29847,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83708d515da8ff543aadf84a37381398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1322731955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1322731953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8925cf44dce854891816c7126a52e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tulkortPrefab: {fileID: 1616806318578896, guid: 3d6d954ecd864b64a889a9aad1bf6caa,
+    type: 2}
 --- !u!82 &1322731958 stripped
 AudioSource:
   m_PrefabParentObject: {fileID: 82128324349655950, guid: 1e46a5d5556cc4146ae8b4b668ce76db,

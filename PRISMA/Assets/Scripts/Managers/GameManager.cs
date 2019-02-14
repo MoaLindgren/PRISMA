@@ -30,12 +30,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
-
-        //TA BORT DETTA
-        nbrAchievementsCompleted = 5;
-
+        nbrAchievementsCompleted = 0;
         player = GameObject.FindGameObjectWithTag("player");
-
         cameraManager = GameObject.Find("Main Camera").GetComponent<CameraManager>();
         xmlManager = GetComponent<XmlManager>();
         itemManager = GetComponent<ItemsManager>();
@@ -65,11 +61,13 @@ public class GameManager : MonoBehaviour
         playerBehaviour.Moveable = false; 
         itemManager.AddItem(index + 1, items[index]);
     }
-    public void Achievement(int index)
+    public void Achievement(int index, GameObject halo)
     {
+        nbrAchievementsCompleted++;
         Cursor.visible = true;
         playerBehaviour.Moveable = false;
         menuManager.AchievementCompleted(index);
+        halo.SetActive(false);
     }
     //När en dialog är klar:
     public void Play(bool achievement)
