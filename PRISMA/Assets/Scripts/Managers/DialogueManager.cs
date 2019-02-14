@@ -32,13 +32,16 @@ public class DialogueManager : MonoBehaviour
                 case "Station":
                     gameManager.Station(index);
                     xmlManager.SetUpXML(trigger, fullName, index);
+                    GetComponent<Collider>().enabled = false;
                     return;
                 case "Achievement":
                     GameObject halo = transform.GetChild(0).gameObject;
                     gameManager.Achievement(index, halo);
+                    GetComponent<Collider>().enabled = false;
                     return;
                 case "Trigger":
                     xmlManager.SetUpXML(trigger, fullName, index);
+                    GetComponent<Collider>().enabled = false;
                     return;
             }
 

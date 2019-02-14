@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject backPackBox, 
-               dialogueBox, 
-               playDialogueBox, 
-               itemPrefab, 
-               backPackButton, 
-               player, 
-               highlightBackPack, 
+    GameObject backPackBox,
+               dialogueBox,
+               playDialogueBox,
+               itemPrefab,
+               backPackButton,
+               player,
+               highlightBackPack,
                achievements,
                endScreen,
                achievementInfoBox;
@@ -96,7 +96,13 @@ public class MenuManager : MonoBehaviour
     {
         soundManager.UISound(buttonClick);
         achievements.SetActive(true);
-        
+
+        for (int i = 0; i < GetComponent<GameManager>().CompletedAchievementIndex.Count; i++)
+        {
+            int index = GetComponent<GameManager>().CompletedAchievementIndex[i];
+            achievements.transform.GetChild(index).GetChild(1).gameObject.SetActive(true);
+        }
+
     }
     public void CloseAchievements()
     {
@@ -129,7 +135,7 @@ public class MenuManager : MonoBehaviour
             playDialogueBox.SetActive(true);
             dialogueText.text = dialogue;
         }
-        
+
     }
 
     public void Play()
@@ -146,20 +152,20 @@ public class MenuManager : MonoBehaviour
     {
         achievementInfoBox.SetActive(true);
         achievementInfoBox.transform.GetChild(index).gameObject.SetActive(true);
-        achievementList[index].transform.GetChild(1).gameObject.SetActive(true);
+
     }
     public void CloseAchievementBox()
     {
-        for(int i = 0; i < achievementInfoBox.transform.childCount; i++)
+        for (int i = 0; i < achievementInfoBox.transform.childCount; i++)
         {
             achievementInfoBox.transform.GetChild(i).gameObject.SetActive(false);
         }
         achievementInfoBox.SetActive(false);
         GetComponent<GameManager>().Play(true);
     }
-    public void GameOver (int achievements)
+    public void GameOver(int achievements)
     {
-        
+
         achievementsCompleted.text = "Tack för deltagandet! Du klarade " + achievements + " uppgifter! BRA JOBBAT!";
         endScreen.SetActive(true);
     }

@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     CameraManager cameraManager;
     
     string[] items = { "Komradio", "Anteckningsblock", "Ogräsborttagare", "Räknare", "Fiskespö" };
+    List<int> completedAchievementIndex;
 
     public bool CorrectItem
     {
@@ -25,6 +26,10 @@ public class GameManager : MonoBehaviour
     public int AchievementIndex
     {
         set { achievementIndex = value; }
+    }
+    public List<int> CompletedAchievementIndex
+    {
+        get { return completedAchievementIndex; }
     }
 
     void Start()
@@ -37,6 +42,7 @@ public class GameManager : MonoBehaviour
         itemManager = GetComponent<ItemsManager>();
         menuManager = GetComponent<MenuManager>();
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
+        completedAchievementIndex = new List<int>();
     }
     void Update()
     {
@@ -64,6 +70,7 @@ public class GameManager : MonoBehaviour
     public void Achievement(int index, GameObject halo)
     {
         nbrAchievementsCompleted++;
+        completedAchievementIndex.Add(index);
         Cursor.visible = true;
         playerBehaviour.Moveable = false;
         menuManager.AchievementCompleted(index);
