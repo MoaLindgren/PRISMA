@@ -7807,7 +7807,7 @@ Prefab:
     - target: {fileID: 224818312881104008, guid: 56a5c2a136b37bd40ad26f356888171f,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1344538709800258, guid: 56a5c2a136b37bd40ad26f356888171f, type: 2}
       propertyPath: m_Name
@@ -40713,6 +40713,11 @@ Prefab:
         type: 2}
       propertyPath: m_Radius
       value: 8.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 114148753031268360, guid: 76ff6b3090d31cd4ab53b67f692ba8b9,
+        type: 2}
+      propertyPath: index
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76ff6b3090d31cd4ab53b67f692ba8b9, type: 2}
