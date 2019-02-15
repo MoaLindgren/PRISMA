@@ -27,7 +27,8 @@ GameObject:
   - component: {fileID: 114650521158393684}
   - component: {fileID: 114645442132038010}
   - component: {fileID: 82533602429491684}
-  - component: {fileID: 114180309318775974}
+  - component: {fileID: 114173785556237608}
+  - component: {fileID: 114527624247643784}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -59,7 +60,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.24
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -314,13 +315,24 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 72f71659f6d82994e81935dcdfaf4c2b, type: 3}
   buttonClick: {fileID: 8300000, guid: 9ff70ed600242b241b200238d333961c, type: 3}
   newItem: 0
---- !u!114 &114180309318775974
+--- !u!114 &114173785556237608
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1082924975812060}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83708d515da8ff543aadf84a37381398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114527624247643784
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1082924975812060}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e8925cf44dce854891816c7126a52e9, type: 3}
   m_Name: 
@@ -338,7 +350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66574885a5b5f8440a398ebfecd82597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startGame: 0
+  totalGameTime: 900
+  gameTimer: 0
 --- !u!114 &114650521158393684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -351,12 +364,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayNightAudioSource: {fileID: 82785987183936762}
-  triggerAudioSource: {fileID: 0}
+  triggerAudioSource: {fileID: 82128324349655950}
   uiAudioSource: {fileID: 82533602429491684}
   daySound: {fileID: 8300000, guid: 9b720743be28dfd458678e13f1415db5, type: 3}
   nightSound: {fileID: 8300000, guid: 44259de166ef5b14fad11c0f848b814b, type: 3}
-  achievementSound: {fileID: 0}
-  wolfSound: {fileID: 0}
+  achievementSound: {fileID: 8300000, guid: a82cb0223490d3d4cb08df0435bbba4a, type: 3}
+  wolfSound: {fileID: 8300000, guid: 85fb5f03117d60c4092496bba4d2701c, type: 3}
 --- !u!114 &114665261002696358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -368,7 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44c97d2c25ebf249b1091565b5903ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueTimer: 0
+  dialogueTimer: 5
 --- !u!114 &114862697550101002
 MonoBehaviour:
   m_ObjectHideFlags: 1

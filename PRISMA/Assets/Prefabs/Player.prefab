@@ -460,7 +460,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1679385867784004}
   m_LocalRotation: {x: 0.053643152, y: 0, z: 0, w: 0.99856025}
-  m_LocalPosition: {x: -0, y: 2.3, z: -2.19}
+  m_LocalPosition: {x: -0, y: 2.3, z: -1.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4995651259166362}
@@ -766,8 +766,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1016124778571646}
-  m_LocalRotation: {x: -0, y: -0.9989786, z: -0, w: -0.045185223}
-  m_LocalPosition: {x: 219.84764, y: 9.8740015, z: 370.11124}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 218.24, y: 9.8740015, z: 373.16}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4103882170161210}
@@ -775,7 +775,7 @@ Transform:
   - {fileID: 4747573215153446}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -185.18, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!20 &20343493817787676
 Camera:
   m_ObjectHideFlags: 1
@@ -870,8 +870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4684aa74768b8b04a8dd927953143cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snowTexture: {fileID: 0}
-  defaultTexture: {fileID: 0}
+  snowTexture: {fileID: 2800000, guid: 6099288cd7c8c41439fbf907a16c5c89, type: 3}
+  defaultTexture: {fileID: 2800000, guid: ee8680ca49b912746958dd16c5d23051, type: 3}
   snow: {fileID: 0}
   yearSlider: {fileID: 0}
   trees: []
@@ -880,8 +880,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 77715b8b6b248994891d3ccad1ad330b, type: 2}
   - {fileID: 2100000, guid: 169a1b8f06c17c84e8de491f2bfef986, type: 2}
   - {fileID: 2100000, guid: ceb0a3ed2cb53a94fa21843cc958c52b, type: 2}
-  numberOfDays: 5
-  gameTime: 1
+  numberOfDays: 10
+  yearTime: 3
   dayCycleTimer: 0
 --- !u!114 &114630849479679722
 MonoBehaviour:
@@ -905,6 +905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665b323dc0005ea418836ec6901ac867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockCameraRotation: 0
 --- !u!114 &114987712122401626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -916,11 +917,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9099183c4dbd9574ebd20c9dcff674dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
-  rotationSpeed: 150
+  moveSpeed: 6
+  rotationSpeed: 50
   rotationUp: 0
   rotationDown: 0
-  moveable: 0
 --- !u!124 &124039229534514240
 Behaviour:
   m_ObjectHideFlags: 1
