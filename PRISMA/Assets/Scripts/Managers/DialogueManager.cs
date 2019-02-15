@@ -15,9 +15,12 @@ public class DialogueManager : MonoBehaviour
     GameManager gameManager;
     XmlManager xmlManager;
     SoundManager soundManager;
+    string gameVersion;
 
     void Start()
     {
+        //SÄTT DENNA FRÅN HUVUDMENYN:
+        gameVersion = "Game2";
         entered = true;
         xmlManager = GameObject.Find("GameManager").GetComponent<XmlManager>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -32,8 +35,12 @@ public class DialogueManager : MonoBehaviour
             switch (myName)
             {
                 case "Station":
+                    if(index == 0)
+                    {
+                        gameManager.GameStarted = true;
+                    }
                     gameManager.Station(index);
-                    xmlManager.SetUpXML(trigger, fullName, index);
+                    xmlManager.SetUpXML(trigger, fullName, index, gameVersion);
                     GetComponent<Collider>().enabled = false;
                     return;
                 case "Achievement":
@@ -46,10 +53,11 @@ public class DialogueManager : MonoBehaviour
                     }
                     return;
                 case "Trigger":
-                    xmlManager.SetUpXML(trigger, fullName, index);
+                    xmlManager.SetUpXML(trigger, fullName, index, gameVersion);
                     GetComponent<Collider>().enabled = false;
-                    //Om man möter varg:
-                    if(index == 2)
+
+                    //Om man möter varg i game1:
+                    if(index == 2 && gameVersion == "Game1")
                     {
                         soundManager.TriggerSound(false);
                     }

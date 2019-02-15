@@ -12,8 +12,8 @@ public class XmlManager : MonoBehaviour
     XmlWriter writer;
     MenuManager menuManager;
 
-    bool trigger, dialogueStarted;
-    string colliderName, filePath;
+    bool trigger, dialogueStarted, triggerDialogueFinished;
+    string colliderName, filePath, gameVersion;
     [SerializeField]
     float dialogueTimer;
     float timer;
@@ -21,16 +21,22 @@ public class XmlManager : MonoBehaviour
 
     void Start()
     {
+        triggerDialogueFinished = true;
         timer = dialogueTimer;
         menuManager = GetComponent<MenuManager>();
     }
 
-    public void SetUpXML(bool trigger, string colliderName, int item)
+    public void SetUpXML(bool trigger, string colliderName, int item, string gameVersion)
     {
+        if(trigger)
+        {
+            triggerDialogueFinished = false;
+        }
         dialogueCounter = 0;
         this.trigger = trigger;
         this.colliderName = colliderName;
         this.index = item;
+        this.gameVersion = gameVersion;
 
         doc = new XmlDocument();
         filePath = Application.dataPath + "/Resources/Dialogues.xml";
@@ -44,35 +50,54 @@ public class XmlManager : MonoBehaviour
             doc.Save(writer);
         }
         print(filePath);
-        Dialogue();
+
+        StartCoroutine(Dialogue());
     }
-    public void Dialogue()
+    public void SendToDialogue()
     {
+        StartCoroutine(Dialogue());
+    }
+    public IEnumerator Dialogue()
+    {
+        if (trigger)
+        {
+            yield return new WaitUntil(() => triggerDialogueFinished);
+        }
         nodeList = doc.GetElementsByTagName("Root");
 
         foreach (XmlNode rootNode in nodeList)
         {
             foreach (XmlNode node in rootNode)
             {
-                if (node.Name == colliderName)
+                if (node.Name == gameVersion)
                 {
 
-                    if (node.Attributes[dialogueCounter].Value != "" || node.Attributes[dialogueCounter].Value != "finished")
+                    foreach (XmlNode versionNode in node)
                     {
-                        menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, false);
-                    }
-                    else if (node.Attributes[dialogueCounter].Value == "finished")
-                    {
-                        menuManager.ViewDialogue(node.Attributes[dialogueCounter].Value, true);
-                        dialogueStarted = false;
-                    }
-                    dialogueStarted = true;
-                    dialogueCounter++;
+                        if (versionNode.Name == colliderName)
+                        {
 
-
+                            if (versionNode.Attributes[dialogueCounter].Value != "" || versionNode.Attributes[dialogueCounter].Value != "finished")
+                            {
+                                menuManager.ViewDialogue(versionNode.Attributes[dialogueCounter].Value, false);
+                            }
+                            else if (versionNode.Attributes[dialogueCounter].Value == "finished")
+                            {
+                                if (trigger)
+                                {
+                                    triggerDialogueFinished = true;
+                                }
+                                menuManager.ViewDialogue(versionNode.Attributes[dialogueCounter].Value, true);
+                                dialogueStarted = false;
+                            }
+                            dialogueStarted = true;
+                            dialogueCounter++;
+                        }
+                    }
                 }
             }
         }
+
 
     }
     void Update()
@@ -82,7 +107,7 @@ public class XmlManager : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
-                Dialogue();
+                StartCoroutine(Dialogue());
                 timer = dialogueTimer;
             }
         }

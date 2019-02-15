@@ -137,7 +137,7 @@ public class MenuManager : MonoBehaviour
     public void Dialogue()
     {
         soundManager.UISound(buttonClick);
-        xmlManager.Dialogue();
+        xmlManager.SendToDialogue();
     }
     public void AchievementCompleted(int index)
     {
@@ -155,10 +155,9 @@ public class MenuManager : MonoBehaviour
         achievementInfoBox.SetActive(false);
         GetComponent<GameManager>().Play(true);
     }
-    public void GameOver(int achievements)
+    public void GameOver(int achievements, int timeToFinish)
     {
-
-        achievementsCompleted.text = "Tack för deltagandet! Du klarade " + achievements + " uppgifter! BRA JOBBAT!";
+        achievementsCompleted.text = "Tack för deltagandet! Du klarade " + achievements + " uppgifter på " + timeToFinish + " sekunder! BRA JOBBAT!";
         endScreen.SetActive(true);
     }
 }

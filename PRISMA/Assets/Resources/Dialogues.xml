@@ -70,6 +70,11 @@ Förklaring av xml-dokument:
       Dialogue2 = "Konkurrensen gör att en art blir ovanligare än utan konkurrens. Konkurrens mellan arter kan leda till att de specialiserar sig på det som de är bäst på."
       Dialogue3 = "finished">
     </Trigger0>
+    <Trigger1 
+      Dialogue0="TEST TEST"         
+      Dialogue1="Test2"
+      Dialogue2="finished">
+    </Trigger1>
     
     <Station12
       Dialogue1 ="Konkurrens bland djur behöver inte betyda att de slåss med varandra. Det är vanligt att djur slåss med varandra om att få utnyttja resurserna inom ett område. Ett område som ett djur försvarar kallas revir."

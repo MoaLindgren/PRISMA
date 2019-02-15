@@ -5,8 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     int achievementIndex, nbrAchievementsCompleted;
-    public bool startGame;
-    bool correctItem;
+    bool correctItem, gameOver, gameStarted;
+    [SerializeField]
+    float totalGameTime, gameTimer;
 
     Vector3 playerLockRotation;
     GameObject player;
@@ -31,9 +32,17 @@ public class GameManager : MonoBehaviour
     {
         get { return completedAchievementIndex; }
     }
+    public bool GameStarted
+    {
+        set { gameStarted = value; }
+    }
+
 
     void Start()
     {
+        gameTimer = 0;
+        gameStarted = false;
+        gameOver = false;
         Cursor.visible = false;
         nbrAchievementsCompleted = 0;
         player = GameObject.FindGameObjectWithTag("player");
@@ -46,6 +55,14 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
+        if(gameStarted)
+        {
+            gameTimer += Time.deltaTime;
+            if(gameTimer >= totalGameTime)
+            {
+                gameOver = true;
+            }
+        }
         if (Input.GetKey(KeyCode.LeftShift))
         {
             Cursor.visible = true;
@@ -54,10 +71,10 @@ public class GameManager : MonoBehaviour
         {
             Cursor.visible = false;
         }
-        //ta bort detta 
-        if(Input.GetKeyDown(KeyCode.Y))
+        if(nbrAchievementsCompleted == 6 || gameOver)
         {
-            GameOver();
+            gameStarted = false;
+            StartCoroutine(GameOver());
         }
     }
     //När man går in i en station:
@@ -92,10 +109,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GameOver ()
+    IEnumerator GameOver()
     {
-        //när spelet är slut kallas dena. 
-        menuManager.GameOver(nbrAchievementsCompleted);
+        yield return new WaitForSeconds(1);
+        int timeToFinish = (int)gameTimer;
+        menuManager.GameOver(nbrAchievementsCompleted, timeToFinish);
     }
 
 }
