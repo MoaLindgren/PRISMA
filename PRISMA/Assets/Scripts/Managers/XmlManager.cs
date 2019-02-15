@@ -12,7 +12,7 @@ public class XmlManager : MonoBehaviour
     XmlWriter writer;
     MenuManager menuManager;
 
-    bool trigger, dialogueStarted, triggerDialogueFinished;
+    bool trigger, newTrigger, dialogueStarted, triggerDialogueFinished, startCounting;
     string colliderName, filePath, gameVersion;
     [SerializeField]
     float dialogueTimer;
@@ -21,23 +21,29 @@ public class XmlManager : MonoBehaviour
 
     void Start()
     {
+        startCounting = false;
         triggerDialogueFinished = true;
         timer = dialogueTimer;
         menuManager = GetComponent<MenuManager>();
     }
-
-    public void SetUpXML(bool trigger, string colliderName, int item, string gameVersion)
+    public void SendToSetUp(bool trigger, string colliderName, int item, string gameVersion)
     {
-        if(trigger)
-        {
-            triggerDialogueFinished = false;
-        }
         dialogueCounter = 0;
         this.trigger = trigger;
+        if(colliderName != this.colliderName)
+        {
+            newTrigger = true;
+        }
+        
         this.colliderName = colliderName;
         this.index = item;
         this.gameVersion = gameVersion;
 
+        StartCoroutine(SetUpXML());
+    }
+
+    IEnumerator SetUpXML()
+    {
         doc = new XmlDocument();
         filePath = Application.dataPath + "/Resources/Dialogues.xml";
         path = Resources.Load("Dialogues") as TextAsset;
@@ -50,19 +56,19 @@ public class XmlManager : MonoBehaviour
             doc.Save(writer);
         }
         print(filePath);
-
-        StartCoroutine(Dialogue());
-    }
-    public void SendToDialogue()
-    {
-        StartCoroutine(Dialogue());
-    }
-    public IEnumerator Dialogue()
-    {
-        if (trigger)
+        if (newTrigger)
         {
             yield return new WaitUntil(() => triggerDialogueFinished);
+            Dialogue();
         }
+        else
+        {
+            Dialogue();
+        }
+
+    }
+    public void Dialogue()
+    {
         nodeList = doc.GetElementsByTagName("Root");
 
         foreach (XmlNode rootNode in nodeList)
@@ -71,24 +77,26 @@ public class XmlManager : MonoBehaviour
             {
                 if (node.Name == gameVersion)
                 {
-
                     foreach (XmlNode versionNode in node)
                     {
                         if (versionNode.Name == colliderName)
                         {
-
                             if (versionNode.Attributes[dialogueCounter].Value != "" || versionNode.Attributes[dialogueCounter].Value != "finished")
                             {
+                                if (trigger)
+                                {
+                                    triggerDialogueFinished = false;
+                                }
                                 menuManager.ViewDialogue(versionNode.Attributes[dialogueCounter].Value, false);
                             }
                             else if (versionNode.Attributes[dialogueCounter].Value == "finished")
                             {
+                                menuManager.ViewDialogue(versionNode.Attributes[dialogueCounter].Value, true);
+                                dialogueStarted = false;
                                 if (trigger)
                                 {
                                     triggerDialogueFinished = true;
                                 }
-                                menuManager.ViewDialogue(versionNode.Attributes[dialogueCounter].Value, true);
-                                dialogueStarted = false;
                             }
                             dialogueStarted = true;
                             dialogueCounter++;
@@ -97,17 +105,16 @@ public class XmlManager : MonoBehaviour
                 }
             }
         }
-
-
     }
     void Update()
     {
         if (dialogueStarted && trigger)
         {
+            newTrigger = false;
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
-                StartCoroutine(Dialogue());
+                Dialogue();
                 timer = dialogueTimer;
             }
         }

@@ -137,7 +137,7 @@ public class MenuManager : MonoBehaviour
     public void Dialogue()
     {
         soundManager.UISound(buttonClick);
-        xmlManager.SendToDialogue();
+        xmlManager.Dialogue();
     }
     public void AchievementCompleted(int index)
     {

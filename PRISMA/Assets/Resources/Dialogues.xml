@@ -68,7 +68,8 @@ Förklaring av xml-dokument:
       Dialogue0 = "Olika växter konkurrerar om utrymmet på en gräsmatta. Det kan exempelvis vara brist på platser där något användbart finns."
       Dialogue1 = "Höga växter skuggar lägre växter, vilket skapar konkurrens mellan växterna om ljuset."
       Dialogue2 = "Konkurrensen gör att en art blir ovanligare än utan konkurrens. Konkurrens mellan arter kan leda till att de specialiserar sig på det som de är bäst på."
-      Dialogue3 = "finished">
+      Dialogue3 = "uhu"
+      Dialogue4 = "finished">
     </Trigger0>
     <Trigger1 
       Dialogue0="TEST TEST"         

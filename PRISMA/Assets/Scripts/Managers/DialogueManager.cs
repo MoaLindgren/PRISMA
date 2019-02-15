@@ -40,7 +40,7 @@ public class DialogueManager : MonoBehaviour
                         gameManager.GameStarted = true;
                     }
                     gameManager.Station(index);
-                    xmlManager.SetUpXML(trigger, fullName, index, gameVersion);
+                    xmlManager.SendToSetUp(trigger, fullName, index, gameVersion);
                     GetComponent<Collider>().enabled = false;
                     return;
                 case "Achievement":
@@ -53,7 +53,7 @@ public class DialogueManager : MonoBehaviour
                     }
                     return;
                 case "Trigger":
-                    xmlManager.SetUpXML(trigger, fullName, index, gameVersion);
+                    xmlManager.SendToSetUp(trigger, fullName, index, gameVersion);
                     GetComponent<Collider>().enabled = false;
 
                     //Om man möter varg i game1:
