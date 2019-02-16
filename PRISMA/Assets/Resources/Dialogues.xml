@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 
 Förklaring av xml-dokument:
-  - Station är vid tillfällen spelaren blir stoppad för att läsa en info-text. Stationen måste inte ha en uppgift som spelaren ska utföra, men det ska leda till ett achievement.
+  - Station är vid tillfällen spelaren blir stoppad för att läsa en info-text. Stationen måste inte ha en uppgift som spelaren ska utföra, men det ska leda till ett achievement (achievements är skrivna i Unity).
   - Trigger är när spelaren bara går runt och en dialog-ruta dyker upp, utan att det stoppar spelaren.
-  - Achievement är info-rutor. De stoppar spelaren och sker när en uppgift från en station har utförts, 
-    eller om stationen inte hade en uppgift så sker det ändå för att man har upplevt det som skedde vid stationen.
   - En tom dialog (dvs. DialogueX = "") betyder att någonting inväntas inför nästa dialog. I flesta fall är att spelaren ska välja ett item som inväntas.
   - En dialog med "finished" betyder att just denna Station eller Trigger är slut. Achivement har inga "finished" för dem klickar man bort.
 -->
@@ -12,12 +10,15 @@ Förklaring av xml-dokument:
   <Game1>
     <!-- Introduktion -->
     <Station0
-      Dialogue0 = "Alla populationer varierar i storlek. Men antalet varierar olika mycket hos olika arter. Man vet inte om det beror på miljöstörningar eller om det är fråga om naturliga variationer."
-      Dialogue1 = "Genom att studera olika arter över många år, kan man få en bättre bild av hur stora svängningar som normalt förekommer hos olika arter."
-      Dialogue2 = "Du ska nu studera naturen i denna skog. I din loggbok finns dina uppgifter. Försök att klara så många du kan"
-      Dialogue3 = "Det finns en komradio i din ryggsäck. Hämta den, så kan jag nå dig under hela din utflykt"
-      Dialogue4 = ""
-      Dialogue5 = "finished">
+      Dialogue0 = "Hej! Vad roligt att se dig här."
+      Dialogue1 = "Idag tänkte jag att vi går igenom populationsekologi."
+      Dialogue2 = "Populationsekologi handlar om vad som bestämmer populationsstorleken hos djur och växter."
+      Dialogue3 = "Alla populationer varierar i storlek. Men antalet varierar olika mycket hos olika arter. Man vet inte om det beror på miljöstörningar eller om det är fråga om naturliga variationer."
+      Dialogue4 = "Genom att studera olika arter över många år, kan man få en bättre bild av hur stora svängningar som normalt förekommer hos olika arter."
+      Dialogue5 = "Du ska nu studera naturen i denna skog. I din loggbok finns dina uppgifter. Försök att klara så många du kan"
+      Dialogue6 = "Det finns en komradio i din ryggsäck. Hämta den, så kan jag nå dig under hela din färd"
+      Dialogue7 = ""
+      Dialogue8 = "finished">
     </Station0>
     <!-- När man börjar gå in i skogen -->
     <Trigger0
@@ -26,7 +27,7 @@ Förklaring av xml-dokument:
       Dialogue2 = "Konkurrensen gör att en art blir ovanligare än utan konkurrens. Konkurrens mellan arter kan leda till att de specialiserar sig på det som de är bäst på."
       Dialogue3 ="finished">
     </Trigger0>
-    <!-- När man går över bron, mot koltrastskogen -->
+    <!-- När man går över bron -->
     <Trigger1
       Dialogue0 ="Vädret har också stor påverkan för hur vanlig vissa arter och populationer blir."
       Dialogue1 ="En kall vinter behöver övervintrande fåglar äta mer för att hålla värmen och överleva. En sträng vinter kan vara svår att överleva för många djur."
@@ -41,7 +42,7 @@ Förklaring av xml-dokument:
       Dialogue3 = "Bra! Placera nu ut den på något av träden här hos koltrastarna."
       Dialogue4 = "finished">
     </Station1>
-    <!-- När man gått över bron, påväg mot vargarna -->
+    <!-- När man går/gått över andra bron -->
     <Trigger2
       Dialogue0 = "Var försiktig, det finns vargar där framme."
       Dialogue1 = "finished">
@@ -57,82 +58,90 @@ Förklaring av xml-dokument:
   <Game2>
     <!-- Introduktion -->
     <Station0
-      Dialogue0 = "Alla populationer varierar i storlek. Men antalet varierar olika mycket hos olika arter. Man vet inte om det beror på miljöstörningar eller om det är fråga om naturliga variationer."
-      Dialogue1 = "Genom att studera olika arter över många år, kan man få en bättre bild av hur stora svängningar som normalt förekommer hos olika arter."
-      Dialogue2 = "Du ska nu studera naturen i denna skog. I din loggbok finns dina uppgifter. Försök att klara så många du kan"
-      Dialogue3 = "Det finns en komradio i din ryggsäck. Hämta den, så kan jag nå dig under hela din utflykt"
-      Dialogue4 = ""
-      Dialogue5 = "finished">
+      Dialogue0 = "Hej! Vad roligt att se dig här."
+      Dialogue1 = "Idag tänkte jag att vi går igenom populationsekologi."
+      Dialogue2 = "Populationsekologi handlar om vad som bestämmer populationsstorleken hos djur och växter."
+      Dialogue3 = "Alla populationer varierar i storlek. Men antalet varierar olika mycket hos olika arter. Man vet inte om det beror på miljöstörningar eller om det är fråga om naturliga variationer."
+      Dialogue4 = "Genom att studera olika arter över många år, kan man få en bättre bild av hur stora svängningar som normalt förekommer hos olika arter."
+      Dialogue5 = "Du ska nu studera naturen i denna skog. I din loggbok finns dina uppgifter. Försök att klara så många du kan"
+      Dialogue6 = "Det finns en komradio i din ryggsäck. Hämta den, så kan jag nå dig under hela din färd"
+      Dialogue7 = ""
+      Dialogue8 = "finished">
     </Station0>
+    <!-- När man börjar gå in i skogen -->
     <Trigger0
-      Dialogue0 = "Olika växter konkurrerar om utrymmet på en gräsmatta. Det kan exempelvis vara brist på platser där något användbart finns."
-      Dialogue1 = "Höga växter skuggar lägre växter, vilket skapar konkurrens mellan växterna om ljuset."
-      Dialogue2 = "Konkurrensen gör att en art blir ovanligare än utan konkurrens. Konkurrens mellan arter kan leda till att de specialiserar sig på det som de är bäst på."
-      Dialogue3 = "uhu"
+      Dialogue0 = "I den här skogen finns det riddarskinnbaggar. Deras populationsstorlekar varierar dramatiskt i storlek."
+      Dialogue1 = "Riddarskinnbaggen äter frön av tulkört."
+      Dialogue2 = "Mängden frön från tulkört, samt vädret, påverkar hur vanliga riddarskinnbaggen blir."
       Dialogue4 = "finished">
     </Trigger0>
-    <Trigger1 
-      Dialogue0="TEST TEST"         
-      Dialogue1="Test2"
-      Dialogue2="finished">
-    </Trigger1>
-    
-    <Station12
-      Dialogue1 ="Konkurrens bland djur behöver inte betyda att de slåss med varandra. Det är vanligt att djur slåss med varandra om att få utnyttja resurserna inom ett område. Ett område som ett djur försvarar kallas revir."
-      Dialogue2 ="Djur slåss bara om revir om det råder brist på resurser. Finns det gott om resurser, finns det ingen anledning att försvara revir."
-      Dialogue3 ="finished">
-    </Station12>
-    <Station13
-      Dialogue0 ="En arts utbredning begränsas till områden med lämpliga habitat där arten kan fortplanta sig och överleva. En art kan vara ovanlig därför att habitaten är ovanliga."
-      Dialogue1 ="Allmänt gäller att större organismer behöver större områden. En vargflock behöver ett område om hundratals till tusentals kvadratkilometer med lämpliga habitat. "
-      Dialogue2 ="En livskraftig population av en mindre art, till exempel den utrotningshotade dårgräsfjärilen, kan klara sig med några hektar."
-      Dialogue3 ="finished">
-    </Station13>
-
-    <!-- här nedan börjar Game4 dialogerna med ett litet hopp ifall vi vill lägga till fler sedan-->
-
-
-    <Station17
-    Dialogue0 ="Om det finns gott om resurser så räcker det åt alla. Många ungar föds, överlevnaden är god och populationen växer. Ju fler individer det blir, desto mindre med resurser blir det per individ. "
-    Dialogue1 ="Till slut blir individerna mindre livskraftiga och de kan inte längre föda upp lika många ungar. Populationen slutar växa eller minskar kanske till och med."
-    Dialogue2 ="finished">
-    </Station17>
-
+    <!-- Placera ut tulkört -->
+    <Station1
+      Dialogue0 = "I din väska har du en tulkörtväxt. Hämta den."
+      Dialogue1 = ""
+      Dialogue2 = "Bra! Plantera den, så hjälper vi riddarskinnbaggarna"
+      Dialogue3 = "finished">
+    </Station1>
+    <!-- ACHIEVEMENT RIDDARSKINNBAGGAR-->
     <Station18
-    Dialogue0 ="Konkurrensen om resurserna sätter på detta sätt en gräns för hur vanlig en art kan bli. Den största populationsstorlek som resurserna långsiktigt räcker till kallas miljöns bärkraft. Den resurs som det först blir brist på, bestämmer bärkraften, även om andra resurser finns i överflöd."
+    Dialogue0 ="Konkurrensen om resurserna sätter på detta sätt en gräns för hur vanlig en art kan bli."
     Dialogue1 ="Ökar man mängden av den resurs som begränsar populationen, kan den åter växa."
     Dialogue2 ="finished">
     </Station18>
-
-    <Station19
-      Dialogue0 ="En art som kommer till ett tidigare outnyttjat område har först obegränsat med resurser. Individerna kan växa fort och skaffa sig stor avkomma. Populationen växer då fort. Så småningom, när antalet individer blir fler, uppstår konkurrens. Populationen når en storlek där resurserna inte räcker för fler att leva på. Denna storlek kallas miljöns bärkraft."
-      Dialogue1 =""
-      Dialogue2 ="finished">
-    </Station19>
-
-    <Station20
-    Dialogue0 ="Predatorer kan hålla betespopulationerna från att bli för stora och därigenom förstöra balansen i naturen. Detta ger ett överskott av resurser, som tillåter fler arter att leva."
-    Dialogue1 =""
-    Dialogue2 ="finished">
-    </Station20>
-
+    <!-- När man går över första bron -->
+    <Trigger1
+      Dialogue0= "Om det finns gott om resurser så räcker det åt alla. Då kan många ungar födas och populationen växer."
+      Dialogue1= "Men ju fler individer, desto mindre med resurser per individ."
+      Dialogue2= "Då kan det komma till en punkt då resurserna inte längre räcker"
+      Dialogue3= "Det här kallas miljöns bärkraft."
+      Dialogue4= "finished">
+    </Trigger1>  
+    <!-- ACHIEVEMENT TRÄD-->
+    <Trigger1123
+      Dialogue0 = "En art som kommer till ett tidigare outnyttjat område har först obegränsat med resurser."
+      Dialogue1 = "Ett outnyttjat område kan skapas av störningar i miljön. Många arter behöver störningar för att finnas."
+      Dialogue2 = "finished">
+    </Trigger1123>
+    <!-- När man går/gått över andra bron -->
+    <Trigger2
+    Dialogue0 ="Predatorer kan hålla bytespopulationerna från att bli för stora och därigenom förstöra balansen i naturen."
+    Dialogue1 ="Vi människor är predatorer, och vi är beroende av att våra byten inte blir ovanligare."
+    Dialogue2 ="För att de populationer som vi utnyttjar inte snabbt ska minska och till och med utrotas, måste vi alltså ha kontroll över exempelvis virkesuttag i skogen samt jakt- och fiskekvoter."
+    Dialogue3 ="finished">
+    </Trigger2>
+    <!-- ACHIEVEMENT FISKAR -->
     <Station21
-    Dialogue0 ="Människan är en predator, och vi är beroende av att våra byten inte blir ovanligare när vi använder dem. För att de populationer som vi utnyttjar inte snabbt ska minska och till och med utrotas, måste vi alltså ha kontroll över exempelvis virkesuttag i skogen samt jakt- och fiskekvoter."
+    Dialogue0 =""
     Dialogue1 ="Allt bättre fisketekniker har gjort att fångsterna har ökat och många fiskbestånd hotas därför. Utanför Newfoundland har man fiskat torsk i över 500 år. Under de senaste hundra åren fångades ungefär en kvarts miljon ton varje år. Rekordet nåddes i slutet av sextiotalet med 800 000 ton. Idag beräknar man hela beståndet till drygt tusen ton."
     Dialogue2 ="Det är nödvändigt med fångster som baseras på vad bestånden tål, för att vi ska få äta fisk från havet också i framtiden."
     Dialogue3 ="finished">
     </Station21>
+    <!-- När man går höger från start -->
 
-    <Station22
-    Dialogue0 ="Vid fakulativ mutualism kan två arter som samarbetar klara sig utan varandra. Blommor kan pollineras av humlor, men det går lika bra med bin. Bin och humlor klarar sig också bra utan dessa blommor. De kan hitta pollen hos en annan art av blommor."
-    Dialogue1 ="Beroende på hur två arter påverkar varandras fortplantning och överlevnad kallas deras förhållande för konkurrens, predation eller mutualism. Konkurrens kan finnas mellan individer inom en art eller mellan individer av olika arter."
-    Dialogue2 ="">
-    </Station22>
-
-    <Station23
-      Dialogue0 ="Många arter behöver störningar för att finnas. Störningar kan vara stora, som till exempel skogsbränder. Men de kan också vara små, som när träd faller och lämnar mark fri för mossor att invadera."
+    <!-- När man går längan åt höger -->
+    <Trigger4
+    Dialogue0 = "Det finns även något som heter fakulativ mutualism"
+    Dialogue1 = "Det innebär att två arter som samarbetar även klarar sig utan varandra."
+    Dialogue2 = "finished">
+    </Trigger4>
+    <!-- ACHIEVEMENT BLOMMOR OCH BIN -->
+    <Station3
+      Dialogue0 =" Blommor kan pollineras av humlor, men det går lika bra med bin. Bin och humlor klarar sig också bra utan dessa blommor. De kan hitta pollen hos en annan art av blommor."
       Dialogue1 =""
       Dialogue2 ="">
-    </Station23>
+    </Station3>
   </Game2>
+
+
+  <idk
+  Dialogue1 ="Konkurrens bland djur behöver inte betyda att de slåss med varandra. Det är vanligt att djur slåss med varandra om att få utnyttja resurserna inom ett område. Ett område som ett djur försvarar kallas revir."
+  Dialogue2 ="Djur slåss bara om revir om det råder brist på resurser. Finns det gott om resurser, finns det ingen anledning att försvara revir."
+  Dialogue3 ="finished">
+  </idk>
+  <idk
+    Dialogue0 ="En arts utbredning begränsas till områden med lämpliga habitat där arten kan fortplanta sig och överleva. En art kan vara ovanlig därför att habitaten är ovanliga."
+    Dialogue1 ="Allmänt gäller att större organismer behöver större områden. En vargflock behöver ett område om hundratals till tusentals kvadratkilometer med lämpliga habitat. "
+    Dialogue2 ="En livskraftig population av en mindre art, till exempel den utrotningshotade dårgräsfjärilen, kan klara sig med några hektar."
+    Dialogue3 ="finished">
+  </idk>
 </Root>

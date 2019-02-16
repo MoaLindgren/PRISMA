@@ -12,37 +12,31 @@ public class XmlManager : MonoBehaviour
     XmlWriter writer;
     MenuManager menuManager;
 
-    bool trigger, newTrigger, dialogueStarted, triggerDialogueFinished, startCounting;
+    bool trigger, newTrigger, dialogueStarted, dialogueFinished, startCounting;
     string colliderName, filePath, gameVersion;
     [SerializeField]
     float dialogueTimer;
     float timer;
     int dialogueCounter, index;
 
+    public bool DialogueFinished
+    {
+        set { dialogueFinished = value; }
+    }
+
     void Start()
     {
         startCounting = false;
-        triggerDialogueFinished = true;
+        dialogueFinished = true;
         timer = dialogueTimer;
         menuManager = GetComponent<MenuManager>();
     }
-    public void SendToSetUp(bool trigger, string colliderName, int item, string gameVersion)
+    public void SendToSetUp(bool trigger, string colliderName, int index, string gameVersion)
     {
-        dialogueCounter = 0;
-        this.trigger = trigger;
-        if(colliderName != this.colliderName)
-        {
-            newTrigger = true;
-        }
-        
-        this.colliderName = colliderName;
-        this.index = item;
-        this.gameVersion = gameVersion;
-
-        StartCoroutine(SetUpXML());
+        StartCoroutine(SetUpXML(trigger, colliderName, index, gameVersion));
     }
 
-    IEnumerator SetUpXML()
+    IEnumerator SetUpXML(bool trigger, string colliderName, int index, string gameVersion)
     {
         doc = new XmlDocument();
         filePath = Application.dataPath + "/Resources/Dialogues.xml";
@@ -56,15 +50,14 @@ public class XmlManager : MonoBehaviour
             doc.Save(writer);
         }
         print(filePath);
-        if (newTrigger)
-        {
-            yield return new WaitUntil(() => triggerDialogueFinished);
-            Dialogue();
-        }
-        else
-        {
-            Dialogue();
-        }
+
+        yield return new WaitUntil(() => dialogueFinished);
+        dialogueCounter = 0;
+        this.trigger = trigger;
+        this.colliderName = colliderName;
+        this.index = index;
+        this.gameVersion = gameVersion;
+        Dialogue();
 
     }
     public void Dialogue()
@@ -85,21 +78,19 @@ public class XmlManager : MonoBehaviour
                             {
                                 if (trigger)
                                 {
-                                    triggerDialogueFinished = false;
+                                    dialogueFinished = false;
                                 }
-                                menuManager.ViewDialogue(versionNode.Attributes[dialogueCounter].Value, false);
+                                menuManager.ViewDialogue(versionNode.Attributes[dialogueCounter].Value);
+
                             }
                             else if (versionNode.Attributes[dialogueCounter].Value == "finished")
                             {
-                                menuManager.ViewDialogue(versionNode.Attributes[dialogueCounter].Value, true);
                                 dialogueStarted = false;
-                                if (trigger)
-                                {
-                                    triggerDialogueFinished = true;
-                                }
+                                menuManager.ViewDialogue(versionNode.Attributes[dialogueCounter].Value);
                             }
                             dialogueStarted = true;
                             dialogueCounter++;
+
                         }
                     }
                 }
@@ -108,9 +99,9 @@ public class XmlManager : MonoBehaviour
     }
     void Update()
     {
+        print(dialogueFinished);
         if (dialogueStarted && trigger)
         {
-            newTrigger = false;
             timer -= Time.deltaTime;
             if (timer <= 0)
             {

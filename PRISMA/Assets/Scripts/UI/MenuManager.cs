@@ -110,7 +110,7 @@ public class MenuManager : MonoBehaviour
     }
 
     //Blir kallad på från XmlManager:
-    public void ViewDialogue(string dialogue, bool startGame)
+    public void ViewDialogue(string dialogue)
     {
 
         dialogueText = dialogueBox.GetComponentInChildren<Text>();
@@ -120,6 +120,7 @@ public class MenuManager : MonoBehaviour
 
         if (dialogue == "finished")
         {
+            xmlManager.DialogueFinished = true;
             dialogueBox.SetActive(false);
         }
         else if (dialogue == "")
