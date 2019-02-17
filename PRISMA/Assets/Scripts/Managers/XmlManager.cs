@@ -84,10 +84,8 @@ public class XmlManager : MonoBehaviour
                             }
                             else if (versionNode.Attributes[dialogueCounter].Value == "finished")
                             {
-                                //dialogueStarted = false;
                                 menuManager.ViewDialogue(versionNode.Attributes[dialogueCounter].Value);
                             }
-                            //dialogueStarted = true;
                             dialogueCounter++;
 
                         }
