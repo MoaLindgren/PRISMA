@@ -12,9 +12,11 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     bool trigger, instant;
     bool entered;
+    GameObject manager;
     GameManager gameManager;
     XmlManager xmlManager;
     SoundManager soundManager;
+    MenuManager menuManager;
     string gameVersion;
 
     void Start()
@@ -22,9 +24,11 @@ public class DialogueManager : MonoBehaviour
         //SÄTT DENNA FRÅN HUVUDMENYN:
         gameVersion = "Game2";
         entered = true;
-        xmlManager = GameObject.Find("GameManager").GetComponent<XmlManager>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        soundManager = GameObject.Find("GameManager").GetComponent<SoundManager>();
+        manager = GameObject.Find("GameManager");
+        xmlManager = manager.GetComponent<XmlManager>();
+        gameManager = manager.GetComponent<GameManager>();
+        soundManager = manager.GetComponent<SoundManager>();
+        menuManager = manager.GetComponent<MenuManager>();
         fullName = myName + index.ToString();
     }
 
@@ -35,10 +39,11 @@ public class DialogueManager : MonoBehaviour
             switch (myName)
             {
                 case "Station":
-                    if(index == 0)
+                    if (index == 0)
                     {
                         gameManager.GameStarted = true;
                     }
+                    menuManager.NewItem = true;
                     gameManager.Station(index);
                     xmlManager.SendToSetUp(trigger, fullName, index, gameVersion);
                     GetComponent<Collider>().enabled = false;
@@ -57,7 +62,7 @@ public class DialogueManager : MonoBehaviour
                     GetComponent<Collider>().enabled = false;
 
                     //Om man möter varg i game1:
-                    if(index == 2 && gameVersion == "Game1")
+                    if (index == 2 && gameVersion == "Game1")
                     {
                         soundManager.TriggerSound(false);
                     }

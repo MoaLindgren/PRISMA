@@ -24,12 +24,17 @@ public class MenuManager : MonoBehaviour
     AudioClip buttonClick;
     List<GameObject> achievementList;
 
-    public bool newItem;
+    bool newItem;
 
     ItemsManager itemManager;
     PlayerBehaviour playerBehaviour;
     XmlManager xmlManager;
     SoundManager soundManager;
+
+    public bool NewItem
+    {
+        set { newItem = value; }
+    }
 
     void Start()
     {
@@ -69,23 +74,7 @@ public class MenuManager : MonoBehaviour
     {
         soundManager.UISound(buttonClick);
         backPackBox.SetActive(true);
-
-        //for (int i = 0; i <= itemManager.items.Count; i++)
-        //{
-        //    itemManager.GetItem(i, false);
-        //}
     }
-
-    //Blir kallad på från ItemsManager OM det är ett nytt item i backpack.
-    //public void InstantianteItem(int index, string name)
-    //{
-    //    Transform itemParent = backPackBox.transform.GetChild(index - 1);
-    //    GameObject item = Instantiate(itemPrefab, itemParent);
-    //    item.transform.parent = itemParent;
-    //    item.GetComponentInChildren<Image>().sprite = itemImages[index - 1];
-    //    item.name = index.ToString();
-    //    newItem = true;
-    //}
     public void PickItem(int item)
     {
         if(GetComponent<GameManager>().CurrentItem == item)

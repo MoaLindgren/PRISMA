@@ -67,17 +67,21 @@ public class GameManager : MonoBehaviour
                 gameOver = true;
             }
         }
-        if (Input.GetKey(KeyCode.LeftShift) || showCursor)
+        if (Input.GetKey(KeyCode.LeftShift) && !showCursor)
         {
             Cursor.visible = true;
         }
-        if(Input.GetKeyUp(KeyCode.LeftShift))
+        if(Input.GetKeyUp(KeyCode.LeftShift) && !showCursor)
         {
             showCursor = false;
         }
         if (!showCursor)
         {
             Cursor.visible = false;
+        }
+        else if(showCursor)
+        {
+            Cursor.visible = true;
         }
         if (nbrAchievementsCompleted == 6 || gameOver)
         {
@@ -112,6 +116,7 @@ public class GameManager : MonoBehaviour
         }
         else if (correctItem)
         {
+            menuManager.NewItem = false;
             playerBehaviour.Moveable = true;
             showCursor = false;
             xmlManager.Dialogue();
