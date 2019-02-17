@@ -81,14 +81,13 @@ public class XmlManager : MonoBehaviour
                                     dialogueFinished = false;
                                 }
                                 menuManager.ViewDialogue(versionNode.Attributes[dialogueCounter].Value);
-
                             }
                             else if (versionNode.Attributes[dialogueCounter].Value == "finished")
                             {
-                                dialogueStarted = false;
+                                //dialogueStarted = false;
                                 menuManager.ViewDialogue(versionNode.Attributes[dialogueCounter].Value);
                             }
-                            dialogueStarted = true;
+                            //dialogueStarted = true;
                             dialogueCounter++;
 
                         }
@@ -99,7 +98,7 @@ public class XmlManager : MonoBehaviour
     }
     void Update()
     {
-        if (dialogueStarted && trigger)
+        if (!dialogueFinished && trigger)
         {
             timer -= Time.deltaTime;
             if (timer <= 0)
