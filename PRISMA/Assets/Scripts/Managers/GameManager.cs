@@ -67,17 +67,16 @@ public class GameManager : MonoBehaviour
                 gameOver = true;
             }
         }
-        if (Input.GetKey(KeyCode.LeftShift) && !showCursor)
-        {
-            Cursor.visible = true;
-        }
-        if(Input.GetKeyUp(KeyCode.LeftShift) && !showCursor)
-        {
-            showCursor = false;
-        }
         if (!showCursor)
         {
-            Cursor.visible = false;
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                Cursor.visible = true;
+            }
+            else
+            {
+                Cursor.visible = false;
+            }
         }
         else if(showCursor)
         {
@@ -95,7 +94,6 @@ public class GameManager : MonoBehaviour
         showCursor = true;
         playerBehaviour.Moveable = false;
         currentItem = index;
-        //itemManager.AddItem(index + 1, items[index]);
     }
     public void Achievement(int index, GameObject halo)
     {

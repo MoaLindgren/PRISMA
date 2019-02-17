@@ -81,15 +81,14 @@ Förklaring av xml-dokument:
     </Station0>
     <!-- När man börjar gå in i skogen -->
     <Trigger0
-      Dialogue0 = "I den här skogen finns det riddarskinnbaggar. Riddarskinnbaggen äter frön av tulkört, "
-      Dialogue1 = "och deras populationsstorlekar varierar dramatiskt i storlek eftersom de bara lever ett år."
-      Dialogue2 = "finished">
+      Dialogue0 = "I den här skogen finns det riddarskinnbaggar. Riddarskinnbaggen äter frön av tulkört och deras populationsstorlekar varierar dramatiskt i storlek eftersom de bara lever ett år."
+      Dialogue1 = "finished">
     </Trigger0>
     <!-- Placera ut tulkört -->
     <Station1
       Dialogue0 = "I din väska har du en tulkörtväxt. Hämta den."
       Dialogue1 = ""
-      Dialogue2 = "Bra! Plantera den, så hjälper vi riddarskinnbaggarna så att de inte blir för få under av vintern."
+      Dialogue2 = "Bra! Plantera den, så hjälper vi riddarskinnbaggarna så att de inte blir för få under vintern."
       Dialogue3 = "finished">
     </Station1>
     
