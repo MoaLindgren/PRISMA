@@ -38,22 +38,22 @@ public class ItemButton : MonoBehaviour
         if (this.newItem)
         {
             gameManager.GetComponent<GameManager>().CorrectItem = true;
-            newItem = false;
-            menuManager.newItem = false;
+            //newItem = false;
+            //menuManager.newItem = false;
         }
         else
         {
             gameManager.GetComponent<GameManager>().CorrectItem = false;
         }
         soundManager.UISound(buttonClick);
-        itemManager.GetItem(itemIndex, true);
+        //itemManager.GetItem(itemIndex, true);
 
-        GameObject[] itemButtons = GameObject.FindGameObjectsWithTag("ItemButton");
-        foreach (GameObject button in itemButtons)
-        {
-            button.transform.parent.GetChild(0).gameObject.SetActive(false);
-        }
-        this.gameObject.transform.parent.GetChild(0).gameObject.SetActive(true);
+        //GameObject[] itemButtons = GameObject.FindGameObjectsWithTag("ItemButton");
+        //foreach (GameObject button in itemButtons)
+        //{
+        //    button.transform.parent.GetChild(0).gameObject.SetActive(false);
+        //}
+        //this.gameObject.transform.parent.GetChild(0).gameObject.SetActive(true);
 
 
     }

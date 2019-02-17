@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    int achievementIndex, nbrAchievementsCompleted;
+    int achievementIndex, nbrAchievementsCompleted, currentItem;
     bool correctItem, gameOver, gameStarted, showCursor;
     [SerializeField]
     float totalGameTime, gameTimer;
@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour
     public bool CorrectItem
     {
         set { correctItem = value; }
+    }
+    public int CurrentItem
+    {
+        get { return currentItem; }
     }
     public int AchievementIndex
     {
@@ -67,7 +71,11 @@ public class GameManager : MonoBehaviour
         {
             Cursor.visible = true;
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift) && !showCursor)
+        if(Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            showCursor = false;
+        }
+        if (!showCursor)
         {
             Cursor.visible = false;
         }
@@ -82,7 +90,8 @@ public class GameManager : MonoBehaviour
     {
         showCursor = true;
         playerBehaviour.Moveable = false;
-        itemManager.AddItem(index + 1, items[index]);
+        currentItem = index;
+        //itemManager.AddItem(index + 1, items[index]);
     }
     public void Achievement(int index, GameObject halo)
     {

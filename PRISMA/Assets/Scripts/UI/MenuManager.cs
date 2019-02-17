@@ -16,6 +16,7 @@ public class MenuManager : MonoBehaviour
                endScreen,
                achievementInfoBox;
     Text dialogueText, achievementsCompleted;
+    GameObject[] itemsButtons;
 
     [SerializeField]
     List<Sprite> itemImages;
@@ -32,6 +33,7 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
+        itemsButtons = GameObject.FindGameObjectsWithTag("ItemButton");
         soundManager = GetComponent<SoundManager>();
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
         itemManager = GetComponent<ItemsManager>();
@@ -68,21 +70,40 @@ public class MenuManager : MonoBehaviour
         soundManager.UISound(buttonClick);
         backPackBox.SetActive(true);
 
-        for (int i = 0; i <= itemManager.items.Count; i++)
-        {
-            itemManager.GetItem(i, false);
-        }
+        //for (int i = 0; i <= itemManager.items.Count; i++)
+        //{
+        //    itemManager.GetItem(i, false);
+        //}
     }
 
     //Blir kallad på från ItemsManager OM det är ett nytt item i backpack.
-    public void InstantianteItem(int index, string name)
+    //public void InstantianteItem(int index, string name)
+    //{
+    //    Transform itemParent = backPackBox.transform.GetChild(index - 1);
+    //    GameObject item = Instantiate(itemPrefab, itemParent);
+    //    item.transform.parent = itemParent;
+    //    item.GetComponentInChildren<Image>().sprite = itemImages[index - 1];
+    //    item.name = index.ToString();
+    //    newItem = true;
+    //}
+    public void PickItem(int item)
     {
-        Transform itemParent = backPackBox.transform.GetChild(index - 1);
-        GameObject item = Instantiate(itemPrefab, itemParent);
-        item.transform.parent = itemParent;
-        item.GetComponentInChildren<Image>().sprite = itemImages[index - 1];
-        item.name = index.ToString();
-        newItem = true;
+        if(GetComponent<GameManager>().CurrentItem == item)
+        {
+            GetComponent<GameManager>().CorrectItem = true;
+        }
+        else
+        {
+            GetComponent<GameManager>().CorrectItem = false;
+        }
+
+        for(int i = 0; i < backPackBox.transform.childCount -1; i++)
+        {
+            backPackBox.transform.GetChild(i).transform.GetChild(0).gameObject.SetActive(false);
+        }
+
+        backPackBox.transform.GetChild(item).transform.GetChild(0).gameObject.SetActive(true);
+
     }
     public void CloseBackpack()
     {

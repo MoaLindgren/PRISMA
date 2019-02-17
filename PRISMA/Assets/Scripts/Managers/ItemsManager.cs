@@ -19,14 +19,14 @@ public class ItemsManager : MonoBehaviour
     {
         menuManager = GetComponent<MenuManager>();
     }
-    public void AddItem(int index, string name)
-    {
-        if(index > items.Count)
-        {
-            items.Add(index, name);
-            menuManager.InstantianteItem(index, name);
-        }
-    }
+    //public void AddItem(int index, string name)
+    //{
+    //    if(index > items.Count)
+    //    {
+    //        items.Add(index, name);
+    //        menuManager.InstantianteItem(index, name);
+    //    }
+    //}
     public void GetItem(int index, bool selectItem)
     {
         items.TryGetValue(index, out item);
