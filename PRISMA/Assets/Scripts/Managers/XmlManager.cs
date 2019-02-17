@@ -87,7 +87,6 @@ public class XmlManager : MonoBehaviour
                                 menuManager.ViewDialogue(versionNode.Attributes[dialogueCounter].Value);
                             }
                             dialogueCounter++;
-
                         }
                     }
                 }
