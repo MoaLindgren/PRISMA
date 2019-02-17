@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44662505, g: 0.49646884, b: 0.5748454, a: 1}
+  m_IndirectSpecularColor: {r: 0.44662493, g: 0.4964683, b: 0.5748441, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -8498,7 +8498,8 @@ Prefab:
       propertyPath: dialogueTimer
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114173785556237608, guid: 1e46a5d5556cc4146ae8b4b668ce76db, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1e46a5d5556cc4146ae8b4b668ce76db, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1341580333

@@ -171,7 +171,6 @@ public class CyclesManager : MonoBehaviour
         switch (currentSeason)
         {
             case "spring":
-                print("vår");
                 foreach (GameObject tree in trees)
                 {
                     rend = tree.GetComponent<Renderer>();
@@ -192,7 +191,6 @@ public class CyclesManager : MonoBehaviour
                 return;
 
             case "summer":
-                print("sommar");
                 foreach (GameObject tree in trees)
                 {
                     rend = tree.GetComponent<Renderer>();
@@ -202,7 +200,6 @@ public class CyclesManager : MonoBehaviour
                 return;
 
             case "autumn":
-                print("höst");
                 foreach (GameObject tree in trees)
                 {
                     rend = tree.GetComponent<Renderer>();
@@ -212,7 +209,6 @@ public class CyclesManager : MonoBehaviour
                 return;
 
             case "winter":
-                print("vinter");
                 foreach (GameObject tree in trees)
                 {
                     rend = tree.GetComponent<Renderer>();

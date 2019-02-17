@@ -99,7 +99,6 @@ public class XmlManager : MonoBehaviour
     }
     void Update()
     {
-        print(dialogueFinished);
         if (dialogueStarted && trigger)
         {
             timer -= Time.deltaTime;

@@ -149,7 +149,7 @@ public class MenuManager : MonoBehaviour
     public void CloseInfoBox()
     {
         soundManager.UISound(buttonClick);
-        for (int i = 0; i < achievementInfoBox.transform.childCount - 1; i++)
+        for (int i = 0; i < achievementInfoBox.transform.childCount - 1; i++) // -1 för att alltid behålla kryssrutan aktiv.
         {
             achievementInfoBox.transform.GetChild(i).gameObject.SetActive(false);
         }

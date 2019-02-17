@@ -96,16 +96,16 @@ public class GameManager : MonoBehaviour
     //När en dialog är klar:
     public void Play(bool achievement)
     {
-        if(correctItem)
-        {
-            playerBehaviour.Moveable = true;
-            Cursor.visible = false;
-            xmlManager.Dialogue();
-        }
         if(achievement)
         {
             playerBehaviour.Moveable = true;
             Cursor.visible = false;
+        }
+        else if (correctItem)
+        {
+            playerBehaviour.Moveable = true;
+            Cursor.visible = false;
+            xmlManager.Dialogue();
         }
     }
 
