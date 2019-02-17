@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         //SÄTT DENNA FRÅN HUVUDMENYN:
-        gameVersion = "Game2";
+        gameVersion = "Game1";
         entered = true;
         manager = GameObject.Find("GameManager");
         xmlManager = manager.GetComponent<XmlManager>();

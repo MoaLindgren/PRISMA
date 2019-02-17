@@ -91,69 +91,35 @@ Förklaring av xml-dokument:
       Dialogue2 = "Bra! Plantera den, så hjälper vi riddarskinnbaggarna så att de inte blir för få under vintern."
       Dialogue3 = "finished">
     </Station1>
-    
-    <!-- I närheten av fiskarna -->
-    <Trigger1
-    Dialogue0 ="Åh, här har vi en sjö."
-    Dialogue1 ="Här brukar folk fiska mycket torsk. Men de bör vara försiktiga, så de inte fiskar upp hela beståndet!"
-    Dialogue2 ="finished">
-    </Trigger1>
-
-    <Station3
-    Dialogue0 ="Blommor kan pollineras av humlor, men det går lika bra med bin. Bin och humlor klarar sig också bra utan dessa blommor. De kan hitta pollen hos en annan art av blommor."
-    Dialogue1 ="Här framme kan vi se hur en fjäril pollinerar ett två olika sorters blommor. Det hade även kunnat gjorts av exempelvis humlor eller bin."
-    Dialogue2 ="Det förhållandet kallas fakultativ mutualism."
-    Dialogue3 ="Mutualism betyder att arter gynnar varandra och finns i flera former. Ibland används symbios som synonym men det innefattar även parasitiska förhållanden."
-    Dialogue4 ="finished">
-    </Station3>
-    <Station4
-    Dialogue0 ="Här framme ser du lavar som invaderat dessa stenar. Lavarna utsöndrar sura ämnen som påskyndar bergets vittring, vilket bidrar till att så småningom blidas jord."
-    Dialogue1 ="Lavarna innehåller dessutom kvävefixerande blågröna bakterier, som tillför jorden kvävesalter."
-    Dialogue2 ="Lavarna gör det alltså möjligt för mer krävande växter att leva i området."
-    Dialogue3 ="Detta förhållande kallas obligat mutualism eftersom lavarna klarar sig själv utan behöver hjälp."
-    Dialogue4 ="finished">
-    </Station4>
-
-
 
     <!-- När man går över första bron -->
     <Trigger1
-      Dialogue0= "Om det finns gott om resurser så räcker det åt alla. Då kan många ungar födas och populationen växer."
-      Dialogue1= "Men ju fler individer, desto mindre med resurser per individ."
-      Dialogue2= "Då kan det komma till en punkt då resurserna inte längre räcker"
-      Dialogue3= "Det här kallas miljöns bärkraft."
-      Dialogue4= "finished">
-    </Trigger1>
-    <!-- ACHIEVEMENT TRÄD-->
-    <Trigger2
       Dialogue0 = "En art som kommer till ett tidigare outnyttjat område har först obegränsat med resurser."
       Dialogue1 = "Ett outnyttjat område kan skapas av störningar i miljön. Många arter behöver störningar för att finnas."
-      Dialogue2 = "Störningar i naturen kan vara stora som skogsbränder eller mindre som ett träd som fallit ner."
-      Dialogue3 = "Andra störningar kan leda till lavar. Nakna bergällar invaderas av lavar eftersomdessa inte behöver någon jordmån."
-      Dialogue4 = "finished">
+      Dialogue2 = "finished">
+    </Trigger1>
+    <!-- I närheten av fiskarna -->
+    <Trigger2
+    Dialogue0 ="Åh, här har vi en sjö."
+    Dialogue1 ="Här brukar folk fiska mycket torsk. Men de bör vara försiktiga, så de inte fiskar upp hela beståndet!"
+    Dialogue2 ="finished">
     </Trigger2>
-    <!-- När man går/gått över andra bron -->
+    <!-- När man går längan åt höger -->
     <Trigger3
-    Dialogue0 ="Predatorer kan hålla bytespopulationerna från att bli för stora och därigenom förstöra balansen i naturen."
-    Dialogue1 ="Vi människor är predatorer, och vi är beroende av att våra byten inte blir ovanligare."
-    Dialogue2 ="För att de populationer som vi utnyttjar inte snabbt ska minska och till och med utrotas, måste vi alltså ha kontroll över exempelvis virkesuttag i skogen samt jakt- och fiskekvoter."
-    Dialogue3 ="finished">
-    </Trigger3>
-    <Trigger4
     Dialogue0 = "Det finns även något som heter fakulativ mutualism"
     Dialogue1 = "Det innebär att två arter som samarbetar även klarar sig utan varandra."
-    Dialogue2 = "finished">
-    </Trigger4>
-
-    <!-- När man går höger från start -->
-
-    <!-- När man går längan åt höger -->
-
-    <!-- ACHIEVEMENT BLOMMOR OCH BIN -->
-
+    Dialogue2 = "Exempelvis, blommor kan pollineras av humlor, men det går lika bra med bin. Bin och humlor klarar sig också bra utan dessa blommor. De kan hitta pollen hos en annan art av blommor."
+    Dialogue3 = "finished">
+    </Trigger3>
   </Game2>
 
-
+  <Trigger123
+    Dialogue0= "Om det finns gott om resurser så räcker det åt alla. Då kan många ungar födas och populationen växer."
+    Dialogue1= "Men ju fler individer, desto mindre med resurser per individ."
+    Dialogue2= "Då kan det komma till en punkt då resurserna inte längre räcker"
+    Dialogue3= "Det här kallas miljöns bärkraft."
+    Dialogue4= "finished">
+  </Trigger123>
   <idk
   Dialogue1 ="Konkurrens bland djur behöver inte betyda att de slåss med varandra. Det är vanligt att djur slåss med varandra om att få utnyttja resurserna inom ett område. Ett område som ett djur försvarar kallas revir."
   Dialogue2 ="Djur slåss bara om revir om det råder brist på resurser. Finns det gott om resurser, finns det ingen anledning att försvara revir."

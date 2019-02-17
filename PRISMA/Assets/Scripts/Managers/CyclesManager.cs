@@ -49,6 +49,7 @@ public class CyclesManager : MonoBehaviour
         ready = false;
         counter = 0;
 
+        ChangeSeason("spring");
         DaysCalculation();
         SeasonCalculation();
 
