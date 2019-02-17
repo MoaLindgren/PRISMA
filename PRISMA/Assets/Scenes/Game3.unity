@@ -38587,6 +38587,11 @@ Prefab:
       propertyPath: m_Name
       value: Station0
       objectReference: {fileID: 0}
+    - target: {fileID: 114165240752852480, guid: 78180a7aa4b542648a49081e9488e47f,
+        type: 2}
+      propertyPath: item
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78180a7aa4b542648a49081e9488e47f, type: 2}
   m_IsPrefabParent: 0
