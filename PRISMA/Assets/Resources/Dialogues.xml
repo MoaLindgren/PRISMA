@@ -20,74 +20,50 @@ Förklaring av xml-dokument:
       Dialogue7 = ""
       Dialogue8 = "finished">
     </Station0>
-    <!-- Placera ut fågelholk -->
-    <Station1
-      Dialogue0 = "Kan du placera ut en fågelholk så hjälper vi koltrastarna inför vintern? Våren efter en kall vinter finns det färre sjungande koltraster."
-      Dialogue1 = "I din väska finns fågelholken, hämta den."
-      Dialogue2 = ""
-      Dialogue3 = "Bra! Placera nu ut den på något av träden här hos koltrastarna."
-      Dialogue4 = "finished">
-    </Station1>
-    <!-- Ta bort ogräs -->
-    <Station2
-    Dialogue0 = "Där framme har det växt en massa ogräs vilket konkurrerar bort de andra mindre konkurrenskraftiga blommorna."
-    Dialogue1 = "Konkurrensen gör att en art blir ovanligare än utan konkurrens. Konkurrensmellan arter kan leda till att de specialiserar sig på det de är bäst på."
-    Dialogue2 = "Konkurrens kan hindra en art från att klara sig i ett område. De flesta trädgårdsväxter har förts in från andra länder."
-    Dialogue3 = "finished">
-    </Station2>
-    <!--  Innan vargarna till höger efter ogräs -->
-    <Station3
-    Dialogue0 ="Konkurrens uppstår som sagt när arter använder samma resurser. En resurs kännetecknas som något som kan ta slut och tillgången då minskar för de som använder det."
-    Dialogue1 ="Konkurrens mellan djur behöver inte betyda att de slåss mot varann. Det är dock vanligt att de slåss om revir eller liknande. Revir är ett område som ett djur försvarar."
-    Dialogue2 ="Djur slåss bara om revir om det råder brist på resurser, gör det inte det finns det ingen anledning att slåss."
-    Dialogue3 ="finished">
-    </Station3>
     <!-- När man börjar gå in i skogen -->
     <Trigger0
       Dialogue0 = "Olika växter konkurrerar om utrymmet på en gräsmatta. Det kan exempelvis vara brist på platser där något användbart finns."
       Dialogue1 = "Höga växter skuggar lägre växter, vilket skapar konkurrens mellan växterna om ljuset."
       Dialogue2 = "Konkurrensen gör att en art blir ovanligare än utan konkurrens. Konkurrens mellan arter kan leda till att de specialiserar sig på det som de är bäst på."
-      Dialogue3 ="finished">
+      Dialogue3 = "finished">
     </Trigger0>
-    <!-- När man går över bron , behöver inte skriva att fåglarna övervintrar eftersom de finns under vintern också-->
+    <!-- Ta bort ogräs -->
+    <Station1
+    Dialogue0 = "Här har det växt en massa ogräs vilket konkurrerar bort de andra mindre konkurrenskraftiga blommorna."
+    Dialogue1 = "Konkurrensen gör att en art blir ovanligare än utan konkurrens. Konkurrensmellan arter kan leda till att de specialiserar sig på det de är bäst på."
+    Dialogue2 = "Konkurrens kan hindra en art från att klara sig i ett område. De flesta trädgårdsväxter har förts in från andra länder."
+    Dialogue3 = "I din ryggsäck finns en ogräsborttagare. Om du hämtar den så kan du hjälpa trädgårdsväxterna med att klara sig bättre, genom att ta bort ogräset!"
+    Dialogue4 = ""
+    Dialogue5 = "finished">
+    </Station1>
+    <!-- När man går över första bron -->
     <Trigger1
-      Dialogue0 ="Vädret har också stor påverkan för hur vanlig vissa arter och populationer blir."
+      Dialogue0 ="Vädret har stor påverkan för hur vanlig vissa arter och populationer blir."
       Dialogue1 ="En kall vinter behöver övervintrande fåglar äta mer för att hålla värmen och överleva. En sträng vinter kan vara svår att överleva för många djur."
       Dialogue2 ="Jag hoppas denna vinter inte blir alltför kall så att koltrastarna klarar sig bra."
       Dialogue3 ="finished">
     </Trigger1>
+    <!-- Placera ut fågelholk -->
+    <Station2
+      Dialogue0 = "Kan du placera ut en fågelholk så hjälper vi koltrastarna inför vintern? Våren efter en kall vinter finns det färre sjungande koltraster."
+      Dialogue1 = "I din väska finns fågelholken, hämta den."
+      Dialogue2 = ""
+      Dialogue3 = "Bra! Placera nu ut den på något av träden här hos koltrastarna."
+      Dialogue4 = "finished">
+    </Station2>
     <!-- När man går/gått över andra bron -->
     <Trigger2
       Dialogue0 = "Var försiktig, det finns vargar där framme."
-      Dialogue1 = "Vargar är predatorer vilket innebär att de skadar eller äter upp andra arter. Växtätare är också predatorer."
-      Dialogue2 = "finished">
+      Dialogue1 = "finished">
     </Trigger2>
     <!-- När man möter varg andra gången -->
     <Trigger3
-      Dialogue0 = "Oj en till vargflock, de verkar avvakta och försvara sitt revir från de andra vargarna i området"
+      Dialogue0 = "Oj en vargflock, de verkar avvakta och försvara sitt revir från de andra vargarna i området"
       Dialogue1 = "Visste du att de kan behöva mellan hundratals till tusendals kvadratkilometer att leva på?"
       Dialogue2 = "Allmänt gäller att större organismer behöver större områden."
       Dialogue3 = "En mindre art exempelvis dårgräsfjärilen behöver bara några hektar."
       Dialogue4 = "finished">
     </Trigger3>
-  <!-- När man möter varg andra gången -->
-    <Trigger4
-      Dialogue0 = "Var försiktig, det finns vargar där framme."
-      Dialogue1 = "Vargar är predatorer vilket innebär att de skadar eller äter upp andra arter. Växtätare är också predatorer."
-      Dialogue2 = "finished">
-    </Trigger4>
-    <!-- När man går förbi växterna mot vargarna -->
-    <Trigger5
-      Dialogue0 = "Konkurrens är vanligast mellan individer i samma population, eftersom de använder samma resurser."
-      Dialogue1 = "Men konkurrens förekommer även mellan individer av olika arter som har likartade behov."
-      Dialogue2 = "finished">
-    </Trigger5>
-
-    <Trigger6
-    Dialogue0 ="Konkurrensen om resursera sätter på detta sätt en gräns för hur vanlig en art kan bli."
-    Dialogue1 ="Den störtsa populationsstorlek som resurserna långsiktigt räcker till kallas miljöns bärkraft."
-    Dialogue2 ="finished">
-    </Trigger6>
   </Game1>
 
   <Game2>
@@ -103,21 +79,26 @@ Förklaring av xml-dokument:
       Dialogue7 = ""
       Dialogue8 = "finished">
     </Station0>
-
+    <!-- När man börjar gå in i skogen -->
+    <Trigger0
+      Dialogue0 = "I den här skogen finns det riddarskinnbaggar. Riddarskinnbaggen äter frön av tulkört, "
+      Dialogue1 = "och deras populationsstorlekar varierar dramatiskt i storlek eftersom de bara lever ett år."
+      Dialogue2 = "finished">
+    </Trigger0>
     <!-- Placera ut tulkört -->
     <Station1
       Dialogue0 = "I din väska har du en tulkörtväxt. Hämta den."
       Dialogue1 = ""
-      Dialogue2 = "Bra! Plantera den, så hjälper vi riddarskinnbaggarna så att de inte blir för få på grund av vintern."
+      Dialogue2 = "Bra! Plantera den, så hjälper vi riddarskinnbaggarna så att de inte blir för få under av vintern."
       Dialogue3 = "finished">
     </Station1>
-    <!-- I närheten av fiskarna-->
-    <Station2
-    Dialogue0 ="Allt bättre fisketekniker har gjort att fångsterna har ökat och många fiskbestånd hotas därför. Utanför Newfoundland har man fiskat torsk i över 500 år. Under de senaste hundra åren fångades ungefär en kvarts miljon ton varje år. Idag beräknar man hela beståndet till drygt tusen ton."
-    Dialogue1 ="Det är nödvändigt med fångster som baseras på vad bestånden tål, för att vi ska få äta fisk från havet också i framtiden."
-    Dialogue2 ="Om det finns gott om resurser så räcker det åt alla och balansen i miljön blir kvar."
-    Dialogue3 ="finished">
-    </Station2>
+    
+    <!-- I närheten av fiskarna -->
+    <Trigger1
+    Dialogue0 ="Åh, här har vi en sjö."
+    Dialogue1 ="Här brukar folk fiska mycket torsk. Men de bör vara försiktiga, så de inte fiskar upp hela beståndet!"
+    Dialogue2 ="finished">
+    </Trigger1>
 
     <Station3
     Dialogue0 ="Blommor kan pollineras av humlor, men det går lika bra med bin. Bin och humlor klarar sig också bra utan dessa blommor. De kan hitta pollen hos en annan art av blommor."
@@ -126,7 +107,6 @@ Förklaring av xml-dokument:
     Dialogue3 ="Mutualism betyder att arter gynnar varandra och finns i flera former. Ibland används symbios som synonym men det innefattar även parasitiska förhållanden."
     Dialogue4 ="finished">
     </Station3>
-    <!-- ACHIEVEMENT FISKAR -->
     <Station4
     Dialogue0 ="Här framme ser du lavar som invaderat dessa stenar. Lavarna utsöndrar sura ämnen som påskyndar bergets vittring, vilket bidrar till att så småningom blidas jord."
     Dialogue1 ="Lavarna innehåller dessutom kvävefixerande blågröna bakterier, som tillför jorden kvävesalter."
@@ -134,15 +114,9 @@ Förklaring av xml-dokument:
     Dialogue3 ="Detta förhållande kallas obligat mutualism eftersom lavarna klarar sig själv utan behöver hjälp."
     Dialogue4 ="finished">
     </Station4>
-    
-    
-    <!-- När man börjar gå in i skogen -->
-    <Trigger0
-      Dialogue0 = "I den här skogen finns det riddarskinnbaggar. Deras populationsstorlekar varierar dramatiskt i storlek eftersom de bara lever ett år."
-      Dialogue1 = "Riddarskinnbaggen äter frön av tulkört."
-      Dialogue2 = "Mängden frön från tulkört, samt vädret, påverkar hur vanliga riddarskinnbaggen blir."
-      Dialogue4 = "finished">
-    </Trigger0>
+
+
+
     <!-- När man går över första bron -->
     <Trigger1
       Dialogue0= "Om det finns gott om resurser så räcker det åt alla. Då kan många ungar födas och populationen växer."
@@ -150,7 +124,7 @@ Förklaring av xml-dokument:
       Dialogue2= "Då kan det komma till en punkt då resurserna inte längre räcker"
       Dialogue3= "Det här kallas miljöns bärkraft."
       Dialogue4= "finished">
-    </Trigger1>  
+    </Trigger1>
     <!-- ACHIEVEMENT TRÄD-->
     <Trigger2
       Dialogue0 = "En art som kommer till ett tidigare outnyttjat område har först obegränsat med resurser."
@@ -171,11 +145,11 @@ Förklaring av xml-dokument:
     Dialogue1 = "Det innebär att två arter som samarbetar även klarar sig utan varandra."
     Dialogue2 = "finished">
     </Trigger4>
-    
+
     <!-- När man går höger från start -->
 
     <!-- När man går längan åt höger -->
- 
+
     <!-- ACHIEVEMENT BLOMMOR OCH BIN -->
 
   </Game2>

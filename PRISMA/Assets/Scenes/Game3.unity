@@ -3982,7 +3982,6 @@ RectTransform:
   - {fileID: 870536954}
   - {fileID: 1445242747}
   - {fileID: 1442152394}
-  - {fileID: 1934648224}
   - {fileID: 533876892}
   m_Father: {fileID: 1161277660}
   m_RootOrder: 7
@@ -12633,7 +12632,7 @@ RectTransform:
   m_Children:
   - {fileID: 152633493}
   m_Father: {fileID: 163119704}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -14418,84 +14417,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4199688253156700, guid: 646091787fd244e41b507f3f95ceb76a,
     type: 2}
   m_PrefabInternal: {fileID: 1528775729}
---- !u!1 &615216831
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1404558553887266, guid: 56a5c2a136b37bd40ad26f356888171f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 615216832}
-  - component: {fileID: 615216834}
-  - component: {fileID: 615216833}
-  m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &615216832
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 224377961201196058, guid: 56a5c2a136b37bd40ad26f356888171f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 615216831}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1934648224}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 375.99997, y: 8.9}
-  m_SizeDelta: {x: 432.1, y: 429.6}
-  m_Pivot: {x: 1, y: 0.5}
---- !u!114 &615216833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114628313953770678, guid: 56a5c2a136b37bd40ad26f356888171f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 615216831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 
---- !u!222 &615216834
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 222819197173332324, guid: 56a5c2a136b37bd40ad26f356888171f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 615216831}
 --- !u!1001 &615440687
 Prefab:
   m_ObjectHideFlags: 0
@@ -16348,12 +16269,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Vad bra att du hj\xE4lper till! V\xE4dret p\xE5verkar antalet koltrastar.
-    M\xE5nga koltrastar \xF6vervintrar i Sverige. V\xE5ren efter en kall vinter finns
-    det f\xE4rre sjungande koltrastar \xE4n efter en mild vinter.\r Mat \xE4r resurser
-    f\xF6r djur, medan n\xE4rsalter \xE4r resurser f\xF6r v\xE4xter. Temperaturen
-    i luften eller pH-v\xE4rdet i en sj\xF6 \xE4r d\xE4remot inte n\xE5gra resurser,
-    \xE4ven om de \xE4r viktiga milj\xF6faktorer. Temperaturen kan inte ta slut."
+  m_Text: "Vad bra att du hj\xE4lper till! Du f\xF6rmedlade precis en extra resurs
+    f\xF6r koltrastarna. Andra resurser \xE4r t.ex. mat f\xF6r djur, och n\xE4rsalter
+    f\xF6r v\xE4xter. Temperaturen i luften eller pH-v\xE4rdet i en sj\xF6 \xE4r d\xE4remot
+    inte n\xE5gra resurser, \xE4ven om de \xE4r viktiga milj\xF6faktorer. Temperaturen
+    kan ju inte ta slut."
 --- !u!222 &684822851
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20422,78 +20342,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 646091787fd244e41b507f3f95ceb76a, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &848091386
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1107965656941366, guid: 56a5c2a136b37bd40ad26f356888171f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 848091387}
-  - component: {fileID: 848091389}
-  - component: {fileID: 848091388}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &848091387
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 224569445643583252, guid: 56a5c2a136b37bd40ad26f356888171f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 848091386}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1934648224}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -172, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &848091388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114445641819024754, guid: 56a5c2a136b37bd40ad26f356888171f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 848091386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &848091389
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 222640530187962704, guid: 56a5c2a136b37bd40ad26f356888171f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 848091386}
 --- !u!1 &848235302
 GameObject:
   m_ObjectHideFlags: 0
@@ -25417,15 +25265,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Bra jobbat! Konkurrens kan hindra en art fr\xE5n att klara sig i ett omr\xE5de.
-    De flesta tr\xE4dg\xE5rdsv\xE4xter har f\xF6rts in fr\xE5n andra l\xE4nder. M\xE5nga
-    \xF6verlever och f\xF6r\xF6kar sig utan n\xE5gra problem i v\xE5rt klimat, men
-    bara om vi h\xE5ller ogr\xE4set borta som de vilda och mer konkurrenskraftiga
-    plantorna kallas.\r Konkurrens \xE4r vanligast mellan individer i samma population,
-    eftersom de anv\xE4nder samma resurser. Men konkurrens f\xF6rekommer \xE4ven mellan
-    olika arter med liknande behov. En resurs k\xE4nnetecknas som n\xE5got som kan
-    ta slut och tillg\xE5ngen d\xE5 blir mindre ju fler som anv\xE4nder den. F\xE4rre
-    resurser kan leda till att individer lever kortare liv."
+  m_Text: "Bra jobbat! Om vi h\xE5ller ogr\xE4set, som de vilda och mer konkurrenskraftiga
+    plantorna kallas, s\xE5 kan tr\xE4dg\xE5rdsv\xE4xterna klara sig b\xE4ttre.\r
+    Konkurrens \xE4r vanligast mellan individer i samma population, eftersom de anv\xE4nder
+    samma resurser. Men konkurrens f\xF6rekommer \xE4ven mellan olika arter med liknande
+    behov. En resurs k\xE4nnetecknas som n\xE5got som kan ta slut och tillg\xE5ngen
+    d\xE5 blir mindre ju fler som anv\xE4nder den. F\xE4rre resurser kan leda till
+    att individer lever kortare liv.\n\nKonkurrensen om resursera s\xE4tter p\xE5
+    detta s\xE4tt en gr\xE4ns f\xF6r hur vanlig en art kan bli. Den st\xF6rtsa populationsstorlek
+    som resurserna l\xE5ngsiktigt r\xE4cker till kallas milj\xF6ns b\xE4rkraft."
 --- !u!222 &1083127947
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -45548,43 +45396,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 646091787fd244e41b507f3f95ceb76a, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1934648223
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1470326559271960, guid: 56a5c2a136b37bd40ad26f356888171f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1934648224}
-  m_Layer: 5
-  m_Name: Achievement (5)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1934648224
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 224171355417103256, guid: 56a5c2a136b37bd40ad26f356888171f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1934648223}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 848091387}
-  - {fileID: 615216832}
-  m_Father: {fileID: 163119704}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1934676699
 Prefab:
   m_ObjectHideFlags: 0
@@ -49540,7 +49351,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "Konkurrens uppst\xE5r som sagt n\xE4r arter anv\xE4nder samma resurser.
+    En resurs k\xE4nnetecknas som n\xE5got som kan ta slut och tillg\xE5ngen d\xE5
+    minskar f\xF6r de som anv\xE4nder det. Konkurrens mellan djur beh\xF6ver inte
+    betyda att de sl\xE5ss mot varann. Det \xE4r dock vanligt att de sl\xE5ss om revir
+    eller liknande. Revir \xE4r ett omr\xE5de som ett djur f\xF6rsvarar. Djur sl\xE5ss
+    bara om revir om det r\xE5der brist p\xE5 resurser, g\xF6r det inte det finns
+    det ingen anledning att sl\xE5ss."
 --- !u!222 &2123080681
 CanvasRenderer:
   m_ObjectHideFlags: 0

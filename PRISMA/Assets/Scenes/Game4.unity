@@ -2427,7 +2427,7 @@ Prefab:
     - target: {fileID: 114541492551849780, guid: 56a5c2a136b37bd40ad26f356888171f,
         type: 2}
       propertyPath: m_Text
-      value: "Detta kallas Mutualism vilket betyder att tv\xE5 arter gynnar varandra.
+      value: "Detta kallas mutualism vilket betyder att tv\xE5 arter gynnar varandra.
         Ibland anv\xE4nds symbios som synonym, men symbios betyder n\xE4ra samliv
         i vidare mening och innefattar \xE4ven parasitiska f\xF6rh\xE5llanden. Lavarna
         uts\xF6ndrar sura \xE4mnen som p\xE5skyndar bergets vittring, vilket bidrar
@@ -2449,10 +2449,10 @@ Prefab:
     - target: {fileID: 114756664535953722, guid: 56a5c2a136b37bd40ad26f356888171f,
         type: 2}
       propertyPath: m_Text
-      value: "Riddarskinnbaggen, som lever p\xE5 fr\xF6n av tulk\xF6rt, har populationer
-        som varierar dramatiskt i storlek. Riddarskinnbaggen lever bara ett \xE5r.
-        V\xE4dret under \xE5ret och hur m\xE5nga fr\xF6n tulk\xF6rten bildar, betyder
-        mycket f\xF6r hur vanliga riddarskinnbaggarna \xE4r."
+      value: "Bra jobbat! Riddarskinnbaggen lever bara ett \xE5r. V\xE4dret under
+        \xE5ret och hur m\xE5nga fr\xF6n tulk\xF6rten bildar, betyder mycket f\xF6r
+        hur vanliga riddarskinnbaggarna \xE4r. Du har precis hj\xE4lpt dom lite p\xE5
+        traven, tack!"
       objectReference: {fileID: 0}
     - target: {fileID: 114461867306236178, guid: 56a5c2a136b37bd40ad26f356888171f,
         type: 2}
@@ -2613,6 +2613,18 @@ Prefab:
         type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114432525028414308, guid: 56a5c2a136b37bd40ad26f356888171f,
+        type: 2}
+      propertyPath: m_Text
+      value: "Allt b\xE4ttre fisketekniker har gjort att f\xE5ngsterna har \xF6kat
+        och m\xE5nga fiskbest\xE5nd hotas d\xE4rf\xF6r. Utanf\xF6r Newfoundland har
+        man fiskat torsk i \xF6ver 500 \xE5r. Under de senaste hundra \xE5ren f\xE5ngades
+        ungef\xE4r en kvarts miljon ton varje \xE5r. Idag ber\xE4knar man hela best\xE5ndet
+        till drygt tusen ton. Det \xE4r n\xF6dv\xE4ndigt med f\xE5ngster som baseras
+        p\xE5 vad best\xE5nden t\xE5l, f\xF6r att vi ska f\xE5 \xE4ta fisk fr\xE5n
+        havet ocks\xE5 i framtiden. Om det finns gott om resurser s\xE5 r\xE4cker
+        det \xE5t alla och balansen i milj\xF6n blir kvar."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 56a5c2a136b37bd40ad26f356888171f, type: 2}
