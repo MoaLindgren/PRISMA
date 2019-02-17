@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     int achievementIndex, nbrAchievementsCompleted;
-    bool correctItem, gameOver, gameStarted;
+    bool correctItem, gameOver, gameStarted, showCursor;
     [SerializeField]
     float totalGameTime, gameTimer;
 
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     MenuManager menuManager;
     PlayerBehaviour playerBehaviour;
     CameraManager cameraManager;
-    
+
     string[] items = { "Komradio", "Anteckningsblock", "Ogräsborttagare", "Räknare", "Fiskespö" };
     List<int> completedAchievementIndex;
 
@@ -55,23 +55,23 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if(gameStarted)
+        if (gameStarted)
         {
             gameTimer += Time.deltaTime;
-            if(gameTimer >= totalGameTime)
+            if (gameTimer >= totalGameTime)
             {
                 gameOver = true;
             }
         }
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) || showCursor)
         {
             Cursor.visible = true;
         }
-        if(Input.GetKeyUp(KeyCode.LeftShift))
+        if (Input.GetKeyUp(KeyCode.LeftShift) && !showCursor)
         {
             Cursor.visible = false;
         }
-        if(nbrAchievementsCompleted == 6 || gameOver)
+        if (nbrAchievementsCompleted == 6 || gameOver)
         {
             gameStarted = false;
             StartCoroutine(GameOver());
@@ -80,15 +80,15 @@ public class GameManager : MonoBehaviour
     //När man går in i en station:
     public void Station(int index)
     {
-        Cursor.visible = true;
-        playerBehaviour.Moveable = false; 
+        showCursor = true;
+        playerBehaviour.Moveable = false;
         itemManager.AddItem(index + 1, items[index]);
     }
     public void Achievement(int index, GameObject halo)
     {
         nbrAchievementsCompleted++;
         completedAchievementIndex.Add(index);
-        Cursor.visible = true;
+        showCursor = true;
         playerBehaviour.Moveable = false;
         menuManager.AchievementCompleted(index);
         halo.SetActive(false);
@@ -96,15 +96,15 @@ public class GameManager : MonoBehaviour
     //När en dialog är klar:
     public void Play(bool achievement)
     {
-        if(achievement)
+        if (achievement)
         {
             playerBehaviour.Moveable = true;
-            Cursor.visible = false;
+            showCursor = false;
         }
         else if (correctItem)
         {
             playerBehaviour.Moveable = true;
-            Cursor.visible = false;
+            showCursor = false;
             xmlManager.Dialogue();
         }
     }
