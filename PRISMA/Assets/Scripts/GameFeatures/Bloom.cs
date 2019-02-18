@@ -12,7 +12,7 @@ public class Bloom : MonoBehaviour
     int countWeed, achievementIndex;
 
     [SerializeField]
-    GameObject flower, weed;
+    GameObject flower, weed, achievement;
     GameObject currentBloom, currentWeed;
 
     BloomManager bloomManager;
@@ -24,8 +24,11 @@ public class Bloom : MonoBehaviour
 
     Transform myLocation;
 
+    GameManager gameManager;
+
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         countWeed = 0;
         canGrow = true;
         myLocation = gameObject.transform;
@@ -112,14 +115,17 @@ public class Bloom : MonoBehaviour
 
     void OnMouseDown()//Om vi har ogräs på platsen tar vi bort det
     {
-        if(currentWeed != null)
+        if(gameManager.CorrectItem && gameManager.StationIndex == 2)
         {
-            countWeed++;
-            if(countWeed == 1)
+            if (currentWeed != null)
             {
-
+                countWeed++;
+                if (countWeed == 1)
+                {
+                    gameManager.Achievement(3, null);
+                }
+                RemoveWeed();
             }
-            RemoveWeed();
         }
     }
 
@@ -131,10 +137,6 @@ public class Bloom : MonoBehaviour
         
     }
 
-    public void SwitchSeason()
-    {
-        
-    }
 
 
 

@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    int achievementIndex, nbrAchievementsCompleted, currentItem;
-    bool correctItem, gameOver, gameStarted, showCursor;
+    int achievementIndex, stationIndex, nbrAchievementsCompleted, currentItem;
+    bool correctItem, gameOver, gameStarted, showCursor, beatleAchievement;
     [SerializeField]
     float totalGameTime, gameTimer;
+    string gameVersion;
 
     Vector3 playerLockRotation;
     GameObject player;
@@ -16,13 +18,16 @@ public class GameManager : MonoBehaviour
     MenuManager menuManager;
     PlayerBehaviour playerBehaviour;
     CameraManager cameraManager;
+    SoundManager soundManager;
 
-    string[] items = { "Komradio", "Anteckningsblock", "Ogräsborttagare", "Räknare", "Fiskespö" };
     List<int> completedAchievementIndex;
+    [SerializeField]
+    GameObject bloomAchievement;
 
     public bool CorrectItem
     {
         set { correctItem = value; }
+        get { return correctItem; }
     }
     public int CurrentItem
     {
@@ -40,10 +45,32 @@ public class GameManager : MonoBehaviour
     {
         set { gameStarted = value; }
     }
+    public int StationIndex
+    {
+        get { return stationIndex; }
+    }
+    public bool BeatleAchievement
+    {
+        set { beatleAchievement = value; }
+    }
+    public string GameVersion
+    {
+        get { return gameVersion; }
+    }
 
 
     void Start()
     {
+        //Ändra scenernas namn istället???
+        string scene = SceneManager.GetActiveScene().name;
+        if(scene == "Game3")
+        {
+            gameVersion = "Game1";
+        }
+        if (scene == "Game4")
+        {
+            gameVersion = "Game2";
+        }
         gameTimer = 0;
         gameStarted = false;
         gameOver = false;
@@ -54,6 +81,7 @@ public class GameManager : MonoBehaviour
         xmlManager = GetComponent<XmlManager>();
         itemManager = GetComponent<ItemsManager>();
         menuManager = GetComponent<MenuManager>();
+        soundManager = GetComponent<SoundManager>();
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
         completedAchievementIndex = new List<int>();
     }
@@ -65,6 +93,15 @@ public class GameManager : MonoBehaviour
             if (gameTimer >= totalGameTime)
             {
                 gameOver = true;
+            }
+            if (gameVersion == "Game1" && nbrAchievementsCompleted == 5 || gameVersion == "Game2" && nbrAchievementsCompleted == 6 || gameOver)
+            {
+                if (!menuManager.InfoBoxOpen)
+                {
+                    gameStarted = false;
+                    StartCoroutine(GameOver());
+                }
+
             }
         }
         if (!showCursor)
@@ -82,32 +119,42 @@ public class GameManager : MonoBehaviour
         {
             Cursor.visible = true;
         }
-        if (nbrAchievementsCompleted == 6 || gameOver)
-        {
-            gameStarted = false;
-            StartCoroutine(GameOver());
-        }
+
     }
     //När man går in i en station:
     public void Station(int index)
     {
         showCursor = true;
         playerBehaviour.Moveable = false;
+        stationIndex = index;
         currentItem = index;
     }
-    public void Achievement(int index, GameObject halo)
+    public void Achievement(int index, GameObject achievement)
     {
-        nbrAchievementsCompleted++;
-        completedAchievementIndex.Add(index);
-        showCursor = true;
+        if (!completedAchievementIndex.Contains(index))
+        {
+            soundManager.TriggerSound(true);
+            nbrAchievementsCompleted++;
+            completedAchievementIndex.Add(index);
+            showCursor = true;
+            playerBehaviour.Moveable = false;
+            menuManager.AchievementCompleted(index);
+            if (index == 3 && achievement == null)
+            {
+                achievement = bloomAchievement;
+            }
+            GameObject halo = achievement.transform.GetChild(0).gameObject;
+            halo.SetActive(false);
+        }
+    }
+    public void Trigger()
+    {
         playerBehaviour.Moveable = false;
-        menuManager.AchievementCompleted(index);
-        halo.SetActive(false);
     }
     //När en dialog är klar:
-    public void Play(bool achievement)
+    public void Play(bool move)
     {
-        if (achievement)
+        if (move)
         {
             playerBehaviour.Moveable = true;
             showCursor = false;
@@ -118,6 +165,11 @@ public class GameManager : MonoBehaviour
             playerBehaviour.Moveable = true;
             showCursor = false;
             xmlManager.Dialogue();
+            if(beatleAchievement)
+            {
+                GetComponent<SpawnPlants>().enabled = true;
+            }
+
         }
     }
 

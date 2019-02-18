@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -14,7 +15,12 @@ public class MenuManager : MonoBehaviour
                highlightBackPack,
                achievements,
                endScreen,
-               achievementInfoBox;
+               achievementInfoBox,
+               messageLog,
+               nextMessageButton,
+               mainMenuButton;
+    [SerializeField]
+    Text messageLogContent;
     Text dialogueText, achievementsCompleted;
     GameObject[] itemsButtons;
 
@@ -24,21 +30,27 @@ public class MenuManager : MonoBehaviour
     AudioClip buttonClick;
     List<GameObject> achievementList;
 
-    bool newItem;
+    bool newItem, infoBoxOpen;
 
     ItemsManager itemManager;
     PlayerBehaviour playerBehaviour;
     XmlManager xmlManager;
     SoundManager soundManager;
+    GameManager gameManager;
 
     public bool NewItem
     {
         set { newItem = value; }
     }
+    public bool InfoBoxOpen
+    {
+        get { return infoBoxOpen; }
+    }
 
     void Start()
     {
         itemsButtons = GameObject.FindGameObjectsWithTag("ItemButton");
+        gameManager = GetComponent<GameManager>();
         soundManager = GetComponent<SoundManager>();
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
         itemManager = GetComponent<ItemsManager>();
@@ -60,6 +72,14 @@ public class MenuManager : MonoBehaviour
                 OpenBackpack();
             }
         }
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            mainMenuButton.SetActive(true);
+        }
+        else if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            mainMenuButton.SetActive(false);
+        }
         if (newItem)
         {
             highlightBackPack.SetActive(true);
@@ -69,7 +89,10 @@ public class MenuManager : MonoBehaviour
             highlightBackPack.SetActive(false);
         }
     }
-
+    public void OpenCloseMessageLog(bool open)
+    {
+        messageLog.SetActive(open);
+    }
     public void OpenBackpack()
     {
         soundManager.UISound(buttonClick);
@@ -77,7 +100,7 @@ public class MenuManager : MonoBehaviour
     }
     public void PickItem(int item)
     {
-        if(GetComponent<GameManager>().CurrentItem == item)
+        if (GetComponent<GameManager>().CurrentItem == item)
         {
             GetComponent<GameManager>().CorrectItem = true;
         }
@@ -86,7 +109,7 @@ public class MenuManager : MonoBehaviour
             GetComponent<GameManager>().CorrectItem = false;
         }
 
-        for(int i = 0; i < backPackBox.transform.childCount -1; i++)
+        for (int i = 0; i < backPackBox.transform.childCount - 1; i++)
         {
             backPackBox.transform.GetChild(i).transform.GetChild(0).gameObject.SetActive(false);
         }
@@ -120,22 +143,34 @@ public class MenuManager : MonoBehaviour
     }
 
     //Blir kallad på från XmlManager:
-    public void ViewDialogue(string dialogue)
+    public void ViewDialogue(string dialogue, bool trigger)
     {
-
+        if (trigger)
+        {
+            nextMessageButton.SetActive(false);
+        }
+        else
+        {
+            nextMessageButton.SetActive(true);
+        }
         dialogueText = dialogueBox.GetComponentInChildren<Text>();
         dialogueBox.SetActive(true);
-
+        print(dialogue);
         dialogueText.text = dialogue;
 
         if (dialogue == "finished")
         {
             xmlManager.DialogueFinished = true;
             dialogueBox.SetActive(false);
+            gameManager.Play(true);
         }
         else if (dialogue == "")
         {
             dialogueBox.SetActive(false);
+        }
+        else
+        {
+            messageLogContent.text = messageLogContent.text + " " + dialogue;
         }
     }
 
@@ -152,12 +187,14 @@ public class MenuManager : MonoBehaviour
     }
     public void AchievementCompleted(int index)
     {
+        infoBoxOpen = true;
         achievementInfoBox.SetActive(true);
         achievementInfoBox.transform.GetChild(index).gameObject.SetActive(true);
 
     }
     public void CloseInfoBox()
     {
+        infoBoxOpen = false;
         soundManager.UISound(buttonClick);
         for (int i = 0; i < achievementInfoBox.transform.childCount - 1; i++) // -1 för att alltid behålla kryssrutan aktiv.
         {
@@ -170,5 +207,9 @@ public class MenuManager : MonoBehaviour
     {
         achievementsCompleted.text = "Tack för deltagandet! Du klarade " + achievements + " uppgifter på " + timeToFinish + " sekunder! BRA JOBBAT!";
         endScreen.SetActive(true);
+    }
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MenyScene");
     }
 }

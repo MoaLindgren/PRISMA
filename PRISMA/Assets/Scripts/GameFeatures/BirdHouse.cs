@@ -5,26 +5,31 @@ using UnityEngine;
 public class BirdHouse : MonoBehaviour
 {
     [SerializeField]
-    GameObject birdHouse;
+    GameObject birdHouse, achievement;
+    GameManager gameManager;
     Transform birdHouseLocation;
-    bool hasBirdHouse;
+    int station;
+    bool hasBirdHouse, correctItem;
 
     void Start()
     {
+        correctItem = false;
         hasBirdHouse = false;
-        //birdHouseLocation.position = gameObject.transform.position;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void OnMouseDown()
     {
-        //om du har rätt item klickan
-
-        //Lås upp rätt achievemnt + starta texten
-
-        if (hasBirdHouse == false)
+        station = gameManager.StationIndex;
+        correctItem = gameManager.CorrectItem;
+        if(station == 1 && correctItem)
         {
-            Instantiate(birdHouse, gameObject.transform);
-            hasBirdHouse = true;
+            if (hasBirdHouse == false)
+            {
+                Instantiate(birdHouse, gameObject.transform);
+                hasBirdHouse = true;
+                gameManager.Achievement(station, achievement);
+            }
         }
     }
 }

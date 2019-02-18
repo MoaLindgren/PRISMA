@@ -5,14 +5,15 @@ using UnityEngine;
 public class SpawnPlants : MonoBehaviour
 {
     [SerializeField]
-    GameObject tulkortPrefab;
+    GameObject tulkortPrefab, achievement;
     Vector3 clickPosition;
     bool planted;
+    GameManager gameManager;
 
     void Start()
     {
         planted = false;
-        
+        gameManager = GetComponent<GameManager>();
     }
     void Update()
     {
@@ -25,7 +26,7 @@ public class SpawnPlants : MonoBehaviour
 
     void SpawnPlant()
     {
-        if (!planted)//&& om man har equiped item)
+        if (!planted && gameManager.CorrectItem)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -39,6 +40,8 @@ public class SpawnPlants : MonoBehaviour
                 {
                     Instantiate(tulkortPrefab, clickPosition, Quaternion.identity);
                     planted = true;
+                    gameManager.Achievement(2, achievement);
+                    GetComponent<SpawnPlants>().enabled = false;
                 }
 
             }

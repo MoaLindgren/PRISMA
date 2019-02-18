@@ -27,15 +27,6 @@ Förklaring av xml-dokument:
       Dialogue2 = "Konkurrensen gör att en art blir ovanligare än utan konkurrens. Konkurrens mellan arter kan leda till att de specialiserar sig på det som de är bäst på."
       Dialogue3 = "finished">
     </Trigger0>
-    <!-- Ta bort ogräs -->
-    <Station1
-    Dialogue0 = "Här har det växt en massa ogräs vilket konkurrerar bort de andra mindre konkurrenskraftiga blommorna."
-    Dialogue1 = "Konkurrensen gör att en art blir ovanligare än utan konkurrens. Konkurrensmellan arter kan leda till att de specialiserar sig på det de är bäst på."
-    Dialogue2 = "Konkurrens kan hindra en art från att klara sig i ett område. De flesta trädgårdsväxter har förts in från andra länder."
-    Dialogue3 = "I din ryggsäck finns en ogräsborttagare. Om du hämtar den så kan du hjälpa trädgårdsväxterna med att klara sig bättre, genom att ta bort ogräset!"
-    Dialogue4 = ""
-    Dialogue5 = "finished">
-    </Station1>
     <!-- När man går över första bron -->
     <Trigger1
       Dialogue0 ="Vädret har stor påverkan för hur vanlig vissa arter och populationer blir."
@@ -44,21 +35,30 @@ Förklaring av xml-dokument:
       Dialogue3 ="finished">
     </Trigger1>
     <!-- Placera ut fågelholk -->
-    <Station2
+    <Station1
       Dialogue0 = "Kan du placera ut en fågelholk så hjälper vi koltrastarna inför vintern? Våren efter en kall vinter finns det färre sjungande koltraster."
       Dialogue1 = "I din väska finns fågelholken, hämta den."
       Dialogue2 = ""
       Dialogue3 = "Bra! Placera nu ut den på något av träden här hos koltrastarna."
       Dialogue4 = "finished">
-    </Station2>
+    </Station1>
     <!-- När man går/gått över andra bron -->
     <Trigger2
       Dialogue0 = "Var försiktig, det finns vargar där framme."
       Dialogue1 = "finished">
     </Trigger2>
+    <!-- Ta bort ogräs -->
+    <Station2
+      Dialogue0 = "Här har det växt en massa ogräs vilket konkurrerar bort de andra mindre konkurrenskraftiga blommorna."
+      Dialogue1 = "Konkurrensen gör att en art blir ovanligare än utan konkurrens. Konkurrensmellan arter kan leda till att de specialiserar sig på det de är bäst på."
+      Dialogue2 = "Konkurrens kan hindra en art från att klara sig i ett område. De flesta trädgårdsväxter har förts in från andra länder."
+      Dialogue3 = "I din ryggsäck finns en ogräsborttagare. Om du hämtar den så kan du hjälpa trädgårdsväxterna med att klara sig bättre, genom att ta bort ogräset!"
+      Dialogue4 = ""
+      Dialogue5 = "finished">
+    </Station2>
     <!-- När man möter varg andra gången -->
     <Trigger3
-      Dialogue0 = "Oj en vargflock, de verkar avvakta och försvara sitt revir från de andra vargarna i området"
+      Dialogue0 = "Oj här finns det vargar, de verkar avvakta och försvara sitt revir från de andra vargarna i området"
       Dialogue1 = "Visste du att de kan behöva mellan hundratals till tusendals kvadratkilometer att leva på?"
       Dialogue2 = "Allmänt gäller att större organismer behöver större områden."
       Dialogue3 = "En mindre art exempelvis dårgräsfjärilen behöver bara några hektar."
@@ -88,8 +88,7 @@ Förklaring av xml-dokument:
     <Station1
       Dialogue0 = "I din väska har du en tulkörtväxt. Hämta den."
       Dialogue1 = ""
-      Dialogue2 = "Bra! Plantera den, så hjälper vi riddarskinnbaggarna så att de inte blir för få under vintern."
-      Dialogue3 = "finished">
+      Dialogue2 = "finished">
     </Station1>
 
     <!-- När man går över första bron -->

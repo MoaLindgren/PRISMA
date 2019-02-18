@@ -11,6 +11,7 @@ public class XmlManager : MonoBehaviour
     TextAsset path;
     XmlWriter writer;
     MenuManager menuManager;
+    GameManager gameManager;
 
     bool trigger, newTrigger, dialogueStarted, dialogueFinished, startCounting;
     string colliderName, filePath, gameVersion;
@@ -30,14 +31,17 @@ public class XmlManager : MonoBehaviour
         dialogueFinished = true;
         timer = dialogueTimer;
         menuManager = GetComponent<MenuManager>();
+        gameManager = GetComponent<GameManager>();
+
     }
-    public void SendToSetUp(bool trigger, string colliderName, int index, string gameVersion)
+    public void SendToSetUp(bool trigger, string colliderName, int index)
     {
-        StartCoroutine(SetUpXML(trigger, colliderName, index, gameVersion));
+        StartCoroutine(SetUpXML(trigger, colliderName, index));
     }
 
-    IEnumerator SetUpXML(bool trigger, string colliderName, int index, string gameVersion)
+    IEnumerator SetUpXML(bool trigger, string colliderName, int index)
     {
+        gameVersion = gameManager.GameVersion;
         doc = new XmlDocument();
         filePath = Application.dataPath + "/Resources/Dialogues.xml";
         path = Resources.Load("Dialogues") as TextAsset;
@@ -56,14 +60,13 @@ public class XmlManager : MonoBehaviour
         this.trigger = trigger;
         this.colliderName = colliderName;
         this.index = index;
-        this.gameVersion = gameVersion;
         Dialogue();
 
     }
     public void Dialogue()
     {
+        print(gameVersion);
         nodeList = doc.GetElementsByTagName("Root");
-
         foreach (XmlNode rootNode in nodeList)
         {
             foreach (XmlNode node in rootNode)
@@ -74,17 +77,19 @@ public class XmlManager : MonoBehaviour
                     {
                         if (versionNode.Name == colliderName)
                         {
+
                             if (versionNode.Attributes[dialogueCounter].Value != "" || versionNode.Attributes[dialogueCounter].Value != "finished")
                             {
+
                                 if (trigger)
                                 {
                                     dialogueFinished = false;
                                 }
-                                menuManager.ViewDialogue(versionNode.Attributes[dialogueCounter].Value);
+                                menuManager.ViewDialogue(versionNode.Attributes[dialogueCounter].Value, trigger);
                             }
                             else if (versionNode.Attributes[dialogueCounter].Value == "finished")
                             {
-                                menuManager.ViewDialogue(versionNode.Attributes[dialogueCounter].Value);
+                                menuManager.ViewDialogue(versionNode.Attributes[dialogueCounter].Value, trigger);
                             }
                             dialogueCounter++;
                         }

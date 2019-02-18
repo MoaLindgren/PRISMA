@@ -21,14 +21,13 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-        //SÄTT DENNA FRÅN HUVUDMENYN:
-        gameVersion = "Game1";
         entered = true;
         manager = GameObject.Find("GameManager");
         xmlManager = manager.GetComponent<XmlManager>();
         gameManager = manager.GetComponent<GameManager>();
         soundManager = manager.GetComponent<SoundManager>();
         menuManager = manager.GetComponent<MenuManager>();
+        gameVersion = gameManager.GameVersion;
         fullName = myName + index.ToString();
     }
 
@@ -43,26 +42,31 @@ public class DialogueManager : MonoBehaviour
                     {
                         gameManager.GameStarted = true;
                     }
+                    if (gameVersion == "Game2" && index == 1)
+                    {
+                        gameManager.BeatleAchievement = true;
+                    }
                     menuManager.NewItem = true;
                     gameManager.Station(index);
-                    xmlManager.SendToSetUp(trigger, fullName, index, gameVersion);
+                    xmlManager.SendToSetUp(trigger, fullName, index);
                     GetComponent<Collider>().enabled = false;
                     return;
                 case "Achievement":
                     if (instant)
                     {
-                        soundManager.TriggerSound(true);
-                        GameObject halo = transform.GetChild(0).gameObject;
-                        gameManager.Achievement(index, halo);
-                        GetComponent<Collider>().enabled = false;
+                        gameManager.Achievement(index, gameObject);
                     }
+
+                    GetComponent<Collider>().enabled = false;
                     return;
                 case "Trigger":
-                    xmlManager.SendToSetUp(trigger, fullName, index, gameVersion);
+
+                    xmlManager.SendToSetUp(trigger, fullName, index);
+                    gameManager.Trigger();
                     GetComponent<Collider>().enabled = false;
 
                     //Om man möter varg i game1:
-                    if (index == 2 && gameVersion == "Game1")
+                    if (index == 2 && gameVersion == "Game1" || index == 3 && gameVersion == "Game1")
                     {
                         soundManager.TriggerSound(false);
                     }
